@@ -1264,6 +1264,57 @@ def cmd_embed_help(args):
         sys.exit(1)
 
 
+def cmd_edit_shortcut(args):
+    """Shortcut command: edit recipe/ingredient/article by ID (defaults to recipe)."""
+    # Create a namespace object with the expected arguments
+    class EditArgs:
+        def __init__(self, entity_id, entity_type):
+            self.id = entity_id
+            if entity_type in ['recipe', 'ingredient']:
+                self.name = None
+    
+    # Route to the appropriate edit command
+    if args.entity_type == 'recipe':
+        edit_args = EditArgs(args.entity_id, 'recipe')
+        cmd_edit_recipe(edit_args)
+    elif args.entity_type == 'ingredient':
+        edit_args = EditArgs(args.entity_id, 'ingredient')
+        cmd_edit_ingredient(edit_args)
+    elif args.entity_type == 'article':
+        edit_args = EditArgs(args.entity_id, 'article')
+        cmd_edit_article(edit_args)
+
+
+def cmd_info_shortcut(args):
+    """Shortcut command: show info for recipe/ingredient/article by ID (defaults to recipe)."""
+    # Create a namespace object with the expected arguments
+    class InfoArgs:
+        def __init__(self, entity_id, entity_type):
+            self.id = entity_id
+            if entity_type in ['recipe', 'ingredient']:
+                self.name = None
+    
+    # Route to the appropriate info command
+    if args.entity_type == 'recipe':
+        info_args = InfoArgs(args.entity_id, 'recipe')
+        cmd_recipe_info(info_args)
+    elif args.entity_type == 'ingredient':
+        info_args = InfoArgs(args.entity_id, 'ingredient')
+        cmd_ingredient_info(info_args)
+    elif args.entity_type == 'article':
+        # Articles don't have an info command yet, but we can create a simple one
+        db = SessionLocal()
+        try:
+            from models import Article
+            article = db.query(Article).filter(Article.id == args.entity_id).first()
+            if not article:
+                print(f"✗ Error: Article not found (ID: {args.entity_id})", file=sys.stderr)
+                sys.exit(1)
+            print_article(article)
+        finally:
+            db.close()
+
+
 def main():
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(description='Recipe Storage System CLI')
@@ -1364,11 +1415,23 @@ def main():
     types_parser.set_defaults(func=cmd_list_types)
     
     # Unified search command
-    search_parser = subparsers.add_parser('search', help='Semantic search for ingredients or recipes')
+    search_parser = subparsers.add_parser('search', help='Semantic search for ingredients or recipes (defaults to recipes)')
     search_parser.add_argument('query', help='Search query (can be comma-separated terms like "umami, basil, herb")')
-    search_parser.add_argument('entity_type', choices=['ingredient', 'recipe'], help='Type of entity to search')
-    search_parser.add_argument('--n', type=int, default=10, help='Number of results to return (default: 10)')
+    search_parser.add_argument('entity_type', nargs='?', choices=['ingredient', 'recipe'], default='recipe', help='Type of entity to search (default: recipe)')
+    search_parser.add_argument('--n', type=int, default=5, help='Number of results to return (default: 5)')
     search_parser.set_defaults(func=cmd_search)
+    
+    # Edit shortcut command
+    edit_shortcut_parser = subparsers.add_parser('edit', help='Edit a recipe, ingredient, or article by ID (defaults to recipe)')
+    edit_shortcut_parser.add_argument('entity_id', type=int, help='ID of the entity to edit')
+    edit_shortcut_parser.add_argument('entity_type', nargs='?', choices=['recipe', 'ingredient', 'article'], default='recipe', help='Type of entity to edit (default: recipe)')
+    edit_shortcut_parser.set_defaults(func=cmd_edit_shortcut)
+    
+    # Info shortcut command
+    info_shortcut_parser = subparsers.add_parser('info', help='Display detailed information about a recipe, ingredient, or article by ID (defaults to recipe)')
+    info_shortcut_parser.add_argument('entity_id', type=int, help='ID of the entity to show info for')
+    info_shortcut_parser.add_argument('entity_type', nargs='?', choices=['recipe', 'ingredient', 'article'], default='recipe', help='Type of entity (default: recipe)')
+    info_shortcut_parser.set_defaults(func=cmd_info_shortcut)
     
     help_parser = subparsers.add_parser('help', help='Show help information for all commands')
     help_parser.set_defaults(func=cmd_help)

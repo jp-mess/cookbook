@@ -4,7 +4,6 @@ Database operations for recipes and ingredients.
 import warnings
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from rapidfuzz import fuzz, process
 from models import Recipe, Ingredient, Tag, IngredientType, Article
 
 # Suppress urllib3/OpenSSL warnings
@@ -20,17 +19,6 @@ except ImportError:
     pass
 warnings.filterwarnings('ignore', message='.*urllib3.*')
 warnings.filterwarnings('ignore', message='.*OpenSSL.*')
-
-# Optional semantic search support
-try:
-    from embeddings import (
-        generate_recipe_embedding, generate_ingredient_embedding,
-        generate_embedding, cosine_similarity, find_similar_by_embedding,
-        batch_generate_recipe_embeddings, batch_generate_ingredient_embeddings
-    )
-    SEMANTIC_SEARCH_AVAILABLE = True
-except ImportError:
-    SEMANTIC_SEARCH_AVAILABLE = False
 
 # ==================== SIMPLE NORMALIZATION (no spell check, no lemmatization) ====================
 
@@ -95,6 +83,39 @@ def list_ingredient_types(db: Session):
     return db.query(IngredientType).all()
 
 
+def add_ingredient_type(db: Session, name: str) -> IngredientType:
+    """Add a new ingredient type to the database."""
+    normalized_name = name.strip().lower()
+    
+    # Check if type already exists
+    existing = db.query(IngredientType).filter(IngredientType.name == normalized_name).first()
+    if existing:
+        raise ValueError(f"Ingredient type '{name}' already exists (ID: {existing.id})")
+    
+    ingredient_type = IngredientType(name=normalized_name)
+    db.add(ingredient_type)
+    db.commit()
+    db.refresh(ingredient_type)
+    return ingredient_type
+
+
+def delete_ingredient_type(db: Session, type_id: int) -> bool:
+    """Delete an ingredient type by ID. Returns True if deleted, False if not found."""
+    ingredient_type = db.query(IngredientType).filter(IngredientType.id == type_id).first()
+    if not ingredient_type:
+        return False
+    
+    # Check if any ingredients use this type
+    if ingredient_type.ingredients:
+        ingredient_names = [ing.name for ing in ingredient_type.ingredients if ing]
+        if ingredient_names:
+            raise ValueError(f"Cannot delete ingredient type '{ingredient_type.name}' (ID: {type_id}). It is used by {len(ingredient_names)} ingredient(s): {', '.join(ingredient_names[:5])}{'...' if len(ingredient_names) > 5 else ''}")
+    
+    db.delete(ingredient_type)
+    db.commit()
+    return True
+
+
 # ==================== INGREDIENT OPERATIONS ====================
 
 def add_ingredient(
@@ -108,21 +129,25 @@ def add_ingredient(
     # Normalize name (convert to singular and lowercase)
     normalized_name, _ = normalize_name(name)
     
-    # Get or create the ingredient type
-    ingredient_type = get_or_create_ingredient_type(db, type_name)
+    # Get ingredient type (must exist - no auto-creation)
+    ingredient_type = get_ingredient_type(db, name=type_name)
+    if not ingredient_type:
+        raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
     
     # Check if ingredient already exists (using normalized name)
     existing = db.query(Ingredient).filter(Ingredient.name == normalized_name).first()
     if existing:
         raise ValueError(f"Ingredient '{name}' already exists (as '{existing.name}')")
     
-    ingredient = Ingredient(name=normalized_name, type=ingredient_type, notes=notes, stale_embedding=True)
+    ingredient = Ingredient(name=normalized_name, type=ingredient_type, notes=notes)
     
-    # Add tags
+    # Add tags (must exist - no auto-creation)
     if tags:
         tag_objects = []
         for tag_name in tags:
-            tag_obj = get_or_create_tag(db, tag_name)
+            tag_obj = get_tag(db, name=tag_name)
+            if not tag_obj:
+                raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
             tag_objects.append(tag_obj)
         ingredient.tags = tag_objects
     
@@ -184,7 +209,9 @@ def update_ingredient(
         ingredient.name = normalized_new_name
     
     if type_name is not None:
-        ingredient_type = get_or_create_ingredient_type(db, type_name)
+        ingredient_type = get_ingredient_type(db, name=type_name)
+        if not ingredient_type:
+            raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
         ingredient.type = ingredient_type
     
     if alias is not None:
@@ -193,9 +220,6 @@ def update_ingredient(
     if notes is not None:
         ingredient.notes = notes
     
-    # Mark embedding as stale if any field was updated
-    if new_name is not None or type_name is not None or alias is not None or notes is not None:
-        ingredient.stale_embedding = True
     
     db.commit()
     db.refresh(ingredient)
@@ -223,12 +247,13 @@ def add_tags_to_ingredient(
         if tag_name.lower() in current_tag_names:
             continue  # Skip if already tagged
         
-        tag_obj = get_or_create_tag(db, tag_name)
+        tag_obj = get_tag(db, name=tag_name)
+        if not tag_obj:
+            raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
         new_tags.append(tag_obj)
     
     if new_tags:
         ingredient.tags.extend(new_tags)
-        ingredient.stale_embedding = True
     db.commit()
     db.refresh(ingredient)
     return ingredient
@@ -257,7 +282,6 @@ def remove_tags_from_ingredient(
     if tags_to_remove:
         for tag in tags_to_remove:
             ingredient.tags.remove(tag)
-        ingredient.stale_embedding = True
     db.commit()
     db.refresh(ingredient)
     return ingredient
@@ -287,184 +311,105 @@ def list_tags(db: Session):
     return db.query(Tag).all()
 
 
-def search_recipes_by_tag(db: Session, tag_query: str, min_score: int = 70) -> list:
-    """
-    Search for recipes by tag name (with fuzzy matching).
+def add_tag(db: Session, name: str, subtag: str = None) -> Tag:
+    """Add a new tag to the database."""
+    normalized_name = name.strip().lower()
+    normalized_subtag = subtag.strip().lower() if subtag and subtag.strip() else None
+    
+    # Check if tag already exists
+    existing = db.query(Tag).filter(Tag.name == normalized_name).first()
+    if existing:
+        raise ValueError(f"Tag '{name}' already exists (ID: {existing.id})")
+    
+    tag = Tag(name=normalized_name, subtag=normalized_subtag)
+    db.add(tag)
+    db.commit()
+    db.refresh(tag)
+    return tag
+
+
+def delete_tag(db: Session, tag_id: int) -> bool:
+    """Delete a tag by ID. Returns True if deleted, False if not found."""
+    tag = db.query(Tag).filter(Tag.id == tag_id).first()
+    if not tag:
+        return False
+    
+    # Remove tag from all recipes
+    for recipe in list(tag.recipes):
+        recipe.tags.remove(tag)
+    
+    # Remove tag from all ingredients
+    for ingredient in list(tag.ingredients):
+        ingredient.tags.remove(tag)
+    
+    # Remove tag from all articles
+    for article in list(tag.articles):
+        article.tags.remove(tag)
+    
+    db.delete(tag)
+    db.commit()
+    return True
+
+
+def get_tag(db: Session, tag_id: int = None, name: str = None) -> Tag:
+    """Get a tag by ID or name."""
+    if tag_id:
+        return db.query(Tag).filter(Tag.id == tag_id).first()
+    elif name:
+        normalized_name = name.strip().lower()
+        return db.query(Tag).filter(Tag.name == normalized_name).first()
+    return None
+
+
+def get_ingredient_type(db: Session, type_id: int = None, name: str = None) -> IngredientType:
+    """Get an ingredient type by ID or name."""
+    if type_id:
+        return db.query(IngredientType).filter(IngredientType.id == type_id).first()
+    elif name:
+        normalized_name = name.strip().lower()
+        return db.query(IngredientType).filter(IngredientType.name == normalized_name).first()
+    return None
+
+
+def update_tag(db: Session, tag_id: int, new_name: str = ..., new_subtag: str = ...) -> Tag:
+    """Update a tag's name and/or subtag.
     
     Args:
-        db: Database session
-        tag_query: Tag name to search for (will be normalized to lowercase)
-        min_score: Minimum similarity score (0-100) for tag matching
-    
-    Returns:
-        List of tuples: (recipe, tag, score) sorted by score descending
+        new_name: New name for the tag (Ellipsis means don't update, None means clear - but names can't be None)
+        new_subtag: New subtag (Ellipsis means don't update, None means clear it)
     """
-    # Normalize tag query to lowercase
-    tag_query_lower = tag_query.lower().strip()
+    tag = db.query(Tag).filter(Tag.id == tag_id).first()
+    if not tag:
+        raise ValueError(f"Tag with ID {tag_id} not found")
     
-    # Get all tags
-    all_tags = db.query(Tag).all()
-    if not all_tags:
-        return []
+    # Update name if provided (not Ellipsis)
+    if new_name is not ...:
+        if new_name:
+            normalized_name = new_name.strip().lower()
+            if normalized_name != tag.name:
+                # Check if new name already exists
+                existing = db.query(Tag).filter(Tag.name == normalized_name).first()
+                if existing and existing.id != tag_id:
+                    raise ValueError(f"Tag with name '{new_name}' already exists (ID: {existing.id})")
+                tag.name = normalized_name
+        else:
+            raise ValueError("Tag name cannot be empty")
     
-    # Create mapping of tag names to tags
-    tag_name_map = {tag.name: tag for tag in all_tags}
-    tag_names_list = list(tag_name_map.keys())
+    # Update subtag if provided (Ellipsis means don't update, None means clear it)
+    if new_subtag is not ...:
+        if new_subtag and new_subtag.strip():
+            normalized_subtag = new_subtag.strip().lower()
+        else:
+            normalized_subtag = None
+        tag.subtag = normalized_subtag
     
-    # Find matching tags using fuzzy matching
-    matches = process.extract(
-        tag_query_lower,
-        tag_names_list,
-        scorer=fuzz.WRatio,
-        limit=10
-    )
-    
-    # Collect tags that match above threshold
-    matched_tags = []
-    for matched_name, score, _ in matches:
-        if score >= min_score:
-            matched_tags.append((tag_name_map[matched_name], score))
-    
-    if not matched_tags:
-        return []
-    
-    # Find all recipes that have any of the matched tags
-    results = []
-    for tag, score in matched_tags:
-        for recipe in tag.recipes:
-            results.append((recipe, tag, score))
-    
-    # Remove duplicates (same recipe might match multiple similar tags)
-    seen_recipes = set()
-    unique_results = []
-    for recipe, tag, score in results:
-        if recipe.id not in seen_recipes:
-            seen_recipes.add(recipe.id)
-            unique_results.append((recipe, tag, score))
-    
-    # Sort by score descending
-    unique_results.sort(key=lambda x: x[2], reverse=True)
-    return unique_results
+    db.commit()
+    db.refresh(tag)
+    return tag
 
 
-def search_ingredients_by_tag(db: Session, tag_query: str, min_score: int = 70) -> list:
-    """
-    Search for ingredients by tag name (with fuzzy matching).
-    
-    Args:
-        db: Database session
-        tag_query: Tag name to search for (will be normalized to lowercase)
-        min_score: Minimum similarity score (0-100) for tag matching
-    
-    Returns:
-        List of tuples: (ingredient, tag, score) sorted by score descending
-    """
-    # Normalize tag query to lowercase
-    tag_query_lower = tag_query.lower().strip()
-    
-    # Get all tags
-    all_tags = db.query(Tag).all()
-    if not all_tags:
-        return []
-    
-    # Create mapping of tag names to tags
-    tag_name_map = {tag.name: tag for tag in all_tags}
-    tag_names_list = list(tag_name_map.keys())
-    
-    # Find matching tags using fuzzy matching
-    matches = process.extract(
-        tag_query_lower,
-        tag_names_list,
-        scorer=fuzz.WRatio,
-        limit=10
-    )
-    
-    # Collect tags that match above threshold
-    matched_tags = []
-    for matched_name, score, _ in matches:
-        if score >= min_score:
-            matched_tags.append((tag_name_map[matched_name], score))
-    
-    if not matched_tags:
-        return []
-    
-    # Find all ingredients that have any of the matched tags
-    results = []
-    for tag, score in matched_tags:
-        for ingredient in tag.ingredients:
-            results.append((ingredient, tag, score))
-    
-    # Remove duplicates (same ingredient might match multiple similar tags)
-    seen_ingredients = set()
-    unique_results = []
-    for ingredient, tag, score in results:
-        if ingredient.id not in seen_ingredients:
-            seen_ingredients.add(ingredient.id)
-            unique_results.append((ingredient, tag, score))
-    
-    # Sort by score descending
-    unique_results.sort(key=lambda x: x[2], reverse=True)
-    return unique_results
-
-
-def search_articles_by_tag(db: Session, tag_query: str, min_score: int = 70) -> list:
-    """
-    Search for articles by tag name (with fuzzy matching).
-    
-    Args:
-        db: Database session
-        tag_query: Tag name to search for (will be normalized to lowercase)
-        min_score: Minimum similarity score (0-100) for tag matching
-    
-    Returns:
-        List of tuples: (article, tag, score) sorted by score descending
-    """
-    # Normalize tag query to lowercase
-    tag_query_lower = tag_query.lower().strip()
-    
-    # Get all tags
-    all_tags = db.query(Tag).all()
-    if not all_tags:
-        return []
-    
-    # Create mapping of tag names to tags
-    tag_name_map = {tag.name: tag for tag in all_tags}
-    tag_names_list = list(tag_name_map.keys())
-    
-    # Find matching tags using fuzzy matching
-    matches = process.extract(
-        tag_query_lower,
-        tag_names_list,
-        scorer=fuzz.WRatio,
-        limit=10
-    )
-    
-    # Collect tags that match above threshold
-    matched_tags = []
-    for matched_name, score, _ in matches:
-        if score >= min_score:
-            matched_tags.append((tag_name_map[matched_name], score))
-    
-    if not matched_tags:
-        return []
-    
-    # Find all articles that have any of the matched tags
-    results = []
-    for tag, score in matched_tags:
-        for article in tag.articles:
-            results.append((article, tag, score))
-    
-    # Remove duplicates (same article might match multiple similar tags)
-    seen_articles = set()
-    unique_results = []
-    for article, tag, score in results:
-        if article.id not in seen_articles:
-            seen_articles.add(article.id)
-            unique_results.append((article, tag, score))
-    
-    # Sort by score descending
-    unique_results.sort(key=lambda x: x[2], reverse=True)
-    return unique_results
+# REMOVED: search_recipes_by_tag, search_ingredients_by_tag, search_articles_by_tag
+# These functions used fuzzy matching which has been removed
 
 
 # ==================== ARTICLE OPERATIONS ====================
@@ -475,13 +420,15 @@ def add_article(
     tags: list = None
 ) -> Article:
     """Add a new article to the database."""
-    article = Article(notes=notes, stale_embedding=True)
+    article = Article(notes=notes)
     
-    # Add tags
+    # Add tags (must exist - no auto-creation)
     if tags:
         tag_objects = []
         for tag_name in tags:
-            tag_obj = get_or_create_tag(db, tag_name)
+            tag_obj = get_tag(db, name=tag_name)
+            if not tag_obj:
+                raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
             tag_objects.append(tag_obj)
         article.tags = tag_objects
     
@@ -515,8 +462,6 @@ def update_article(
     
     if notes is not None:
         article.notes = notes
-        # Mark embedding as stale if notes were updated
-        article.stale_embedding = True
     
     db.commit()
     db.refresh(article)
@@ -554,12 +499,13 @@ def add_tags_to_article(
         if tag_name.lower() in current_tag_names:
             continue  # Skip if already tagged
         
-        tag_obj = get_or_create_tag(db, tag_name)
+        tag_obj = get_tag(db, name=tag_name)
+        if not tag_obj:
+            raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
         new_tags.append(tag_obj)
     
     if new_tags:
         article.tags.extend(new_tags)
-        article.stale_embedding = True
     db.commit()
     db.refresh(article)
     return article
@@ -614,15 +560,16 @@ def add_recipe(
     recipe = Recipe(
         name=normalized_name,
         instructions=instructions,
-        notes=notes,
-        stale_embedding=True
+        notes=notes
     )
     
-    # Add tags
+    # Add tags (must exist - no auto-creation)
     if tags:
         tag_objects = []
         for tag_name in tags:
-            tag_obj = get_or_create_tag(db, tag_name)
+            tag_obj = get_tag(db, name=tag_name)
+            if not tag_obj:
+                raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
             tag_objects.append(tag_obj)
         recipe.tags = tag_objects
     
@@ -658,290 +605,81 @@ def list_recipes(db: Session):
     return db.query(Recipe).all()
 
 
-def find_similar_ingredients(db: Session, name: str, min_score: int = 50) -> list:
+# REMOVED: All fuzzy matching and semantic search functions removed
+# The following functions have been removed:
+# - find_similar_ingredients
+# - find_similar_recipes  
+# - search_recipes
+# - search_ingredients
+# - suggest_recipes_by_ingredients
+# - search_recipes_by_tag (fuzzy)
+# - search_ingredients_by_tag (fuzzy)
+# - search_articles_by_tag (fuzzy)
+
+
+def search_recipes_by_ingredients_exact(
+    db: Session,
+    ingredient_query: str,
+    min_matches: int = 1
+) -> list:
     """
-    Find ingredients similar to the given name.
+    Search recipes by exact ingredient matching (deterministic, no semantics).
+    
+    Parses a comma-delimited list of ingredients and finds recipes that contain
+    those ingredients. Results are ranked by number of matches (more matches = higher rank).
+    Recipes with no matches are still included at the bottom.
     
     Args:
         db: Database session
-        name: Ingredient name to check
-        min_score: Minimum similarity score (0-100) to consider a match
+        ingredient_query: Comma-delimited list of ingredient names (e.g., "cucumber, dill, mint")
+        min_matches: Minimum number of ingredient matches required (default: 1)
     
     Returns:
-        List of tuples: (ingredient, similarity_score) sorted by score descending
+        List of tuples: (recipe, match_count) sorted by match_count descending
+        match_count is the number of requested ingredients found in the recipe
     """
-    all_ingredients = db.query(Ingredient).all()
-    
-    if not all_ingredients:
+    # Parse comma-delimited ingredients
+    requested_ingredients = [ing.strip().lower() for ing in ingredient_query.split(',') if ing.strip()]
+    if not requested_ingredients:
         return []
     
-    # Create a list of ingredient names for matching
-    ingredient_names = {ing.id: ing.name for ing in all_ingredients}
+    # Validate that all requested ingredients exist in the database
+    all_ingredients_in_db = {ing.name.lower() for ing in db.query(Ingredient).all()}
+    missing_ingredients = [ing for ing in requested_ingredients if ing not in all_ingredients_in_db]
     
-    # Use rapidfuzz to find best matches
-    matches = process.extract(
-        name.lower(),
-        ingredient_names,
-        scorer=fuzz.WRatio,
-        limit=5
-    )
-    
-    # Filter by minimum score and create result list
-    results = []
-    for matched_name, score, ingredient_id in matches:
-        if score >= min_score:
-            ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient_id).first()
-            if ingredient:
-                results.append((ingredient, score))
-    
-    return results
-
-
-def find_similar_recipes(db: Session, name: str, min_score: int = 50) -> list:
-    """
-    Find recipes similar to the given name.
-    
-    Args:
-        db: Database session
-        name: Recipe name to check
-        min_score: Minimum similarity score (0-100) to consider a match
-    
-    Returns:
-        List of tuples: (recipe, similarity_score) sorted by score descending
-    """
-    all_recipes = db.query(Recipe).all()
-    
-    if not all_recipes:
-        return []
-    
-    # Create a list of recipe names for matching
-    recipe_names = {recipe.id: recipe.name for recipe in all_recipes}
-    
-    # Use rapidfuzz to find best matches
-    matches = process.extract(
-        name,
-        recipe_names,
-        scorer=fuzz.WRatio,
-        limit=5
-    )
-    
-    # Filter by minimum score and create result list
-    results = []
-    for matched_name, score, recipe_id in matches:
-        if score >= min_score:
-            recipe = db.query(Recipe).filter(Recipe.id == recipe_id).first()
-            if recipe:
-                results.append((recipe, score))
-    
-    return results
-
-
-def search_recipes(db: Session, query: str, limit: int = 10, min_score: int = 50) -> list:
-    """
-    Search for recipes by approximate name matching.
-    
-    Args:
-        db: Database session
-        query: Search query string
-        limit: Maximum number of results to return
-        min_score: Minimum similarity score (0-100) to include in results
-    
-    Returns:
-        List of tuples: (recipe, similarity_score) sorted by score descending
-    """
-    all_recipes = db.query(Recipe).all()
-    
-    if not all_recipes:
-        return []
-    
-    # Create a list of recipe names for matching
-    recipe_names = {recipe.id: recipe.name for recipe in all_recipes}
-    
-    # Use rapidfuzz to find best matches
-    # process.extract returns: [(matched_string, score, index), ...]
-    matches = process.extract(
-        query,
-        recipe_names,
-        scorer=fuzz.WRatio,  # Weighted ratio - good for partial matches
-        limit=limit
-    )
-    
-    # Filter by minimum score and create result list
-    results = []
-    for matched_name, score, recipe_id in matches:
-        if score >= min_score:
-            recipe = db.query(Recipe).filter(Recipe.id == recipe_id).first()
-            if recipe:
-                results.append((recipe, score))
-    
-    return results
-
-
-def search_ingredients(db: Session, query: str, limit: int = 10, min_score: int = 50) -> list:
-    """
-    Search for ingredients by approximate name matching.
-    
-    Args:
-        db: Database session
-        query: Search query string
-        limit: Maximum number of results to return
-        min_score: Minimum similarity score (0-100) to include in results
-    
-    Returns:
-        List of tuples: (ingredient, similarity_score) sorted by score descending
-    """
-    all_ingredients = db.query(Ingredient).all()
-    
-    if not all_ingredients:
-        return []
-    
-    # Create a list of ingredient names for matching
-    ingredient_names = {ing.id: ing.name for ing in all_ingredients}
-    
-    # Use rapidfuzz to find best matches
-    # process.extract returns: [(matched_string, score, index), ...]
-    matches = process.extract(
-        normalize_name(query)[0],
-        ingredient_names,
-        scorer=fuzz.WRatio,  # Weighted ratio - good for partial matches
-        limit=limit
-    )
-    
-    # Filter by minimum score and create result list
-    results = []
-    for matched_name, score, ingredient_id in matches:
-        if score >= min_score:
-            ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient_id).first()
-            if ingredient:
-                results.append((ingredient, score))
-    
-    return results
-
-
-def suggest_recipes_by_ingredients(db: Session, ingredient_names: list, min_match_score: int = 70) -> list:
-    """
-    Suggest recipes that contain the given ingredients (with fuzzy matching).
-    
-    Args:
-        db: Database session
-        ingredient_names: List of ingredient names to search for (will be normalized)
-        min_match_score: Minimum similarity score (0-100) for ingredient matching
-    
-    Returns:
-        List of tuples: (recipe, match_score, matched_ingredients) sorted by match_score descending
-        where match_score is the percentage of requested ingredients found in the recipe
-    """
-    if not ingredient_names:
-        return []
-    
-    # Normalize all ingredient names (singular, lowercase)
-    normalized_names = [normalize_name(name.strip())[0] for name in ingredient_names if name.strip()]
-    if not normalized_names:
-        return []
-    
-    # Get all ingredients from database
-    all_ingredients = db.query(Ingredient).all()
-    if not all_ingredients:
-        return []
-    
-    # Create mapping of ingredient names to ingredient objects
-    ingredient_name_map = {ing.name: ing for ing in all_ingredients}
-    ingredient_names_list = list(ingredient_name_map.keys())
-    
-    # For each requested ingredient, find matching ingredients using fuzzy matching
-    # Also check ingredient types and tags
-    matched_ingredient_sets = []
-    for requested_name in normalized_names:
-        matched_ingredients = []
-        
-        # 1. Match by ingredient name (fuzzy matching)
-        matches = process.extract(
-            requested_name,
-            ingredient_names_list,
-            scorer=fuzz.WRatio,
-            limit=10
-        )
-        
-        for matched_name, score, _ in matches:
-            if score >= min_match_score:
-                matched_ingredients.append(ingredient_name_map[matched_name])
-        
-        # 2. Match by ingredient type (fuzzy matching on type name)
-        # Get all ingredient types
-        all_types = db.query(IngredientType).all()
-        type_name_map = {type_obj.name: type_obj for type_obj in all_types}
-        type_names_list = list(type_name_map.keys())
-        
-        type_matches = process.extract(
-            requested_name,
-            type_names_list,
-            scorer=fuzz.WRatio,
-            limit=10
-        )
-        
-        for matched_type_name, score, _ in type_matches:
-            if score >= min_match_score:
-                # Find all ingredients of this type
-                type_obj = type_name_map[matched_type_name]
-                for ingredient in type_obj.ingredients:
-                    if ingredient not in matched_ingredients:
-                        matched_ingredients.append(ingredient)
-        
-        # 3. Match by ingredient tags (fuzzy matching on tag names)
-        all_tags = db.query(Tag).all()
-        tag_name_map = {tag.name: tag for tag in all_tags}
-        tag_names_list = list(tag_name_map.keys())
-        
-        tag_matches = process.extract(
-            requested_name,
-            tag_names_list,
-            scorer=fuzz.WRatio,
-            limit=10
-        )
-        
-        for matched_tag_name, score, _ in tag_matches:
-            if score >= min_match_score:
-                # Find all ingredients with this tag
-                tag_obj = tag_name_map[matched_tag_name]
-                for ingredient in tag_obj.ingredients:
-                    if ingredient not in matched_ingredients:
-                        matched_ingredients.append(ingredient)
-        
-        if matched_ingredients:
-            matched_ingredient_sets.append(set(matched_ingredients))
+    if missing_ingredients:
+        if len(missing_ingredients) == 1:
+            raise ValueError(f"Ingredient \"{missing_ingredients[0]}\" does not exist in the ingredients database. Please check the spelling and try again.")
         else:
-            # If no match found, still add empty set to track that this ingredient wasn't found
-            matched_ingredient_sets.append(set())
-    
+            missing_str = ", ".join(f"\"{ing}\"" for ing in missing_ingredients)
+            raise ValueError(f"Ingredients {missing_str} do not exist in the ingredients database. Please check the spelling and try again.")
+
     # Get all recipes
     all_recipes = db.query(Recipe).all()
     if not all_recipes:
         return []
     
-    # For each recipe, calculate how many of the requested ingredients it contains
+    # For each recipe, count exact ingredient matches
     results = []
     for recipe in all_recipes:
-        recipe_ingredients = set(recipe.ingredients)
+        # Get recipe ingredient names (normalized to lowercase)
+        recipe_ingredient_names = {ing.name.lower() for ing in recipe.ingredients}
         
-        # Count how many ingredient sets match this recipe
-        matches_found = 0
-        matched_ingredient_names = []
+        # Count how many requested ingredients are found in this recipe
+        match_count = 0
+        for requested_ing in requested_ingredients:
+            # Exact match (case-insensitive)
+            if requested_ing in recipe_ingredient_names:
+                match_count += 1
         
-        for i, matched_set in enumerate(matched_ingredient_sets):
-            if matched_set and recipe_ingredients.intersection(matched_set):
-                # Found at least one matching ingredient from this set
-                matches_found += 1
-                # Get the actual ingredient names that matched
-                matched = recipe_ingredients.intersection(matched_set)
-                matched_ingredient_names.extend([ing.name for ing in matched])
-        
-        if matches_found > 0:
-            # Calculate match score as percentage of requested ingredients found
-            match_score = (matches_found / len(normalized_names)) * 100
-            results.append((recipe, match_score, matched_ingredient_names))
+        # Only include recipes that meet the minimum match requirement
+        if match_count >= min_matches:
+            results.append((recipe, match_count))
     
-    # Sort by match score descending
+    # Sort by match count descending (more matches = higher rank)
+    # Recipes with same match count are kept in their original order
     results.sort(key=lambda x: x[1], reverse=True)
+    
     return results
 
 
@@ -985,10 +723,6 @@ def update_recipe(
     if notes is not None:
         recipe.notes = notes
     
-    # Mark embedding as stale if any field was updated
-    if new_name is not None or instructions is not None or notes is not None:
-        recipe.stale_embedding = True
-    
     db.commit()
     db.refresh(recipe)
     return recipe
@@ -1024,7 +758,6 @@ def add_ingredients_to_recipe(
     
     if new_ingredients:
         recipe.ingredients.extend(new_ingredients)
-        recipe.stale_embedding = True
     db.commit()
     db.refresh(recipe)
     return recipe
@@ -1055,7 +788,7 @@ def remove_ingredients_from_recipe(
     if ingredients_to_remove:
         for ingredient in ingredients_to_remove:
             recipe.ingredients.remove(ingredient)
-        recipe.stale_embedding = True
+    
     db.commit()
     db.refresh(recipe)
     return recipe
@@ -1082,12 +815,13 @@ def add_tags_to_recipe(
         if tag_name.lower() in current_tag_names:
             continue  # Skip if already tagged
         
-        tag_obj = get_or_create_tag(db, tag_name)
+        tag_obj = get_tag(db, name=tag_name)
+        if not tag_obj:
+            raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
         new_tags.append(tag_obj)
     
     if new_tags:
         recipe.tags.extend(new_tags)
-        recipe.stale_embedding = True
     db.commit()
     db.refresh(recipe)
     return recipe
@@ -1116,7 +850,6 @@ def remove_tags_from_recipe(
     if tags_to_remove:
         for tag in tags_to_remove:
             recipe.tags.remove(tag)
-        recipe.stale_embedding = True
     db.commit()
     db.refresh(recipe)
     return recipe

@@ -25,18 +25,10 @@ from db_operations import (
     get_recipe, update_recipe, add_ingredients_to_recipe, remove_ingredients_from_recipe,
     add_tags_to_recipe, remove_tags_from_recipe, get_ingredient, add_ingredient,
     update_ingredient, add_tags_to_ingredient, remove_tags_from_ingredient,
-    find_similar_ingredients, find_similar_recipes,
-    get_article, update_article, add_article, add_tags_to_article, remove_tags_from_article
+    get_article, update_article, add_article, add_tags_to_article, remove_tags_from_article,
+    get_tag
 )
-from models import Recipe, Ingredient, Article
-
-
-class SimilarityDetected(Exception):
-    """Exception raised when a similar item is detected during import."""
-    def __init__(self, message, existing_item, score):
-        super().__init__(message)
-        self.existing_item = existing_item
-        self.score = score
+from models import Recipe, Ingredient, Article, Tag
 
 # Get directory paths from config
 from config_loader import get_config
@@ -947,3 +939,115 @@ def import_new_recipe_from_json(json_path: Path = None) -> Recipe:
         return recipe
     finally:
         db.close()
+
+
+# ==================== TAG JSON OPERATIONS ====================
+
+def get_tag_json_path(tag_id: int) -> Path:
+    """Get the JSON file path for a tag ID."""
+    ensure_editable_dir()
+    return EDITABLE_DIR / f"tag_{tag_id}.json"
+
+
+def tag_to_json(tag: Tag) -> dict:
+    """Convert a tag object to a JSON-serializable dictionary."""
+    return {
+        'id': tag.id,
+        'name': tag.name,
+        'subtag': tag.subtag if tag.subtag else ''
+    }
+
+
+def json_to_tag_data(json_data: dict) -> tuple[dict, list[tuple[str, str]]]:
+    """
+    Convert JSON data to a format suitable for updating the tag.
+    Returns: (tag_data_dict, empty corrections list for compatibility)
+    """
+    name_raw = json_data.get('name') or ''
+    name = name_raw.strip().lower() if name_raw else ''
+    
+    subtag_raw = json_data.get('subtag') or ''
+    if subtag_raw and subtag_raw.strip():
+        subtag = subtag_raw.strip().lower()
+    else:
+        subtag = None
+    
+    return {
+        'name': name,
+        'subtag': subtag
+    }, []  # No corrections
+
+
+def export_tag_to_json(tag_id: int) -> Path:
+    """Export a tag to a JSON file. Returns the path to the JSON file."""
+    db = SessionLocal()
+    try:
+        tag = get_tag(db, tag_id=tag_id)
+        if not tag:
+            raise ValueError(f"Tag with ID {tag_id} not found")
+        
+        json_path = get_tag_json_path(tag_id)
+        tag_data = tag_to_json(tag)
+        
+        # Write JSON with indentation for readability
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(tag_data, f, indent=2, ensure_ascii=False)
+        
+        return json_path
+    finally:
+        db.close()
+
+
+def import_tag_from_json(tag_id: int) -> Tag:
+    """Import a tag from a JSON file and update the database. Deletes the JSON file after import."""
+    json_path = get_tag_json_path(tag_id)
+    
+    if not json_path.exists():
+        raise ValueError(f"No JSON file found for tag {tag_id}. Run edit command first to create it.")
+    
+    db = SessionLocal()
+    try:
+        # Read JSON file
+        with open(json_path, 'r', encoding='utf-8') as f:
+            json_data = json.load(f)
+        
+        if not json_data:
+            raise ValueError("JSON file is empty or invalid")
+        
+        # Get the tag
+        tag = get_tag(db, tag_id=tag_id)
+        if not tag:
+            raise ValueError(f"Tag with ID {tag_id} not found in database")
+        
+        # Convert JSON to tag data
+        tag_data, corrections = json_to_tag_data(json_data)
+        
+        # Update tag
+        from db_operations import update_tag
+        # Compare subtags properly (handle None vs empty string)
+        current_subtag = tag.subtag or ''
+        new_subtag_raw = json_data.get('subtag', '')  # Get raw value before normalization
+        new_subtag_normalized = tag_data['subtag'] or ''  # Normalized value
+        subtag_changed = new_subtag_normalized != current_subtag
+        
+        # If subtag changed, pass the normalized value (None for empty, or the actual value)
+        # Use Ellipsis (...) to mean "don't update this field"
+        tag = update_tag(
+            db,
+            tag_id=tag_id,
+            new_name=tag_data['name'] if tag_data['name'] != tag.name else ...,
+            new_subtag=tag_data['subtag'] if subtag_changed else ...
+        )
+        
+        # Delete the JSON file after successful import
+        json_path.unlink()
+        
+        return tag
+    finally:
+        db.close()
+
+
+def check_tag_json_exists(tag_id: int) -> bool:
+    """Check if a JSON file exists for a tag."""
+    json_path = get_tag_json_path(tag_id)
+    return json_path.exists()

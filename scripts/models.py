@@ -1,7 +1,7 @@
 """
 Database models for the recipe storage system.
 """
-from sqlalchemy import Column, Integer, String, Text, ForeignKey, Table, Boolean
+from sqlalchemy import Column, Integer, String, Text, ForeignKey, Table
 from sqlalchemy.orm import relationship, declarative_base
 
 Base = declarative_base()
@@ -51,7 +51,6 @@ class Recipe(Base):
     name = Column(String(200), nullable=False)
     instructions = Column(Text)
     notes = Column(Text)  # General notes about the recipe
-    stale_embedding = Column(Boolean, default=True, nullable=False)  # True if embedding needs regeneration
     
     # Many-to-many relationship with Tags
     tags = relationship('Tag', secondary=recipe_tags, back_populates='recipes')
@@ -70,6 +69,7 @@ class Tag(Base):
     
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False, unique=True)  # e.g., "italian", "french"
+    subtag = Column(String(100), nullable=True)  # Optional subtag (e.g., "north" for "italian")
     
     # Many-to-many relationship with Recipes
     recipes = relationship('Recipe', secondary=recipe_tags, back_populates='tags')
@@ -100,7 +100,6 @@ class Ingredient(Base):
     name = Column(String(200), nullable=False, unique=True)
     alias = Column(Text)  # Comma-separated aliases (e.g., "garbanzo bean, ceci")
     notes = Column(Text)  # General notes about the ingredient
-    stale_embedding = Column(Boolean, default=True, nullable=False)  # True if embedding needs regeneration
     
     # Many-to-one relationship: many ingredients belong to one type
     type_id = Column(Integer, ForeignKey('ingredient_types.id'), nullable=False)
@@ -123,7 +122,6 @@ class Article(Base):
     
     id = Column(Integer, primary_key=True)
     notes = Column(Text)  # Notes/content of the article
-    stale_embedding = Column(Boolean, default=True, nullable=False)  # True if embedding needs regeneration
     
     # Many-to-many relationship with Tags
     tags = relationship('Tag', secondary=article_tags, back_populates='articles')

@@ -44,13 +44,14 @@ from json_editor import (
     get_addable_recipe_files, ADDABLE_DIR, EDITABLE_DIR,
     export_ingredient_to_json, import_ingredient_from_json, check_ingredient_json_exists,
     export_new_ingredient_template, import_new_ingredient_from_json, check_addable_ingredient_json_exists,
-    get_addable_ingredient_files, SimilarityDetected
+    get_addable_ingredient_files
 )
 
 
 def print_ingredient(ingredient):
     """Print ingredient information (simple format for lists)."""
-    print(f"  [{ingredient.id:3d}] {ingredient.name:30s} ({ingredient.type.name})")
+    recipe_count = len(ingredient.recipes) if ingredient.recipes else 0
+    print(f"  [{ingredient.id:3d}] {ingredient.name:30s} ({ingredient.type.name:15s}) {recipe_count:2d} recipe{'s' if recipe_count != 1 else ''}")
 
 
 def print_ingredient_info(ingredient):
@@ -145,42 +146,6 @@ def print_article(article):
     print()
 
 
-def handle_merge_prompt(item_type: str, new_data: dict, existing_item, score: float) -> str:
-    """Prompt user for merge decision. Returns 'A', 'B', or 'N'."""
-    print(f"\n{'='*70}")
-    print(f"⚠️  Similarity Detected ({score:.1f}% match)")
-    print(f"{'='*70}")
-    print(f"New {item_type}:")
-    if item_type == "ingredient":
-        print(f"  Name: {new_data.get('name')}")
-        print(f"  Type: {new_data.get('type')}")
-        print(f"  Alias: {new_data.get('alias', [])}")
-    else:
-        print(f"  Name: {new_data.get('name')}")
-    
-    print(f"\nExisting {item_type} (ID: {existing_item.id}):")
-    if item_type == "ingredient":
-        print(f"  Name: {existing_item.name}")
-        print(f"  Type: {existing_item.type.name}")
-        alias_str = existing_item.alias if existing_item.alias else "none"
-        print(f"  Alias: {alias_str}")
-    else:
-        print(f"  Name: {existing_item.name}")
-    
-    print(f"\n{'='*70}")
-    print("Merge options:")
-    print("  A - Keep existing (skip adding new)")
-    print("  B - Use new (replace existing)")
-    print("  C - Keep both (add new and keep existing)")
-    print("  N - Cancel (do nothing)")
-    
-    while True:
-        response = input("\nChoose (A/B/C/N): ").strip().upper()
-        if response in ['A', 'B', 'C', 'N']:
-            return response
-        print("Invalid choice. Please enter A, B, C, or N.")
-
-
 def cmd_add_ingredient(args):
     """Add a new ingredient using JSON file workflow."""
     # Check if addable JSON file already exists
@@ -202,40 +167,6 @@ def cmd_add_ingredient(args):
             with open(json_path, 'r', encoding='utf-8') as f:
                 json_data = json.load(f)
             
-            # Check for similarity before importing
-            db = SessionLocal()
-            try:
-                name = json_data.get('name', '').strip()
-                if name:
-                    from db_operations import find_similar_ingredients
-                    similar = find_similar_ingredients(db, name, min_score=80)
-                    if similar:
-                        best_match, score = similar[0]
-                        choice = handle_merge_prompt("ingredient", json_data, best_match, score)
-                        
-                        if choice == 'A':
-                            # Keep existing - delete JSON file and exit
-                            json_path.unlink()
-                            print(f"✓ Kept existing ingredient: {best_match.name} (ID: {best_match.id})")
-                            print(f"  JSON file deleted.")
-                            return
-                        elif choice == 'B':
-                            # Use new - delete existing and continue with import
-                            from db_operations import delete_ingredient
-                            delete_ingredient(db, ingredient_id=best_match.id)
-                            print(f"✓ Deleted existing ingredient (ID: {best_match.id})")
-                        elif choice == 'C':
-                            # Keep both - continue with import (don't delete existing)
-                            print(f"✓ Keeping existing ingredient: {best_match.name} (ID: {best_match.id})")
-                            print(f"  Adding new ingredient as well...")
-                            # Continue with import below
-                        elif choice == 'N':
-                            # Cancel - keep JSON file
-                            print("Cancelled. JSON file kept for editing.")
-                            return
-            finally:
-                db.close()
-            
             # Import the ingredient
             try:
                 ingredient = import_new_ingredient_from_json(json_path)
@@ -255,9 +186,9 @@ def cmd_add_ingredient(args):
                     print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
                     print(f"  Please fix the issue and run the command again.", file=sys.stderr)
                 sys.exit(1)
-        except SimilarityDetected as e:
-            # Preserve JSON file on similarity detection
-            print(f"\n✗ {e}", file=sys.stderr)
+        except Exception as e:
+            # Preserve JSON file on error
+            print(f"\n✗ Error: {e}", file=sys.stderr)
             if json_path.exists():
                 print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
             sys.exit(1)
@@ -328,27 +259,13 @@ def cmd_ingredient_info(args):
     elif args.name:
         db = SessionLocal()
         try:
-            # Use fuzzy matching to find the ingredient
-            from db_operations import find_similar_ingredients
-            similar = find_similar_ingredients(db, args.name, min_score=50)
-            
-            if not similar:
-                print(f"✗ Error: No ingredient found matching '{args.name}'", file=sys.stderr)
+            # Use exact name matching (case-insensitive)
+            ingredient = get_ingredient(db, name=args.name)
+            if not ingredient:
+                print(f"✗ Error: No ingredient found with name '{args.name}'", file=sys.stderr)
+                print(f"  Use --id to specify an ingredient by ID", file=sys.stderr)
                 sys.exit(1)
-            
-            # Show top 5 matches if multiple found
-            if len(similar) > 1:
-                print(f"\nTop matches for '{args.name}':")
-                print(f"{'='*70}")
-                for i, (ing, score) in enumerate(similar[:5], 1):
-                    print(f"  {i}. [{ing.id:3d}] {ing.name:40s} (Score: {score:.1f}%)")
-                print(f"{'='*70}")
-            
-            # Use the best match
-            best_match, best_score = similar[0]
-            if len(similar) > 1:
-                print(f"\n✓ Using best match: [{best_match.id}] {best_match.name} (Score: {best_score:.1f}%)")
-            ingredient_id = best_match.id
+            ingredient_id = ingredient.id
         finally:
             db.close()
     
@@ -391,25 +308,13 @@ def cmd_edit_ingredient(args):
     elif args.name:
         db = SessionLocal()
         try:
-            # Always use fuzzy matching to show top matches
-            from db_operations import find_similar_ingredients
-            similar = find_similar_ingredients(db, args.name, min_score=50)
-            
-            if not similar:
-                print(f"✗ Error: No ingredient found matching '{args.name}'", file=sys.stderr)
+            # Use exact name matching (case-insensitive)
+            ingredient = get_ingredient(db, name=args.name)
+            if not ingredient:
+                print(f"✗ Error: No ingredient found with name '{args.name}'", file=sys.stderr)
+                print(f"  Use --id to specify an ingredient by ID", file=sys.stderr)
                 sys.exit(1)
-            
-            # Show top 5 matches
-            print(f"\nTop matches for '{args.name}':")
-            print(f"{'='*70}")
-            for i, (ing, score) in enumerate(similar[:5], 1):
-                print(f"  {i}. [{ing.id:3d}] {ing.name:40s} (Score: {score:.1f}%)")
-            print(f"{'='*70}")
-            
-            # Use the best match
-            best_match, best_score = similar[0]
-            print(f"\n✓ Using best match: [{best_match.id}] {best_match.name} (Score: {best_score:.1f}%)")
-            ingredient_id = best_match.id
+            ingredient_id = ingredient.id
         finally:
             db.close()
     
@@ -424,50 +329,15 @@ def cmd_edit_ingredient(args):
             ingredient = import_ingredient_from_json(ingredient_id)
             print(f"✓ Updated ingredient: {ingredient.name}")
             print(f"  JSON file deleted.")
-        except SimilarityDetected as e:
-            # Handle similarity during edit
-            db = SessionLocal()
-            try:
-                # Read the JSON file to get new data
-                json_path = EDITABLE_DIR / f"ingredient_{ingredient_id}.json"
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    json_data = json.load(f)
-                
-                choice = handle_merge_prompt("ingredient", json_data, e.existing_item, e.score)
-                
-                if choice == 'A':
-                    # Keep existing - delete JSON file
-                    json_path.unlink()
-                    print(f"✓ Kept existing ingredient: {e.existing_item.name} (ID: {e.existing_item.id})")
-                    print(f"  JSON file deleted.")
-                elif choice == 'B':
-                    # Use new - delete existing and update current
-                    from db_operations import delete_ingredient
-                    delete_ingredient(db, ingredient_id=e.existing_item.id)
-                    print(f"✓ Deleted similar ingredient (ID: {e.existing_item.id})")
-                    # Retry import
-                    ingredient = import_ingredient_from_json(ingredient_id)
-                    print(f"✓ Updated ingredient: {ingredient.name}")
-                    print(f"  JSON file deleted.")
-                elif choice == 'C':
-                    # Keep both - can't update existing, so this doesn't apply to edit workflow
-                    # For edit, we can't keep both since we're editing a specific item
-                    print("⚠️  Option C (keep both) not available when editing.")
-                    print("  When editing, you can only keep existing (A) or replace (B).")
-                    print("  To add a new similar item, use 'ingredient add' instead.")
-                    json_path.unlink()
-                    return
-                elif choice == 'N':
-                    # Cancel - keep JSON file
-                    print("Cancelled. JSON file kept for editing.")
-            finally:
-                db.close()
+        except Exception as e:
+            # Preserve JSON file on error
+            print(f"✗ Error: {e}", file=sys.stderr)
         except Exception as e:
             # Clean up JSON file on error (unless user cancelled)
             json_path = EDITABLE_DIR / f"ingredient_{ingredient_id}.json"
             if json_path.exists() and not isinstance(e, KeyboardInterrupt):
                 json_path.unlink()
-            if not isinstance(e, (SimilarityDetected, KeyboardInterrupt)):
+            if not isinstance(e, KeyboardInterrupt):
                 print(f"✗ Error: {e}", file=sys.stderr)
                 sys.exit(1)
     else:
@@ -503,40 +373,6 @@ def cmd_add_recipe(args):
             with open(json_path, 'r', encoding='utf-8') as f:
                 json_data = json.load(f)
             
-            # Check for similarity before importing
-            db = SessionLocal()
-            try:
-                name = json_data.get('name', '').strip()
-                if name:
-                    from db_operations import find_similar_recipes
-                    similar = find_similar_recipes(db, name, min_score=80)
-                    if similar:
-                        best_match, score = similar[0]
-                        choice = handle_merge_prompt("recipe", json_data, best_match, score)
-                        
-                        if choice == 'A':
-                            # Keep existing - delete JSON file and exit
-                            json_path.unlink()
-                            print(f"✓ Kept existing recipe: {best_match.name} (ID: {best_match.id})")
-                            print(f"  JSON file deleted.")
-                            return
-                        elif choice == 'B':
-                            # Use new - delete existing and continue with import
-                            from db_operations import delete_recipe
-                            delete_recipe(db, recipe_id=best_match.id)
-                            print(f"✓ Deleted existing recipe (ID: {best_match.id})")
-                        elif choice == 'C':
-                            # Keep both - continue with import (don't delete existing)
-                            print(f"✓ Keeping existing recipe: {best_match.name} (ID: {best_match.id})")
-                            print(f"  Adding new recipe as well...")
-                            # Continue with import below
-                        elif choice == 'N':
-                            # Cancel - keep JSON file
-                            print("Cancelled. JSON file kept for editing.")
-                            return
-            finally:
-                db.close()
-            
             # Import the recipe
             try:
                 recipe = import_new_recipe_from_json(json_path)
@@ -549,9 +385,9 @@ def cmd_add_recipe(args):
                     print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
                     print(f"  Please fix the issue and run the command again.", file=sys.stderr)
                 sys.exit(1)
-        except SimilarityDetected as e:
-            # Preserve JSON file on similarity detection
-            print(f"\n✗ {e}", file=sys.stderr)
+        except Exception as e:
+            # Preserve JSON file on error
+            print(f"\n✗ Error: {e}", file=sys.stderr)
             if json_path and json_path.exists():
                 print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
             sys.exit(1)
@@ -599,27 +435,13 @@ def cmd_recipe_info(args):
     elif args.name:
         db = SessionLocal()
         try:
-            # Use fuzzy matching to find the recipe
-            from db_operations import find_similar_recipes
-            similar = find_similar_recipes(db, args.name, min_score=50)
-            
-            if not similar:
-                print(f"✗ Error: No recipe found matching '{args.name}'", file=sys.stderr)
+            # Use exact name matching (case-insensitive)
+            recipe = get_recipe(db, name=args.name)
+            if not recipe:
+                print(f"✗ Error: No recipe found with name '{args.name}'", file=sys.stderr)
+                print(f"  Use --id to specify a recipe by ID", file=sys.stderr)
                 sys.exit(1)
-            
-            # Show top 5 matches if multiple found
-            if len(similar) > 1:
-                print(f"\nTop matches for '{args.name}':")
-                print(f"{'='*70}")
-                for i, (recipe, score) in enumerate(similar[:5], 1):
-                    print(f"  {i}. [{recipe.id:3d}] {recipe.name:40s} (Score: {score:.1f}%)")
-                print(f"{'='*70}")
-            
-            # Use the best match
-            best_match, best_score = similar[0]
-            if len(similar) > 1:
-                print(f"\n✓ Using best match: [{best_match.id}] {best_match.name} (Score: {best_score:.1f}%)")
-            recipe_id = best_match.id
+            recipe_id = recipe.id
         finally:
             db.close()
     
@@ -662,25 +484,13 @@ def cmd_edit_recipe(args):
     elif args.name:
         db = SessionLocal()
         try:
-            # Always use fuzzy matching to show top matches
-            from db_operations import find_similar_recipes
-            similar = find_similar_recipes(db, args.name, min_score=50)
-            
-            if not similar:
-                print(f"✗ Error: No recipe found matching '{args.name}'", file=sys.stderr)
+            # Use exact name matching (case-insensitive)
+            recipe = get_recipe(db, name=args.name)
+            if not recipe:
+                print(f"✗ Error: No recipe found with name '{args.name}'", file=sys.stderr)
+                print(f"  Use --id to specify a recipe by ID", file=sys.stderr)
                 sys.exit(1)
-            
-            # Show top 5 matches
-            print(f"\nTop matches for '{args.name}':")
-            print(f"{'='*70}")
-            for i, (rec, score) in enumerate(similar[:5], 1):
-                print(f"  {i}. [{rec.id:3d}] {rec.name:40s} (Score: {score:.1f}%)")
-            print(f"{'='*70}")
-            
-            # Use the best match
-            best_match, best_score = similar[0]
-            print(f"\n✓ Using best match: [{best_match.id}] {best_match.name} (Score: {best_score:.1f}%)")
-            recipe_id = best_match.id
+            recipe_id = recipe.id
         finally:
             db.close()
     
@@ -695,50 +505,15 @@ def cmd_edit_recipe(args):
             recipe = import_recipe_from_json(recipe_id)
             print(f"✓ Updated recipe: {recipe.name}")
             print(f"  JSON file deleted.")
-        except SimilarityDetected as e:
-            # Handle similarity during edit
-            db = SessionLocal()
-            try:
-                # Read the JSON file to get new data
-                json_path = EDITABLE_DIR / f"recipe_{recipe_id}.json"
-                with open(json_path, 'r', encoding='utf-8') as f:
-                    json_data = json.load(f)
-                
-                choice = handle_merge_prompt("recipe", json_data, e.existing_item, e.score)
-                
-                if choice == 'A':
-                    # Keep existing - delete JSON file
-                    json_path.unlink()
-                    print(f"✓ Kept existing recipe: {e.existing_item.name} (ID: {e.existing_item.id})")
-                    print(f"  JSON file deleted.")
-                elif choice == 'B':
-                    # Use new - delete existing and update current
-                    from db_operations import delete_recipe
-                    delete_recipe(db, recipe_id=e.existing_item.id)
-                    print(f"✓ Deleted similar recipe (ID: {e.existing_item.id})")
-                    # Retry import
-                    recipe = import_recipe_from_json(recipe_id)
-                    print(f"✓ Updated recipe: {recipe.name}")
-                    print(f"  JSON file deleted.")
-                elif choice == 'C':
-                    # Keep both - can't update existing, so this doesn't apply to edit workflow
-                    # For edit, we can't keep both since we're editing a specific item
-                    print("⚠️  Option C (keep both) not available when editing.")
-                    print("  When editing, you can only keep existing (A) or replace (B).")
-                    print("  To add a new similar item, use 'recipe add' instead.")
-                    json_path.unlink()
-                    return
-                elif choice == 'N':
-                    # Cancel - keep JSON file
-                    print("Cancelled. JSON file kept for editing.")
-            finally:
-                db.close()
+        except Exception as e:
+            # Preserve JSON file on error
+            print(f"✗ Error: {e}", file=sys.stderr)
         except Exception as e:
             # Clean up JSON file on error (unless user cancelled)
             json_path = EDITABLE_DIR / f"recipe_{recipe_id}.json"
             if json_path.exists() and not isinstance(e, KeyboardInterrupt):
                 json_path.unlink()
-            if not isinstance(e, (SimilarityDetected, KeyboardInterrupt)):
+            if not isinstance(e, KeyboardInterrupt):
                 print(f"✗ Error: {e}", file=sys.stderr)
                 sys.exit(1)
     else:
@@ -881,73 +656,197 @@ def cmd_list_types(args):
             print(f"\n{'='*70}")
             print(f"Ingredient Types ({len(types)} total)")
             print(f"{'='*70}")
-            for type_obj in types:
-                print(f"  • {type_obj.name}")
+            for type_obj in sorted(types, key=lambda t: t.name):
+                ingredient_count = len(type_obj.ingredients) if type_obj.ingredients else 0
+                print(f"  [{type_obj.id:3d}] {type_obj.name:30s} ({ingredient_count} ingredient{'s' if ingredient_count != 1 else ''})")
             print()
     finally:
         db.close()
 
 
+def cmd_add_type(args):
+    """Add a new ingredient type."""
+    db = SessionLocal()
+    try:
+        from db_operations import add_ingredient_type
+        ingredient_type = add_ingredient_type(db, args.name)
+        print(f"✓ Added ingredient type: {ingredient_type.name} (ID: {ingredient_type.id})")
+    except ValueError as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+def cmd_remove_type(args):
+    """Remove an ingredient type by ID."""
+    db = SessionLocal()
+    try:
+        from db_operations import delete_ingredient_type
+        deleted = delete_ingredient_type(db, args.id)
+        if deleted:
+            print(f"✓ Removed ingredient type (ID: {args.id})")
+        else:
+            print(f"✗ Error: Ingredient type not found (ID: {args.id})", file=sys.stderr)
+            sys.exit(1)
+    except ValueError as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+def cmd_list_tags(args):
+    """List all tags, organized by subtag."""
+    db = SessionLocal()
+    try:
+        from db_operations import list_tags
+        tags = list_tags(db)
+        if not tags:
+            print("No tags found.")
+        else:
+            print(f"\n{'='*70}")
+            print(f"Tags ({len(tags)} total)")
+            print(f"{'='*70}")
+            
+            # Group tags by subtag
+            tags_by_subtag = {}
+            tags_without_subtag = []
+            
+            for tag in tags:
+                if tag.subtag:
+                    if tag.subtag not in tags_by_subtag:
+                        tags_by_subtag[tag.subtag] = []
+                    tags_by_subtag[tag.subtag].append(tag)
+                else:
+                    tags_without_subtag.append(tag)
+            
+            # Sort subtags alphabetically
+            sorted_subtags = sorted(tags_by_subtag.keys())
+            
+            # Print tags grouped by subtag
+            for subtag in sorted_subtags:
+                print(f"\n{subtag.upper()}:")
+                # Sort tags within each subtag alphabetically by name
+                for tag in sorted(tags_by_subtag[subtag], key=lambda t: t.name):
+                    tag_display = f"{tag.name} --> {tag.subtag}"
+                    print(f"  [{tag.id:3d}] {tag_display}")
+            
+            # Print tags without subtags (if any)
+            if tags_without_subtag:
+                print(f"\n(no subtag):")
+                for tag in sorted(tags_without_subtag, key=lambda t: t.name):
+                    print(f"  [{tag.id:3d}] {tag.name}")
+            
+            print()
+    finally:
+        db.close()
+
+
+def cmd_add_tag(args):
+    """Add a new tag."""
+    db = SessionLocal()
+    try:
+        from db_operations import add_tag
+        tag = add_tag(db, args.name, subtag=args.subtag if hasattr(args, 'subtag') and args.subtag else None)
+        subtag_str = f" (subtag: {tag.subtag})" if tag.subtag else ""
+        print(f"✓ Added tag: {tag.name}{subtag_str} (ID: {tag.id})")
+    except ValueError as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+def cmd_remove_tag(args):
+    """Remove a tag by ID."""
+    db = SessionLocal()
+    try:
+        from db_operations import delete_tag
+        deleted = delete_tag(db, args.id)
+        if deleted:
+            print(f"✓ Removed tag (ID: {args.id})")
+        else:
+            print(f"✗ Error: Tag not found (ID: {args.id})", file=sys.stderr)
+            sys.exit(1)
+    except ValueError as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+def cmd_edit_tag(args):
+    """Edit a tag using JSON file workflow."""
+    tag_id = args.id
+    
+    from json_editor import export_tag_to_json, import_tag_from_json, check_tag_json_exists
+    
+    if check_tag_json_exists(tag_id):
+        # JSON file exists, import it
+        try:
+            tag = import_tag_from_json(tag_id)
+            print(f"✓ Updated tag (ID: {tag.id})")
+            print(f"  Name: {tag.name}")
+            if tag.subtag:
+                print(f"  Subtag: {tag.subtag}")
+            print(f"  JSON file deleted.")
+        except Exception as e:
+            # Preserve JSON file on error so user can fix it
+            print(f"\n✗ Error: {e}", file=sys.stderr)
+            json_path = export_tag_to_json(tag_id)  # Get path for error message
+            if json_path.exists():
+                print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
+                print(f"  Please fix the issue and run the command again.", file=sys.stderr)
+            sys.exit(1)
+    else:
+        # JSON file doesn't exist, create it
+        try:
+            json_path = export_tag_to_json(tag_id)
+            print(f"✓ Created JSON file: {json_path}")
+            print(f"  Edit the file with your tag details, then run the same command again to update it.")
+            print(f"  (Delete the file to cancel)")
+        except Exception as e:
+            print(f"✗ Error: {e}", file=sys.stderr)
+            sys.exit(1)
+
+
 def cmd_search(args):
     """
-    Unified semantic search command.
+    Search command for recipes (exact ingredient matching).
     
     Usage:
-        python cli.py search "umami, basil, herb" ingredient --n 10
-        python cli.py search "pasta, italian" recipe --n 5
+        python cli.py search "cucumber, dill, mint" recipe --n 1
     """
     db = SessionLocal()
     try:
-        if args.entity_type == 'ingredient':
+        if args.entity_type == 'recipe':
             try:
-                from db_operations_semantic import semantic_search_ingredients_by_query
-                results = semantic_search_ingredients_by_query(
+                from db_operations import search_recipes_by_ingredients_exact
+                results = search_recipes_by_ingredients_exact(
                     db,
                     args.query,
-                    limit=args.n,
-                    min_similarity=0.0  # No minimum threshold, return top N
+                    min_matches=args.n
                 )
                 
                 if not results:
-                    print(f"No ingredients found matching '{args.query}'")
+                    print(f"No recipes found matching '{args.query}' (minimum {args.n} match(es) required)")
                 else:
                     print(f"\n{'='*70}")
-                    print(f"Search Results for '{args.query}' ({len(results)} found, semantic search)")
+                    print(f"Search Results for '{args.query}' ({len(results)} found)")
                     print(f"{'='*70}")
-                    for ingredient, score in results:
-                        # Convert similarity (0-1) to percentage (0-100)
-                        score_percent = score * 100
-                        print(f"  [{ingredient.id:3d}] {ingredient.name:40s} ({ingredient.type.name}) (Score: {score_percent:.1f}%)")
+                    for recipe, match_count in results:
+                        print(f"  [{recipe.id:3d}] {recipe.name:40s} (Matches: {match_count})")
                     print()
             except ValueError as e:
-                print(f"✗ Error: {e}", file=sys.stderr)
+                # This is the safety check error - show it clearly
+                print(f"✗ {e}", file=sys.stderr)
                 sys.exit(1)
-        elif args.entity_type == 'recipe':
-            try:
-                from db_operations_semantic import semantic_search_recipes_by_query
-                results = semantic_search_recipes_by_query(
-                    db,
-                    args.query,
-                    limit=args.n,
-                    min_similarity=0.0  # No minimum threshold, return top N
-                )
-                
-                if not results:
-                    print(f"No recipes found matching '{args.query}'")
-                else:
-                    print(f"\n{'='*70}")
-                    print(f"Search Results for '{args.query}' ({len(results)} found, semantic search)")
-                    print(f"{'='*70}")
-                    for recipe, score in results:
-                        # Convert similarity (0-1) to percentage (0-100)
-                        score_percent = score * 100
-                        print(f"  [{recipe.id:3d}] {recipe.name:40s} (Score: {score_percent:.1f}%)")
-                    print()
-            except ValueError as e:
+            except Exception as e:
                 print(f"✗ Error: {e}", file=sys.stderr)
                 sys.exit(1)
         else:
-            print(f"✗ Error: Unknown entity type '{args.entity_type}'. Use 'ingredient' or 'recipe'.", file=sys.stderr)
+            print(f"✗ Error: Search only supports 'recipe' entity type. Ingredient search has been removed.", file=sys.stderr)
             sys.exit(1)
     finally:
         db.close()
@@ -1101,96 +1000,120 @@ def cmd_cleanup(args):
         print(f"✓ Cleaned up {deleted_count} staging file(s).")
 
 
-def cmd_embed(args):
-    """Generate embeddings for recipes, ingredients, and articles."""
-    import time
-    
+def cmd_consistent(args):
+    """Check database consistency: verify all recipe ingredients exist in ingredients database, and all tags exist in tag list."""
+    db = SessionLocal()
     try:
-        from embeddings import (
-            batch_generate_recipe_embeddings,
-            batch_generate_ingredient_embeddings,
-            batch_generate_article_embeddings
-        )
-    except ImportError:
-        print("✗ Error: embeddings module not available. Make sure Ollama is installed.", file=sys.stderr)
-        sys.exit(1)
-    
-    # Get only_stale from args (set by subcommand or default)
-    only_stale = getattr(args, 'only_stale', True)
-    
-    print(f"\n{'='*70}")
-    print("Generating Embeddings")
-    print(f"{'='*70}")
-    if only_stale:
-        print("Processing entries with stale_embedding=True")
-    else:
-        print("Processing ALL entries (force mode)")
-    print()
-    
-    start_time = time.time()
-    
-    # Generate embeddings for ingredients FIRST (recipes depend on ingredient embeddings)
-    ingredient_start = time.time()
-    ingredient_embeddings = batch_generate_ingredient_embeddings(only_stale=only_stale)
-    ingredient_time = time.time() - ingredient_start
-    
-    # Generate embeddings for recipes (uses ingredient embeddings)
-    recipe_start = time.time()
-    recipe_embeddings = batch_generate_recipe_embeddings(only_stale=only_stale)
-    recipe_time = time.time() - recipe_start
-    
-    # Generate embeddings for articles
-    article_start = time.time()
-    article_embeddings = batch_generate_article_embeddings(only_stale=only_stale)
-    article_time = time.time() - article_start
-    
-    total_time = time.time() - start_time
-    total = len(recipe_embeddings) + len(ingredient_embeddings) + len(article_embeddings)
-    
-    print(f"\n{'='*70}")
-    print(f"Summary:")
-    print(f"  Recipes: {len(recipe_embeddings)} embedding(s) generated ({recipe_time:.2f}s)")
-    if len(recipe_embeddings) > 0:
-        print(f"    Average: {recipe_time / len(recipe_embeddings):.2f}s per recipe")
-    print(f"  Ingredients: {len(ingredient_embeddings)} embedding(s) generated ({ingredient_time:.2f}s)")
-    if len(ingredient_embeddings) > 0:
-        print(f"    Average: {ingredient_time / len(ingredient_embeddings):.2f}s per ingredient")
-    print(f"  Articles: {len(article_embeddings)} embedding(s) generated ({article_time:.2f}s)")
-    if len(article_embeddings) > 0:
-        print(f"    Average: {article_time / len(article_embeddings):.2f}s per article")
-    print(f"  Total: {total} embedding(s) generated in {total_time:.2f}s")
-    if total > 0:
-        print(f"    Average: {total_time / total:.2f}s per embedding")
-    print(f"{'='*70}\n")
-
-
-def cmd_ask(args):
-    """Answer natural language questions about the recipe database using Ollama."""
-    try:
-        from ollama_query import query_with_ollama
-    except ImportError:
-        print("✗ Error: ollama package not installed. Run: pip install ollama", file=sys.stderr)
-        sys.exit(1)
-    
-    if not args.question:
-        print("✗ Error: Please provide a question", file=sys.stderr)
-        sys.exit(1)
-    
-    print(f"\n{'='*70}")
-    print(f"Question: {args.question}")
-    print(f"{'='*70}\n")
-    
-    try:
-        response = query_with_ollama(args.question, model=args.model)
-        print(response)
+        from db_operations import list_recipes, list_ingredients, list_tags
+        
+        all_recipes = list_recipes(db)
+        all_ingredients = list_ingredients(db)
+        all_tags = list_tags(db)
+        
+        # Create a set of all ingredient names (normalized to lowercase)
+        ingredient_names = {ing.name.lower() for ing in all_ingredients if ing}
+        
+        # Create a set of all tag IDs
+        tag_ids = {tag.id for tag in all_tags}
+        
+        print(f"\n{'='*70}")
+        print("Database Consistency Check")
+        print(f"{'='*70}")
+        print(f"Checking {len(all_recipes)} recipe(s) and {len(all_ingredients)} ingredient(s)...")
+        print(f"Verifying against {len(all_ingredients)} ingredient(s) and {len(all_tags)} tag(s)...")
         print()
-    except Exception as e:
-        print(f"✗ Error: {e}", file=sys.stderr)
-        print("\nMake sure Ollama is installed and running:")
-        print("  1. Install Ollama from https://ollama.com")
-        print(f"  2. Pull a model: ollama pull {args.model}")
-        print("  3. Make sure Ollama is running")
-        sys.exit(1)
+        
+        issues_found = []
+        
+        # Check recipe ingredients
+        for recipe in all_recipes:
+            if not recipe:
+                continue
+            recipe_ingredients = recipe.ingredients
+            for ingredient in recipe_ingredients:
+                # Check if ingredient name exists in ingredients database
+                if ingredient.name.lower() not in ingredient_names:
+                    issues_found.append({
+                        'type': 'recipe_ingredient',
+                        'recipe_id': recipe.id,
+                        'recipe_name': recipe.name,
+                        'ingredient_name': ingredient.name
+                    })
+        
+        # Check recipe tags
+        for recipe in all_recipes:
+            if not recipe:
+                continue
+            recipe_tags = recipe.tags
+            for tag in recipe_tags:
+                # Check if tag ID exists in tags database
+                if tag.id not in tag_ids:
+                    issues_found.append({
+                        'type': 'recipe_tag',
+                        'recipe_id': recipe.id,
+                        'recipe_name': recipe.name,
+                        'tag_id': tag.id,
+                        'tag_name': tag.name
+                    })
+        
+        # Check ingredient tags
+        for ingredient in all_ingredients:
+            if not ingredient:
+                continue
+            ingredient_tags = ingredient.tags
+            for tag in ingredient_tags:
+                # Check if tag ID exists in tags database
+                if tag.id not in tag_ids:
+                    issues_found.append({
+                        'type': 'ingredient_tag',
+                        'ingredient_id': ingredient.id,
+                        'ingredient_name': ingredient.name,
+                        'tag_id': tag.id,
+                        'tag_name': tag.name
+                    })
+        
+        if not issues_found:
+            print("✓ Database is consistent!")
+            print(f"  All recipe ingredients exist in the ingredients database.")
+            print(f"  All tags used in recipes and ingredients exist in the tag list.")
+        else:
+            print(f"✗ Found {len(issues_found)} consistency issue(s):")
+            print()
+            
+            # Group issues by type for better reporting
+            ingredient_issues = [i for i in issues_found if i['type'] == 'recipe_ingredient']
+            recipe_tag_issues = [i for i in issues_found if i['type'] == 'recipe_tag']
+            ingredient_tag_issues = [i for i in issues_found if i['type'] == 'ingredient_tag']
+            
+            if ingredient_issues:
+                print(f"  Missing Ingredients ({len(ingredient_issues)} issue(s)):")
+                for issue in ingredient_issues:
+                    print(f"    Recipe #{issue['recipe_id']}: {issue['recipe_name']}")
+                    print(f"      Missing ingredient: {issue['ingredient_name']}")
+                print()
+            
+            if recipe_tag_issues:
+                print(f"  Invalid Recipe Tags ({len(recipe_tag_issues)} issue(s)):")
+                for issue in recipe_tag_issues:
+                    print(f"    Recipe #{issue['recipe_id']}: {issue['recipe_name']}")
+                    print(f"      Invalid tag: {issue['tag_name']} (ID: {issue['tag_id']})")
+                print()
+            
+            if ingredient_tag_issues:
+                print(f"  Invalid Ingredient Tags ({len(ingredient_tag_issues)} issue(s)):")
+                for issue in ingredient_tag_issues:
+                    print(f"    Ingredient #{issue['ingredient_id']}: {issue['ingredient_name']}")
+                    print(f"      Invalid tag: {issue['tag_name']} (ID: {issue['tag_id']})")
+                print()
+            
+            print(f"Total: {len(issues_found)} issue(s) found")
+        
+        print()
+    finally:
+        db.close()
+
+
+# REMOVED: cmd_embed and cmd_ask - semantic search and Ollama removed
 
 
 def cmd_help(args):
@@ -1250,15 +1173,7 @@ def cmd_article_help(args):
         sys.exit(1)
 
 
-def cmd_embed_help(args):
-    """Show help for embedding and semantic search commands."""
-    help_file = Path(__file__).parent / "help" / "help_embed.txt"
-    try:
-        with open(help_file, 'r', encoding='utf-8') as f:
-            print(f.read())
-    except FileNotFoundError:
-        print(f"✗ Error: Help file not found: {help_file}", file=sys.stderr)
-        sys.exit(1)
+# REMOVED: cmd_embed_help - embeddings removed
     except Exception as e:
         print(f"✗ Error reading help file: {e}", file=sys.stderr)
         sys.exit(1)
@@ -1410,15 +1325,46 @@ def main():
     help_article_parser = article_subparsers.add_parser('help', help='Show help for article commands')
     help_article_parser.set_defaults(func=cmd_article_help)
     
-    # Utility commands
-    types_parser = subparsers.add_parser('types', help='List all ingredient types')
-    types_parser.set_defaults(func=cmd_list_types)
+    # Type commands
+    type_parser = subparsers.add_parser('type', help='Ingredient type operations')
+    type_subparsers = type_parser.add_subparsers(dest='type_action')
+    
+    add_type_parser = type_subparsers.add_parser('add', help='Add a new ingredient type')
+    add_type_parser.add_argument('name', help='Name of the ingredient type')
+    add_type_parser.set_defaults(func=cmd_add_type)
+    
+    list_type_parser = type_subparsers.add_parser('list', help='List all ingredient types')
+    list_type_parser.set_defaults(func=cmd_list_types)
+    
+    remove_type_parser = type_subparsers.add_parser('remove', help='Remove an ingredient type by ID')
+    remove_type_parser.add_argument('--id', type=int, required=True, help='Ingredient type ID')
+    remove_type_parser.set_defaults(func=cmd_remove_type)
+    
+    # Tag commands
+    tag_parser = subparsers.add_parser('tag', help='Tag operations')
+    tag_subparsers = tag_parser.add_subparsers(dest='tag_action')
+    
+    add_tag_parser = tag_subparsers.add_parser('add', help='Add a new tag')
+    add_tag_parser.add_argument('name', help='Name of the tag')
+    add_tag_parser.add_argument('--subtag', help='Optional subtag')
+    add_tag_parser.set_defaults(func=cmd_add_tag)
+    
+    list_tag_parser = tag_subparsers.add_parser('list', help='List all tags')
+    list_tag_parser.set_defaults(func=cmd_list_tags)
+    
+    edit_tag_parser = tag_subparsers.add_parser('edit', help='Edit a tag using JSON file')
+    edit_tag_parser.add_argument('--id', type=int, required=True, help='Tag ID')
+    edit_tag_parser.set_defaults(func=cmd_edit_tag)
+    
+    remove_tag_parser = tag_subparsers.add_parser('remove', help='Remove a tag by ID')
+    remove_tag_parser.add_argument('--id', type=int, required=True, help='Tag ID')
+    remove_tag_parser.set_defaults(func=cmd_remove_tag)
     
     # Unified search command
-    search_parser = subparsers.add_parser('search', help='Semantic search for ingredients or recipes (defaults to recipes)')
-    search_parser.add_argument('query', help='Search query (can be comma-separated terms like "umami, basil, herb")')
-    search_parser.add_argument('entity_type', nargs='?', choices=['ingredient', 'recipe'], default='recipe', help='Type of entity to search (default: recipe)')
-    search_parser.add_argument('--n', type=int, default=5, help='Number of results to return (default: 5)')
+    search_parser = subparsers.add_parser('search', help='Search recipes by exact ingredient matching')
+    search_parser.add_argument('query', help='Comma-delimited list of ingredients (e.g., "cucumber, dill, mint")')
+    search_parser.add_argument('entity_type', nargs='?', choices=['recipe'], default='recipe', help='Type of entity to search (default: recipe)')
+    search_parser.add_argument('--n', type=int, default=1, help='Minimum ingredient matches required (default: 1)')
     search_parser.set_defaults(func=cmd_search)
     
     # Edit shortcut command
@@ -1439,32 +1385,17 @@ def main():
     stats_parser = subparsers.add_parser('stats', help='Display database statistics')
     stats_parser.set_defaults(func=cmd_stats)
     
-    ask_parser = subparsers.add_parser('ask', help='Ask natural language questions about your recipes (requires Ollama)')
-    ask_parser.add_argument('question', help='Your question about recipes, ingredients, or articles')
-    ask_parser.add_argument('--model', default='llama3.2', help='Ollama model to use (default: llama3.2)')
-    ask_parser.set_defaults(func=cmd_ask)
-    
     backup_parser = subparsers.add_parser('backup', help='Create a timestamped backup copy of the database')
     backup_parser.set_defaults(func=cmd_backup)
     
     cleanup_parser = subparsers.add_parser('cleanup', help='Delete all JSON staging files (staging/addable/ and staging/editable/)')
     cleanup_parser.set_defaults(func=cmd_cleanup)
     
-    embed_parser = subparsers.add_parser('embed', help='Generate embeddings for recipes, ingredients, and articles')
-    embed_subparsers = embed_parser.add_subparsers(dest='embed_action', help='Embedding operations')
+    # Consistency check command
+    consistent_parser = subparsers.add_parser('consistent', help='Check database consistency: verify all recipe ingredients exist in ingredients database, and all tags exist in tag list')
+    consistent_parser.set_defaults(func=cmd_consistent)
     
-    embed_default_parser = embed_subparsers.add_parser('default', help='Generate embeddings for entries with stale_embedding=True (default)')
-    embed_default_parser.set_defaults(func=cmd_embed, only_stale=True)
-    
-    embed_force_parser = embed_subparsers.add_parser('force', help='Force regenerate embeddings for ALL entries (ignore stale_embedding flag)')
-    embed_force_parser.set_defaults(func=cmd_embed, only_stale=False)
-    
-    # Embed help
-    help_embed_parser = embed_subparsers.add_parser('help', help='Show help for embedding and semantic search commands')
-    help_embed_parser.set_defaults(func=cmd_embed_help)
-    
-    # For backward compatibility, if no subcommand is provided, use default behavior
-    embed_parser.set_defaults(func=cmd_embed, only_stale=True)
+    # REMOVED: ask and embed commands - Ollama and semantic search removed
     
     args = parser.parse_args()
     

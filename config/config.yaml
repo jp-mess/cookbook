@@ -12,12 +12,7 @@ database:
   # Database file path (relative to project root)
   path: "data/recipes.db"
 
-# Embedding settings
-embeddings:
-  # Ollama model for generating embeddings
-  model: "nomic-embed-text"
-  # Cache directory for embeddings
-  cache_dir: "embeddings_cache"
+# REMOVED: Embedding settings - semantic search removed
 
 # JSON staging directories
 staging:

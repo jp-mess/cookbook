@@ -1,0 +1,20 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+# Database files - allow data/recipes.db to be tracked
+*.db
+!data/recipes.db
+*.sqlite
+*.sqlite3
+.env
+.venv
+*.egg-info/
+dist/
+build/
+editable/
+addable/
+# Embeddings cache - allow to be tracked
+# embeddings_cache/

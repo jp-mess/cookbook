@@ -1,0 +1,68 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║              Semantic Search & Embeddings - Help                     ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+EMBEDDING COMMANDS
+──────────────────
+  embed [default|force]
+    Generate embeddings for recipes, ingredients, and articles
+    • default: Generate embeddings for entries with stale_embedding=True
+    • force: Force regenerate embeddings for ALL entries
+    Example: python cli.py embed
+    Example: python cli.py embed force
+    Note: Run this before using --semantic flag in search commands
+
+  embed help
+    Show this help message
+
+
+SEMANTIC SEARCH
+───────────────
+Semantic search uses vector embeddings to find items based on meaning,
+not just keywords. It's more powerful than fuzzy matching for finding
+conceptually similar items.
+
+To use semantic search:
+  1. Generate embeddings: python cli.py embed
+  2. Use --semantic flag in search commands
+
+COMMANDS WITH SEMANTIC SEARCH
+──────────────────────────────
+  recipe search <query> [--semantic]
+    Search recipes by semantic similarity
+    Example: python cli.py recipe search "mushroom pasta" --semantic
+
+  ingredient search <query> [--semantic]
+    Search ingredients by semantic similarity
+    Example: python cli.py ingredient search "mushroom" --semantic
+
+  ingredient suggest <ingredients> [--semantic]
+    Suggest recipes based on ingredient semantic similarity
+    Example: python cli.py ingredient suggest "mushroom, wine" --semantic
+
+
+HOW IT WORKS
+────────────
+1. When you add or edit a recipe/ingredient/article, it's marked as
+   needing an embedding update (stale_embedding=True)
+
+2. Run `python cli.py embed` to generate embeddings for all stale entries
+
+3. Use --semantic flag in search commands to leverage semantic similarity
+
+4. Semantic search combines meaning-based matching with fuzzy matching
+   for the best results
+
+
+EXAMPLES
+────────
+  # Generate embeddings for new/edited entries
+  python cli.py embed
+
+  # Force regenerate all embeddings
+  python cli.py embed force
+
+  # Use semantic search
+  python cli.py recipe search "mushroom pasta" --semantic
+  python cli.py ingredient search "mushroom" --semantic
+  python cli.py ingredient suggest "mushroom, wine" --semantic

@@ -1,0 +1,27 @@
+# Cookbook Configuration
+
+# Spell-check and similarity settings
+spell_check:
+  # Minimum similarity score (0-100) to auto-correct misspellings
+  # Words with similarity >= this threshold will be auto-corrected
+  # Words with similarity < this threshold will be warned but allowed
+  similarity_threshold: 70
+
+# Database settings
+database:
+  # Database file path (relative to project root)
+  path: "data/recipes.db"
+
+# Embedding settings
+embeddings:
+  # Ollama model for generating embeddings
+  model: "nomic-embed-text"
+  # Cache directory for embeddings
+  cache_dir: "embeddings_cache"
+
+# JSON staging directories
+staging:
+  # Directory for addable JSON files (new items)
+  addable_dir: "addable"
+  # Directory for editable JSON files (existing items)
+  editable_dir: "editable"

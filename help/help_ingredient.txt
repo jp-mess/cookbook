@@ -1,0 +1,63 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                    Ingredient Commands - Help                        ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+INGREDIENT COMMANDS
+───────────────────
+  ingredient add
+    Add a new ingredient using JSON file workflow:
+    • First run: Creates addable/new_ingredient.json template
+    • Edit the JSON file with ingredient details (name, type, notes, tags)
+    • Second run: Creates ingredient and deletes JSON file
+    • Delete JSON file to cancel
+
+  ingredient list
+    List all ingredients with tags and notes
+
+  ingredient edit --id <id> | --name <name>
+    Edit an ingredient using JSON file workflow:
+    • First run: Creates editable/ingredient_<id>.json
+    • Edit the JSON file
+    • Second run: Imports changes and deletes JSON file
+    • Delete JSON file to cancel editing
+
+  ingredient delete --id <id>
+    Delete an ingredient by ID (exact match required)
+
+  ingredient search <query> [--limit <n>] [--min-score <score>] [--semantic]
+    Search for ingredients by approximate name matching
+    Use --semantic flag for semantic search (requires embeddings)
+    Example: ingredient search "tomato" --limit 5 --min-score 60
+    Example: ingredient search "mushroom" --semantic
+
+  ingredient suggest <ingredients> [--min-score <score>] [--semantic]
+    Suggest recipes containing the given ingredients (with fuzzy matching)
+    Use --semantic flag for semantic search (requires embeddings)
+    Ingredients are normalized (singular, lowercase) and matched approximately
+    Example: ingredient suggest "basil, tomato pesto"
+    Example: ingredient suggest "mushroom, wine" --semantic
+
+  ingredient help
+    Show this help message
+
+
+EXAMPLES
+────────
+  # Add ingredients (JSON workflow)
+  python cli.py ingredient add
+  # Edit addable/new_ingredient.json, then run the same command again
+
+  # Edit an ingredient (JSON workflow)
+  python cli.py ingredient edit --id 1
+  # Edit editable/ingredient_1.json, then run the same command again
+
+  # List all ingredients
+  python cli.py ingredient list
+
+  # Search for ingredients
+  python cli.py ingredient search "tomato" --limit 5
+  python cli.py ingredient search "mushroom" --semantic
+
+  # Suggest recipes by ingredients
+  python cli.py ingredient suggest "basil"
+  python cli.py ingredient suggest "basil, tomato pesto" --semantic

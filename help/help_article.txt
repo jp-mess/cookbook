@@ -1,0 +1,45 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                      Article Commands - Help                         ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+ARTICLE COMMANDS
+────────────────
+  article add
+    Add a new article using JSON file workflow:
+    • First run: Creates addable/new_article.json template
+    • Edit the JSON file with article details (notes, tags)
+    • Second run: Creates article and deletes JSON file
+    • Delete JSON file to cancel
+
+  article list
+    List all articles with tags and notes preview
+
+  article edit --id <id>
+    Edit an article using JSON file workflow:
+    • First run: Creates editable/article_<id>.json
+    • Edit the JSON file
+    • Second run: Imports changes and deletes JSON file
+    • Delete JSON file to cancel editing
+
+  article delete --id <id>
+    Delete an article by ID (exact match required)
+
+  article help
+    Show this help message
+
+
+EXAMPLES
+────────
+  # Add an article (JSON workflow)
+  python cli.py article add
+  # Edit addable/new_article.json, then run the same command again
+
+  # Edit an article (JSON workflow)
+  python cli.py article edit --id 1
+  # Edit editable/article_1.json, then run the same command again
+
+  # List all articles
+  python cli.py article list
+
+  # Note: To manage article tags, use the edit command
+  # which exports a JSON file where you can modify all fields at once

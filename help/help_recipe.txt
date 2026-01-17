@@ -1,0 +1,55 @@
+╔══════════════════════════════════════════════════════════════════════╗
+║                      Recipe Commands - Help                          ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+RECIPE COMMANDS
+───────────────
+  recipe add
+    Add a new recipe using JSON file workflow:
+    • First run: Creates addable/new_recipe.json template
+    • Edit the JSON file with recipe details
+    • Second run: Creates recipe and deletes JSON file
+    • Delete JSON file to cancel
+
+  recipe list
+    List all recipes with full details
+
+  recipe edit --id <id> | --name <name>
+    Edit a recipe using JSON file workflow:
+    • First run: Creates editable/recipe_<id>.json
+    • Edit the JSON file in your editor
+    • Second run: Imports changes and deletes JSON file
+    • Delete JSON file to cancel editing
+
+  recipe delete --id <id>
+    Delete a recipe by ID (exact match required)
+
+  recipe search <query> [--limit <n>] [--min-score <score>] [--semantic]
+    Search for recipes by approximate name matching
+    Use --semantic flag for semantic search (requires embeddings)
+    Example: recipe search "pasta" --limit 5 --min-score 60
+    Example: recipe search "mushroom pasta" --semantic
+
+  recipe help
+    Show this help message
+
+
+EXAMPLES
+────────
+  # Add a recipe (JSON workflow)
+  python cli.py recipe add
+  # Edit addable/new_recipe.json, then run the same command again
+
+  # Edit a recipe (JSON workflow)
+  python cli.py recipe edit --id 1
+  # Edit editable/recipe_1.json, then run the same command again
+
+  # List all recipes
+  python cli.py recipe list
+
+  # Search for recipes
+  python cli.py recipe search "pasta"
+  python cli.py recipe search "pesto" --limit 5 --semantic
+
+  # Note: To manage recipe ingredients and tags, use the edit command
+  # which exports a JSON file where you can modify all fields at once

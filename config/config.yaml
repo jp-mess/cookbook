@@ -22,6 +22,6 @@ embeddings:
 # JSON staging directories
 staging:
   # Directory for addable JSON files (new items)
-  addable_dir: "addable"
+  addable_dir: "staging/addable"
   # Directory for editable JSON files (existing items)
-  editable_dir: "editable"
+  editable_dir: "staging/editable"

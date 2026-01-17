@@ -49,12 +49,12 @@ ADDABLE_DIR = _project_root / _config.get('staging', {}).get('addable_dir', 'add
 
 def ensure_editable_dir():
     """Ensure the editable directory exists."""
-    EDITABLE_DIR.mkdir(exist_ok=True)
+    EDITABLE_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def ensure_addable_dir():
     """Ensure the addable directory exists."""
-    ADDABLE_DIR.mkdir(exist_ok=True)
+    ADDABLE_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def get_json_path(recipe_id: int) -> Path:
@@ -804,7 +804,7 @@ def import_new_ingredient_from_json(json_path: Path = None) -> Ingredient:
                 print(f"    '{original}' → '{corrected}'")
         
         # Normalize name and check for corrections
-        from db_operations import normalize_name, check_spelling
+        from db_operations import normalize_name
         normalized_name, name_corrections = normalize_name(ingredient_data['name']) if ingredient_data['name'] else ('', [])
         
         # Display name corrections if any
@@ -813,19 +813,6 @@ def import_new_ingredient_from_json(json_path: Path = None) -> Ingredient:
             for original, corrected in name_corrections:
                 print(f"    '{original}' → '{corrected}'")
         
-        # Check if name contains words that couldn't be spell-checked (nonsense words)
-        if ingredient_data['name']:
-            name_words = ingredient_data['name'].lower().split()
-            uncheckable_words = []
-            for word in name_words:
-                is_correct, suggestions = check_spelling(word)
-                # If word is not in dictionary AND has no suggestions, it's likely nonsense
-                if not is_correct and not suggestions:
-                    uncheckable_words.append(word)
-            
-            if uncheckable_words:
-                print(f"  ⚠ Warning: Could not spell-check these words (no dictionary matches): {', '.join(uncheckable_words)}")
-                print(f"    These may be typos or made-up words. Please verify they are correct.")
         
         # Create the ingredient
         try:
@@ -928,20 +915,6 @@ def import_new_recipe_from_json(json_path: Path = None) -> Recipe:
             for original, corrected in corrections:
                 print(f"    '{original}' → '{corrected}'")
         
-        # Check if recipe name contains words that couldn't be spell-checked (nonsense words)
-        if recipe_data['name']:
-            from db_operations import check_spelling
-            name_words = recipe_data['name'].lower().split()
-            uncheckable_words = []
-            for word in name_words:
-                is_correct, suggestions = check_spelling(word)
-                # If word is not in dictionary AND has no suggestions, it's likely nonsense
-                if not is_correct and not suggestions:
-                    uncheckable_words.append(word)
-            
-            if uncheckable_words:
-                print(f"  ⚠ Warning: Could not spell-check these words in recipe name (no dictionary matches): {', '.join(uncheckable_words)}")
-                print(f"    These may be typos or made-up words. Please verify they are correct.")
         
         # Check that all ingredients exist - fail if any are missing
         missing_ingredients = []

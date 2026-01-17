@@ -8,6 +8,11 @@ from db_operations import (
     list_recipes, list_ingredients, list_articles, list_tags, list_ingredient_types,
     search_recipes, search_ingredients, suggest_recipes_by_ingredients
 )
+try:
+    from db_operations_semantic import semantic_search_recipes_by_query
+    SEMANTIC_SEARCH_AVAILABLE = True
+except ImportError:
+    SEMANTIC_SEARCH_AVAILABLE = False
 from models import Recipe, Ingredient, Article
 
 
@@ -74,19 +79,70 @@ def get_database_context(db, question: str) -> dict:
         'total_types': len(all_types)
     }
     
-    # If question mentions specific ingredients, get recipes with those ingredients
-    ingredient_keywords = ['ingredient', 'mushroom', 'basil', 'tomato', 'wine', 'cheese', 'pasta', 
-                          'vegetable', 'meat', 'herb', 'spice', 'dairy', 'sauce']
-    if any(keyword in question_lower for keyword in ingredient_keywords):
-        # Try to extract ingredient names from question
-        words = question_lower.split()
-        potential_ingredients = [w for w in words if len(w) > 3 and w not in ['what', 'which', 'how', 'when', 'where', 'with', 'that', 'have', 'contains']]
-        
-        if potential_ingredients:
-            # Use suggest_recipes_by_ingredients to find relevant recipes
+    # If question asks about recipes, use semantic search
+    recipe_keywords = ['recipe', 'dish', 'food', 'with', 'containing', 'has', 'have', 'ingredient', 'beans', 'legumes', 
+                      'vegetable', 'meat', 'herb', 'spice', 'dairy', 'sauce', 'mushroom', 'basil', 'tomato', 'wine', 'cheese', 'pasta']
+    if any(keyword in question_lower for keyword in recipe_keywords):
+        # Use semantic search to find relevant recipes
+        if SEMANTIC_SEARCH_AVAILABLE:
             try:
-                recipe_results = suggest_recipes_by_ingredients(db, potential_ingredients, min_match_score=60)
-                context['recipes'] = [format_recipe_summary(recipe) for recipe, _, _ in recipe_results[:10]]
+                recipe_results = semantic_search_recipes_by_query(db, question, limit=15, min_similarity=0.5)
+                # Filter recipes to only include those that actually match the query
+                # For ingredient/type queries, check if the recipe actually has those ingredients
+                filtered_recipes = []
+                for recipe, score in recipe_results:
+                    recipe_summary = format_recipe_summary(recipe)
+                    # If query mentions specific ingredients/types, verify the recipe actually has them
+                    if any(word in question_lower for word in ['bean', 'legume', 'vegetable', 'meat', 'herb', 'spice', 'dairy']):
+                        # Check if recipe has ingredients matching the query
+                        recipe_ingredients = [ing.name.lower() for ing in recipe.ingredients]
+                        recipe_types = [ing.type.name.lower() for ing in recipe.ingredients if ing.type]
+                        all_recipe_terms = recipe_ingredients + recipe_types
+                        
+                        # Extract key terms from question
+                        query_terms = []
+                        if 'bean' in question_lower or 'legume' in question_lower:
+                            query_terms.extend(['bean', 'legume'])
+                        if 'vegetable' in question_lower:
+                            query_terms.append('vegetable')
+                        if 'meat' in question_lower:
+                            query_terms.append('meat')
+                        if 'herb' in question_lower:
+                            query_terms.append('herb')
+                        if 'spice' in question_lower:
+                            query_terms.append('spice')
+                        if 'dairy' in question_lower:
+                            query_terms.append('dairy')
+                        
+                        # Only include if recipe actually has matching terms
+                        if query_terms and any(term in ' '.join(all_recipe_terms) for term in query_terms):
+                            filtered_recipes.append(recipe_summary)
+                        elif not query_terms:
+                            # No specific terms to filter on, include all
+                            filtered_recipes.append(recipe_summary)
+                    else:
+                        # No specific ingredient/type filtering needed
+                        filtered_recipes.append(recipe_summary)
+                
+                context['recipes'] = filtered_recipes[:10]  # Limit to top 10
+            except Exception as e:
+                # Fallback to old method if semantic search fails
+                try:
+                    words = question_lower.split()
+                    potential_ingredients = [w for w in words if len(w) > 3 and w not in ['what', 'which', 'how', 'when', 'where', 'with', 'that', 'have', 'contains', 'recipes', 'recipe', 'dish', 'food']]
+                    if potential_ingredients:
+                        recipe_results = suggest_recipes_by_ingredients(db, potential_ingredients, min_match_score=60)
+                        context['recipes'] = [format_recipe_summary(recipe) for recipe, _, _ in recipe_results[:10]]
+                except:
+                    pass
+        else:
+            # Fallback to old method if semantic search not available
+            try:
+                words = question_lower.split()
+                potential_ingredients = [w for w in words if len(w) > 3 and w not in ['what', 'which', 'how', 'when', 'where', 'with', 'that', 'have', 'contains', 'recipes', 'recipe', 'dish', 'food']]
+                if potential_ingredients:
+                    recipe_results = suggest_recipes_by_ingredients(db, potential_ingredients, min_match_score=60)
+                    context['recipes'] = [format_recipe_summary(recipe) for recipe, _, _ in recipe_results[:10]]
             except:
                 pass
     
@@ -95,11 +151,10 @@ def get_database_context(db, question: str) -> dict:
         # Include tag information
         context['tags'] = [tag.name for tag in all_tags]
     
-    # If question asks about recipes in general
-    if 'recipe' in question_lower or 'dish' in question_lower or 'food' in question_lower:
-        if not context['recipes']:
-            # Include a sample of recipes
-            context['recipes'] = [format_recipe_summary(recipe) for recipe in all_recipes[:10]]
+    # If question asks about recipes in general but no results yet
+    if ('recipe' in question_lower or 'dish' in question_lower or 'food' in question_lower) and not context['recipes']:
+        # Include a sample of recipes as fallback
+        context['recipes'] = [format_recipe_summary(recipe) for recipe in all_recipes[:10]]
     
     # If question asks about ingredients
     if 'ingredient' in question_lower and 'recipe' not in question_lower:
@@ -140,23 +195,34 @@ The database contains:
 - Tags: can be applied to recipes, ingredients, and articles
 - Ingredient Types: categories like vegetable, fruit, dairy, etc.
 
-When answering questions:
+CRITICAL RULES:
+- You MUST ONLY use information that is explicitly provided in the database context below
+- DO NOT add, invent, or assume any ingredients, recipes, or information that is not in the provided context
+- DO NOT use your general knowledge about recipes - only use what is in the database
+- If a recipe's ingredients list is provided, ONLY list those exact ingredients - do not add others
+- If information isn't in the context, explicitly say "This information is not in the database"
 - Be specific and cite recipe/ingredient names when relevant
 - If you mention a recipe, include its ID if available
-- Use the provided context to answer accurately
-- If information isn't in the context, say so
 - Format lists clearly with bullet points or numbers
 """
         
         # Build user prompt with context
         context_str = json.dumps(context, indent=2)
-        user_prompt = f"""Here is the current state of the recipe database:
+        user_prompt = f"""Here is the EXACT current state of the recipe database. Use ONLY this information - do not add anything from your general knowledge:
 
 {context_str}
 
 Question: {question}
 
-Please answer the question based on the database information provided above. Be specific and helpful."""
+CRITICAL INSTRUCTIONS:
+1. Look at each recipe's ingredients list in the database above
+2. ONLY list recipes that actually contain the requested ingredients/types in their ingredients list
+3. Do NOT list recipes just because they appear in the context - they must actually have the requested ingredients
+4. When listing a recipe, ONLY mention the ingredients that are shown in that recipe's ingredients list above
+5. Do NOT add any ingredients that are not explicitly listed for that recipe
+6. If a recipe does not have the requested ingredients, do NOT include it in your answer
+
+For example, if asked for recipes with "beans", only list recipes whose ingredients list includes something with "bean" in the name."""
         
         # Query Ollama
         try:

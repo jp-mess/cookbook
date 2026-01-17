@@ -17,8 +17,8 @@ DEFAULT_CONFIG = {
         'cache_dir': 'embeddings_cache'
     },
     'staging': {
-        'addable_dir': 'addable',
-        'editable_dir': 'editable'
+        'addable_dir': 'staging/addable',
+        'editable_dir': 'staging/editable'
     }
 }
 

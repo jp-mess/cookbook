@@ -100,7 +100,12 @@ def generate_recipe_embedding(recipe: Recipe, update_stale_flag: bool = False) -
     """
     Generate embedding for a recipe.
     
-    Combines name, instructions, tags, and ingredient names into a single text.
+    Recipe embedding is composed of:
+    - Ingredient names (encoded directly)
+    - Ingredient types (encoded directly)
+    - Tags are excluded from recipe embeddings for semantic search
+    
+    This ensures ingredient-based searches work correctly, including type-based searches.
     
     Args:
         recipe: Recipe object
@@ -109,35 +114,31 @@ def generate_recipe_embedding(recipe: Recipe, update_stale_flag: bool = False) -
     Returns:
         Embedding vector or None
     """
-    parts = []
+    embeddings_to_combine = []
     
-    # Recipe name (most important)
-    if recipe.name:
-        parts.append(recipe.name)
-    
-    # Tags (cuisine, style)
-    if recipe.tags:
-        tag_names = [tag.name for tag in recipe.tags]
-        parts.append(" ".join(tag_names))
-    
-    # Ingredients (what's in it)
+    # Encode ingredient names and types directly (no recursion, no tags)
     if recipe.ingredients:
-        ingredient_names = [ing.name for ing in recipe.ingredients]
-        parts.append(" ".join(ingredient_names))
+        for ingredient in recipe.ingredients:
+            # Encode the ingredient name directly
+            ingredient_name_embedding = generate_embedding(ingredient.name)
+            if ingredient_name_embedding:
+                embeddings_to_combine.append(ingredient_name_embedding)
+            
+            # Encode the ingredient type directly
+            if ingredient.type:
+                ingredient_type_embedding = generate_embedding(ingredient.type.name)
+                if ingredient_type_embedding:
+                    embeddings_to_combine.append(ingredient_type_embedding)
     
-    # Instructions (cooking method)
-    if recipe.instructions:
-        # Use first 200 chars of instructions to avoid too long text
-        instructions_preview = recipe.instructions[:200]
-        parts.append(instructions_preview)
+    # If no embeddings collected, return None
+    if not embeddings_to_combine:
+        return None
     
-    # Notes are excluded from embeddings to avoid confusion
-    
-    combined_text = " ".join(parts)
-    embedding = generate_embedding(combined_text)
+    # Average all ingredient name and type embeddings together
+    recipe_embedding = average_embeddings(embeddings_to_combine)
     
     # Update stale flag if requested
-    if update_stale_flag and embedding:
+    if update_stale_flag and recipe_embedding:
         from database import SessionLocal
         db = SessionLocal()
         try:
@@ -149,7 +150,7 @@ def generate_recipe_embedding(recipe: Recipe, update_stale_flag: bool = False) -
         finally:
             db.close()
     
-    return embedding
+    return recipe_embedding
 
 
 def generate_ingredient_embedding(ingredient: Ingredient, update_stale_flag: bool = False) -> Optional[List[float]]:
@@ -350,6 +351,73 @@ def batch_generate_article_embeddings(limit: Optional[int] = None, only_stale: b
         return embeddings
     finally:
         db.close()
+
+
+def average_embeddings(embeddings: List[List[float]]) -> Optional[List[float]]:
+    """
+    Average multiple embeddings together.
+    
+    Args:
+        embeddings: List of embedding vectors (all must be same dimension)
+    
+    Returns:
+        Averaged embedding vector, or None if empty
+    """
+    if not embeddings:
+        return None
+    
+    if not embeddings[0]:
+        return None
+    
+    dim = len(embeddings[0])
+    # Verify all embeddings have same dimension
+    if not all(len(emb) == dim for emb in embeddings if emb):
+        return None
+    
+    # Average each dimension
+    averaged = []
+    for i in range(dim):
+        values = [emb[i] for emb in embeddings if emb]
+        if values:
+            averaged.append(sum(values) / len(values))
+        else:
+            averaged.append(0.0)
+    
+    return averaged
+
+
+def max_pool_embeddings(embeddings: List[List[float]]) -> Optional[List[float]]:
+    """
+    Max pool multiple embeddings together (take max value in each dimension).
+    This preserves strong signals better than averaging.
+    
+    Args:
+        embeddings: List of embedding vectors (all must be same dimension)
+    
+    Returns:
+        Max-pooled embedding vector, or None if empty
+    """
+    if not embeddings:
+        return None
+    
+    if not embeddings[0]:
+        return None
+    
+    dim = len(embeddings[0])
+    # Verify all embeddings have same dimension
+    if not all(len(emb) == dim for emb in embeddings if emb):
+        return None
+    
+    # Max pool each dimension
+    max_pooled = []
+    for i in range(dim):
+        values = [emb[i] for emb in embeddings if emb]
+        if values:
+            max_pooled.append(max(values))
+        else:
+            max_pooled.append(0.0)
+    
+    return max_pooled
 
 
 def cosine_similarity(vec1: List[float], vec2: List[float]) -> float:

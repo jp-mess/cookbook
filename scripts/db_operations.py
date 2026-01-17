@@ -5,7 +5,6 @@ import warnings
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 from rapidfuzz import fuzz, process
-import inflect
 from models import Recipe, Ingredient, Tag, IngredientType, Article
 
 # Suppress urllib3/OpenSSL warnings
@@ -33,272 +32,49 @@ try:
 except ImportError:
     SEMANTIC_SEARCH_AVAILABLE = False
 
-# Initialize inflect engine for plural/singular conversion (fallback)
-_inflect_engine = inflect.engine()
-
-# Try to load spaCy for better lemmatization
-try:
-    import spacy
-    _spacy_nlp = None
-    def _get_spacy_nlp():
-        """Lazy load spaCy model."""
-        global _spacy_nlp
-        if _spacy_nlp is None:
-            try:
-                _spacy_nlp = spacy.load("en_core_web_sm")
-            except OSError:
-                # Model not installed, will fall back to inflect
-                _spacy_nlp = False
-        return _spacy_nlp if _spacy_nlp is not False else None
-    SPACY_AVAILABLE = True
-except ImportError:
-    SPACY_AVAILABLE = False
-    def _get_spacy_nlp():
-        return None
-
-# Words that should not be lemmatized (part of compound terms)
-# These are often verb forms used as adjectives/nouns in compound ingredient names
-NO_LEMMATIZE_WHITELIST = {
-    'whipping',  # "heavy whipping cream" - whipping is part of the compound name
-    'beating',   # potential compound terms
-    'cooking',   # potential compound terms
-    'roasting',  # potential compound terms
-}
-
-# Common cooking terms that might not be in standard dictionary
-# These are added to the spell checker's dictionary
-_COOKING_TERM_DICTIONARY = {
-    'asparagus', 'broccoli', 'cauliflower', 'celery', 'celeriac',
-    'anchovy', 'anchovies',
-    'miso', 'soy', 'tofu', 'tempeh',
-    'pesto', 'hummus', 'tahini',
-    'zucchini', 'squash', 'pumpkin',
-    'bell', 'pepper', 'peppers',
-    'cream', 'cheese', 'parmesan', 'cheddar',
-    'monterrey', 'jack', 'greek', 'yogurt',
-    'heavy', 'whipping', 'cream',
-    'tomato', 'paste',
-    'bouillon', 'nutritional', 'yeast',
-    'porcini', 'mushroom', 'powder',
-    'rutabaga', 'rutabega',  # Accept both spellings
-    'celeriac'
-}
-
-# Try to load spell checker
-try:
-    from spellchecker import SpellChecker
-    _spell_checker = SpellChecker()
-    # Add cooking terms to the dictionary
-    _spell_checker.word_frequency.load_words(_COOKING_TERM_DICTIONARY)
-    SPELLCHECK_AVAILABLE = True
-except ImportError:
-    SPELLCHECK_AVAILABLE = False
-    _spell_checker = None
-
-
-# ==================== PLURAL/SINGULAR CONVERSION ====================
-
-def singularize_word(word: str, check_spelling: bool = True) -> tuple[str, list[tuple[str, str]]]:
-    """
-    Convert a word to its singular form using spaCy lemmatization (if available),
-    falling back to inflect. Uses spell checking to detect and correct typos first.
-    If a word is in the dictionary, we trust it's correct and only singularize if
-    inflect confirms it's plural.
-    
-    Returns: (normalized_word, list of (original, corrected) tuples for corrections made)
-    """
-    corrections = []
-    if not word:
-        return word, corrections
-    
-    word = word.strip().lower()
-    original_word = word
-    
-    # First, check spelling and correct if needed
-    if check_spelling and SPELLCHECK_AVAILABLE and _spell_checker:
-        # Check if word is misspelled
-        if word not in _spell_checker:
-            # Get suggestions
-            candidates = _spell_checker.candidates(word)
-            if candidates:
-                # Get all candidates and find the best match
-                candidate_list = list(candidates)
-                from rapidfuzz import fuzz
-                
-                # Score each candidate by similarity, prefer non-possessive forms
-                scored_candidates = []
-                for c in candidate_list:
-                    similarity = fuzz.ratio(word, c)
-                    # Prefer non-possessive forms (no apostrophe)
-                    bonus = 5 if "'" not in c else 0
-                    scored_candidates.append((c, similarity + bonus))
-                
-                # Sort by similarity (highest first)
-                scored_candidates.sort(key=lambda x: x[1], reverse=True)
-                
-                # Only auto-correct if similarity is high enough (>= 70%)
-                # This distinguishes between:
-                # - Close misspellings (e.g., "asparagusses" → "asparagus" at 85% similarity) ✓
-                # - Nonsense words (e.g., "jflskdjlkjsdf" → no good match, similarity < 70%) ✗
-                # Get similarity threshold from config
-                from config_loader import get_similarity_threshold
-                similarity_threshold = get_similarity_threshold()
-                
-                if scored_candidates and scored_candidates[0][1] >= similarity_threshold:  # At least threshold% similar (before bonus)
-                    corrected = scored_candidates[0][0]
-                    # Remove possessive if present (e.g., "asparagus's" -> "asparagus")
-                    if corrected.endswith("'s") and corrected[:-2] in _spell_checker:
-                        corrected = corrected[:-2]
-                    corrections.append((original_word, corrected))
-                    word = corrected
-                # If similarity < 70%, word passes through unchanged (nonsense word, no good match)
-    
-    # Check if word is in whitelist - don't lemmatize compound term parts
-    if word in NO_LEMMATIZE_WHITELIST:
-        return word, corrections
-    
-    # If word is in dictionary (valid word), be more careful about singularization
-    is_valid_word = SPELLCHECK_AVAILABLE and _spell_checker and word in _spell_checker
-    
-    # Try spaCy lemmatization first (more accurate)
-    if SPACY_AVAILABLE:
-        nlp = _get_spacy_nlp()
-        if nlp:
-            doc = nlp(word)
-            if doc:
-                lemma = doc[0].lemma_
-                # Only use lemma if it's different and makes sense
-                # spaCy sometimes returns weird lemmas, so validate
-                if lemma and lemma != word and len(lemma) > 0:
-                    # Check if lemma is actually singular (heuristic: shorter or same length)
-                    if len(lemma) <= len(word) + 2:  # Allow small variations
-                        # If original word is in dictionary, verify lemma is also valid
-                        if is_valid_word:
-                            if SPELLCHECK_AVAILABLE and _spell_checker and lemma in _spell_checker:
-                                return lemma, corrections
-                        else:
-                            return lemma, corrections
-    
-    # Fall back to inflect
-    singular = _inflect_engine.singular_noun(word)
-    
-    # If inflect returns False, the word is already singular or not recognized
-    if singular:
-        # If original word is in dictionary, be cautious about inflect's result
-        # Inflect sometimes incorrectly treats valid singular words as plural
-        if is_valid_word:
-            # Check if the singular form is also in dictionary
-            # If not, the original word might already be singular
-            if SPELLCHECK_AVAILABLE and _spell_checker:
-                if singular not in _spell_checker:
-                    # Inflect says it's plural, but singular form not in dict
-                    # Trust the dictionary - word is probably already singular
-                    return word, corrections
-        return singular, corrections
-    
-    # Return original word if already singular or can't be converted
-    return word, corrections
-
+# ==================== SIMPLE NORMALIZATION (no spell check, no lemmatization) ====================
 
 def normalize_name(name: str, check_spelling: bool = True) -> tuple[str, list[tuple[str, str]]]:
     """
-    Normalize a name by converting to singular form and lowercase.
-    Used for ingredient and recipe names.
-    Uses spell checking to detect and correct typos before singularization.
+    Normalize a name by converting to lowercase and stripping whitespace.
+    No spell checking or lemmatization.
     
-    Returns: (normalized_name, list of (original, corrected) tuples for corrections made)
+    Returns: (normalized_name, empty corrections list for compatibility)
     """
-    corrections = []
     if not name:
-        return name, corrections
-    
-    name_lower = name.lower().strip()
-    
-    # Split into words, singularize each (with spell checking), then rejoin
-    words = name_lower.split()
-    singularized_words = []
-    for word in words:
-        normalized_word, word_corrections = singularize_word(word, check_spelling=check_spelling)
-        singularized_words.append(normalized_word)
-        corrections.extend(word_corrections)
-    
-    normalized = ' '.join(singularized_words)
-    
-    return normalized, corrections
-
-
-def check_spelling(name: str) -> tuple[bool, dict[str, list[str]]]:
-    """
-    Check spelling of ingredient/recipe name and suggest corrections.
-    Returns (is_correct, suggestions_dict).
-    suggestions_dict maps misspelled words to lists of suggested corrections.
-    """
-    if not SPELLCHECK_AVAILABLE or not _spell_checker:
-        return (True, {})  # If spell checker not available, assume correct
-    
-    if not name:
-        return (True, {})
-    
-    # Split into words and check each
-    words = name.lower().split()
-    misspelled = _spell_checker.unknown(words)
-    
-    if misspelled:
-        suggestions = {}
-        for word in misspelled:
-            candidates = _spell_checker.candidates(word)
-            if candidates:
-                suggestions[word] = list(candidates)[:5]  # Top 5 suggestions
-        return (False, suggestions)
-    
-    return (True, {})
+        return name, []
+    return name.strip().lower(), []
 
 
 def normalize_tags(tags: list[str]) -> tuple[list[str], list[tuple[str, str]]]:
     """
-    Normalize a list of tags: lowercase, spell-check, and singularize.
-    Returns (normalized_tags, list of (original, corrected) tuples).
+    Normalize a list of tags: lowercase and strip.
+    No spell checking or lemmatization.
+    Returns (normalized_tags, empty corrections list for compatibility).
     """
-    corrections = []
     normalized = []
-    
     for tag in tags:
-        if not tag or not tag.strip():
-            continue
-        
-        tag_lower = tag.strip().lower()
-        # Normalize the tag (spell check + singularize)
-        normalized_tag, tag_corrections = normalize_name(tag_lower, check_spelling=True)
-        normalized.append(normalized_tag)
-        corrections.extend(tag_corrections)
-    
-    return normalized, corrections
+        if tag and tag.strip():
+            normalized.append(tag.strip().lower())
+    return normalized, []
 
 
 def normalize_text_words(text: str) -> tuple[str, list[tuple[str, str]]]:
     """
-    Normalize text by spell-checking and correcting words.
-    Preserves sentence structure and punctuation.
-    Returns (normalized_text, list of (original, corrected) tuples).
+    Normalize text by stripping whitespace.
+    No spell checking or lemmatization.
+    Returns (normalized_text, empty corrections list for compatibility).
     """
-    corrections = []
     if not text:
-        return text, corrections
-    
-    # Split into words while preserving spaces
-    import re
-    words = re.findall(r'\b\w+\b|\s+|[^\w\s]', text)
-    normalized_words = []
-    
-    for word in words:
-        if re.match(r'\w+', word):  # It's a word
-            normalized_word, word_corrections = normalize_name(word, check_spelling=True)
-            normalized_words.append(normalized_word)
-            corrections.extend(word_corrections)
-        else:  # It's whitespace or punctuation
-            normalized_words.append(word)
-    
-    return ''.join(normalized_words), corrections
+        return text, []
+    return text.strip(), []
+
+
+def check_spelling(name: str) -> tuple[bool, dict[str, list[str]]]:
+    """
+    Stub function for compatibility - always returns (True, {}) since spell checking is disabled.
+    """
+    return (True, {})
 
 
 # ==================== INGREDIENT TYPE OPERATIONS ====================

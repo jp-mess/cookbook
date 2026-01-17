@@ -102,6 +102,36 @@ def print_recipe(recipe):
     print()
 
 
+def print_recipe_info(recipe):
+    """Pretty print detailed recipe information."""
+    print(f"\n{'='*70}")
+    print(f"Recipe #{recipe.id}: {recipe.name}")
+    print(f"{'='*70}")
+    
+    if recipe.tags:
+        tags_str = ', '.join([tag.name for tag in recipe.tags])
+        print(f"Tags: {tags_str}")
+    else:
+        print("Tags: (none)")
+    
+    if recipe.ingredients:
+        print(f"\nIngredients ({len(recipe.ingredients)} total):")
+        for ingredient in recipe.ingredients:
+            print(f"  • {ingredient.name} ({ingredient.type.name})")
+    else:
+        print("\nIngredients: (none)")
+    
+    if recipe.instructions:
+        print(f"\nInstructions:")
+        print(recipe.instructions)
+    
+    if recipe.notes:
+        print(f"\nNotes:")
+        print(recipe.notes)
+    
+    print()
+
+
 def print_article(article):
     """Print article information in a readable format."""
     print(f"\n{'='*70}")
@@ -561,6 +591,51 @@ def cmd_list_recipes(args):
         db.close()
 
 
+def cmd_recipe_info(args):
+    """Display detailed information about a recipe."""
+    recipe_id = None
+    if args.id:
+        recipe_id = args.id
+    elif args.name:
+        db = SessionLocal()
+        try:
+            # Use fuzzy matching to find the recipe
+            from db_operations import find_similar_recipes
+            similar = find_similar_recipes(db, args.name, min_score=50)
+            
+            if not similar:
+                print(f"✗ Error: No recipe found matching '{args.name}'", file=sys.stderr)
+                sys.exit(1)
+            
+            # Show top 5 matches if multiple found
+            if len(similar) > 1:
+                print(f"\nTop matches for '{args.name}':")
+                print(f"{'='*70}")
+                for i, (recipe, score) in enumerate(similar[:5], 1):
+                    print(f"  {i}. [{recipe.id:3d}] {recipe.name:40s} (Score: {score:.1f}%)")
+                print(f"{'='*70}")
+            
+            # Use the best match
+            best_match, best_score = similar[0]
+            if len(similar) > 1:
+                print(f"\n✓ Using best match: [{best_match.id}] {best_match.name} (Score: {best_score:.1f}%)")
+            recipe_id = best_match.id
+        finally:
+            db.close()
+    
+    # Get and display recipe info
+    db = SessionLocal()
+    try:
+        recipe = get_recipe(db, recipe_id=recipe_id)
+        if not recipe:
+            print(f"✗ Error: Recipe not found (ID: {recipe_id})", file=sys.stderr)
+            sys.exit(1)
+        
+        print_recipe_info(recipe)
+    finally:
+        db.close()
+
+
 def cmd_delete_recipe(args):
     """Delete a recipe by ID only."""
     if not args.id:
@@ -961,14 +1036,52 @@ def cmd_stats(args):
         db.close()
 
 
-def cmd_cleanup(args):
-    """Delete all JSON staging files in addable/ and editable/ directories."""
+def cmd_backup(args):
+    """Create a timestamped backup copy of the database."""
+    from config_loader import get_database_path
     from pathlib import Path
+    import shutil
+    from datetime import datetime
+    
+    db_path = get_database_path()
+    if not db_path.exists():
+        print(f"✗ Error: Database file not found: {db_path}", file=sys.stderr)
+        sys.exit(1)
+    
+    # Create backup directory in data/ folder
+    backup_dir = db_path.parent / "backups"
+    backup_dir.mkdir(exist_ok=True)
+    
+    # Generate timestamped filename: backup_YYYYMMDD_HHMMSS.db
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    backup_filename = f"backup_{timestamp}.db"
+    backup_path = backup_dir / backup_filename
+    
+    try:
+        # Deep copy the database file
+        shutil.copy2(db_path, backup_path)
+        print(f"✓ Backup created: {backup_path}")
+        print(f"  Original database: {db_path}")
+    except Exception as e:
+        print(f"✗ Error creating backup: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def cmd_cleanup(args):
+    """Delete all JSON staging files in staging/addable/ and staging/editable/ directories."""
+    from pathlib import Path
+    from config_loader import get_config
+    
+    _config = get_config()
+    project_root = Path(__file__).parent
     
     deleted_count = 0
     
+    # Get staging directories from config
+    addable_dir = project_root / _config.get('staging', {}).get('addable_dir', 'staging/addable')
+    editable_dir = project_root / _config.get('staging', {}).get('editable_dir', 'staging/editable')
+    
     # Clean all JSON files in addable directory and subdirectories
-    addable_dir = Path("addable")
     if addable_dir.exists():
         for json_file in addable_dir.rglob("*.json"):
             json_file.unlink()
@@ -976,7 +1089,6 @@ def cmd_cleanup(args):
             print(f"  Deleted: {json_file}")
     
     # Clean all JSON files in editable directory and subdirectories
-    editable_dir = Path("editable")
     if editable_dir.exists():
         for json_file in editable_dir.rglob("*.json"):
             json_file.unlink()
@@ -1017,15 +1129,15 @@ def cmd_embed(args):
     
     start_time = time.time()
     
-    # Generate embeddings for recipes
-    recipe_start = time.time()
-    recipe_embeddings = batch_generate_recipe_embeddings(only_stale=only_stale)
-    recipe_time = time.time() - recipe_start
-    
-    # Generate embeddings for ingredients
+    # Generate embeddings for ingredients FIRST (recipes depend on ingredient embeddings)
     ingredient_start = time.time()
     ingredient_embeddings = batch_generate_ingredient_embeddings(only_stale=only_stale)
     ingredient_time = time.time() - ingredient_start
+    
+    # Generate embeddings for recipes (uses ingredient embeddings)
+    recipe_start = time.time()
+    recipe_embeddings = batch_generate_recipe_embeddings(only_stale=only_stale)
+    recipe_time = time.time() - recipe_start
     
     # Generate embeddings for articles
     article_start = time.time()
@@ -1214,6 +1326,12 @@ def main():
     edit_recipe_group.add_argument('--id', type=int, help='Recipe ID')
     edit_recipe_parser.set_defaults(func=cmd_edit_recipe)
     
+    # Info recipe command
+    info_recipe_parser = recipe_subparsers.add_parser('info', help='Display detailed information about a recipe')
+    info_recipe_group = info_recipe_parser.add_mutually_exclusive_group(required=True)
+    info_recipe_group.add_argument('--name', help='Recipe name (fuzzy matching)')
+    info_recipe_group.add_argument('--id', type=int, help='Recipe ID')
+    info_recipe_parser.set_defaults(func=cmd_recipe_info)
     
     # Recipe help
     help_recipe_parser = recipe_subparsers.add_parser('help', help='Show help for recipe commands')
@@ -1263,7 +1381,10 @@ def main():
     ask_parser.add_argument('--model', default='llama3.2', help='Ollama model to use (default: llama3.2)')
     ask_parser.set_defaults(func=cmd_ask)
     
-    cleanup_parser = subparsers.add_parser('cleanup', help='Delete all JSON staging files (addable/ and editable/)')
+    backup_parser = subparsers.add_parser('backup', help='Create a timestamped backup copy of the database')
+    backup_parser.set_defaults(func=cmd_backup)
+    
+    cleanup_parser = subparsers.add_parser('cleanup', help='Delete all JSON staging files (staging/addable/ and staging/editable/)')
     cleanup_parser.set_defaults(func=cmd_cleanup)
     
     embed_parser = subparsers.add_parser('embed', help='Generate embeddings for recipes, ingredients, and articles')

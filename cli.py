@@ -51,7 +51,8 @@ from json_editor import (
 def print_ingredient(ingredient):
     """Print ingredient information (simple format for lists)."""
     recipe_count = len(ingredient.recipes) if ingredient.recipes else 0
-    print(f"  [{ingredient.id:3d}] {ingredient.name:30s} ({ingredient.type.name:15s}) {recipe_count:2d} recipe{'s' if recipe_count != 1 else ''}")
+    type_name = ingredient.type.name if ingredient.type else '(no type)'
+    print(f"  [{ingredient.id:3d}] {ingredient.name:30s} ({type_name:15s}) {recipe_count:2d} recipe{'s' if recipe_count != 1 else ''}")
 
 
 def print_ingredient_info(ingredient):
@@ -60,7 +61,8 @@ def print_ingredient_info(ingredient):
     print(f"Ingredient #{ingredient.id}: {ingredient.name}")
     print(f"{'='*70}")
     
-    print(f"Type: {ingredient.type.name}")
+    type_name = ingredient.type.name if ingredient.type else '(no type)'
+    print(f"Type: {type_name}")
     
     if ingredient.alias:
         aliases = [a.strip() for a in ingredient.alias.split(',') if a.strip()]
@@ -77,10 +79,11 @@ def print_ingredient_info(ingredient):
     
     # Show recipes that use this ingredient
     if ingredient.recipes:
-        recipe_names = [recipe.name for recipe in ingredient.recipes]
-        print(f"\nUsed in {len(recipe_names)} recipe(s):")
-        for recipe_name in recipe_names:
-            print(f"  • {recipe_name}")
+        recipe_names = [recipe.name for recipe in ingredient.recipes if recipe]
+        if recipe_names:
+            print(f"\nUsed in {len(recipe_names)} recipe(s):")
+            for recipe_name in recipe_names:
+                print(f"  • {recipe_name}")
     
     print()
 
@@ -116,9 +119,13 @@ def print_recipe_info(recipe):
         print("Tags: (none)")
     
     if recipe.ingredients:
-        print(f"\nIngredients ({len(recipe.ingredients)} total):")
-        for ingredient in recipe.ingredients:
-            print(f"  • {ingredient.name} ({ingredient.type.name})")
+        valid_ingredients = [ing for ing in recipe.ingredients if ing and ing.type]
+        if valid_ingredients:
+            print(f"\nIngredients ({len(valid_ingredients)} total):")
+            for ingredient in valid_ingredients:
+                print(f"  • {ingredient.name} ({ingredient.type.name})")
+        else:
+            print("\nIngredients: (none)")
     else:
         print("\nIngredients: (none)")
     
@@ -174,7 +181,7 @@ def cmd_add_ingredient(args):
                 db = SessionLocal()
                 try:
                     fresh_ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient.id).first()
-                    type_name = fresh_ingredient.type.name if fresh_ingredient else "unknown"
+                    type_name = fresh_ingredient.type.name if (fresh_ingredient and fresh_ingredient.type) else "(no type)"
                 finally:
                     db.close()
                 print(f"✓ Added ingredient: {ingredient.name} (type: {type_name})")
@@ -219,10 +226,15 @@ def cmd_list_ingredients(args):
         if not ingredients:
             print("No ingredients found.")
         else:
+            # Filter out None ingredients
+            ingredients = [ing for ing in ingredients if ing]
+            
             # Group ingredients by type
             ingredients_by_type = {}
             for ingredient in ingredients:
-                type_name = ingredient.type.name
+                if not ingredient:
+                    continue
+                type_name = ingredient.type.name if ingredient.type else '(no type)'
                 if type_name not in ingredients_by_type:
                     ingredients_by_type[type_name] = []
                 ingredients_by_type[type_name].append(ingredient)
@@ -411,18 +423,85 @@ def cmd_add_recipe(args):
 
 
 def cmd_list_recipes(args):
-    """List all recipes."""
+    """List all recipes, search recipes by name, or list recipes by subtag."""
     db = SessionLocal()
     try:
-        recipes = list_recipes(db)
-        if not recipes:
-            print("No recipes found.")
+        from db_operations import list_recipes, list_tags
+        
+        if hasattr(args, 'search') and args.search:
+            search_term = args.search.lower()
+            
+            # Check if this is a subtag search (check if any tags have this subtag)
+            all_tags = list_tags(db)
+            tags_with_subtag = [t for t in all_tags if t.subtag and t.subtag.name.lower() == search_term]
+            
+            if tags_with_subtag:
+                # This is a subtag search - list recipes grouped by tag
+                all_recipes = list_recipes(db)
+                
+                # Group recipes by tag name
+                recipes_by_tag = {}
+                for tag in tags_with_subtag:
+                    recipes_with_tag = []
+                    for recipe in all_recipes:
+                        if recipe and tag in recipe.tags:
+                            recipes_with_tag.append(recipe)
+                    if recipes_with_tag:
+                        recipes_by_tag[tag.name] = recipes_with_tag
+                
+                if not recipes_by_tag:
+                    print(f"No recipes found with tags having subtag '{args.search}'")
+                else:
+                    print(f"\n{'='*70}")
+                    print(f"Recipes with tags (subtag: '{args.search}')")
+                    print(f"{'='*70}")
+                    
+                    # Sort tags alphabetically
+                    for tag_name in sorted(recipes_by_tag.keys(), key=lambda x: x.upper()):
+                        recipes = recipes_by_tag[tag_name]
+                        print(f"\n{tag_name.upper()}")
+                        for recipe in sorted(recipes, key=lambda r: r.name.lower()):
+                            print(f"  [{recipe.id:3d}] {recipe.name}")
+                    print()
+            else:
+                # Search mode: fuzzy match recipe names
+                recipes = list_recipes(db)
+                if not recipes:
+                    print("No recipes found.")
+                else:
+                    # Simple fuzzy matching: check if search term is in recipe name (case-insensitive)
+                    matches = []
+                    for recipe in recipes:
+                        if recipe and search_term in recipe.name.lower():
+                            matches.append(recipe)
+                    
+                    # Sort by relevance (exact match first, then by position)
+                    matches.sort(key=lambda r: (r.name.lower().startswith(search_term), r.name.lower().find(search_term)))
+                    
+                    # Show top 3
+                    top_matches = matches[:3]
+                    if not top_matches:
+                        print(f"No recipes found matching '{args.search}'")
+                    else:
+                        print(f"\n{'='*70}")
+                        print(f"Recipes matching '{args.search}' (showing top {len(top_matches)})")
+                        print(f"{'='*70}")
+                        for recipe in top_matches:
+                            print(f"  [{recipe.id:3d}] {recipe.name}")
+                        print()
         else:
-            print(f"\n{'='*70}")
-            print(f"Recipes ({len(recipes)} total)")
-            print(f"{'='*70}")
-            for recipe in recipes:
-                print_recipe(recipe)
+            # List all recipes
+            recipes = list_recipes(db)
+            if not recipes:
+                print("No recipes found.")
+            else:
+                print(f"\n{'='*70}")
+                print(f"Recipes ({len(recipes)} total)")
+                print(f"{'='*70}")
+                for recipe in recipes:
+                    if recipe:
+                        print_recipe(recipe)
+                print()
     finally:
         db.close()
 
@@ -430,20 +509,28 @@ def cmd_list_recipes(args):
 def cmd_recipe_info(args):
     """Display detailed information about a recipe."""
     recipe_id = None
-    if args.id:
+    
+    # Check for positional recipe_id first
+    if hasattr(args, 'recipe_id') and args.recipe_id:
+        recipe_id = args.recipe_id
+    elif hasattr(args, 'id') and args.id:
         recipe_id = args.id
-    elif args.name:
+    elif hasattr(args, 'name') and args.name:
         db = SessionLocal()
         try:
             # Use exact name matching (case-insensitive)
             recipe = get_recipe(db, name=args.name)
             if not recipe:
                 print(f"✗ Error: No recipe found with name '{args.name}'", file=sys.stderr)
-                print(f"  Use --id to specify a recipe by ID", file=sys.stderr)
+                print(f"  Use recipe ID (positional) or --id to specify a recipe by ID", file=sys.stderr)
                 sys.exit(1)
             recipe_id = recipe.id
         finally:
             db.close()
+    
+    if not recipe_id:
+        print("✗ Error: Must provide recipe ID (positional or --id) or --name", file=sys.stderr)
+        sys.exit(1)
     
     # Get and display recipe info
     db = SessionLocal()
@@ -581,7 +668,9 @@ def cmd_list_articles(args):
             print(f"Articles ({len(articles)} total)")
             print(f"{'='*70}")
             for article in articles:
-                tags_str = ', '.join([tag.name for tag in article.tags]) if article.tags else 'none'
+                if not article:
+                    continue
+                tags_str = ', '.join([tag.name for tag in article.tags if tag]) if article.tags else 'none'
                 notes_preview = (article.notes[:50] + '...') if article.notes and len(article.notes) > 50 else (article.notes or '')
                 print(f"  [{article.id:3d}] Tags: {tags_str}")
                 if notes_preview:
@@ -696,6 +785,59 @@ def cmd_remove_type(args):
         db.close()
 
 
+def cmd_list_subtags(args):
+    """List all subtags."""
+    db = SessionLocal()
+    try:
+        from db_operations import list_subtags
+        subtags = list_subtags(db)
+        if not subtags:
+            print("No subtags found.")
+        else:
+            print(f"\n{'='*70}")
+            print(f"Subtags ({len(subtags)} total)")
+            print(f"{'='*70}")
+            for subtag in sorted(subtags, key=lambda s: s.name):
+                # Count tags using this subtag
+                tag_count = len(subtag.tags) if subtag.tags else 0
+                print(f"  [{subtag.id:3d}] {subtag.name:30s} ({tag_count} tag{'s' if tag_count != 1 else ''})")
+            print()
+    finally:
+        db.close()
+
+
+def cmd_add_subtag(args):
+    """Add a new subtag."""
+    db = SessionLocal()
+    try:
+        from db_operations import add_subtag
+        subtag = add_subtag(db, args.name)
+        print(f"✓ Added subtag: {subtag.name} (ID: {subtag.id})")
+    except ValueError as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+def cmd_remove_subtag(args):
+    """Remove a subtag by ID."""
+    db = SessionLocal()
+    try:
+        from db_operations import delete_subtag
+        deleted = delete_subtag(db, args.id)
+        if deleted:
+            print(f"✓ Removed subtag (ID: {args.id})")
+        else:
+            print(f"✗ Error: Subtag not found (ID: {args.id})", file=sys.stderr)
+            sys.exit(1)
+    except ValueError as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
 def cmd_list_tags(args):
     """List all tags, organized by subtag."""
     db = SessionLocal()
@@ -715,9 +857,10 @@ def cmd_list_tags(args):
             
             for tag in tags:
                 if tag.subtag:
-                    if tag.subtag not in tags_by_subtag:
-                        tags_by_subtag[tag.subtag] = []
-                    tags_by_subtag[tag.subtag].append(tag)
+                    subtag_name = tag.subtag.name
+                    if subtag_name not in tags_by_subtag:
+                        tags_by_subtag[subtag_name] = []
+                    tags_by_subtag[subtag_name].append(tag)
                 else:
                     tags_without_subtag.append(tag)
             
@@ -725,11 +868,11 @@ def cmd_list_tags(args):
             sorted_subtags = sorted(tags_by_subtag.keys())
             
             # Print tags grouped by subtag
-            for subtag in sorted_subtags:
-                print(f"\n{subtag.upper()}:")
+            for subtag_name in sorted_subtags:
+                print(f"\n{subtag_name.upper()}:")
                 # Sort tags within each subtag alphabetically by name
-                for tag in sorted(tags_by_subtag[subtag], key=lambda t: t.name):
-                    tag_display = f"{tag.name} --> {tag.subtag}"
+                for tag in sorted(tags_by_subtag[subtag_name], key=lambda t: t.name):
+                    tag_display = f"{tag.name} --> {tag.subtag.name}"
                     print(f"  [{tag.id:3d}] {tag_display}")
             
             # Print tags without subtags (if any)
@@ -748,8 +891,8 @@ def cmd_add_tag(args):
     db = SessionLocal()
     try:
         from db_operations import add_tag
-        tag = add_tag(db, args.name, subtag=args.subtag if hasattr(args, 'subtag') and args.subtag else None)
-        subtag_str = f" (subtag: {tag.subtag})" if tag.subtag else ""
+        tag = add_tag(db, args.name, subtag_name=args.subtag if hasattr(args, 'subtag') and args.subtag else None)
+        subtag_str = f" (subtag: {tag.subtag.name})" if tag.subtag else ""
         print(f"✓ Added tag: {tag.name}{subtag_str} (ID: {tag.id})")
     except ValueError as e:
         print(f"✗ Error: {e}", file=sys.stderr)
@@ -789,7 +932,7 @@ def cmd_edit_tag(args):
             print(f"✓ Updated tag (ID: {tag.id})")
             print(f"  Name: {tag.name}")
             if tag.subtag:
-                print(f"  Subtag: {tag.subtag}")
+                print(f"  Subtag: {tag.subtag.name}")
             print(f"  JSON file deleted.")
         except Exception as e:
             # Preserve JSON file on error so user can fix it
@@ -809,6 +952,77 @@ def cmd_edit_tag(args):
         except Exception as e:
             print(f"✗ Error: {e}", file=sys.stderr)
             sys.exit(1)
+
+
+def cmd_recipe_cook(args):
+    """Search recipes by ingredients (exact matching)."""
+    db = SessionLocal()
+    try:
+        from db_operations import search_recipes_by_ingredients_exact
+        # Join the ingredient list with commas (handle both space-separated and comma-separated)
+        # If user passes "cucumber, dill" as one arg, split it; if "cucumber" "dill" as two args, join with comma
+        ingredient_list = []
+        for ing in args.ingredients:
+            # Split by comma in case user passed "cucumber, dill" as one argument
+            ingredient_list.extend([i.strip() for i in ing.split(',') if i.strip()])
+        
+        ingredient_query = ', '.join(ingredient_list)
+        results = search_recipes_by_ingredients_exact(
+            db,
+            ingredient_query,
+            min_matches=1
+        )
+        
+        if not results:
+            print(f"No recipes found with ingredients: {ingredient_query}")
+        else:
+            print(f"\n{'='*70}")
+            print(f"Recipes with ingredients: {ingredient_query} ({len(results)} found)")
+            print(f"{'='*70}")
+            for recipe, match_count in results:
+                if recipe:
+                    print(f"  [{recipe.id:3d}] {recipe.name:40s} (Matches: {match_count})")
+            print()
+    except ValueError as e:
+        print(f"✗ {e}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"✗ Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        db.close()
+
+
+def cmd_recipe_tag(args):
+    """List recipes with a specific tag."""
+    db = SessionLocal()
+    try:
+        from db_operations import get_tag, list_recipes
+        
+        # Check if tag exists (exact match)
+        tag = get_tag(db, name=args.tag)
+        if not tag:
+            print(f"✗ Error: Tag '{args.tag}' not found. Use 'python cli.py tag list' to see available tags.", file=sys.stderr)
+            sys.exit(1)
+        
+        # Get all recipes and filter by tag
+        all_recipes = list_recipes(db)
+        matching_recipes = []
+        for recipe in all_recipes:
+            if recipe and tag in recipe.tags:
+                matching_recipes.append(recipe)
+        
+        if not matching_recipes:
+            print(f"No recipes found with tag '{args.tag}'")
+        else:
+            print(f"\n{'='*70}")
+            print(f"Recipes with tag '{args.tag}' ({len(matching_recipes)} found)")
+            print(f"{'='*70}")
+            for recipe in matching_recipes:
+                print(f"  [{recipe.id:3d}] {recipe.name}")
+            print()
+    finally:
+        db.close()
 
 
 def cmd_search(args):
@@ -836,7 +1050,8 @@ def cmd_search(args):
                     print(f"Search Results for '{args.query}' ({len(results)} found)")
                     print(f"{'='*70}")
                     for recipe, match_count in results:
-                        print(f"  [{recipe.id:3d}] {recipe.name:40s} (Matches: {match_count})")
+                        if recipe:
+                            print(f"  [{recipe.id:3d}] {recipe.name:40s} (Matches: {match_count})")
                     print()
             except ValueError as e:
                 # This is the safety check error - show it clearly
@@ -866,7 +1081,9 @@ def cmd_stats(args):
     try:
         # Count entities
         recipe_count = db.query(Recipe).count()
-        ingredient_count = db.query(Ingredient).count()
+        # Filter out None ingredients
+        all_ingredients = db.query(Ingredient).all()
+        ingredient_count = len([ing for ing in all_ingredients if ing])
         ingredient_type_count = db.query(IngredientType).count()
         tag_count = db.query(Tag).count()
         article_count = db.query(Article).count()
@@ -893,7 +1110,7 @@ def cmd_stats(args):
             total_ingredient_links = db.query(Recipe).join(Recipe.ingredients).count()
             # Better approach: count total ingredients across all recipes
             recipes_with_ingredients = db.query(Recipe).filter(Recipe.ingredients.any()).all()
-            total_ingredients_in_recipes = sum(len(recipe.ingredients) for recipe in recipes_with_ingredients)
+            total_ingredients_in_recipes = sum(len([ing for ing in recipe.ingredients if ing]) for recipe in recipes_with_ingredients if recipe)
             if recipe_count > 0:
                 avg_ingredients_per_recipe = total_ingredients_in_recipes / recipe_count
         
@@ -901,7 +1118,7 @@ def cmd_stats(args):
         avg_tags_per_recipe = 0.0
         if recipe_count > 0:
             recipes_with_tags = db.query(Recipe).filter(Recipe.tags.any()).all()
-            total_tags_in_recipes = sum(len(recipe.tags) for recipe in recipes_with_tags)
+            total_tags_in_recipes = sum(len([tag for tag in recipe.tags if tag]) for recipe in recipes_with_tags if recipe)
             if recipe_count > 0:
                 avg_tags_per_recipe = total_tags_in_recipes / recipe_count
         
@@ -1001,14 +1218,16 @@ def cmd_cleanup(args):
 
 
 def cmd_consistent(args):
-    """Check database consistency: verify all recipe ingredients exist in ingredients database, and all tags exist in tag list."""
+    """Check database consistency: verify all recipe ingredients exist in ingredients database, all tags exist in tag list, all types exist in types list, and all subtags exist in subtag list."""
     db = SessionLocal()
     try:
-        from db_operations import list_recipes, list_ingredients, list_tags
+        from db_operations import list_recipes, list_ingredients, list_tags, list_ingredient_types, list_subtags
         
         all_recipes = list_recipes(db)
         all_ingredients = list_ingredients(db)
         all_tags = list_tags(db)
+        all_types = list_ingredient_types(db)
+        all_subtags = list_subtags(db)
         
         # Create a set of all ingredient names (normalized to lowercase)
         ingredient_names = {ing.name.lower() for ing in all_ingredients if ing}
@@ -1016,11 +1235,17 @@ def cmd_consistent(args):
         # Create a set of all tag IDs
         tag_ids = {tag.id for tag in all_tags}
         
+        # Create a set of all type IDs
+        type_ids = {t.id for t in all_types}
+        
+        # Create a set of all subtag IDs
+        subtag_ids = {st.id for st in all_subtags}
+        
         print(f"\n{'='*70}")
         print("Database Consistency Check")
         print(f"{'='*70}")
         print(f"Checking {len(all_recipes)} recipe(s) and {len(all_ingredients)} ingredient(s)...")
-        print(f"Verifying against {len(all_ingredients)} ingredient(s) and {len(all_tags)} tag(s)...")
+        print(f"Verifying against {len(all_ingredients)} ingredient(s), {len(all_tags)} tag(s), {len(all_types)} type(s), and {len(all_subtags)} subtag(s)...")
         print()
         
         issues_found = []
@@ -1031,6 +1256,8 @@ def cmd_consistent(args):
                 continue
             recipe_ingredients = recipe.ingredients
             for ingredient in recipe_ingredients:
+                if not ingredient:
+                    continue
                 # Check if ingredient name exists in ingredients database
                 if ingredient.name.lower() not in ingredient_names:
                     issues_found.append({
@@ -1046,6 +1273,8 @@ def cmd_consistent(args):
                 continue
             recipe_tags = recipe.tags
             for tag in recipe_tags:
+                if not tag:
+                    continue
                 # Check if tag ID exists in tags database
                 if tag.id not in tag_ids:
                     issues_found.append({
@@ -1062,6 +1291,8 @@ def cmd_consistent(args):
                 continue
             ingredient_tags = ingredient.tags
             for tag in ingredient_tags:
+                if not tag:
+                    continue
                 # Check if tag ID exists in tags database
                 if tag.id not in tag_ids:
                     issues_found.append({
@@ -1072,10 +1303,76 @@ def cmd_consistent(args):
                         'tag_name': tag.name
                     })
         
+        # Check ingredient types (only if ingredient has a type - typeless is allowed)
+        for ingredient in all_ingredients:
+            if not ingredient:
+                continue
+            if ingredient.type:
+                # Check if type ID exists in types database
+                if ingredient.type.id not in type_ids:
+                    issues_found.append({
+                        'type': 'ingredient_type',
+                        'ingredient_id': ingredient.id,
+                        'ingredient_name': ingredient.name,
+                        'type_id': ingredient.type.id,
+                        'type_name': ingredient.type.name if ingredient.type else 'unknown'
+                    })
+        
+        # Check tag subtags (only if tag has a subtag - subtagless is allowed)
+        for tag in all_tags:
+            if not tag:
+                continue
+            if tag.subtag:
+                # Check if subtag ID exists in subtags database
+                if tag.subtag.id not in subtag_ids:
+                    issues_found.append({
+                        'type': 'tag_subtag',
+                        'tag_id': tag.id,
+                        'tag_name': tag.name,
+                        'subtag_id': tag.subtag.id,
+                        'subtag_name': tag.subtag.name if tag.subtag else 'unknown'
+                    })
+        
+        # Find unused items and items without optional fields
+        # Unused types (types not used in any ingredients)
+        used_type_ids = {ing.type.id for ing in all_ingredients if ing and ing.type}
+        unused_types = [t for t in all_types if t.id not in used_type_ids]
+        
+        # Unused tags (tags not used in recipes, ingredients, or articles)
+        used_tag_ids = set()
+        for recipe in all_recipes:
+            if recipe:
+                used_tag_ids.update(tag.id for tag in recipe.tags if tag)
+        for ingredient in all_ingredients:
+            if ingredient:
+                used_tag_ids.update(tag.id for tag in ingredient.tags if tag)
+        # Check articles too
+        from models import Article
+        all_articles = db.query(Article).all()
+        for article in all_articles:
+            if article:
+                used_tag_ids.update(tag.id for tag in article.tags if tag)
+        unused_tags = [t for t in all_tags if t.id not in used_tag_ids]
+        
+        # Unused ingredients (ingredients not in any recipes)
+        used_ingredient_ids = set()
+        for recipe in all_recipes:
+            if recipe:
+                used_ingredient_ids.update(ing.id for ing in recipe.ingredients if ing)
+        unused_ingredients = [ing for ing in all_ingredients if ing and ing.id not in used_ingredient_ids]
+        
+        # Tags without subtags
+        tags_without_subtags = [t for t in all_tags if not t.subtag]
+        
+        # Ingredients without types
+        ingredients_without_types = [ing for ing in all_ingredients if ing and not ing.type]
+        
         if not issues_found:
             print("✓ Database is consistent!")
             print(f"  All recipe ingredients exist in the ingredients database.")
             print(f"  All tags used in recipes and ingredients exist in the tag list.")
+            print(f"  All types used in ingredients exist in the types list.")
+            print(f"  All subtags used in tags exist in the subtag list.")
         else:
             print(f"✗ Found {len(issues_found)} consistency issue(s):")
             print()
@@ -1084,6 +1381,8 @@ def cmd_consistent(args):
             ingredient_issues = [i for i in issues_found if i['type'] == 'recipe_ingredient']
             recipe_tag_issues = [i for i in issues_found if i['type'] == 'recipe_tag']
             ingredient_tag_issues = [i for i in issues_found if i['type'] == 'ingredient_tag']
+            ingredient_type_issues = [i for i in issues_found if i['type'] == 'ingredient_type']
+            tag_subtag_issues = [i for i in issues_found if i['type'] == 'tag_subtag']
             
             if ingredient_issues:
                 print(f"  Missing Ingredients ({len(ingredient_issues)} issue(s)):")
@@ -1106,7 +1405,61 @@ def cmd_consistent(args):
                     print(f"      Invalid tag: {issue['tag_name']} (ID: {issue['tag_id']})")
                 print()
             
+            if ingredient_type_issues:
+                print(f"  Invalid Ingredient Types ({len(ingredient_type_issues)} issue(s)):")
+                for issue in ingredient_type_issues:
+                    print(f"    Ingredient #{issue['ingredient_id']}: {issue['ingredient_name']}")
+                    print(f"      Invalid type: {issue['type_name']} (ID: {issue['type_id']})")
+                print()
+            
+            if tag_subtag_issues:
+                print(f"  Invalid Tag Subtags ({len(tag_subtag_issues)} issue(s)):")
+                for issue in tag_subtag_issues:
+                    print(f"    Tag #{issue['tag_id']}: {issue['tag_name']}")
+                    print(f"      Invalid subtag: {issue['subtag_name']} (ID: {issue['subtag_id']})")
+                print()
+            
             print(f"Total: {len(issues_found)} issue(s) found")
+            print()
+        
+        # Report unused items and items without optional fields
+        if unused_types or unused_tags or unused_ingredients or unused_subtags or tags_without_subtags or ingredients_without_types:
+            print("=" * 70)
+            print("Additional Information (Not Errors)")
+            print("=" * 70)
+            print()
+            
+            if unused_types:
+                print(f"Unused Types ({len(unused_types)}):")
+                for t in sorted(unused_types, key=lambda x: x.name):
+                    print(f"  [{t.id:3d}] {t.name}")
+                print()
+            
+            if unused_tags:
+                print(f"Unused Tags ({len(unused_tags)}):")
+                for t in sorted(unused_tags, key=lambda x: x.name):
+                    subtag_str = f" --> {t.subtag.name}" if t.subtag else ""
+                    print(f"  [{t.id:3d}] {t.name}{subtag_str}")
+                print()
+            
+            if unused_ingredients:
+                print(f"Unused Ingredients ({len(unused_ingredients)}):")
+                for ing in sorted(unused_ingredients, key=lambda x: x.name):
+                    type_name = ing.type.name if ing.type else '(no type)'
+                    print(f"  [{ing.id:3d}] {ing.name} ({type_name})")
+                print()
+            
+            if tags_without_subtags:
+                print(f"Tags Without Subtags ({len(tags_without_subtags)}):")
+                for t in sorted(tags_without_subtags, key=lambda x: x.name):
+                    print(f"  [{t.id:3d}] {t.name}")
+                print()
+            
+            if ingredients_without_types:
+                print(f"Ingredients Without Types ({len(ingredients_without_types)}):")
+                for ing in sorted(ingredients_without_types, key=lambda x: x.name):
+                    print(f"  [{ing.id:3d}] {ing.name}")
+                print()
         
         print()
     finally:
@@ -1278,7 +1631,8 @@ def main():
     add_recipe_parser = recipe_subparsers.add_parser('add', help='Add a recipe using JSON file')
     add_recipe_parser.set_defaults(func=cmd_add_recipe)
     
-    list_recipe_parser = recipe_subparsers.add_parser('list', help='List all recipes')
+    list_recipe_parser = recipe_subparsers.add_parser('list', help='List all recipes, or search recipes by name if search string provided')
+    list_recipe_parser.add_argument('search', nargs='?', help='Optional search string to filter recipes by name')
     list_recipe_parser.set_defaults(func=cmd_list_recipes)
     
     delete_recipe_parser = recipe_subparsers.add_parser('delete', help='Delete a recipe by ID')
@@ -1292,12 +1646,23 @@ def main():
     edit_recipe_group.add_argument('--id', type=int, help='Recipe ID')
     edit_recipe_parser.set_defaults(func=cmd_edit_recipe)
     
-    # Info recipe command
+    # Info recipe command (accepts positional INT or --id/--name)
     info_recipe_parser = recipe_subparsers.add_parser('info', help='Display detailed information about a recipe')
-    info_recipe_group = info_recipe_parser.add_mutually_exclusive_group(required=True)
+    info_recipe_parser.add_argument('recipe_id', nargs='?', type=int, help='Recipe ID (positional)')
+    info_recipe_group = info_recipe_parser.add_mutually_exclusive_group(required=False)
     info_recipe_group.add_argument('--name', help='Recipe name (fuzzy matching)')
     info_recipe_group.add_argument('--id', type=int, help='Recipe ID')
     info_recipe_parser.set_defaults(func=cmd_recipe_info)
+    
+    # Cook command (ingredient matching)
+    cook_recipe_parser = recipe_subparsers.add_parser('cook', help='Search recipes by ingredients (exact matching)')
+    cook_recipe_parser.add_argument('ingredients', nargs='+', help='List of ingredient names (comma-separated or space-separated)')
+    cook_recipe_parser.set_defaults(func=cmd_recipe_cook)
+    
+    # Tag command (list recipes with tag)
+    tag_recipe_parser = recipe_subparsers.add_parser('tag', help='List recipes with a specific tag')
+    tag_recipe_parser.add_argument('tag', help='Tag name (exact match)')
+    tag_recipe_parser.set_defaults(func=cmd_recipe_tag)
     
     # Recipe help
     help_recipe_parser = recipe_subparsers.add_parser('help', help='Show help for recipe commands')
@@ -1359,6 +1724,21 @@ def main():
     remove_tag_parser = tag_subparsers.add_parser('remove', help='Remove a tag by ID')
     remove_tag_parser.add_argument('--id', type=int, required=True, help='Tag ID')
     remove_tag_parser.set_defaults(func=cmd_remove_tag)
+    
+    # Subtag commands
+    subtag_parser = subparsers.add_parser('subtag', help='Subtag operations')
+    subtag_subparsers = subtag_parser.add_subparsers(dest='subtag_action')
+    
+    add_subtag_parser = subtag_subparsers.add_parser('add', help='Add a new subtag')
+    add_subtag_parser.add_argument('name', help='Name of the subtag')
+    add_subtag_parser.set_defaults(func=cmd_add_subtag)
+    
+    list_subtag_parser = subtag_subparsers.add_parser('list', help='List all subtags')
+    list_subtag_parser.set_defaults(func=cmd_list_subtags)
+    
+    remove_subtag_parser = subtag_subparsers.add_parser('remove', help='Remove a subtag by ID')
+    remove_subtag_parser.add_argument('--id', type=int, required=True, help='Subtag ID')
+    remove_subtag_parser.set_defaults(func=cmd_remove_subtag)
     
     # Unified search command
     search_parser = subparsers.add_parser('search', help='Search recipes by exact ingredient matching')

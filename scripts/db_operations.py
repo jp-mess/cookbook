@@ -4,7 +4,7 @@ Database operations for recipes and ingredients.
 import warnings
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from models import Recipe, Ingredient, Tag, IngredientType, Article
+from models import Recipe, Ingredient, Tag, IngredientType, Article, Subtag
 
 # Suppress urllib3/OpenSSL warnings
 try:
@@ -121,7 +121,7 @@ def delete_ingredient_type(db: Session, type_id: int) -> bool:
 def add_ingredient(
     db: Session,
     name: str,
-    type_name: str,
+    type_name: str = None,
     notes: str = None,
     tags: list = None
 ) -> Ingredient:
@@ -129,10 +129,12 @@ def add_ingredient(
     # Normalize name (convert to singular and lowercase)
     normalized_name, _ = normalize_name(name)
     
-    # Get ingredient type (must exist - no auto-creation)
-    ingredient_type = get_ingredient_type(db, name=type_name)
-    if not ingredient_type:
-        raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
+    # Get ingredient type (optional - can be None for typeless ingredients)
+    ingredient_type = None
+    if type_name:
+        ingredient_type = get_ingredient_type(db, name=type_name)
+        if not ingredient_type:
+            raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
     
     # Check if ingredient already exists (using normalized name)
     existing = db.query(Ingredient).filter(Ingredient.name == normalized_name).first()
@@ -209,10 +211,14 @@ def update_ingredient(
         ingredient.name = normalized_new_name
     
     if type_name is not None:
-        ingredient_type = get_ingredient_type(db, name=type_name)
-        if not ingredient_type:
-            raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
-        ingredient.type = ingredient_type
+        if type_name.strip() == '':
+            # Empty string means remove type (make typeless)
+            ingredient.type = None
+        else:
+            ingredient_type = get_ingredient_type(db, name=type_name)
+            if not ingredient_type:
+                raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
+            ingredient.type = ingredient_type
     
     if alias is not None:
         ingredient.alias = alias
@@ -306,22 +312,85 @@ def get_or_create_tag(db: Session, tag_name: str) -> Tag:
     return tag
 
 
+# ==================== SUBTAG OPERATIONS ====================
+
+def get_subtag(db: Session, subtag_id: int = None, name: str = None) -> Subtag:
+    """Get a subtag by ID or name."""
+    if subtag_id:
+        return db.query(Subtag).filter(Subtag.id == subtag_id).first()
+    elif name:
+        normalized_name = name.strip().lower()
+        return db.query(Subtag).filter(Subtag.name == normalized_name).first()
+    return None
+
+
+def list_subtags(db: Session):
+    """List all subtags."""
+    return db.query(Subtag).all()
+
+
+def add_subtag(db: Session, name: str) -> Subtag:
+    """Add a new subtag to the database."""
+    normalized_name = name.strip().lower()
+    
+    # Check if subtag already exists
+    existing = db.query(Subtag).filter(Subtag.name == normalized_name).first()
+    if existing:
+        raise ValueError(f"Subtag '{name}' already exists (ID: {existing.id})")
+    
+    subtag = Subtag(name=normalized_name)
+    db.add(subtag)
+    db.commit()
+    db.refresh(subtag)
+    return subtag
+
+
+def delete_subtag(db: Session, subtag_id: int) -> bool:
+    """Delete a subtag by ID. Returns True if deleted, False if not found."""
+    subtag = db.query(Subtag).filter(Subtag.id == subtag_id).first()
+    if not subtag:
+        return False
+    
+    # Check if any tags use this subtag
+    tags_using_subtag = [tag for tag in subtag.tags if tag and tag.subtag_id == subtag_id]
+    if tags_using_subtag:
+        tag_names = [tag.name for tag in tags_using_subtag]
+        raise ValueError(f"Cannot delete subtag '{subtag.name}' (ID: {subtag_id}). It is used by {len(tags_using_subtag)} tag(s): {', '.join(tag_names[:5])}{'...' if len(tag_names) > 5 else ''}")
+    
+    db.delete(subtag)
+    db.commit()
+    return True
+
+
+# ==================== TAG OPERATIONS ====================
+
 def list_tags(db: Session):
     """List all tags."""
     return db.query(Tag).all()
 
 
-def add_tag(db: Session, name: str, subtag: str = None) -> Tag:
-    """Add a new tag to the database."""
+def add_tag(db: Session, name: str, subtag_name: str = None) -> Tag:
+    """Add a new tag to the database.
+    
+    Args:
+        name: Tag name
+        subtag_name: Optional subtag name (must exist - no auto-creation)
+    """
     normalized_name = name.strip().lower()
-    normalized_subtag = subtag.strip().lower() if subtag and subtag.strip() else None
     
     # Check if tag already exists
     existing = db.query(Tag).filter(Tag.name == normalized_name).first()
     if existing:
         raise ValueError(f"Tag '{name}' already exists (ID: {existing.id})")
     
-    tag = Tag(name=normalized_name, subtag=normalized_subtag)
+    # Get subtag if provided (must exist - no auto-creation)
+    subtag_obj = None
+    if subtag_name:
+        subtag_obj = get_subtag(db, name=subtag_name)
+        if not subtag_obj:
+            raise ValueError(f"Subtag '{subtag_name}' not found. Add it first using 'python cli.py subtag add'.")
+    
+    tag = Tag(name=normalized_name, subtag=subtag_obj)
     db.add(tag)
     db.commit()
     db.refresh(tag)
@@ -371,12 +440,12 @@ def get_ingredient_type(db: Session, type_id: int = None, name: str = None) -> I
     return None
 
 
-def update_tag(db: Session, tag_id: int, new_name: str = ..., new_subtag: str = ...) -> Tag:
+def update_tag(db: Session, tag_id: int, new_name: str = ..., new_subtag_name: str = ...) -> Tag:
     """Update a tag's name and/or subtag.
     
     Args:
         new_name: New name for the tag (Ellipsis means don't update, None means clear - but names can't be None)
-        new_subtag: New subtag (Ellipsis means don't update, None means clear it)
+        new_subtag_name: New subtag name (Ellipsis means don't update, None means clear it, string means set to that subtag)
     """
     tag = db.query(Tag).filter(Tag.id == tag_id).first()
     if not tag:
@@ -396,12 +465,15 @@ def update_tag(db: Session, tag_id: int, new_name: str = ..., new_subtag: str = 
             raise ValueError("Tag name cannot be empty")
     
     # Update subtag if provided (Ellipsis means don't update, None means clear it)
-    if new_subtag is not ...:
-        if new_subtag and new_subtag.strip():
-            normalized_subtag = new_subtag.strip().lower()
+    if new_subtag_name is not ...:
+        if new_subtag_name and new_subtag_name.strip():
+            # Get subtag (must exist - no auto-creation)
+            subtag_obj = get_subtag(db, name=new_subtag_name)
+            if not subtag_obj:
+                raise ValueError(f"Subtag '{new_subtag_name}' not found. Add it first using 'python cli.py subtag add'.")
+            tag.subtag = subtag_obj
         else:
-            normalized_subtag = None
-        tag.subtag = normalized_subtag
+            tag.subtag = None
     
     db.commit()
     db.refresh(tag)
@@ -644,7 +716,8 @@ def search_recipes_by_ingredients_exact(
         return []
     
     # Validate that all requested ingredients exist in the database
-    all_ingredients_in_db = {ing.name.lower() for ing in db.query(Ingredient).all()}
+    all_ingredients_list = db.query(Ingredient).all()
+    all_ingredients_in_db = {ing.name.lower() for ing in all_ingredients_list if ing and ing.name}
     missing_ingredients = [ing for ing in requested_ingredients if ing not in all_ingredients_in_db]
     
     if missing_ingredients:
@@ -662,8 +735,10 @@ def search_recipes_by_ingredients_exact(
     # For each recipe, count exact ingredient matches
     results = []
     for recipe in all_recipes:
-        # Get recipe ingredient names (normalized to lowercase)
-        recipe_ingredient_names = {ing.name.lower() for ing in recipe.ingredients}
+        if not recipe:
+            continue
+        # Get recipe ingredient names (normalized to lowercase), filtering out None ingredients
+        recipe_ingredient_names = {ing.name.lower() for ing in recipe.ingredients if ing and ing.name}
         
         # Count how many requested ingredients are found in this recipe
         match_count = 0

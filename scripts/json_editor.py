@@ -307,7 +307,7 @@ def ingredient_to_json(ingredient: Ingredient) -> dict:
     return {
         'id': ingredient.id,
         'name': ingredient.name,
-        'type': ingredient.type.name,
+        'type': ingredient.type.name if ingredient.type else '',
         'alias': aliases,
         'notes': notes,
         'tags': [tag.name for tag in ingredient.tags]
@@ -431,11 +431,16 @@ def import_ingredient_from_json(ingredient_id: int) -> Ingredient:
         
         current_alias = ingredient.alias or ''
         new_alias = ingredient_data.get('alias') or ''
+        # Handle type update - check if type changed or if it should be removed (empty string)
+        current_type_name = ingredient.type.name if ingredient.type else ''
+        new_type_name = ingredient_data.get('type') or ''
+        type_changed = new_type_name != current_type_name
+        
         ingredient = update_ingredient(
             db,
             ingredient_id=ingredient_id,
             new_name=ingredient_data['name'] if new_name_normalized != current_name_normalized else None,
-            type_name=ingredient_data['type'] if ingredient_data['type'] != ingredient.type.name else None,
+            type_name=new_type_name if type_changed else None,
             alias=ingredient_data['alias'] if new_alias != current_alias else None,
             notes=ingredient_data['notes']
         )
@@ -777,9 +782,7 @@ def import_new_ingredient_from_json(json_path: Path = None) -> Ingredient:
             raise ValueError("Ingredient name is required")
         
         type_name = json_data.get('type', '').strip()
-        if not type_name:
-            db.rollback()
-            raise ValueError("Ingredient type is required")
+        # Type is optional - empty string means typeless ingredient
         
         # Convert JSON to ingredient data (with spell checking)
         try:
@@ -811,7 +814,7 @@ def import_new_ingredient_from_json(json_path: Path = None) -> Ingredient:
             ingredient = add_ingredient(
                 db,
                 name=ingredient_data['name'],
-                type_name=ingredient_data['type'],
+                type_name=ingredient_data['type'] if ingredient_data['type'] else None,
                 notes=ingredient_data['notes'],
                 tags=ingredient_data['tags']
             )
@@ -954,7 +957,7 @@ def tag_to_json(tag: Tag) -> dict:
     return {
         'id': tag.id,
         'name': tag.name,
-        'subtag': tag.subtag if tag.subtag else ''
+        'subtag': tag.subtag.name if tag.subtag else ''
     }
 
 
@@ -1025,10 +1028,10 @@ def import_tag_from_json(tag_id: int) -> Tag:
         # Update tag
         from db_operations import update_tag
         # Compare subtags properly (handle None vs empty string)
-        current_subtag = tag.subtag or ''
+        current_subtag_name = tag.subtag.name if tag.subtag else ''
         new_subtag_raw = json_data.get('subtag', '')  # Get raw value before normalization
         new_subtag_normalized = tag_data['subtag'] or ''  # Normalized value
-        subtag_changed = new_subtag_normalized != current_subtag
+        subtag_changed = new_subtag_normalized != current_subtag_name
         
         # If subtag changed, pass the normalized value (None for empty, or the actual value)
         # Use Ellipsis (...) to mean "don't update this field"
@@ -1036,7 +1039,7 @@ def import_tag_from_json(tag_id: int) -> Tag:
             db,
             tag_id=tag_id,
             new_name=tag_data['name'] if tag_data['name'] != tag.name else ...,
-            new_subtag=tag_data['subtag'] if subtag_changed else ...
+            new_subtag_name=tag_data['subtag'] if subtag_changed else ...
         )
         
         # Delete the JSON file after successful import

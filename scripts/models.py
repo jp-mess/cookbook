@@ -63,13 +63,27 @@ class Recipe(Base):
     )
 
 
+class Subtag(Base):
+    """Subtag model - formal subtag types (e.g., "region", "flavor", "food-type")"""
+    __tablename__ = 'subtags'
+    
+    id = Column(Integer, primary_key=True)
+    name = Column(String(100), nullable=False, unique=True)  # e.g., "region", "flavor", "food-type"
+    
+    # One-to-many relationship: one subtag can have many tags
+    tags = relationship('Tag', back_populates='subtag')
+
+
 class Tag(Base):
     """Tag model - can be applied to multiple recipes, ingredients, and articles (many-to-many)"""
     __tablename__ = 'tags'
     
     id = Column(Integer, primary_key=True)
     name = Column(String(100), nullable=False, unique=True)  # e.g., "italian", "french"
-    subtag = Column(String(100), nullable=True)  # Optional subtag (e.g., "north" for "italian")
+    subtag_id = Column(Integer, ForeignKey('subtags.id'), nullable=True)  # Optional subtag reference
+    
+    # Many-to-one relationship: many tags can belong to one subtag (nullable - can be subtagless)
+    subtag = relationship('Subtag', back_populates='tags')
     
     # Many-to-many relationship with Recipes
     recipes = relationship('Recipe', secondary=recipe_tags, back_populates='tags')
@@ -101,8 +115,8 @@ class Ingredient(Base):
     alias = Column(Text)  # Comma-separated aliases (e.g., "garbanzo bean, ceci")
     notes = Column(Text)  # General notes about the ingredient
     
-    # Many-to-one relationship: many ingredients belong to one type
-    type_id = Column(Integer, ForeignKey('ingredient_types.id'), nullable=False)
+    # Many-to-one relationship: many ingredients belong to one type (nullable - can be typeless)
+    type_id = Column(Integer, ForeignKey('ingredient_types.id'), nullable=True)
     type = relationship('IngredientType', back_populates='ingredients')
     
     # Many-to-many relationship with Tags

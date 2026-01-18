@@ -3,5 +3,4 @@ broccolini
 broccoli rabe
 asparagus
 green beans
-peas
 brussels sprouts

@@ -1,5 +1,4 @@
 lemon
 lime
-tangerine
 lemon zest
 orange zest

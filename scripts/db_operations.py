@@ -687,18 +687,20 @@ def search_recipes_by_ingredients_exact(
     Parses a comma-delimited list of ingredients/types and finds recipes that contain
     those ingredients. Can search by:
     - Specific ingredient name (e.g., "broccoli")
-    - Ingredient type (e.g., "vegetables-a", "tofu") - matches if recipe has ANY ingredient of that type
+    - Ingredient type (e.g., "vegetables-european", "tofu") - counts each matching ingredient of that type
     
     Results are ranked by number of matches (more matches = higher rank).
+    When searching by type, recipes with multiple ingredients of that type will score higher
+    (e.g., a recipe with 3 vegetables-european ingredients gets 3 points, not 1).
     
     Args:
         db: Database session
-        ingredient_query: Comma-delimited list of ingredient names or types (e.g., "cucumber, vegetables-a, tofu")
-        min_matches: Minimum number of ingredient/type matches required (default: 1)
+        ingredient_query: Comma-delimited list of ingredient names or types (e.g., "cucumber, vegetables-european, tofu")
+        min_matches: Minimum number of ingredient matches required (default: 1)
     
     Returns:
         List of tuples: (recipe, match_count) sorted by match_count descending
-        match_count is the number of requested ingredients/types found in the recipe
+        match_count is the total number of matching ingredients found in the recipe
     """
     # Parse comma-delimited ingredients/types
     requested_terms = [term.strip().lower() for term in ingredient_query.split(',') if term.strip()]
@@ -757,12 +759,13 @@ def search_recipes_by_ingredients_exact(
         recipe_ingredient_names = {ing.name.lower() for ing in recipe.ingredients if ing and ing.name}
         
         # Count how many requested terms match this recipe
+        # For types, count each matching ingredient (not just 1 per type)
         match_count = 0
         for term, matching_ingredient_names in term_matching_ingredients.items():
-            # Check if recipe has any ingredient that matches this term
-            # (either exact name match or type match)
-            if recipe_ingredient_names & matching_ingredient_names:
-                match_count += 1
+            # Count all matching ingredients (not just check if any match exists)
+            # This allows recipes with multiple ingredients of the same type to score higher
+            matches = recipe_ingredient_names & matching_ingredient_names
+            match_count += len(matches)
         
         # Only include recipes that meet the minimum match requirement
         if match_count >= min_matches:

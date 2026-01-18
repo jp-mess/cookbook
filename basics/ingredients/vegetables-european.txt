@@ -1,6 +1,5 @@
 beets
 cabbage
-potatoes
 turnips
 radishes
 parsnips
@@ -8,3 +7,4 @@ carrots
 celery
 celery root
 rutabaga
+leeks

@@ -19,3 +19,6 @@ flatbread
 wonton/dumpling
 protein shake
 tartine
+panini
+sandwich
+leftover fusion

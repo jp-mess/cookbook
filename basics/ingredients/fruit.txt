@@ -10,3 +10,5 @@ pears
 raisins
 dried cranberries
 cantaloupe/honeydew
+orange
+tangerine

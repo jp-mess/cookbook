@@ -4,3 +4,4 @@ walnuts
 peanuts
 macadamia nuts
 cashews
+pistachios

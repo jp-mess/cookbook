@@ -3,7 +3,10 @@ bananas
 strawberries
 blueberries
 raspberries
+blackberries
 avocados
 grapes
 pears
 raisins
+dried cranberries
+cantaloupe/honeydew

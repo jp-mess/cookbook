@@ -1075,10 +1075,13 @@ def cmd_recipe_tag(args):
     try:
         from db_operations import get_tag, list_recipes
         
+        # Join all tag arguments with spaces to handle tags with spaces
+        tag_name = ' '.join(args.tag)
+        
         # Check if tag exists (exact match)
-        tag = get_tag(db, name=args.tag)
+        tag = get_tag(db, name=tag_name)
         if not tag:
-            print(f"✗ Error: Tag '{args.tag}' not found. Use 'python cli.py tag list' to see available tags.", file=sys.stderr)
+            print(f"✗ Error: Tag '{tag_name}' not found. Use 'python cli.py tag list' to see available tags.", file=sys.stderr)
             sys.exit(1)
         
         # Get all recipes and filter by tag (use explicit ID comparison for reliability)
@@ -1092,10 +1095,10 @@ def cmd_recipe_tag(args):
                     matching_recipes.append(recipe)
         
         if not matching_recipes:
-            print(f"No recipes found with tag '{args.tag}'")
+            print(f"No recipes found with tag '{tag_name}'")
         else:
             print(f"\n{'='*70}")
-            print(f"Recipes with tag '{args.tag}' ({len(matching_recipes)} found)")
+            print(f"Recipes with tag '{tag_name}' ({len(matching_recipes)} found)")
             print(f"{'='*70}")
             for recipe in matching_recipes:
                 print(f"  [{recipe.id:3d}] {recipe.name}")
@@ -1727,7 +1730,7 @@ def main():
     
     # Tag command (list recipes with tag)
     tag_recipe_parser = recipe_subparsers.add_parser('tag', help='List recipes with a specific tag')
-    tag_recipe_parser.add_argument('tag', help='Tag name (exact match)')
+    tag_recipe_parser.add_argument('tag', nargs='+', help='Tag name (spaces are preserved, e.g., "chlorophyll sauce")')
     tag_recipe_parser.set_defaults(func=cmd_recipe_tag)
     
     # Recipe help

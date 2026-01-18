@@ -14,7 +14,8 @@ DATABASE_URL = f"sqlite:///{db_path.absolute()}"
 
 # Create engine
 # Set echo=False for cleaner CLI output (set to True for debugging SQL queries)
-engine = create_engine(DATABASE_URL, echo=False)
+# Use connect_args to ensure SQLite commits are immediate
+engine = create_engine(DATABASE_URL, echo=False, connect_args={"check_same_thread": False})
 
 # Create session factory
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

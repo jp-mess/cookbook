@@ -1,0 +1,67 @@
+Recipe aliases:
+  recipe-search <search>   - Search recipes by name (shows top 3)
+  recipe-list <subtag>     - List recipes grouped by tags with specified subtag (e.g., 'region', 'food-type')
+  recipe-cook <ingredients> - Find recipes by ingredients
+  recipe-tag <tag>          - List recipes with a tag
+  recipe-info <id>          - Show recipe details by ID
+  recipe-add                - Add a new recipe (JSON workflow)
+  recipe-edit <id>          - Edit a recipe by ID (JSON workflow)
+
+Ingredient aliases:
+  ing-add                   - Add a new ingredient (JSON workflow)
+  ing-edit <id>             - Edit an ingredient by ID (JSON workflow)
+  ing-info <id>             - Show ingredient details by ID
+  ing-list                  - List all ingredients (compact format, or search by subtag/name)
+  ing-type                  - List all ingredients organized by type
+
+Tag aliases:
+  tag-add <name> [--subtag] - Add a new tag
+  tag-edit <id>             - Edit a tag by ID (JSON workflow)
+  tag-list                  - List all tags (organized by subtag)
+
+Type aliases:
+  type-add <name>           - Add a new ingredient type
+  type-list                 - List all ingredient types
+  type-remove <id>          - Remove an ingredient type by ID
+
+Subtag aliases:
+  subtag-add <name>         - Add a new subtag
+  subtag-list              - List all subtags
+  subtag-remove <id>       - Remove a subtag by ID
+
+Remove/Delete aliases:
+  recipe-remove <id>        - Delete a recipe by ID
+  ing-remove <id>           - Delete an ingredient by ID
+  tag-remove <id>           - Remove a tag by ID
+  type-remove <id>          - Remove an ingredient type by ID
+
+Utility aliases:
+  cleanup                   - Delete all JSON staging files
+  backup                    - Create a timestamped database backup
+  consistent                - Check database consistency (ingredients, tags, types)
+
+Examples:
+  recipe-search pasta
+  recipe-list region
+  recipe-list food-type
+  recipe-cook cucumber dill
+  recipe-tag italian
+  recipe-info 1
+  recipe-add
+  recipe-edit 5
+  ing-add
+  ing-edit 10
+  ing-info 15
+  ing-list
+  tag-add umami --subtag flavor
+  tag-edit 5
+  tag-list
+  type-add spice
+  type-list
+  type-remove 5
+  recipe-remove 10
+  ing-remove 15
+  tag-remove 3
+  cleanup
+  backup
+  consistent

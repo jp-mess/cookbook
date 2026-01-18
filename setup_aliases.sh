@@ -60,6 +60,10 @@ ing-list() {
     $PYTHON_CMD $COOKBOOK_CLI ingredient list "$@"
 }
 
+ing-type() {
+    $PYTHON_CMD $COOKBOOK_CLI ingredient type "$@"
+}
+
 # Utility functions
 cleanup() {
     $PYTHON_CMD $COOKBOOK_CLI cleanup "$@"
@@ -140,7 +144,8 @@ echo "Ingredient aliases:"
 echo "  ing-add                   - Add a new ingredient (JSON workflow)"
 echo "  ing-edit <id>             - Edit an ingredient by ID (JSON workflow)"
 echo "  ing-info <id>             - Show ingredient details by ID"
-echo "  ing-list                  - List all ingredients (organized by type)"
+echo "  ing-list                  - List all ingredients (compact format, or search by subtag/name)"
+echo "  ing-type                  - List all ingredients organized by type"
 echo ""
 echo "Tag aliases:"
 echo "  tag-add <name> [--subtag] - Add a new tag"

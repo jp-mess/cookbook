@@ -154,9 +154,33 @@ def add_ingredient(
         ingredient.tags = tag_objects
     
     db.add(ingredient)
-    db.commit()
-    db.refresh(ingredient)
-    return ingredient
+    try:
+        db.flush()  # Flush to get ID and check for immediate constraint violations
+        ingredient_id = ingredient.id
+        if ingredient_id is None:
+            # ID should be set after flush - if it's None, the table schema is likely incorrect
+            # The ingredients table needs INTEGER PRIMARY KEY, not INT
+            db.rollback()
+            raise ValueError(f"Ingredient '{name}' ID was not generated. The database schema may be incorrect - the ingredients table 'id' column should be INTEGER PRIMARY KEY, not INT. Please check the database schema.")
+        db.commit()
+        # Re-query to get a fresh instance that's properly bound to the session
+        # This avoids any issues with the original ingredient object state
+        fresh_ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient_id).first()
+        if not fresh_ingredient:
+            # Commit succeeded but ingredient not found - this shouldn't happen
+            # But if it does, it means the commit was rolled back or failed silently
+            raise ValueError(f"Ingredient '{name}' commit appeared to succeed but ingredient not found in database")
+        return fresh_ingredient
+    except IntegrityError as e:
+        db.rollback()
+        # Check if it's a unique constraint violation
+        error_msg = str(e.orig) if hasattr(e, 'orig') else str(e)
+        if 'UNIQUE constraint' in error_msg or 'unique' in error_msg.lower():
+            raise ValueError(f"Ingredient '{name}' already exists or violates unique constraint")
+        raise ValueError(f"Database constraint violation: {error_msg}")
+    except Exception as e:
+        db.rollback()
+        raise
 
 
 def get_ingredient(db: Session, name: str = None, ingredient_id: int = None) -> Ingredient:

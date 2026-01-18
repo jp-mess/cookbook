@@ -820,32 +820,36 @@ def import_new_ingredient_from_json(json_path: Path = None) -> Ingredient:
             )
         except Exception as e:
             # Preserve JSON file on database errors
-            db.rollback()
+            # Don't rollback here - add_ingredient already committed or rolled back
             raise ValueError(f"Failed to add ingredient to database: {e}. JSON file preserved for editing.")
         
         # Update alias separately if provided
         if ingredient_data.get('alias'):
             try:
                 update_ingredient(db, ingredient_id=ingredient.id, alias=ingredient_data['alias'])
-                db.refresh(ingredient)
+                # Re-query to get fresh instance with updated alias
+                ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient.id).first()
             except Exception as e:
                 # Preserve JSON file on alias update errors
                 db.rollback()
                 raise ValueError(f"Failed to update ingredient alias: {e}. JSON file preserved for editing.")
         
-        # Get fresh instance to ensure relationships are loaded
+        # Ingredient is already committed from add_ingredient
+        # Store ID before any potential session issues
         ingredient_id = ingredient.id
-        db.expunge(ingredient)  # Remove from session
-        ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient_id).first()
         
         # Only delete JSON file after successful import
         json_path.unlink()
         
+        # Return the ingredient (it's already committed and valid)
         return ingredient
-    except Exception:
+    except ValueError:
+        # Re-raise ValueError as-is (these are user-friendly error messages)
+        raise
+    except Exception as e:
         # Rollback any uncommitted changes on any error
         db.rollback()
-        raise
+        raise ValueError(f"Unexpected error: {e}. JSON file preserved for editing.")
     finally:
         db.close()
 
@@ -1028,6 +1032,7 @@ def import_tag_from_json(tag_id: int) -> Tag:
         # Update tag
         from db_operations import update_tag
         # Compare subtags properly (handle None vs empty string)
+        # Access subtag while tag is still bound to session
         current_subtag_name = tag.subtag.name if tag.subtag else ''
         new_subtag_raw = json_data.get('subtag', '')  # Get raw value before normalization
         new_subtag_normalized = tag_data['subtag'] or ''  # Normalized value
@@ -1035,7 +1040,7 @@ def import_tag_from_json(tag_id: int) -> Tag:
         
         # If subtag changed, pass the normalized value (None for empty, or the actual value)
         # Use Ellipsis (...) to mean "don't update this field"
-        tag = update_tag(
+        updated_tag = update_tag(
             db,
             tag_id=tag_id,
             new_name=tag_data['name'] if tag_data['name'] != tag.name else ...,
@@ -1045,7 +1050,7 @@ def import_tag_from_json(tag_id: int) -> Tag:
         # Delete the JSON file after successful import
         json_path.unlink()
         
-        return tag
+        return updated_tag
     finally:
         db.close()
 

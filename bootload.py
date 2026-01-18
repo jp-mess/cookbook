@@ -243,7 +243,7 @@ def bootload_recipes(db, recipes_dir: Path) -> int:
             # Check if recipe already exists - if so, delete it and recreate to ensure it matches JSON
             existing = get_recipe(db, name=name)
             if existing:
-                print(f"\n  {json_path.name}: {name} (already exists, deleting and recreating...)")
+                # Silently delete and recreate - only print if there's an error
                 from db_operations import delete_recipe
                 delete_recipe(db, recipe_id=existing.id)
             
@@ -287,8 +287,7 @@ def bootload_recipes(db, recipes_dir: Path) -> int:
                 tags=tags
             )
             
-            print(f"\n  {json_path.name}:")
-            print(f"    ✓ {name} (ID: {recipe.id})")
+            # Only print failures, not successes
             total_recipes += 1
             
         except ValueError as e:

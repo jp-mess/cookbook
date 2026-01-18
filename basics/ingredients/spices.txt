@@ -5,7 +5,8 @@ aleppo pepper
 sumac
 black pepper
 white pepper
-fennel
+fennel seeds
+fennel powder
 paprika
 chili powder
 cayenne pepper
@@ -15,7 +16,7 @@ cloves
 cardamom
 allspice
 star anise
-bay leaves
+bay leaf
 garlic powder
 onion powder
 mustard seeds

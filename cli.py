@@ -84,7 +84,7 @@ def print_ingredient_info(ingredient):
 def print_recipe(recipe):
     """Print recipe information in a readable format."""
     print(f"\n{'='*70}")
-    print(f"Recipe #{recipe.id}: {recipe.name}")
+    print(f"Recipe #{recipe.id}: {format_recipe_name(recipe)}")
     print(f"{'='*70}")
     if recipe.tags:
         tags_str = ', '.join([tag.name for tag in recipe.tags])
@@ -102,7 +102,7 @@ def print_recipe(recipe):
 def print_recipe_info(recipe):
     """Pretty print detailed recipe information."""
     print(f"\n{'='*70}")
-    print(f"Recipe #{recipe.id}: {recipe.name}")
+    print(f"Recipe #{recipe.id}: {format_recipe_name(recipe)}")
     print(f"{'='*70}")
     
     if recipe.tags:
@@ -135,6 +135,16 @@ def print_recipe_info(recipe):
         print(recipe.notes)
     
     print()
+
+
+def format_recipe_name(recipe):
+    """Format recipe name with (TODO) if it has the 'unattempted' tag."""
+    name = recipe.name
+    if recipe.tags:
+        tag_names = {tag.name.lower() for tag in recipe.tags if tag}
+        if 'unattempted' in tag_names:
+            name = f"{name} (TODO)"
+    return name
 
 
 def print_article(article):
@@ -486,7 +496,7 @@ def cmd_list_recipes(args):
                         recipes = recipes_by_tag[tag_name]
                         print(f"\n{tag_name.upper()}")
                         for recipe in sorted(recipes, key=lambda r: r.name.lower()):
-                            print(f"  [{recipe.id:3d}] {recipe.name}")
+                            print(f"  [{recipe.id:3d}] {format_recipe_name(recipe)}")
                     
                     # Show tags with no recipes at the end
                     if tags_with_no_recipes:
@@ -503,7 +513,7 @@ def cmd_list_recipes(args):
                     if recipes_with_no_tags:
                         print(f"\nRecipes with no tags:")
                         for recipe in sorted(recipes_with_no_tags, key=lambda r: r.name.lower()):
-                            print(f"  [{recipe.id:3d}] {recipe.name}")
+                            print(f"  [{recipe.id:3d}] {format_recipe_name(recipe)}")
                     
                     print()
             else:
@@ -530,7 +540,7 @@ def cmd_list_recipes(args):
                         print(f"Recipes matching '{args.search}' (showing top {len(top_matches)})")
                         print(f"{'='*70}")
                         for recipe in top_matches:
-                            print(f"  [{recipe.id:3d}] {recipe.name}")
+                            print(f"  [{recipe.id:3d}] {format_recipe_name(recipe)}")
                         print()
         else:
             # List all recipes (compact format)
@@ -540,7 +550,7 @@ def cmd_list_recipes(args):
             else:
                 for recipe in recipes:
                     if recipe:
-                        print(f"[{recipe.id:3d}] {recipe.name}")
+                        print(f"[{recipe.id:3d}] {format_recipe_name(recipe)}")
                 
                 # Check for subtags with no recipes
                 from db_operations import list_subtags, list_tags
@@ -1057,7 +1067,8 @@ def cmd_recipe_cook(args):
             print(f"{'='*70}")
             for recipe, match_count in results:
                 if recipe:
-                    print(f"  [{recipe.id:3d}] {recipe.name:40s} (Matches: {match_count})")
+                    formatted_name = format_recipe_name(recipe)
+                    print(f"  [{recipe.id:3d}] {formatted_name:40s} (Matches: {match_count})")
             print()
     except ValueError as e:
         print(f"✗ {e}", file=sys.stderr)
@@ -1101,7 +1112,7 @@ def cmd_recipe_tag(args):
             print(f"Recipes with tag '{tag_name}' ({len(matching_recipes)} found)")
             print(f"{'='*70}")
             for recipe in matching_recipes:
-                print(f"  [{recipe.id:3d}] {recipe.name}")
+                print(f"  [{recipe.id:3d}] {format_recipe_name(recipe)}")
             print()
     finally:
         db.close()
@@ -1133,7 +1144,8 @@ def cmd_search(args):
                     print(f"{'='*70}")
                     for recipe, match_count in results:
                         if recipe:
-                            print(f"  [{recipe.id:3d}] {recipe.name:40s} (Matches: {match_count})")
+                            formatted_name = format_recipe_name(recipe)
+                            print(f"  [{recipe.id:3d}] {formatted_name:40s} (Matches: {match_count})")
                     print()
             except ValueError as e:
                 # This is the safety check error - show it clearly

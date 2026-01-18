@@ -5,3 +5,4 @@ shallots
 scallions
 leeks
 garlic
+pearl onions

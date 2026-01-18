@@ -1,5 +1,5 @@
 {
-  "name": "mushroom soy tartine",
+  "name": "clover tartine",
   "instructions": "",
   "notes": "",
   "tags": [
@@ -10,10 +10,9 @@
     "tartine"
   ],
   "ingredients": [
-    "portabella mushrooms",
-    "shittake mushrooms",
-    "balsamic vinegar",
-    "soy sauce",
+    "clovers/sprouts",
+    "dijon mustard",
+    "butter",
     "bread"
   ]
 }

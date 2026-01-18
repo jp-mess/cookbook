@@ -10,3 +10,4 @@ rosemary
 thyme
 chives
 oregano
+kasoori methi

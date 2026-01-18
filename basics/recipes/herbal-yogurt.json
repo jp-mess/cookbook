@@ -1,5 +1,5 @@
 {
-  "name": "mint yogurt",
+  "name": "herbal yogurt",
   "instructions": "",
   "notes": "",
   "tags": [
@@ -9,6 +9,9 @@
   ],
   "ingredients": [
     "yogurt",
-    "mint"
+    "mint",
+    "parsley",
+    "cilantro",
+    "dill"
   ]
 }

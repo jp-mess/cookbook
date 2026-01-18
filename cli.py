@@ -490,18 +490,14 @@ def cmd_list_recipes(args):
                             print(f"  [{recipe.id:3d}] {recipe.name}")
                         print()
         else:
-            # List all recipes
+            # List all recipes (compact format)
             recipes = list_recipes(db)
             if not recipes:
                 print("No recipes found.")
             else:
-                print(f"\n{'='*70}")
-                print(f"Recipes ({len(recipes)} total)")
-                print(f"{'='*70}")
                 for recipe in recipes:
                     if recipe:
-                        print_recipe(recipe)
-                print()
+                        print(f"[{recipe.id:3d}] {recipe.name}")
     finally:
         db.close()
 

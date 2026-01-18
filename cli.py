@@ -1030,12 +1030,17 @@ def cmd_recipe_cook(args):
     db = SessionLocal()
     try:
         from db_operations import search_recipes_by_ingredients_exact
-        # Join the ingredient list with commas (handle both space-separated and comma-separated)
-        # If user passes "cucumber, dill" as one arg, split it; if "cucumber" "dill" as two args, join with comma
-        ingredient_list = []
-        for ing in args.ingredients:
-            # Split by comma in case user passed "cucumber, dill" as one argument
-            ingredient_list.extend([i.strip() for i in ing.split(',') if i.strip()])
+        # Handle ingredients with spaces:
+        # - Join all arguments with spaces first (so "pumpkin puree" becomes one ingredient)
+        # - Then split by commas if present (so "pumpkin puree, black beans" becomes two ingredients)
+        # - If no commas, treat the entire joined string as a single ingredient
+        joined_args = ' '.join(args.ingredients)
+        
+        # Split by comma if commas are present, otherwise treat as single ingredient
+        if ',' in joined_args:
+            ingredient_list = [i.strip() for i in joined_args.split(',') if i.strip()]
+        else:
+            ingredient_list = [joined_args.strip()] if joined_args.strip() else []
         
         ingredient_query = ', '.join(ingredient_list)
         results = search_recipes_by_ingredients_exact(
@@ -1076,12 +1081,15 @@ def cmd_recipe_tag(args):
             print(f"✗ Error: Tag '{args.tag}' not found. Use 'python cli.py tag list' to see available tags.", file=sys.stderr)
             sys.exit(1)
         
-        # Get all recipes and filter by tag
+        # Get all recipes and filter by tag (use explicit ID comparison for reliability)
         all_recipes = list_recipes(db)
         matching_recipes = []
         for recipe in all_recipes:
-            if recipe and tag in recipe.tags:
-                matching_recipes.append(recipe)
+            if recipe:
+                # Use explicit tag ID comparison instead of object identity
+                recipe_tag_ids = {t.id for t in recipe.tags if t}
+                if tag.id in recipe_tag_ids:
+                    matching_recipes.append(recipe)
         
         if not matching_recipes:
             print(f"No recipes found with tag '{args.tag}'")
@@ -1714,7 +1722,7 @@ def main():
     
     # Cook command (ingredient matching)
     cook_recipe_parser = recipe_subparsers.add_parser('cook', help='Search recipes by ingredients (exact matching)')
-    cook_recipe_parser.add_argument('ingredients', nargs='+', help='List of ingredient names (comma-separated or space-separated)')
+    cook_recipe_parser.add_argument('ingredients', nargs='+', help='Ingredient names (spaces are preserved; use commas to separate multiple ingredients, e.g., "pumpkin puree, black beans")')
     cook_recipe_parser.set_defaults(func=cmd_recipe_cook)
     
     # Tag command (list recipes with tag)

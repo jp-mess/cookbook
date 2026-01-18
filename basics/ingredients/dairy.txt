@@ -2,7 +2,10 @@ cream cheese
 heavy whipping cream
 sour cream
 cheddar cheese
-soft cheese
+monterrey jack cheese
+colby jack cheese
+fontina cheese
+cheddar cheese
 parmesan cheese
 ricotta cheese
 brie
@@ -10,3 +13,7 @@ milk
 yogurt
 creme fraiche
 cottage cheese
+gruyere cheese
+gouda cheese
+butter
+ghee

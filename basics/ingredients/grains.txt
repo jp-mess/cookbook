@@ -3,3 +3,5 @@ farro
 couscous
 bread
 pasta
+tortilla
+tostada

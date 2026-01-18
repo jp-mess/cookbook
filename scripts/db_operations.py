@@ -682,44 +682,73 @@ def search_recipes_by_ingredients_exact(
     min_matches: int = 1
 ) -> list:
     """
-    Search recipes by exact ingredient matching (deterministic, no semantics).
+    Search recipes by exact ingredient matching or ingredient type matching.
     
-    Parses a comma-delimited list of ingredients and finds recipes that contain
-    those ingredients. Results are ranked by number of matches (more matches = higher rank).
-    Recipes with no matches are still included at the bottom.
+    Parses a comma-delimited list of ingredients/types and finds recipes that contain
+    those ingredients. Can search by:
+    - Specific ingredient name (e.g., "broccoli")
+    - Ingredient type (e.g., "vegetables-a", "tofu") - matches if recipe has ANY ingredient of that type
+    
+    Results are ranked by number of matches (more matches = higher rank).
     
     Args:
         db: Database session
-        ingredient_query: Comma-delimited list of ingredient names (e.g., "cucumber, dill, mint")
-        min_matches: Minimum number of ingredient matches required (default: 1)
+        ingredient_query: Comma-delimited list of ingredient names or types (e.g., "cucumber, vegetables-a, tofu")
+        min_matches: Minimum number of ingredient/type matches required (default: 1)
     
     Returns:
         List of tuples: (recipe, match_count) sorted by match_count descending
-        match_count is the number of requested ingredients found in the recipe
+        match_count is the number of requested ingredients/types found in the recipe
     """
-    # Parse comma-delimited ingredients
-    requested_ingredients = [ing.strip().lower() for ing in ingredient_query.split(',') if ing.strip()]
-    if not requested_ingredients:
+    # Parse comma-delimited ingredients/types
+    requested_terms = [term.strip().lower() for term in ingredient_query.split(',') if term.strip()]
+    if not requested_terms:
         return []
     
-    # Validate that all requested ingredients exist in the database
+    # Get all ingredients and types from database
     all_ingredients_list = db.query(Ingredient).all()
-    all_ingredients_in_db = {ing.name.lower() for ing in all_ingredients_list if ing and ing.name}
-    missing_ingredients = [ing for ing in requested_ingredients if ing not in all_ingredients_in_db]
+    all_ingredients_in_db = {ing.name.lower(): ing for ing in all_ingredients_list if ing and ing.name}
+    all_types = list_ingredient_types(db)
+    all_types_in_db = {type_obj.name.lower(): type_obj for type_obj in all_types}
     
-    if missing_ingredients:
-        if len(missing_ingredients) == 1:
-            raise ValueError(f"Ingredient \"{missing_ingredients[0]}\" does not exist in the ingredients database. Please check the spelling and try again.")
+    # Build a set of ingredient names that match each search term
+    # Each term can be either an ingredient name or a type name
+    term_matching_ingredients = {}
+    missing_terms = []
+    
+    for term in requested_terms:
+        matching_ingredient_names = set()
+        
+        # Check if it's an exact ingredient match
+        if term in all_ingredients_in_db:
+            matching_ingredient_names.add(term)
+        # Check if it's a type name
+        elif term in all_types_in_db:
+            type_obj = all_types_in_db[term]
+            # Get all ingredients of this type
+            for ing in type_obj.ingredients:
+                if ing and ing.name:
+                    matching_ingredient_names.add(ing.name.lower())
         else:
-            missing_str = ", ".join(f"\"{ing}\"" for ing in missing_ingredients)
-            raise ValueError(f"Ingredients {missing_str} do not exist in the ingredients database. Please check the spelling and try again.")
+            missing_terms.append(term)
+            continue
+        
+        term_matching_ingredients[term] = matching_ingredient_names
+    
+    # Validate - report missing terms
+    if missing_terms:
+        if len(missing_terms) == 1:
+            raise ValueError(f"Ingredient or type \"{missing_terms[0]}\" does not exist. Please check the spelling and try again.")
+        else:
+            missing_str = ", ".join(f"\"{term}\"" for term in missing_terms)
+            raise ValueError(f"Ingredients or types {missing_str} do not exist. Please check the spelling and try again.")
 
     # Get all recipes
     all_recipes = db.query(Recipe).all()
     if not all_recipes:
         return []
     
-    # For each recipe, count exact ingredient matches
+    # For each recipe, count matches (ingredient name or type)
     results = []
     for recipe in all_recipes:
         if not recipe:
@@ -727,11 +756,12 @@ def search_recipes_by_ingredients_exact(
         # Get recipe ingredient names (normalized to lowercase), filtering out None ingredients
         recipe_ingredient_names = {ing.name.lower() for ing in recipe.ingredients if ing and ing.name}
         
-        # Count how many requested ingredients are found in this recipe
+        # Count how many requested terms match this recipe
         match_count = 0
-        for requested_ing in requested_ingredients:
-            # Exact match (case-insensitive)
-            if requested_ing in recipe_ingredient_names:
+        for term, matching_ingredient_names in term_matching_ingredients.items():
+            # Check if recipe has any ingredient that matches this term
+            # (either exact name match or type match)
+            if recipe_ingredient_names & matching_ingredient_names:
                 match_count += 1
         
         # Only include recipes that meet the minimum match requirement

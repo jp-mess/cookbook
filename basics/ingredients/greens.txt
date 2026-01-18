@@ -3,3 +3,4 @@ arugula
 mixed greens
 kale
 carrot greens
+lettuce

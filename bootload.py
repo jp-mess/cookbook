@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Bootload script: Initialize database with ingredients and tags from basics/ folder.
+Bootload script: Initialize database with ingredients, tags, and recipes from basics/ folder.
 - Ingredients from basics/ingredients/*.txt (filename = ingredient type)
 - Tags from basics/tags/*.txt (filename = subtag name)
-- No recipes or articles are created.
+- Recipes from basics/recipes/*.json (JSON recipe files)
 """
 import sys
 from pathlib import Path
@@ -18,10 +18,12 @@ from db_operations import (
     add_ingredient_type, get_or_create_ingredient_type,
     add_ingredient,
     add_subtag, get_subtag,
-    add_tag
+    add_tag,
+    add_recipe, get_recipe
 )
 from models import Recipe, Article, Ingredient, Tag, IngredientType, Subtag
 from sqlalchemy import delete
+import json
 
 
 def load_ingredients_from_file(file_path: Path) -> list[str]:
@@ -53,6 +55,13 @@ def reset_database(db):
     print("Resetting database...")
     
     # Delete in order to respect foreign key constraints
+    # Start with junction tables and association objects
+    from models import RecipeIngredient, recipe_tags, article_tags
+    db.execute(delete(RecipeIngredient))
+    db.execute(recipe_tags.delete())
+    db.execute(article_tags.delete())
+    
+    # Then delete main entities
     db.execute(delete(Recipe))
     db.execute(delete(Article))
     db.execute(delete(Ingredient))
@@ -197,6 +206,230 @@ def bootload_tags(db, tags_dir: Path):
     print(f"\n  Total: {total_tags} tags added across {len(tag_files)} subtags")
 
 
+def bootload_recipes(db, recipes_dir: Path) -> int:
+    """Load all recipes from basics/recipes/ folder."""
+    print("\n" + "="*70)
+    print("Loading Recipes")
+    print("="*70)
+    
+    recipe_files = sorted(recipes_dir.glob('*.json'))
+    
+    if not recipe_files:
+        print("  ✗ No recipe files found")
+        return 0
+    
+    total_recipe_files = len(recipe_files)
+    total_recipes = 0
+    failed_recipes = 0
+    
+    for json_path in recipe_files:
+        try:
+            # Read JSON file
+            with open(json_path, 'r', encoding='utf-8') as f:
+                json_data = json.load(f)
+            
+            if not json_data:
+                print(f"\n  {json_path.name}: (empty file, skipped)")
+                failed_recipes += 1
+                continue
+            
+            # Validate required fields
+            name = json_data.get('name', '').strip()
+            if not name:
+                print(f"\n  {json_path.name}: (missing name, skipped)")
+                failed_recipes += 1
+                continue
+            
+            # Check if recipe already exists - if so, delete it and recreate to ensure it matches JSON
+            existing = get_recipe(db, name=name)
+            if existing:
+                print(f"\n  {json_path.name}: {name} (already exists, deleting and recreating...)")
+                from db_operations import delete_recipe
+                delete_recipe(db, recipe_id=existing.id)
+            
+            # Get ingredients and tags from JSON
+            ingredients = json_data.get('ingredients', [])
+            tags = json_data.get('tags', [])
+            
+            # Validate ingredients exist
+            from db_operations import get_ingredient
+            missing_ingredients = []
+            for ing_name in ingredients:
+                if not get_ingredient(db, name=ing_name):
+                    missing_ingredients.append(ing_name)
+            
+            if missing_ingredients:
+                print(f"\n  {json_path.name}: {name}")
+                print(f"    ✗ Missing ingredients: {', '.join(missing_ingredients)}")
+                failed_recipes += 1
+                continue
+            
+            # Validate tags exist
+            from db_operations import get_tag
+            missing_tags = []
+            for tag_name in tags:
+                if not get_tag(db, name=tag_name):
+                    missing_tags.append(tag_name)
+            
+            if missing_tags:
+                print(f"\n  {json_path.name}: {name}")
+                print(f"    ✗ Missing tags: {', '.join(missing_tags)}")
+                failed_recipes += 1
+                continue
+            
+            # Add recipe
+            recipe = add_recipe(
+                db,
+                name=name,
+                instructions=json_data.get('instructions'),
+                notes=json_data.get('notes'),
+                ingredients=ingredients,
+                tags=tags
+            )
+            
+            print(f"\n  {json_path.name}:")
+            print(f"    ✓ {name} (ID: {recipe.id})")
+            total_recipes += 1
+            
+        except ValueError as e:
+            print(f"\n  {json_path.name}:")
+            print(f"    ✗ Error: {e}")
+            failed_recipes += 1
+        except Exception as e:
+            print(f"\n  {json_path.name}:")
+            print(f"    ✗ Unexpected error: {e}")
+            failed_recipes += 1
+    
+    print(f"\n  {total_recipes} of {total_recipe_files} recipe request(s) added successfully")
+    if failed_recipes > 0:
+        print(f"  ({failed_recipes} recipe(s) failed to load)")
+    
+    return total_recipes
+
+
+def verify_recipes(db, recipes_dir: Path):
+    """Verify all recipes in database match their JSON files."""
+    print("\n" + "="*70)
+    print("Verifying Recipes")
+    print("="*70)
+    
+    # Get all recipes from database
+    from db_operations import list_recipes
+    all_recipes = list_recipes(db)
+    
+    if not all_recipes:
+        print("  No recipes in database to verify")
+        return
+    
+    # Get all JSON files
+    json_files = {f.stem: f for f in recipes_dir.glob('*.json')}
+    
+    issues_found = []
+    verified_count = 0
+    
+    for recipe in all_recipes:
+        if not recipe:
+            continue
+        
+        # Find matching JSON file (by normalized name)
+        normalized_name = recipe.name.lower().replace(' ', '-')
+        json_path = None
+        
+        # Try to find matching JSON file
+        for json_stem, json_file in json_files.items():
+            # Normalize JSON filename for comparison
+            json_normalized = json_stem.replace('-', ' ').lower()
+            recipe_normalized = recipe.name.lower()
+            if json_normalized == recipe_normalized:
+                json_path = json_file
+                break
+        
+        if not json_path:
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': 'No matching JSON file found'
+            })
+            continue
+        
+        # Read JSON file
+        try:
+            with open(json_path, 'r', encoding='utf-8') as f:
+                json_data = json.load(f)
+        except Exception as e:
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': f'Error reading JSON file: {e}'
+            })
+            continue
+        
+        # Compare recipe with JSON
+        json_name = json_data.get('name', '').strip().lower()
+        recipe_name_normalized = recipe.name.lower()
+        
+        if json_name != recipe_name_normalized:
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'json_name': json_data.get('name', ''),
+                'issue': 'Name mismatch'
+            })
+            continue
+        
+        # Compare ingredients
+        json_ingredients = set(ing.lower() for ing in json_data.get('ingredients', []))
+        recipe_ingredients = set(ing.name.lower() for ing in recipe.ingredients if ing and ing.name)
+        
+        if json_ingredients != recipe_ingredients:
+            missing = json_ingredients - recipe_ingredients
+            extra = recipe_ingredients - json_ingredients
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': 'Ingredient mismatch',
+                'missing': list(missing),
+                'extra': list(extra)
+            })
+            continue
+        
+        # Compare tags
+        json_tags = set(tag.lower() for tag in json_data.get('tags', []))
+        recipe_tags = set(tag.name.lower() for tag in recipe.tags if tag and tag.name)
+        
+        if json_tags != recipe_tags:
+            missing = json_tags - recipe_tags
+            extra = recipe_tags - json_tags
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': 'Tag mismatch',
+                'missing': list(missing),
+                'extra': list(extra)
+            })
+            continue
+        
+        verified_count += 1
+    
+    total_recipes_in_db = len(all_recipes)
+    
+    if issues_found:
+        print(f"\n  ✗ Found {len(issues_found)} verification issue(s):")
+        for issue in issues_found:
+            print(f"\n    Recipe #{issue['recipe_id']}: {issue['recipe_name']}")
+            print(f"      Issue: {issue['issue']}")
+            if 'missing' in issue:
+                if issue['missing']:
+                    print(f"      Missing from database: {', '.join(issue['missing'])}")
+                if issue['extra']:
+                    print(f"      Extra in database: {', '.join(issue['extra'])}")
+        print(f"\n  {verified_count}/{total_recipes_in_db} recipe(s) verified successfully")
+        print()
+    else:
+        print(f"\n  ✓ {verified_count}/{total_recipes_in_db} recipe(s) verified successfully!")
+        print()
+
+
 def main():
     """Main bootload function."""
     print("="*70)
@@ -207,6 +440,7 @@ def main():
     project_root = Path(__file__).parent
     ingredients_dir = project_root / 'basics' / 'ingredients'
     tags_dir = project_root / 'basics' / 'tags'
+    recipes_dir = project_root / 'basics' / 'recipes'
     
     # Check directories exist
     if not ingredients_dir.exists():
@@ -216,6 +450,10 @@ def main():
     if not tags_dir.exists():
         print(f"✗ Error: {tags_dir} does not exist")
         sys.exit(1)
+    
+    # Recipes directory is optional
+    if not recipes_dir.exists():
+        recipes_dir.mkdir(parents=True, exist_ok=True)
     
     # Initialize database
     print("\nInitializing database schema...")
@@ -228,11 +466,20 @@ def main():
         # Reset database (remove all existing data)
         reset_database(db)
         
-        # Load ingredients
+        # Load ingredients (must be first - recipes depend on ingredients)
         bootload_ingredients(db, ingredients_dir)
+        db.commit()  # Ensure ingredients are committed before loading tags/recipes
         
-        # Load tags
+        # Load tags (must be second - recipes depend on tags)
         bootload_tags(db, tags_dir)
+        db.commit()  # Ensure tags are committed before loading recipes
+        
+        # Load recipes (must be last - depends on ingredients and tags)
+        bootload_recipes(db, recipes_dir)
+        db.commit()  # Ensure recipes are committed
+        
+        # Verify all recipes match their JSON files
+        verify_recipes(db, recipes_dir)
         
         print("\n" + "="*70)
         print("BOOTLOAD COMPLETE")
@@ -240,7 +487,7 @@ def main():
         print("\nDatabase initialized with:")
         print("  - Ingredients (from basics/ingredients/)")
         print("  - Tags (from basics/tags/)")
-        print("  - No recipes or articles")
+        print("  - Recipes (from basics/recipes/)")
         print()
         
     except Exception as e:

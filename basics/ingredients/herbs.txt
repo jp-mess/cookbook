@@ -1,0 +1,11 @@
+cilantro
+dill
+tarragon
+oregano
+mint
+parsley
+basil
+sage
+rosemary
+thyme
+chives

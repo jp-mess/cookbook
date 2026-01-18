@@ -1,0 +1,8 @@
+apples
+bananas
+strawberries
+blueberries
+raspberries
+avocados
+grapes
+pears

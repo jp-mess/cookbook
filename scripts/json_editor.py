@@ -24,11 +24,11 @@ warnings.filterwarnings('ignore', message='.*OpenSSL.*')
 from db_operations import (
     get_recipe, update_recipe, add_ingredients_to_recipe, remove_ingredients_from_recipe,
     add_tags_to_recipe, remove_tags_from_recipe, get_ingredient, add_ingredient,
-    update_ingredient, add_tags_to_ingredient, remove_tags_from_ingredient,
+    update_ingredient,
     get_article, update_article, add_article, add_tags_to_article, remove_tags_from_article,
     get_tag
 )
-from models import Recipe, Ingredient, Article, Tag
+from models import Recipe, Ingredient, Article, Tag, RecipeIngredient
 
 # Get directory paths from config
 from config_loader import get_config
@@ -66,13 +66,23 @@ def recipe_to_json(recipe: Recipe) -> dict:
     if notes:
         notes = notes.replace('\\n', '\n')
     
+    # Export ingredients with quantity and notes if available
+    ingredients_list = []
+    for assoc in recipe.ingredient_associations:
+        ing_dict = {'name': assoc.ingredient.name}
+        if assoc.quantity:
+            ing_dict['quantity'] = assoc.quantity
+        if assoc.notes:
+            ing_dict['notes'] = assoc.notes
+        ingredients_list.append(ing_dict)
+    
     return {
         'id': recipe.id,
         'name': recipe.name,
         'instructions': instructions,
         'notes': notes,
         'tags': [tag.name for tag in recipe.tags],
-        'ingredients': [ing.name for ing in recipe.ingredients]
+        'ingredients': ingredients_list
     }
 
 
@@ -111,20 +121,38 @@ def json_to_recipe_data(json_data: dict) -> tuple[dict, list[tuple[str, str]]]:
     normalized_tags, tag_corrections = normalize_tags(raw_tags)
     corrections.extend(tag_corrections)
     
-    # Normalize ingredient names with spell checking
-    raw_ingredients = [ing.strip() for ing in json_data.get('ingredients', []) if ing.strip()]
+    # Handle ingredients - support both simple (string) and extended (dict) formats
+    raw_ingredients = json_data.get('ingredients', [])
     normalized_ingredients = []
+    ingredient_details = []  # List of dicts with name, quantity, notes
+    
     for ing in raw_ingredients:
-        normalized_ing, ing_corrections = normalize_name(ing, check_spelling=True)
-        normalized_ingredients.append(normalized_ing)
-        corrections.extend(ing_corrections)
+        if isinstance(ing, str):
+            # Simple format: just the ingredient name
+            normalized_ing, ing_corrections = normalize_name(ing.strip(), check_spelling=True)
+            normalized_ingredients.append(normalized_ing)
+            ingredient_details.append({'name': normalized_ing, 'quantity': None, 'notes': None})
+            corrections.extend(ing_corrections)
+        elif isinstance(ing, dict):
+            # Extended format: dict with name, quantity, notes
+            ing_name = ing.get('name', '').strip()
+            if ing_name:
+                normalized_ing, ing_corrections = normalize_name(ing_name, check_spelling=True)
+                normalized_ingredients.append(normalized_ing)
+                ingredient_details.append({
+                    'name': normalized_ing,
+                    'quantity': ing.get('quantity', '').strip() or None,
+                    'notes': ing.get('notes', '').strip() or None
+                })
+                corrections.extend(ing_corrections)
     
     return {
         'name': name,
         'instructions': instructions or None,
         'notes': notes or None,
         'tags': normalized_tags,
-        'ingredients': normalized_ingredients
+        'ingredients': normalized_ingredients,
+        'ingredient_details': ingredient_details  # Include quantity/notes for import
     }, corrections
 
 
@@ -209,9 +237,10 @@ def import_recipe_from_json(recipe_id: int) -> Recipe:
         if tags_to_add:
             recipe = add_tags_to_recipe(db, recipe_id=recipe_id, tag_names=list(tags_to_add))
         
-        # Update ingredients - remove all, then add new ones
+        # Update ingredients - remove all, then add new ones with quantity/notes
         current_ingredient_names = {ing.name for ing in recipe.ingredients}
         new_ingredient_names = set(recipe_data['ingredients'])
+        ingredient_details_map = {detail['name']: detail for detail in recipe_data.get('ingredient_details', [])}
         
         # Remove ingredients that are no longer in the list
         ingredients_to_remove = current_ingredient_names - new_ingredient_names
@@ -225,8 +254,47 @@ def import_recipe_from_json(recipe_id: int) -> Recipe:
             for ing_name in ingredients_to_add:
                 if not get_ingredient(db, name=ing_name):
                     # Automatically create the ingredient with type "other"
+                    # This will fail if "other" type doesn't exist (as intended)
                     add_ingredient(db, ing_name, "other")
-            recipe = add_ingredients_to_recipe(db, recipe_id=recipe_id, ingredient_names=list(ingredients_to_add))
+            
+            # Add ingredients with quantity and notes via association objects
+            for ing_name in ingredients_to_add:
+                ingredient_obj = get_ingredient(db, name=ing_name)
+                if not ingredient_obj:
+                    continue
+                
+                # Get quantity and notes from ingredient_details if available
+                ing_detail = ingredient_details_map.get(ing_name, {})
+                quantity = ing_detail.get('quantity')
+                notes = ing_detail.get('notes')
+                
+                # Create association object
+                assoc = RecipeIngredient(
+                    recipe_id=recipe.id,
+                    ingredient_id=ingredient_obj.id,
+                    quantity=quantity,
+                    notes=notes
+                )
+                db.add(assoc)
+            
+            db.commit()
+            db.refresh(recipe)
+        
+        # Update quantity/notes for existing ingredients that are still in the recipe
+        for ing_name in new_ingredient_names & current_ingredient_names:
+            ing_detail = ingredient_details_map.get(ing_name)
+            if ing_detail and (ing_detail.get('quantity') is not None or ing_detail.get('notes') is not None):
+                ingredient_obj = get_ingredient(db, name=ing_name)
+                if ingredient_obj:
+                    assoc = recipe.get_ingredient_association(ingredient_obj)
+                    if assoc:
+                        if ing_detail.get('quantity') is not None:
+                            assoc.quantity = ing_detail['quantity']
+                        if ing_detail.get('notes') is not None:
+                            assoc.notes = ing_detail['notes']
+        
+        db.commit()
+        db.refresh(recipe)
         
         # Delete the JSON file after successful import
         json_path.unlink()
@@ -249,7 +317,13 @@ def create_new_recipe_template() -> dict:
         'instructions': '',
         'notes': '',
         'tags': [],
-        'ingredients': []
+        'ingredients': [
+            # Simple format (just name):
+            # "ingredient name",
+            # 
+            # Extended format (with quantity and/or notes):
+            # {"name": "ingredient name", "quantity": "2 cups", "notes": "chopped"}
+        ]
     }
 
 
@@ -299,18 +373,11 @@ def ingredient_to_json(ingredient: Ingredient) -> dict:
     if notes:
         notes = notes.replace('\\n', '\n')
     
-    # Parse aliases from comma-separated string or empty list
-    aliases = []
-    if ingredient.alias:
-        aliases = [a.strip() for a in ingredient.alias.split(',') if a.strip()]
-    
     return {
         'id': ingredient.id,
         'name': ingredient.name,
         'type': ingredient.type.name if ingredient.type else '',
-        'alias': aliases,
-        'notes': notes,
-        'tags': [tag.name for tag in ingredient.tags]
+        'notes': notes
     }
 
 
@@ -330,42 +397,16 @@ def json_to_ingredient_data(json_data: dict) -> tuple[dict, list[tuple[str, str]
         notes, note_corrections = normalize_text_words(notes)
         corrections.extend(note_corrections)
     
-    # Handle aliases - can be list or comma-separated string
-    aliases = json_data.get('alias', [])
-    if isinstance(aliases, str):
-        aliases = [a.strip() for a in aliases.split(',') if a.strip()]
-    elif isinstance(aliases, list):
-        aliases = [a.strip() for a in aliases if a.strip()]
-    else:
-        aliases = []
-    
-    # Normalize aliases with spell checking
-    normalized_aliases = []
-    for alias in aliases:
-        from db_operations import normalize_name
-        normalized_alias, alias_corrections = normalize_name(alias, check_spelling=True)
-        normalized_aliases.append(normalized_alias)
-        corrections.extend(alias_corrections)
-    
-    # Convert aliases list to comma-separated string for storage
-    alias_str = ', '.join(normalized_aliases) if normalized_aliases else None
+    # Removed alias and tags handling - ingredients no longer have these fields
     
     # Don't normalize the name here - let update_ingredient handle normalization
     # This allows users to fix typos (e.g., "asparagu" -> "asparagus")
     name = json_data.get('name', '').strip()
     
-    # Normalize tags with spell checking
-    raw_tags = [t.strip() for t in json_data.get('tags', []) if t.strip()]
-    from db_operations import normalize_tags
-    normalized_tags, tag_corrections = normalize_tags(raw_tags)
-    corrections.extend(tag_corrections)
-    
     return {
         'name': name,
         'type': json_data.get('type', '').strip().lower(),
-        'alias': alias_str,
-        'notes': notes or None,
-        'tags': normalized_tags
+        'notes': notes or None
     }, corrections
 
 
@@ -429,8 +470,6 @@ def import_ingredient_from_json(ingredient_id: int) -> Ingredient:
             for original, corrected in all_corrections:
                 print(f"    '{original}' → '{corrected}'")
         
-        current_alias = ingredient.alias or ''
-        new_alias = ingredient_data.get('alias') or ''
         # Handle type update - check if type changed or if it should be removed (empty string)
         current_type_name = ingredient.type.name if ingredient.type else ''
         new_type_name = ingredient_data.get('type') or ''
@@ -441,23 +480,10 @@ def import_ingredient_from_json(ingredient_id: int) -> Ingredient:
             ingredient_id=ingredient_id,
             new_name=ingredient_data['name'] if new_name_normalized != current_name_normalized else None,
             type_name=new_type_name if type_changed else None,
-            alias=ingredient_data['alias'] if new_alias != current_alias else None,
             notes=ingredient_data['notes']
         )
         
-        # Update tags - remove all, then add new ones
-        current_tag_names = {tag.name for tag in ingredient.tags}
-        new_tag_names = set(ingredient_data['tags'])
-        
-        # Remove tags that are no longer in the list
-        tags_to_remove = current_tag_names - new_tag_names
-        if tags_to_remove:
-            ingredient = remove_tags_from_ingredient(db, ingredient_id=ingredient_id, tag_names=list(tags_to_remove))
-        
-        # Add new tags
-        tags_to_add = new_tag_names - current_tag_names
-        if tags_to_add:
-            ingredient = add_tags_to_ingredient(db, ingredient_id=ingredient_id, tag_names=list(tags_to_add))
+        # Removed tag handling - ingredients no longer have tags
         
         # Delete the JSON file after successful import
         json_path.unlink()
@@ -478,9 +504,7 @@ def create_new_ingredient_template() -> dict:
     return {
         'name': '',
         'type': '',
-        'alias': [],
-        'notes': '',
-        'tags': []
+        'notes': ''
     }
 
 
@@ -815,24 +839,14 @@ def import_new_ingredient_from_json(json_path: Path = None) -> Ingredient:
                 db,
                 name=ingredient_data['name'],
                 type_name=ingredient_data['type'] if ingredient_data['type'] else None,
-                notes=ingredient_data['notes'],
-                tags=ingredient_data['tags']
+                notes=ingredient_data['notes']
             )
         except Exception as e:
             # Preserve JSON file on database errors
             # Don't rollback here - add_ingredient already committed or rolled back
             raise ValueError(f"Failed to add ingredient to database: {e}. JSON file preserved for editing.")
         
-        # Update alias separately if provided
-        if ingredient_data.get('alias'):
-            try:
-                update_ingredient(db, ingredient_id=ingredient.id, alias=ingredient_data['alias'])
-                # Re-query to get fresh instance with updated alias
-                ingredient = db.query(Ingredient).filter(Ingredient.id == ingredient.id).first()
-            except Exception as e:
-                # Preserve JSON file on alias update errors
-                db.rollback()
-                raise ValueError(f"Failed to update ingredient alias: {e}. JSON file preserved for editing.")
+        # Removed alias handling - ingredients no longer have alias field
         
         # Ingredient is already committed from add_ingredient
         # Store ID before any potential session issues
@@ -936,6 +950,23 @@ def import_new_recipe_from_json(json_path: Path = None) -> Recipe:
                 tags=recipe_data['tags'],
                 ingredients=recipe_data['ingredients']
             )
+            
+            # Update quantity and notes for ingredients if provided
+            ingredient_details_map = {detail['name']: detail for detail in recipe_data.get('ingredient_details', [])}
+            for ing_name in recipe_data['ingredients']:
+                ing_detail = ingredient_details_map.get(ing_name)
+                if ing_detail and (ing_detail.get('quantity') is not None or ing_detail.get('notes') is not None):
+                    ingredient_obj = get_ingredient(db, name=ing_name)
+                    if ingredient_obj:
+                        assoc = recipe.get_ingredient_association(ingredient_obj)
+                        if assoc:
+                            if ing_detail.get('quantity') is not None:
+                                assoc.quantity = ing_detail['quantity']
+                            if ing_detail.get('notes') is not None:
+                                assoc.notes = ing_detail['notes']
+            
+            db.commit()
+            db.refresh(recipe)
         except Exception as e:
             # Preserve JSON file on database errors
             raise ValueError(f"Failed to add recipe to database: {e}. JSON file preserved for editing.")

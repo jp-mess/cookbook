@@ -116,14 +116,32 @@ def delete_ingredient_type(db: Session, type_id: int) -> bool:
     return True
 
 
+def update_ingredient_type(db: Session, type_id: int, new_name: str) -> IngredientType:
+    """Update an ingredient type's name."""
+    ingredient_type = db.query(IngredientType).filter(IngredientType.id == type_id).first()
+    if not ingredient_type:
+        raise ValueError(f"Ingredient type with ID {type_id} not found")
+    
+    normalized_name = new_name.strip().lower()
+    
+    # Check if new name already exists
+    existing = db.query(IngredientType).filter(IngredientType.name == normalized_name, IngredientType.id != type_id).first()
+    if existing:
+        raise ValueError(f"Ingredient type '{new_name}' already exists (ID: {existing.id})")
+    
+    ingredient_type.name = normalized_name
+    db.commit()
+    db.refresh(ingredient_type)
+    return ingredient_type
+
+
 # ==================== INGREDIENT OPERATIONS ====================
 
 def add_ingredient(
     db: Session,
     name: str,
     type_name: str = None,
-    notes: str = None,
-    tags: list = None
+    notes: str = None
 ) -> Ingredient:
     """Add a new ingredient to the database."""
     # Normalize name (convert to singular and lowercase)
@@ -142,16 +160,6 @@ def add_ingredient(
         raise ValueError(f"Ingredient '{name}' already exists (as '{existing.name}')")
     
     ingredient = Ingredient(name=normalized_name, type=ingredient_type, notes=notes)
-    
-    # Add tags (must exist - no auto-creation)
-    if tags:
-        tag_objects = []
-        for tag_name in tags:
-            tag_obj = get_tag(db, name=tag_name)
-            if not tag_obj:
-                raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
-            tag_objects.append(tag_obj)
-        ingredient.tags = tag_objects
     
     db.add(ingredient)
     try:
@@ -216,10 +224,9 @@ def update_ingredient(
     name: str = None,
     new_name: str = None,
     type_name: str = None,
-    alias: str = None,
     notes: str = None
 ) -> Ingredient:
-    """Update basic ingredient fields (name, type, alias, notes)."""
+    """Update basic ingredient fields (name, type, notes)."""
     ingredient = get_ingredient(db, name=name, ingredient_id=ingredient_id)
     if not ingredient:
         raise ValueError(f"Ingredient not found")
@@ -244,9 +251,6 @@ def update_ingredient(
                 raise ValueError(f"Ingredient type '{type_name}' not found. Add it first using 'python cli.py type add'.")
             ingredient.type = ingredient_type
     
-    if alias is not None:
-        ingredient.alias = alias
-    
     if notes is not None:
         ingredient.notes = notes
     
@@ -256,65 +260,7 @@ def update_ingredient(
     return ingredient
 
 
-def add_tags_to_ingredient(
-    db: Session,
-    ingredient_id: int = None,
-    name: str = None,
-    tag_names: list = None
-) -> Ingredient:
-    """Add tags to an existing ingredient."""
-    ingredient = get_ingredient(db, name=name, ingredient_id=ingredient_id)
-    if not ingredient:
-        raise ValueError(f"Ingredient not found")
-    
-    if not tag_names:
-        return ingredient
-    
-    current_tag_names = {tag.name for tag in ingredient.tags}
-    new_tags = []
-    
-    for tag_name in tag_names:
-        if tag_name.lower() in current_tag_names:
-            continue  # Skip if already tagged
-        
-        tag_obj = get_tag(db, name=tag_name)
-        if not tag_obj:
-            raise ValueError(f"Tag '{tag_name}' not found. Add it first using 'python cli.py tag add'.")
-        new_tags.append(tag_obj)
-    
-    if new_tags:
-        ingredient.tags.extend(new_tags)
-    db.commit()
-    db.refresh(ingredient)
-    return ingredient
-
-
-def remove_tags_from_ingredient(
-    db: Session,
-    ingredient_id: int = None,
-    name: str = None,
-    tag_names: list = None
-) -> Ingredient:
-    """Remove tags from an existing ingredient."""
-    ingredient = get_ingredient(db, name=name, ingredient_id=ingredient_id)
-    if not ingredient:
-        raise ValueError(f"Ingredient not found")
-    
-    if not tag_names:
-        return ingredient
-    
-    tags_to_remove = []
-    for tag_name in tag_names:
-        tag_obj = db.query(Tag).filter(Tag.name == tag_name.lower()).first()
-        if tag_obj and tag_obj in ingredient.tags:
-            tags_to_remove.append(tag_obj)
-    
-    if tags_to_remove:
-        for tag in tags_to_remove:
-            ingredient.tags.remove(tag)
-    db.commit()
-    db.refresh(ingredient)
-    return ingredient
+# Removed add_tags_to_ingredient and remove_tags_from_ingredient - ingredients no longer have tags
 
 
 # ==================== TAG OPERATIONS ====================
@@ -386,6 +332,25 @@ def delete_subtag(db: Session, subtag_id: int) -> bool:
     return True
 
 
+def update_subtag(db: Session, subtag_id: int, new_name: str) -> Subtag:
+    """Update a subtag's name."""
+    subtag = db.query(Subtag).filter(Subtag.id == subtag_id).first()
+    if not subtag:
+        raise ValueError(f"Subtag with ID {subtag_id} not found")
+    
+    normalized_name = new_name.strip().lower()
+    
+    # Check if new name already exists
+    existing = db.query(Subtag).filter(Subtag.name == normalized_name, Subtag.id != subtag_id).first()
+    if existing:
+        raise ValueError(f"Subtag '{new_name}' already exists (ID: {existing.id})")
+    
+    subtag.name = normalized_name
+    db.commit()
+    db.refresh(subtag)
+    return subtag
+
+
 # ==================== TAG OPERATIONS ====================
 
 def list_tags(db: Session):
@@ -431,9 +396,7 @@ def delete_tag(db: Session, tag_id: int) -> bool:
     for recipe in list(tag.recipes):
         recipe.tags.remove(tag)
     
-    # Remove tag from all ingredients
-    for ingredient in list(tag.ingredients):
-        ingredient.tags.remove(tag)
+    # Removed ingredient tag removal - ingredients no longer have tags
     
     # Remove tag from all articles
     for article in list(tag.articles):

@@ -1,0 +1,17 @@
+skillet
+skewer
+casserole
+beans
+soup/stew
+side
+astringent
+grain
+salad/dressing
+galette
+meat main
+dessert
+curry
+spread/dip
+pasta
+taco/burrito
+chloroplast sauce

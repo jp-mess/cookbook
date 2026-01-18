@@ -64,14 +64,7 @@ def print_ingredient_info(ingredient):
     type_name = ingredient.type.name if ingredient.type else '(no type)'
     print(f"Type: {type_name}")
     
-    if ingredient.alias:
-        aliases = [a.strip() for a in ingredient.alias.split(',') if a.strip()]
-        if aliases:
-            print(f"Aliases: {', '.join(aliases)}")
-    
-    if ingredient.tags:
-        tags_str = ', '.join([tag.name for tag in ingredient.tags])
-        print(f"Tags: {tags_str}")
+    # Removed alias and tags - ingredients no longer have these fields
     
     if ingredient.notes:
         print(f"\nNotes:")
@@ -123,7 +116,11 @@ def print_recipe_info(recipe):
         if valid_ingredients:
             print(f"\nIngredients ({len(valid_ingredients)} total):")
             for ingredient in valid_ingredients:
-                print(f"  • {ingredient.name} ({ingredient.type.name})")
+                type_name = ingredient.type.name if ingredient.type else '(no type)'
+                assoc = recipe.get_ingredient_association(ingredient)
+                quantity_str = f" - {assoc.quantity}" if assoc and assoc.quantity else ""
+                notes_str = f" ({assoc.notes})" if assoc and assoc.notes else ""
+                print(f"  • {ingredient.name} ({type_name}){quantity_str}{notes_str}")
         else:
             print("\nIngredients: (none)")
     else:
@@ -175,38 +172,24 @@ def cmd_add_ingredient(args):
                 json_data = json.load(f)
             
             # Import the ingredient
+            ingredient = import_new_ingredient_from_json(json_path)
+            # Get fresh instance to access relationships (ingredient from import may be detached)
+            db = SessionLocal()
             try:
-                ingredient = import_new_ingredient_from_json(json_path)
-                # Get fresh instance to access relationships (ingredient from import may be detached)
-                db = SessionLocal()
-                try:
-                    from db_operations import get_ingredient
-                    fresh_ingredient = get_ingredient(db, ingredient_id=ingredient.id)
-                    if fresh_ingredient:
-                        type_name = fresh_ingredient.type.name if fresh_ingredient.type else "(no type)"
-                        print(f"✓ Added ingredient: {fresh_ingredient.name} (type: {type_name})")
-                    else:
-                        print(f"✓ Added ingredient: {ingredient.name}")
-                    print(f"  JSON file deleted.")
-                finally:
-                    db.close()
-            except Exception as e:
-                # Preserve JSON file on error so user can fix it
-                print(f"\n✗ Error: {e}", file=sys.stderr)
-                if json_path.exists():
-                    print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
-                    print(f"  Please fix the issue and run the command again.", file=sys.stderr)
-                sys.exit(1)
-        except Exception as e:
-            # Preserve JSON file on error
+                from db_operations import get_ingredient
+                fresh_ingredient = get_ingredient(db, ingredient_id=ingredient.id)
+                if fresh_ingredient:
+                    type_name = fresh_ingredient.type.name if fresh_ingredient.type else "(no type)"
+                    print(f"✓ Added ingredient: {fresh_ingredient.name} (type: {type_name})")
+                else:
+                    print(f"✓ Added ingredient: {ingredient.name}")
+                print(f"  JSON file deleted.")
+            finally:
+                db.close()
+        except (ValueError, Exception) as e:
+            # Preserve JSON file on error so user can fix it
             print(f"\n✗ Error: {e}", file=sys.stderr)
-            if json_path.exists():
-                print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
-            sys.exit(1)
-        except ValueError as e:
-            # Preserve JSON file on validation errors
-            print(f"\n✗ Error: {e}", file=sys.stderr)
-            if json_path.exists():
+            if json_path and json_path.exists():
                 print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
                 print(f"  Please fix the issue and run the command again.", file=sys.stderr)
             sys.exit(1)
@@ -276,88 +259,33 @@ def cmd_list_ingredients(args):
         if hasattr(args, 'search') and args.search:
             search_term = args.search.lower()
             
-            # Check if this is a subtag search (check if any tags have this subtag)
-            all_tags = list_tags(db)
-            tags_with_subtag = [t for t in all_tags if t.subtag and t.subtag.name.lower() == search_term]
-            
-            if tags_with_subtag:
-                # This is a subtag search - list ingredients grouped by tag
-                all_ingredients = list_ingredients(db)
+            # Removed subtag search - ingredients no longer have tags
+            # Just do name-based fuzzy search
+            ingredients = list_ingredients(db)
+            if not ingredients:
+                print("No ingredients found.")
+            else:
+                # Simple fuzzy matching: check if search term is in ingredient name (case-insensitive)
+                matches = []
+                for ingredient in ingredients:
+                    if ingredient and search_term in ingredient.name.lower():
+                        matches.append(ingredient)
                 
-                # Group ingredients by tag name
-                ingredients_by_tag = {}
-                tags_with_no_ingredients = []
-                for tag in tags_with_subtag:
-                    ingredients_with_tag = []
-                    for ingredient in all_ingredients:
-                        if ingredient and tag in ingredient.tags:
-                            ingredients_with_tag.append(ingredient)
-                    if ingredients_with_tag:
-                        ingredients_by_tag[tag.name] = ingredients_with_tag
-                    else:
-                        tags_with_no_ingredients.append(tag.name)
+                # Sort by relevance (exact match first, then by position)
+                matches.sort(key=lambda i: (i.name.lower().startswith(search_term), i.name.lower().find(search_term)))
                 
-                if not ingredients_by_tag and not tags_with_no_ingredients:
-                    print(f"No tags found with subtag '{args.search}'")
+                # Show top 3
+                top_matches = matches[:3]
+                if not top_matches:
+                    print(f"No ingredients found matching '{args.search}'")
                 else:
                     print(f"\n{'='*70}")
-                    print(f"Ingredients with tags (subtag: '{args.search}')")
+                    print(f"Ingredients matching '{args.search}' (showing top {len(top_matches)})")
                     print(f"{'='*70}")
-                    
-                    # Sort tags alphabetically
-                    for tag_name in sorted(ingredients_by_tag.keys(), key=lambda x: x.upper()):
-                        ingredients = ingredients_by_tag[tag_name]
-                        print(f"\n{tag_name.upper()}")
-                        for ingredient in sorted(ingredients, key=lambda i: i.name.lower()):
-                            type_name = ingredient.type.name if ingredient.type else '(no type)'
-                            print(f"  [{ingredient.id:3d}] {ingredient.name} ({type_name})")
-                    
-                    # Show tags with no ingredients at the end
-                    if tags_with_no_ingredients:
-                        print(f"\nTags with no ingredients:")
-                        for tag_name in sorted(tags_with_no_ingredients, key=lambda x: x.upper()):
-                            print(f"  {tag_name}")
-                    
-                    # Show ingredients with no tags
-                    ingredients_with_no_tags = []
-                    for ingredient in all_ingredients:
-                        if ingredient and not ingredient.tags:
-                            ingredients_with_no_tags.append(ingredient)
-                    
-                    if ingredients_with_no_tags:
-                        print(f"\nIngredients with no tags:")
-                        for ingredient in sorted(ingredients_with_no_tags, key=lambda i: i.name.lower()):
-                            type_name = ingredient.type.name if ingredient.type else '(no type)'
-                            print(f"  [{ingredient.id:3d}] {ingredient.name} ({type_name})")
-                    
+                    for ingredient in top_matches:
+                        type_name = ingredient.type.name if ingredient.type else '(no type)'
+                        print(f"  [{ingredient.id:3d}] {ingredient.name} ({type_name})")
                     print()
-            else:
-                # Search mode: fuzzy match ingredient names
-                ingredients = list_ingredients(db)
-                if not ingredients:
-                    print("No ingredients found.")
-                else:
-                    # Simple fuzzy matching: check if search term is in ingredient name (case-insensitive)
-                    matches = []
-                    for ingredient in ingredients:
-                        if ingredient and search_term in ingredient.name.lower():
-                            matches.append(ingredient)
-                    
-                    # Sort by relevance (exact match first, then by position)
-                    matches.sort(key=lambda i: (i.name.lower().startswith(search_term), i.name.lower().find(search_term)))
-                    
-                    # Show top 3
-                    top_matches = matches[:3]
-                    if not top_matches:
-                        print(f"No ingredients found matching '{args.search}'")
-                    else:
-                        print(f"\n{'='*70}")
-                        print(f"Ingredients matching '{args.search}' (showing top {len(top_matches)})")
-                        print(f"{'='*70}")
-                        for ingredient in top_matches:
-                            type_name = ingredient.type.name if ingredient.type else '(no type)'
-                            print(f"  [{ingredient.id:3d}] {ingredient.name} ({type_name})")
-                        print()
         else:
             # List all ingredients (compact format)
             ingredients = list_ingredients(db)
@@ -368,32 +296,7 @@ def cmd_list_ingredients(args):
                     if ingredient:
                         print(f"[{ingredient.id:3d}] {ingredient.name}")
                 
-                # Check for subtags with no ingredients
-                from db_operations import list_subtags
-                all_subtags = list_subtags(db)
-                all_ingredients = list_ingredients(db)
-                all_tags = list_tags(db)
-                
-                # Get all tags that are used in ingredients
-                tags_in_ingredients = set()
-                for ingredient in all_ingredients:
-                    if ingredient:
-                        tags_in_ingredients.update(tag.id for tag in ingredient.tags if tag)
-                
-                # Find subtags that have no ingredients (tags with this subtag are not in any ingredients)
-                subtags_with_no_ingredients = []
-                for subtag in all_subtags:
-                    # Get all tags with this subtag
-                    tags_with_subtag = [tag for tag in all_tags if tag and tag.subtag and tag.subtag.id == subtag.id]
-                    # Check if any of these tags are in ingredients
-                    if tags_with_subtag:
-                        has_ingredients = any(tag.id in tags_in_ingredients for tag in tags_with_subtag)
-                        if not has_ingredients:
-                            subtags_with_no_ingredients.append(subtag.name)
-                
-                if subtags_with_no_ingredients:
-                    subtags_str = ', '.join(sorted(subtags_with_no_ingredients))
-                    print(f"\nNote: Subtags with no ingredients: {subtags_str}")
+                # Removed subtag check - ingredients no longer have tags
     finally:
         db.close()
 
@@ -477,14 +380,12 @@ def cmd_edit_ingredient(args):
             print(f"✓ Updated ingredient: {ingredient.name}")
             print(f"  JSON file deleted.")
         except Exception as e:
-            # Preserve JSON file on error
-            print(f"✗ Error: {e}", file=sys.stderr)
-        except Exception as e:
-            # Clean up JSON file on error (unless user cancelled)
+            # Preserve JSON file on error (unless user cancelled)
             json_path = EDITABLE_DIR / f"ingredient_{ingredient_id}.json"
-            if json_path.exists() and not isinstance(e, KeyboardInterrupt):
-                json_path.unlink()
             if not isinstance(e, KeyboardInterrupt):
+                if json_path.exists():
+                    # Don't delete - preserve for user to fix
+                    pass
                 print(f"✗ Error: {e}", file=sys.stderr)
                 sys.exit(1)
     else:
@@ -521,25 +422,11 @@ def cmd_add_recipe(args):
                 json_data = json.load(f)
             
             # Import the recipe
-            try:
-                recipe = import_new_recipe_from_json(json_path)
-                print(f"✓ Added recipe: {recipe.name}")
-                print(f"  JSON file deleted.")
-            except Exception as e:
-                # Preserve JSON file on error so user can fix it
-                print(f"\n✗ Error: {e}", file=sys.stderr)
-                if json_path and json_path.exists():
-                    print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
-                    print(f"  Please fix the issue and run the command again.", file=sys.stderr)
-                sys.exit(1)
-        except Exception as e:
-            # Preserve JSON file on error
-            print(f"\n✗ Error: {e}", file=sys.stderr)
-            if json_path and json_path.exists():
-                print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
-            sys.exit(1)
-        except ValueError as e:
-            # Preserve JSON file on validation errors
+            recipe = import_new_recipe_from_json(json_path)
+            print(f"✓ Added recipe: {recipe.name}")
+            print(f"  JSON file deleted.")
+        except (ValueError, Exception) as e:
+            # Preserve JSON file on error so user can fix it
             print(f"\n✗ Error: {e}", file=sys.stderr)
             if json_path and json_path.exists():
                 print(f"  JSON file preserved at: {json_path}", file=sys.stderr)
@@ -772,14 +659,12 @@ def cmd_edit_recipe(args):
             print(f"✓ Updated recipe: {recipe.name}")
             print(f"  JSON file deleted.")
         except Exception as e:
-            # Preserve JSON file on error
-            print(f"✗ Error: {e}", file=sys.stderr)
-        except Exception as e:
-            # Clean up JSON file on error (unless user cancelled)
+            # Preserve JSON file on error (unless user cancelled)
             json_path = EDITABLE_DIR / f"recipe_{recipe_id}.json"
-            if json_path.exists() and not isinstance(e, KeyboardInterrupt):
-                json_path.unlink()
             if not isinstance(e, KeyboardInterrupt):
+                if json_path.exists():
+                    # Don't delete - preserve for user to fix
+                    pass
                 print(f"✗ Error: {e}", file=sys.stderr)
                 sys.exit(1)
     else:
@@ -1471,23 +1356,7 @@ def cmd_consistent(args):
                         'tag_name': tag.name
                     })
         
-        # Check ingredient tags
-        for ingredient in all_ingredients:
-            if not ingredient:
-                continue
-            ingredient_tags = ingredient.tags
-            for tag in ingredient_tags:
-                if not tag:
-                    continue
-                # Check if tag ID exists in tags database
-                if tag.id not in tag_ids:
-                    issues_found.append({
-                        'type': 'ingredient_tag',
-                        'ingredient_id': ingredient.id,
-                        'ingredient_name': ingredient.name,
-                        'tag_id': tag.id,
-                        'tag_name': tag.name
-                    })
+        # Removed ingredient tag check - ingredients no longer have tags
         
         # Check ingredient types (only if ingredient has a type - typeless is allowed)
         for ingredient in all_ingredients:
@@ -1529,9 +1398,7 @@ def cmd_consistent(args):
         for recipe in all_recipes:
             if recipe:
                 used_tag_ids.update(tag.id for tag in recipe.tags if tag)
-        for ingredient in all_ingredients:
-            if ingredient:
-                used_tag_ids.update(tag.id for tag in ingredient.tags if tag)
+        # Removed ingredient tag tracking - ingredients no longer have tags
         # Check articles too
         from models import Article
         all_articles = db.query(Article).all()
@@ -1556,7 +1423,7 @@ def cmd_consistent(args):
         if not issues_found:
             print("✓ Database is consistent!")
             print(f"  All recipe ingredients exist in the ingredients database.")
-            print(f"  All tags used in recipes and ingredients exist in the tag list.")
+            print(f"  All tags used in recipes exist in the tag list.")
             print(f"  All types used in ingredients exist in the types list.")
             print(f"  All subtags used in tags exist in the subtag list.")
         else:
@@ -1785,7 +1652,7 @@ def main():
     add_ing_parser = ingredient_subparsers.add_parser('add', help='Add an ingredient using JSON file')
     add_ing_parser.set_defaults(func=cmd_add_ingredient)
     
-    list_ing_parser = ingredient_subparsers.add_parser('list', help='List all ingredients, search ingredients by name, or list ingredients by subtag')
+    list_ing_parser = ingredient_subparsers.add_parser('list', help='List all ingredients or search ingredients by name')
     list_ing_parser.add_argument('search', nargs='?', help='Optional search string to filter ingredients by name, or subtag name to list by subtag')
     list_ing_parser.set_defaults(func=cmd_list_ingredients)
     

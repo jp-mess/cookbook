@@ -8,6 +8,6 @@ basil
 sage
 rosemary
 thyme
-chives
 kasoori methi
 kaffir lime leaves
+chives

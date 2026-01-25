@@ -15,5 +15,8 @@
     "portabella mushrooms",
     "shittake mushrooms",
     "potatoes"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

@@ -14,5 +14,8 @@
     "yogurt",
     "sour cream",
     "ketchup"
-  ]
+  ],
+  "secondary_ingredients": ["turnips", "radishes"],
+  "clashing_ingredients": ["parsnips", "carrots"],
+  "want_to_try": []
 }

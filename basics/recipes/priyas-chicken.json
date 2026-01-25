@@ -15,9 +15,13 @@
     "mint",
     "ginger",
     "garlic",
+    "lime",
     "turmeric",
     "chili powder",
     "cumin",
     "coriander"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

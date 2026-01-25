@@ -1,0 +1,30 @@
+{
+  "name": "wild rice soup",
+  "instructions": "",
+  "notes": "",
+  "tags": [
+    "unattempted",
+    "american",
+    "soup/stew",
+    "external recipe"
+  ],
+  "ingredients": [
+    "rice",
+    "portabella mushrooms",
+    "oyster mushrooms",
+    "shittake mushrooms",
+    "coconut milk",
+    "kale",
+    "mixed greens",
+    "celery",
+    "carrots",
+    "white onions",
+    "garlic",
+    "old bay",
+    "bay leaf",
+    "bouillon"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": ["leeks"]
+}

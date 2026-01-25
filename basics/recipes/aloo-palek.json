@@ -6,7 +6,8 @@
     "good enough",
     "indian",
     "curry",
-    "chlorophyll sauce"
+    "chlorophyll sauce",
+    "leftover fusion"
   ],
   "ingredients": [
     "spinach",
@@ -20,5 +21,8 @@
     "vegetable oil",
     "amchur powder",
     "cardamom"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

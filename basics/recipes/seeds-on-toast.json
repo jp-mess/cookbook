@@ -12,6 +12,11 @@
     "bread",
     "cream cheese",
     "sunflower seeds",
-    "pumpkin seeds"
-  ]
+    "pumpkin seeds",
+    "basil",
+    "black pepper"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

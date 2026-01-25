@@ -22,3 +22,4 @@ tartine
 panini
 sandwich
 leftover fusion
+patty

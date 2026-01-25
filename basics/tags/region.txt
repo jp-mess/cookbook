@@ -1,7 +1,7 @@
 french
 american
 eastern european
-east asian
+asian
 italian
 indian
 middle eastern

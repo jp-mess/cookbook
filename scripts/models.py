@@ -26,6 +26,30 @@ article_tags = Table(
     Column('tag_id', Integer, ForeignKey('tags.id'), primary_key=True)
 )
 
+# Junction table for many-to-many: Recipe ↔ Secondary Ingredients (for logging only)
+recipe_secondary_ingredients = Table(
+    'recipe_secondary_ingredients',
+    Base.metadata,
+    Column('recipe_id', Integer, ForeignKey('recipes.id'), primary_key=True),
+    Column('ingredient_id', Integer, ForeignKey('ingredients.id'), primary_key=True)
+)
+
+# Junction table for many-to-many: Recipe ↔ Clashing Ingredients (for logging only)
+recipe_clashing_ingredients = Table(
+    'recipe_clashing_ingredients',
+    Base.metadata,
+    Column('recipe_id', Integer, ForeignKey('recipes.id'), primary_key=True),
+    Column('ingredient_id', Integer, ForeignKey('ingredients.id'), primary_key=True)
+)
+
+# Junction table for many-to-many: Recipe ↔ Want to Try Ingredients (for logging only)
+recipe_want_to_try_ingredients = Table(
+    'recipe_want_to_try_ingredients',
+    Base.metadata,
+    Column('recipe_id', Integer, ForeignKey('recipes.id'), primary_key=True),
+    Column('ingredient_id', Integer, ForeignKey('ingredients.id'), primary_key=True)
+)
+
 
 # Association object for many-to-many: Recipe ↔ Ingredients (with quantity and notes)
 class RecipeIngredient(Base):
@@ -60,6 +84,15 @@ class Recipe(Base):
     # Transparent proxy to access ingredients directly (maintains backward compatibility)
     ingredients = association_proxy('ingredient_associations', 'ingredient',
                                      creator=lambda ing: RecipeIngredient(ingredient=ing))
+    
+    # Many-to-many relationship with Secondary Ingredients (for logging only, not used in search)
+    secondary_ingredients = relationship('Ingredient', secondary=recipe_secondary_ingredients)
+    
+    # Many-to-many relationship with Clashing Ingredients (for logging only, not used in search)
+    clashing_ingredients = relationship('Ingredient', secondary=recipe_clashing_ingredients)
+    
+    # Many-to-many relationship with Want to Try Ingredients (for logging only, not used in search)
+    want_to_try_ingredients = relationship('Ingredient', secondary=recipe_want_to_try_ingredients)
     
     def get_ingredient_association(self, ingredient):
         """Get the association object for a specific ingredient."""

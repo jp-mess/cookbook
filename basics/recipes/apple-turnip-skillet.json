@@ -15,10 +15,12 @@
     "rosemary",
     "leeks",
     "goat cheese",
-    "fennel bulb",
     "pistachios",
     "honey",
     "sunflower seeds",
     "walnuts"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

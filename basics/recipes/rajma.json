@@ -2,7 +2,12 @@
   "name": "rajma",
   "instructions": "",
   "notes": "ghee and kasoori are non-optional",
-  "tags": ["indian", "excellent", "beans", "curry"],
+  "tags": [
+    "indian",
+    "excellent",
+    "beans",
+    "curry"
+  ],
   "ingredients": [
     "tomato paste",
     "red beans",
@@ -19,5 +24,8 @@
     "kasoori methi",
     "ghee",
     "amchur powder"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

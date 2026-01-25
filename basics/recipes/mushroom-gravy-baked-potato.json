@@ -2,7 +2,10 @@
   "name": "mushroom gravy baked potato",
   "instructions": "",
   "notes": "",
-  "tags": ["good enough", "french"],
+  "tags": [
+    "good enough",
+    "french"
+  ],
   "ingredients": [
     "butter",
     "shittake mushrooms",
@@ -14,5 +17,8 @@
     "rosemary",
     "thyme",
     "tarragon"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

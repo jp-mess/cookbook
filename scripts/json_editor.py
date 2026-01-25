@@ -82,7 +82,10 @@ def recipe_to_json(recipe: Recipe) -> dict:
         'instructions': instructions,
         'notes': notes,
         'tags': [tag.name for tag in recipe.tags],
-        'ingredients': ingredients_list
+        'ingredients': ingredients_list,
+        'secondary_ingredients': [ing.name for ing in recipe.secondary_ingredients] if recipe.secondary_ingredients else [],
+        'clashing_ingredients': [ing.name for ing in recipe.clashing_ingredients] if recipe.clashing_ingredients else [],
+        'want_to_try': [ing.name for ing in recipe.want_to_try_ingredients] if recipe.want_to_try_ingredients else []
     }
 
 
@@ -146,13 +149,42 @@ def json_to_recipe_data(json_data: dict) -> tuple[dict, list[tuple[str, str]]]:
                 })
                 corrections.extend(ing_corrections)
     
+    # Handle secondary_ingredients and clashing_ingredients (simple lists of ingredient names)
+    raw_secondary = json_data.get('secondary_ingredients', [])
+    normalized_secondary = []
+    for ing in raw_secondary:
+        if isinstance(ing, str):
+            normalized_ing, ing_corrections = normalize_name(ing.strip(), check_spelling=True)
+            normalized_secondary.append(normalized_ing)
+            corrections.extend(ing_corrections)
+    
+    raw_clashing = json_data.get('clashing_ingredients', [])
+    normalized_clashing = []
+    for ing in raw_clashing:
+        if isinstance(ing, str):
+            normalized_ing, ing_corrections = normalize_name(ing.strip(), check_spelling=True)
+            normalized_clashing.append(normalized_ing)
+            corrections.extend(ing_corrections)
+    
+    # Handle want_to_try (simple list of ingredient names)
+    raw_want_to_try = json_data.get('want_to_try', [])
+    normalized_want_to_try = []
+    for ing in raw_want_to_try:
+        if isinstance(ing, str):
+            normalized_ing, ing_corrections = normalize_name(ing.strip(), check_spelling=True)
+            normalized_want_to_try.append(normalized_ing)
+            corrections.extend(ing_corrections)
+    
     return {
         'name': name,
         'instructions': instructions or None,
         'notes': notes or None,
         'tags': normalized_tags,
         'ingredients': normalized_ingredients,
-        'ingredient_details': ingredient_details  # Include quantity/notes for import
+        'ingredient_details': ingredient_details,  # Include quantity/notes for import
+        'secondary_ingredients': normalized_secondary,
+        'clashing_ingredients': normalized_clashing,
+        'want_to_try': normalized_want_to_try
     }, corrections
 
 
@@ -295,6 +327,57 @@ def import_recipe_from_json(recipe_id: int) -> Recipe:
         
         db.commit()
         db.refresh(recipe)
+        
+        # Update secondary_ingredients - remove all, then add new ones
+        from db_operations import add_secondary_ingredients_to_recipe, remove_secondary_ingredients_from_recipe
+        current_secondary_names = {ing.name for ing in recipe.secondary_ingredients}
+        new_secondary_names = set(recipe_data.get('secondary_ingredients', []))
+        
+        secondary_to_remove = current_secondary_names - new_secondary_names
+        if secondary_to_remove:
+            recipe = remove_secondary_ingredients_from_recipe(db, recipe_id=recipe_id, ingredient_names=list(secondary_to_remove))
+        
+        secondary_to_add = new_secondary_names - current_secondary_names
+        if secondary_to_add:
+            # Create any missing ingredients automatically with default type "other"
+            for ing_name in secondary_to_add:
+                if not get_ingredient(db, name=ing_name):
+                    add_ingredient(db, ing_name, "other")
+            recipe = add_secondary_ingredients_to_recipe(db, recipe_id=recipe_id, ingredient_names=list(secondary_to_add))
+        
+        # Update clashing_ingredients - remove all, then add new ones
+        from db_operations import add_clashing_ingredients_to_recipe, remove_clashing_ingredients_from_recipe
+        current_clashing_names = {ing.name for ing in recipe.clashing_ingredients}
+        new_clashing_names = set(recipe_data.get('clashing_ingredients', []))
+        
+        clashing_to_remove = current_clashing_names - new_clashing_names
+        if clashing_to_remove:
+            recipe = remove_clashing_ingredients_from_recipe(db, recipe_id=recipe_id, ingredient_names=list(clashing_to_remove))
+        
+        clashing_to_add = new_clashing_names - current_clashing_names
+        if clashing_to_add:
+            # Create any missing ingredients automatically with default type "other"
+            for ing_name in clashing_to_add:
+                if not get_ingredient(db, name=ing_name):
+                    add_ingredient(db, ing_name, "other")
+            recipe = add_clashing_ingredients_to_recipe(db, recipe_id=recipe_id, ingredient_names=list(clashing_to_add))
+        
+        # Update want_to_try_ingredients - remove all, then add new ones
+        from db_operations import add_want_to_try_ingredients_to_recipe, remove_want_to_try_ingredients_from_recipe
+        current_want_to_try_names = {ing.name for ing in recipe.want_to_try_ingredients}
+        new_want_to_try_names = set(recipe_data.get('want_to_try', []))
+        
+        want_to_try_to_remove = current_want_to_try_names - new_want_to_try_names
+        if want_to_try_to_remove:
+            recipe = remove_want_to_try_ingredients_from_recipe(db, recipe_id=recipe_id, ingredient_names=list(want_to_try_to_remove))
+        
+        want_to_try_to_add = new_want_to_try_names - current_want_to_try_names
+        if want_to_try_to_add:
+            # Create any missing ingredients automatically with default type "other"
+            for ing_name in want_to_try_to_add:
+                if not get_ingredient(db, name=ing_name):
+                    add_ingredient(db, ing_name, "other")
+            recipe = add_want_to_try_ingredients_to_recipe(db, recipe_id=recipe_id, ingredient_names=list(want_to_try_to_add))
         
         # Delete the JSON file after successful import
         json_path.unlink()
@@ -967,6 +1050,36 @@ def import_new_recipe_from_json(json_path: Path = None) -> Recipe:
             
             db.commit()
             db.refresh(recipe)
+            
+            # Add secondary_ingredients if provided
+            from db_operations import add_secondary_ingredients_to_recipe
+            secondary_ingredients = recipe_data.get('secondary_ingredients', [])
+            if secondary_ingredients:
+                # Create any missing ingredients automatically with default type "other"
+                for ing_name in secondary_ingredients:
+                    if not get_ingredient(db, name=ing_name):
+                        add_ingredient(db, ing_name, "other")
+                recipe = add_secondary_ingredients_to_recipe(db, recipe_id=recipe.id, ingredient_names=secondary_ingredients)
+            
+            # Add clashing_ingredients if provided
+            from db_operations import add_clashing_ingredients_to_recipe
+            clashing_ingredients = recipe_data.get('clashing_ingredients', [])
+            if clashing_ingredients:
+                # Create any missing ingredients automatically with default type "other"
+                for ing_name in clashing_ingredients:
+                    if not get_ingredient(db, name=ing_name):
+                        add_ingredient(db, ing_name, "other")
+                recipe = add_clashing_ingredients_to_recipe(db, recipe_id=recipe.id, ingredient_names=clashing_ingredients)
+            
+            # Add want_to_try_ingredients if provided
+            from db_operations import add_want_to_try_ingredients_to_recipe
+            want_to_try_ingredients = recipe_data.get('want_to_try', [])
+            if want_to_try_ingredients:
+                # Create any missing ingredients automatically with default type "other"
+                for ing_name in want_to_try_ingredients:
+                    if not get_ingredient(db, name=ing_name):
+                        add_ingredient(db, ing_name, "other")
+                recipe = add_want_to_try_ingredients_to_recipe(db, recipe_id=recipe.id, ingredient_names=want_to_try_ingredients)
         except Exception as e:
             # Preserve JSON file on database errors
             raise ValueError(f"Failed to add recipe to database: {e}. JSON file preserved for editing.")

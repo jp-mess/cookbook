@@ -15,5 +15,8 @@
     "balsamic vinegar",
     "soy sauce",
     "bread"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

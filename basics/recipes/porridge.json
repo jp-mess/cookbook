@@ -13,7 +13,9 @@
     "barley",
     "oats",
     "raspberries",
-    "blueberries",
-    "strawberries"
-  ]
+    "blueberries"
+  ],
+  "secondary_ingredients": ["strawberries"],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

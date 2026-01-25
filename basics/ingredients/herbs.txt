@@ -9,5 +9,5 @@ sage
 rosemary
 thyme
 chives
-oregano
 kasoori methi
+kaffir lime leaves

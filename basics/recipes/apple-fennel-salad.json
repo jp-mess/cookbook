@@ -3,9 +3,9 @@
   "instructions": "",
   "notes": "",
   "tags": [
-    "unattempted",
+    "excellent",
     "salad/dressing",
-    "american"
+    "eastern european"
   ],
   "ingredients": [
     "fennel bulb",
@@ -15,7 +15,9 @@
     "apple cider vinegar",
     "parsley",
     "olive oil",
-    "honey",
     "almonds"
-  ]
+  ],
+  "secondary_ingredients": ["turnips", "parsley"],
+  "clashing_ingredients": [],
+  "want_to_try": ["kale", "leeks"]
 }

@@ -1,7 +1,7 @@
 {
-  "name": "tomato korma",
+  "name": "vegetable korma",
   "instructions": "",
-  "notes": "mint is blended in with the cashews at the start",
+  "notes": "",
   "tags": [
     "has potential",
     "indian",
@@ -17,10 +17,13 @@
     "green beans",
     "cumin",
     "coriander",
-    "firm tofu",
     "cardamom",
     "garam masala",
     "mint",
-    "cilantro"
-  ]
+    "red onions",
+    "garlic"
+  ],
+  "secondary_ingredients": ["lemon", "cilantro"],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

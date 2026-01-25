@@ -15,5 +15,8 @@
     "olive oil",
     "tomato paste",
     "canned tomatoes"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

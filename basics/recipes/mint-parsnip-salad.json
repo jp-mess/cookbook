@@ -1,0 +1,25 @@
+{
+  "name": "mint parsnip salad",
+  "instructions": "",
+  "notes": "mint seems non-optional",
+  "tags": [
+    "excellent",
+    "french",
+    "salad/dressing",
+    "side"
+  ],
+  "ingredients": [
+    "arugula",
+    "mixed greens",
+    "parsnips",
+    "mint",
+    "light miso paste",
+    "tangerine",
+    "olive oil",
+    "rice vinegar",
+    "orange"
+  ],
+  "secondary_ingredients": ["turnips", "radishes"],
+  "clashing_ingredients": ["spinach"],
+  "want_to_try": []
+}

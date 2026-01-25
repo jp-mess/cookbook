@@ -12,7 +12,11 @@ if str(scripts_dir) not in sys.path:
     sys.path.insert(0, str(scripts_dir))
 
 from database import SessionLocal, init_db
-from models import Recipe, Article, Ingredient, Tag, IngredientType, Subtag, RecipeIngredient, recipe_tags, article_tags
+from models import (
+    Recipe, Article, Ingredient, Tag, IngredientType, Subtag, RecipeIngredient,
+    recipe_tags, article_tags, recipe_secondary_ingredients, recipe_clashing_ingredients,
+    recipe_want_to_try_ingredients
+)
 from sqlalchemy import delete
 
 
@@ -49,6 +53,15 @@ def reset_database():
         
         print("  Deleting article-tag associations...")
         db.execute(article_tags.delete())
+        
+        print("  Deleting recipe-secondary-ingredient associations...")
+        db.execute(recipe_secondary_ingredients.delete())
+        
+        print("  Deleting recipe-clashing-ingredient associations...")
+        db.execute(recipe_clashing_ingredients.delete())
+        
+        print("  Deleting recipe-want-to-try-ingredient associations...")
+        db.execute(recipe_want_to_try_ingredients.delete())
         
         print("  Deleting recipes...")
         db.execute(delete(Recipe))

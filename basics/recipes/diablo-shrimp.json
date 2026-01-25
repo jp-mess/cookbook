@@ -13,5 +13,8 @@
     "white wine",
     "coca cola",
     "oregano"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

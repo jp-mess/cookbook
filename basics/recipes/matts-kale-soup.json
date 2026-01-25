@@ -14,5 +14,8 @@
     "bouillon",
     "soy sauce",
     "ginger"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

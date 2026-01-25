@@ -50,16 +50,86 @@ def load_tags_from_file(file_path: Path) -> list[str]:
     return tags
 
 
+def preflight_check_ingredients(ingredients_dir: Path) -> bool:
+    """
+    Preflight check: Verify that each ingredient appears in only one file.
+    Returns True if no duplicates found, False otherwise.
+    """
+    print("\n" + "="*70)
+    print("Preflight Check: Ingredient Duplicates")
+    print("="*70)
+    
+    ingredient_files = sorted(ingredients_dir.glob('*.txt'))
+    
+    if not ingredient_files:
+        print("  ✗ No ingredient files found")
+        return False
+    
+    # Track which files each ingredient appears in (case-insensitive)
+    ingredient_locations = {}  # ingredient_name_lower -> list of (file_path, original_name)
+    duplicates_found = []
+    
+    for file_path in ingredient_files:
+        type_name = file_path.stem
+        ingredient_names = load_ingredients_from_file(file_path)
+        
+        for ing_name in ingredient_names:
+            # Normalize to lowercase for comparison
+            ing_name_lower = ing_name.strip().lower()
+            
+            if ing_name_lower not in ingredient_locations:
+                ingredient_locations[ing_name_lower] = []
+            
+            ingredient_locations[ing_name_lower].append((type_name, ing_name))
+    
+    # Find duplicates
+    for ing_name_lower, locations in ingredient_locations.items():
+        if len(locations) > 1:
+            # Found a duplicate
+            file_names = [loc[0] for loc in locations]
+            original_names = [loc[1] for loc in locations]
+            duplicates_found.append({
+                'name': original_names[0],  # Use first occurrence as canonical name
+                'name_lower': ing_name_lower,
+                'files': file_names,
+                'all_names': original_names
+            })
+    
+    if duplicates_found:
+        print(f"\n  ✗ Found {len(duplicates_found)} duplicate ingredient(s):\n")
+        for dup in duplicates_found:
+            print(f"    '{dup['name']}' appears in:")
+            for file_name in dup['files']:
+                print(f"      - {file_name}.txt")
+            # Check if the names differ (case differences)
+            unique_names = set(dup['all_names'])
+            if len(unique_names) > 1:
+                print(f"      Note: Name variations found: {', '.join(repr(n) for n in unique_names)}")
+            print()
+        print("  Please remove duplicates before proceeding.")
+        return False
+    else:
+        print(f"\n  ✓ No duplicates found ({len(ingredient_locations)} unique ingredients across {len(ingredient_files)} files)")
+        return True
+
+
 def reset_database(db):
     """Delete all existing data (recipes, articles, ingredients, tags, types, subtags)."""
     print("Resetting database...")
     
     # Delete in order to respect foreign key constraints
     # Start with junction tables and association objects
-    from models import RecipeIngredient, recipe_tags, article_tags
+    from models import (
+        RecipeIngredient, recipe_tags, article_tags,
+        recipe_secondary_ingredients, recipe_clashing_ingredients,
+        recipe_want_to_try_ingredients
+    )
     db.execute(delete(RecipeIngredient))
     db.execute(recipe_tags.delete())
     db.execute(article_tags.delete())
+    db.execute(recipe_secondary_ingredients.delete())
+    db.execute(recipe_clashing_ingredients.delete())
+    db.execute(recipe_want_to_try_ingredients.delete())
     
     # Then delete main entities
     db.execute(delete(Recipe))
@@ -287,6 +357,60 @@ def bootload_recipes(db, recipes_dir: Path) -> int:
                 tags=tags
             )
             
+            # Add secondary_ingredients if provided
+            secondary_ingredients = json_data.get('secondary_ingredients', [])
+            if secondary_ingredients:
+                from db_operations import add_secondary_ingredients_to_recipe, get_ingredient
+                # Validate secondary ingredients exist
+                missing_secondary = []
+                for ing_name in secondary_ingredients:
+                    if not get_ingredient(db, name=ing_name):
+                        missing_secondary.append(ing_name)
+                
+                if missing_secondary:
+                    print(f"\n  {json_path.name}: {name}")
+                    print(f"    ✗ Missing secondary ingredients: {', '.join(missing_secondary)}")
+                    failed_recipes += 1
+                    continue
+                
+                add_secondary_ingredients_to_recipe(db, recipe_id=recipe.id, ingredient_names=secondary_ingredients)
+            
+            # Add clashing_ingredients if provided
+            clashing_ingredients = json_data.get('clashing_ingredients', [])
+            if clashing_ingredients:
+                from db_operations import add_clashing_ingredients_to_recipe
+                # Validate clashing ingredients exist
+                missing_clashing = []
+                for ing_name in clashing_ingredients:
+                    if not get_ingredient(db, name=ing_name):
+                        missing_clashing.append(ing_name)
+                
+                if missing_clashing:
+                    print(f"\n  {json_path.name}: {name}")
+                    print(f"    ✗ Missing clashing ingredients: {', '.join(missing_clashing)}")
+                    failed_recipes += 1
+                    continue
+                
+                add_clashing_ingredients_to_recipe(db, recipe_id=recipe.id, ingredient_names=clashing_ingredients)
+            
+            # Add want_to_try_ingredients if provided
+            want_to_try_ingredients = json_data.get('want_to_try', [])
+            if want_to_try_ingredients:
+                from db_operations import add_want_to_try_ingredients_to_recipe
+                # Validate want to try ingredients exist
+                missing_want_to_try = []
+                for ing_name in want_to_try_ingredients:
+                    if not get_ingredient(db, name=ing_name):
+                        missing_want_to_try.append(ing_name)
+                
+                if missing_want_to_try:
+                    print(f"\n  {json_path.name}: {name}")
+                    print(f"    ✗ Missing want_to_try ingredients: {', '.join(missing_want_to_try)}")
+                    failed_recipes += 1
+                    continue
+                
+                add_want_to_try_ingredients_to_recipe(db, recipe_id=recipe.id, ingredient_names=want_to_try_ingredients)
+            
             # Only print failures, not successes
             total_recipes += 1
             
@@ -408,6 +532,54 @@ def verify_recipes(db, recipes_dir: Path):
             })
             continue
         
+        # Compare secondary_ingredients
+        json_secondary = set(ing.lower() for ing in json_data.get('secondary_ingredients', []))
+        recipe_secondary = set(ing.name.lower() for ing in recipe.secondary_ingredients if ing and ing.name)
+        
+        if json_secondary != recipe_secondary:
+            missing = json_secondary - recipe_secondary
+            extra = recipe_secondary - json_secondary
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': 'Secondary ingredient mismatch',
+                'missing': list(missing),
+                'extra': list(extra)
+            })
+            continue
+        
+        # Compare clashing_ingredients
+        json_clashing = set(ing.lower() for ing in json_data.get('clashing_ingredients', []))
+        recipe_clashing = set(ing.name.lower() for ing in recipe.clashing_ingredients if ing and ing.name)
+        
+        if json_clashing != recipe_clashing:
+            missing = json_clashing - recipe_clashing
+            extra = recipe_clashing - json_clashing
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': 'Clashing ingredient mismatch',
+                'missing': list(missing),
+                'extra': list(extra)
+            })
+            continue
+        
+        # Compare want_to_try_ingredients
+        json_want_to_try = set(ing.lower() for ing in json_data.get('want_to_try', []))
+        recipe_want_to_try = set(ing.name.lower() for ing in recipe.want_to_try_ingredients if ing and ing.name)
+        
+        if json_want_to_try != recipe_want_to_try:
+            missing = json_want_to_try - recipe_want_to_try
+            extra = recipe_want_to_try - json_want_to_try
+            issues_found.append({
+                'recipe_id': recipe.id,
+                'recipe_name': recipe.name,
+                'issue': 'Want to try ingredient mismatch',
+                'missing': list(missing),
+                'extra': list(extra)
+            })
+            continue
+        
         verified_count += 1
     
     total_recipes_in_db = len(all_recipes)
@@ -420,7 +592,7 @@ def verify_recipes(db, recipes_dir: Path):
             if 'missing' in issue:
                 if issue['missing']:
                     print(f"      Missing from database: {', '.join(issue['missing'])}")
-                if issue['extra']:
+                if issue.get('extra'):
                     print(f"      Extra in database: {', '.join(issue['extra'])}")
         print(f"\n  {verified_count}/{total_recipes_in_db} recipe(s) verified successfully")
         print()
@@ -453,6 +625,11 @@ def main():
     # Recipes directory is optional
     if not recipes_dir.exists():
         recipes_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Preflight check: verify no duplicate ingredients
+    if not preflight_check_ingredients(ingredients_dir):
+        print("\n✗ Preflight check failed. Please fix duplicate ingredients and try again.")
+        sys.exit(1)
     
     # Initialize database
     print("\nInitializing database schema...")

@@ -10,10 +10,11 @@
   ],
   "ingredients": [
     "red onions",
-    "white vinegar",
-    "white wine vinegar",
     "apple cider vinegar",
     "olive oil",
     "lemon zest"
-  ]
+  ],
+  "secondary_ingredients": ["white wine vinegar", "white vinegar"],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

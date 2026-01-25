@@ -10,8 +10,9 @@
   "ingredients": [
     "parsley",
     "olive oil",
-    "potatoes",
-    "thyme",
-    "rosemary"
-  ]
+    "potatoes"
+  ],
+  "secondary_ingredients": ["rosemary", "thyme"],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

@@ -1,0 +1,34 @@
+{
+  "name": "tuscan whitebean soup",
+  "instructions": "",
+  "notes": "This one's tricky. Just tomatoes and soffrito lacks depth. Porcini powder/bouillon helps. I think leafy greens might be the answer",
+  "tags": [
+    "has potential",
+    "italian",
+    "soup/stew",
+    "beans"
+  ],
+  "ingredients": [
+    "celery",
+    "carrots",
+    "yellow onions",
+    "tomatoes",
+    "old bay",
+    "bay leaf",
+    "bouillon",
+    "portabella mushrooms",
+    "shittake mushrooms",
+    "white beans"
+  ],
+  "secondary_ingredients": ["zucchini", "lentils", "porcini mushroom powder"],
+  "clashing_ingredients": [
+    "dark miso paste",
+    "chickpeas",
+    "ginger",
+    "black tea",
+    "cardamom",
+    "soy sauce",
+    "fennel seeds"
+  ],
+  "want_to_try": ["spinach", "kale", "rosemary", "thyme"]
+}

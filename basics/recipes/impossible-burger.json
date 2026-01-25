@@ -5,7 +5,8 @@
   "tags": [
     "excellent",
     "american",
-    "meat main"
+    "meat main",
+    "patty"
   ],
   "ingredients": [
     "impossible meat",
@@ -17,5 +18,8 @@
     "dijon mustard",
     "lettuce",
     "mixed greens"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

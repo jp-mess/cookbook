@@ -134,6 +134,27 @@ def print_recipe_info(recipe):
         print(f"\nNotes:")
         print(recipe.notes)
     
+    if recipe.secondary_ingredients:
+        secondary_names = [ing.name for ing in recipe.secondary_ingredients if ing]
+        if secondary_names:
+            print(f"\nSecondary Ingredients ({len(secondary_names)} total):")
+            for ing_name in secondary_names:
+                print(f"  • {ing_name}")
+    
+    if recipe.clashing_ingredients:
+        clashing_names = [ing.name for ing in recipe.clashing_ingredients if ing]
+        if clashing_names:
+            print(f"\nClashing Ingredients ({len(clashing_names)} total):")
+            for ing_name in clashing_names:
+                print(f"  • {ing_name}")
+    
+    if recipe.want_to_try_ingredients:
+        want_to_try_names = [ing.name for ing in recipe.want_to_try_ingredients if ing]
+        if want_to_try_names:
+            print(f"\nWant to Try ({len(want_to_try_names)} total):")
+            for ing_name in want_to_try_names:
+                print(f"  • {ing_name}")
+    
     print()
 
 
@@ -1039,12 +1060,65 @@ def cmd_recipe_cook(args):
     """Search recipes by ingredients (exact matching)."""
     db = SessionLocal()
     try:
-        from db_operations import search_recipes_by_ingredients_exact
+        from db_operations import search_recipes_by_ingredients_exact, get_tag
+        
+        # Get raw arguments - use args.ingredients which should now contain everything
+        # thanks to argparse.REMAINDER, but handle None/empty case
+        if args.ingredients:
+            raw_args = args.ingredients
+        else:
+            # Fallback: parse from sys.argv if args.ingredients is empty
+            raw_args = []
+            for i, arg in enumerate(sys.argv):
+                if i > 0 and sys.argv[i-1] == 'recipe' and arg == 'cook':
+                    raw_args = sys.argv[i+1:]
+                    break
+            if not raw_args:
+                print("✗ Error: At least one ingredient is required.", file=sys.stderr)
+                sys.exit(1)
+        
+        # Separate tag filters (+TAG and -TAG) from ingredient arguments
+        ingredient_args = []
+        include_tags = []  # Tags that must be present (+TAG)
+        exclude_tags = []  # Tags that must be absent (-TAG)
+        
+        for arg in raw_args:
+            if arg.startswith('+'):
+                # Include tag filter: +TAG
+                tag_name = arg[1:].strip()
+                if tag_name:
+                    include_tags.append(tag_name)
+            elif arg.startswith('-'):
+                # Exclude tag filter: -TAG
+                tag_name = arg[1:].strip()
+                if tag_name:
+                    exclude_tags.append(tag_name)
+            else:
+                # Regular ingredient argument
+                ingredient_args.append(arg)
+        
+        # Validate tag filters exist
+        for tag_name in include_tags:
+            tag = get_tag(db, name=tag_name)
+            if not tag:
+                print(f"✗ Error: Tag '{tag_name}' not found. Use 'python cli.py tag list' to see available tags.", file=sys.stderr)
+                sys.exit(1)
+        
+        for tag_name in exclude_tags:
+            tag = get_tag(db, name=tag_name)
+            if not tag:
+                print(f"✗ Error: Tag '{tag_name}' not found. Use 'python cli.py tag list' to see available tags.", file=sys.stderr)
+                sys.exit(1)
+        
         # Handle ingredients with spaces:
         # - Join all arguments with spaces first (so "pumpkin puree" becomes one ingredient)
         # - Then split by commas if present (so "pumpkin puree, black beans" becomes two ingredients)
         # - If no commas, treat the entire joined string as a single ingredient
-        joined_args = ' '.join(args.ingredients)
+        if not ingredient_args:
+            print("✗ Error: At least one ingredient is required.", file=sys.stderr)
+            sys.exit(1)
+        
+        joined_args = ' '.join(ingredient_args)
         
         # Split by comma if commas are present, otherwise treat as single ingredient
         if ',' in joined_args:
@@ -1059,16 +1133,154 @@ def cmd_recipe_cook(args):
             min_matches=1
         )
         
-        if not results:
-            print(f"No recipes found with ingredients: {ingredient_query}")
+        # Apply tag filters
+        filtered_results = []
+        for recipe, match_count in results:
+            if not recipe:
+                continue
+            
+            # Get recipe tag names (lowercase for comparison)
+            recipe_tag_names = {tag.name.lower() for tag in recipe.tags if tag}
+            
+            # Check include tags (all must be present)
+            include_match = True
+            for tag_name in include_tags:
+                if tag_name.lower() not in recipe_tag_names:
+                    include_match = False
+                    break
+            
+            if not include_match:
+                continue
+            
+            # Check exclude tags (none should be present)
+            exclude_match = True
+            for tag_name in exclude_tags:
+                if tag_name.lower() in recipe_tag_names:
+                    exclude_match = False
+                    break
+            
+            if not exclude_match:
+                continue
+            
+            # Recipe passed all filters
+            filtered_results.append((recipe, match_count))
+        
+        # Search for secondary ingredient matches
+        from db_operations import list_recipes, list_ingredient_types
+        from models import Ingredient
+        
+        # Build the same matching ingredient sets as primary search
+        requested_terms = [term.strip().lower() for term in ingredient_query.split(',') if term.strip()]
+        all_ingredients_list = db.query(Ingredient).all()
+        all_ingredients_in_db = {ing.name.lower(): ing for ing in all_ingredients_list if ing and ing.name}
+        all_types = list_ingredient_types(db)
+        all_types_in_db = {type_obj.name.lower(): type_obj for type_obj in all_types}
+        
+        term_matching_ingredients = {}
+        for term in requested_terms:
+            matching_ingredient_names = set()
+            if term in all_ingredients_in_db:
+                matching_ingredient_names.add(term)
+            elif term in all_types_in_db:
+                type_obj = all_types_in_db[term]
+                for ing in type_obj.ingredients:
+                    if ing and ing.name:
+                        matching_ingredient_names.add(ing.name.lower())
+            term_matching_ingredients[term] = matching_ingredient_names
+        
+        # Get all recipes and check secondary ingredients
+        all_recipes = list_recipes(db)
+        primary_recipe_ids = {recipe.id for recipe, _ in filtered_results if recipe}
+        secondary_results = []
+        
+        for recipe in all_recipes:
+            if not recipe or recipe.id in primary_recipe_ids:
+                continue  # Skip recipes already in primary results
+            
+            # Get recipe secondary ingredient names (lowercase) - includes both secondary_ingredients and want_to_try_ingredients
+            recipe_secondary_names = {ing.name.lower() for ing in recipe.secondary_ingredients if ing and ing.name}
+            recipe_want_to_try_names = {ing.name.lower() for ing in recipe.want_to_try_ingredients if ing and ing.name}
+            # Combine secondary and want_to_try ingredients for matching
+            all_secondary_names = recipe_secondary_names | recipe_want_to_try_names
+            
+            # Count matches in secondary/want_to_try ingredients
+            match_count = 0
+            for term, matching_ingredient_names in term_matching_ingredients.items():
+                matches = all_secondary_names & matching_ingredient_names
+                match_count += len(matches)
+            
+            # Only include if there's at least one match
+            if match_count >= 1:
+                # Apply tag filters to secondary results too
+                recipe_tag_names = {tag.name.lower() for tag in recipe.tags if tag}
+                
+                # Check include tags
+                include_match = True
+                for tag_name in include_tags:
+                    if tag_name.lower() not in recipe_tag_names:
+                        include_match = False
+                        break
+                
+                if not include_match:
+                    continue
+                
+                # Check exclude tags
+                exclude_match = True
+                for tag_name in exclude_tags:
+                    if tag_name.lower() in recipe_tag_names:
+                        exclude_match = False
+                        break
+                
+                if not exclude_match:
+                    continue
+                
+                # Recipe passed all filters
+                secondary_results.append((recipe, match_count))
+        
+        # Sort secondary results by match count
+        secondary_results.sort(key=lambda x: x[1], reverse=True)
+        
+        # Display results
+        if not filtered_results and not secondary_results:
+            filter_msg = ""
+            if include_tags or exclude_tags:
+                filter_parts = []
+                if include_tags:
+                    filter_parts.append(f"with tags: {', '.join(include_tags)}")
+                if exclude_tags:
+                    filter_parts.append(f"without tags: {', '.join(exclude_tags)}")
+                filter_msg = f" (filtered {filter_parts[0]})" if filter_parts else ""
+            print(f"No recipes found with ingredients: {ingredient_query}{filter_msg}")
         else:
-            print(f"\n{'='*70}")
-            print(f"Recipes with ingredients: {ingredient_query} ({len(results)} found)")
-            print(f"{'='*70}")
-            for recipe, match_count in results:
-                if recipe:
-                    formatted_name = format_recipe_name(recipe)
-                    print(f"  [{recipe.id:3d}] {formatted_name:40s} (Matches: {match_count})")
+            filter_msg = ""
+            if include_tags or exclude_tags:
+                filter_parts = []
+                if include_tags:
+                    filter_parts.append(f"+{', +'.join(include_tags)}")
+                if exclude_tags:
+                    filter_parts.append(f"-{', -'.join(exclude_tags)}")
+                filter_msg = f" [{', '.join(filter_parts)}]"
+            
+            # Display primary results
+            if filtered_results:
+                print(f"\n{'='*70}")
+                print(f"Recipes with ingredients: {ingredient_query}{filter_msg} ({len(filtered_results)} found)")
+                print(f"{'='*70}")
+                for recipe, match_count in filtered_results:
+                    if recipe:
+                        formatted_name = format_recipe_name(recipe)
+                        print(f"  [{recipe.id:3d}] {formatted_name:40s} (Matches: {match_count})")
+            
+            # Display secondary results (almost matches)
+            if secondary_results:
+                print(f"\n{'='*70}")
+                print(f"Almost matches: {ingredient_query}{filter_msg} ({len(secondary_results)} found)")
+                print(f"{'='*70}")
+                for recipe, match_count in secondary_results:
+                    if recipe:
+                        formatted_name = format_recipe_name(recipe)
+                        print(f"  [{recipe.id:3d}] {formatted_name:40s} (Matches: {match_count})")
+            
             print()
     except ValueError as e:
         print(f"✗ {e}", file=sys.stderr)
@@ -1737,7 +1949,7 @@ def main():
     
     # Cook command (ingredient matching)
     cook_recipe_parser = recipe_subparsers.add_parser('cook', help='Search recipes by ingredients (exact matching)')
-    cook_recipe_parser.add_argument('ingredients', nargs='+', help='Ingredient names (spaces are preserved; use commas to separate multiple ingredients, e.g., "pumpkin puree, black beans")')
+    cook_recipe_parser.add_argument('ingredients', nargs=argparse.REMAINDER, help='Ingredient names (spaces are preserved; use commas to separate multiple ingredients, e.g., "pumpkin puree, black beans"). Can also add +TAG or -TAG at the end to filter by tags (e.g., "+indian" to only show recipes with "indian" tag, "-indian" to exclude recipes with "indian" tag).')
     cook_recipe_parser.set_defaults(func=cmd_recipe_cook)
     
     # Tag command (list recipes with tag)

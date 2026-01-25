@@ -948,3 +948,195 @@ def remove_tags_from_recipe(
     db.commit()
     db.refresh(recipe)
     return recipe
+
+
+def add_secondary_ingredients_to_recipe(
+    db: Session,
+    recipe_id: int = None,
+    name: str = None,
+    ingredient_names: list = None
+) -> Recipe:
+    """Add secondary ingredients to an existing recipe (for logging only)."""
+    recipe = get_recipe(db, name=name, recipe_id=recipe_id)
+    if not recipe:
+        raise ValueError(f"Recipe not found")
+    
+    if not ingredient_names:
+        return recipe
+    
+    current_secondary_names = {ing.name for ing in recipe.secondary_ingredients}
+    new_ingredients = []
+    
+    for ingredient_name in ingredient_names:
+        normalized_name, _ = normalize_name(ingredient_name)
+        if normalized_name in current_secondary_names:
+            continue
+        
+        ingredient_obj = get_ingredient(db, name=normalized_name)
+        if not ingredient_obj:
+            raise ValueError(f"Ingredient '{ingredient_name}' not found. Add it first.")
+        new_ingredients.append(ingredient_obj)
+    
+    if new_ingredients:
+        recipe.secondary_ingredients.extend(new_ingredients)
+    db.commit()
+    db.refresh(recipe)
+    return recipe
+
+
+def remove_secondary_ingredients_from_recipe(
+    db: Session,
+    recipe_id: int = None,
+    name: str = None,
+    ingredient_names: list = None
+) -> Recipe:
+    """Remove secondary ingredients from an existing recipe."""
+    recipe = get_recipe(db, name=name, recipe_id=recipe_id)
+    if not recipe:
+        raise ValueError(f"Recipe not found")
+    
+    if not ingredient_names:
+        return recipe
+    
+    ingredients_to_remove = []
+    for ingredient_name in ingredient_names:
+        normalized_name, _ = normalize_name(ingredient_name)
+        ingredient_obj = get_ingredient(db, name=normalized_name)
+        if ingredient_obj and ingredient_obj in recipe.secondary_ingredients:
+            ingredients_to_remove.append(ingredient_obj)
+    
+    if ingredients_to_remove:
+        for ingredient in ingredients_to_remove:
+            recipe.secondary_ingredients.remove(ingredient)
+    
+    db.commit()
+    db.refresh(recipe)
+    return recipe
+
+
+def add_clashing_ingredients_to_recipe(
+    db: Session,
+    recipe_id: int = None,
+    name: str = None,
+    ingredient_names: list = None
+) -> Recipe:
+    """Add clashing ingredients to an existing recipe (for logging only)."""
+    recipe = get_recipe(db, name=name, recipe_id=recipe_id)
+    if not recipe:
+        raise ValueError(f"Recipe not found")
+    
+    if not ingredient_names:
+        return recipe
+    
+    current_clashing_names = {ing.name for ing in recipe.clashing_ingredients}
+    new_ingredients = []
+    
+    for ingredient_name in ingredient_names:
+        normalized_name, _ = normalize_name(ingredient_name)
+        if normalized_name in current_clashing_names:
+            continue
+        
+        ingredient_obj = get_ingredient(db, name=normalized_name)
+        if not ingredient_obj:
+            raise ValueError(f"Ingredient '{ingredient_name}' not found. Add it first.")
+        new_ingredients.append(ingredient_obj)
+    
+    if new_ingredients:
+        recipe.clashing_ingredients.extend(new_ingredients)
+    db.commit()
+    db.refresh(recipe)
+    return recipe
+
+
+def remove_clashing_ingredients_from_recipe(
+    db: Session,
+    recipe_id: int = None,
+    name: str = None,
+    ingredient_names: list = None
+) -> Recipe:
+    """Remove clashing ingredients from an existing recipe."""
+    recipe = get_recipe(db, name=name, recipe_id=recipe_id)
+    if not recipe:
+        raise ValueError(f"Recipe not found")
+    
+    if not ingredient_names:
+        return recipe
+    
+    ingredients_to_remove = []
+    for ingredient_name in ingredient_names:
+        normalized_name, _ = normalize_name(ingredient_name)
+        ingredient_obj = get_ingredient(db, name=normalized_name)
+        if ingredient_obj and ingredient_obj in recipe.clashing_ingredients:
+            ingredients_to_remove.append(ingredient_obj)
+    
+    if ingredients_to_remove:
+        for ingredient in ingredients_to_remove:
+            recipe.clashing_ingredients.remove(ingredient)
+    
+    db.commit()
+    db.refresh(recipe)
+    return recipe
+
+
+def add_want_to_try_ingredients_to_recipe(
+    db: Session,
+    recipe_id: int = None,
+    name: str = None,
+    ingredient_names: list = None
+) -> Recipe:
+    """Add want to try ingredients to an existing recipe (for logging only)."""
+    recipe = get_recipe(db, name=name, recipe_id=recipe_id)
+    if not recipe:
+        raise ValueError(f"Recipe not found")
+    
+    if not ingredient_names:
+        return recipe
+    
+    current_want_to_try_names = {ing.name for ing in recipe.want_to_try_ingredients}
+    new_ingredients = []
+    
+    for ingredient_name in ingredient_names:
+        normalized_name, _ = normalize_name(ingredient_name)
+        if normalized_name in current_want_to_try_names:
+            continue
+        
+        ingredient_obj = get_ingredient(db, name=normalized_name)
+        if not ingredient_obj:
+            raise ValueError(f"Ingredient '{ingredient_name}' not found. Add it first.")
+        new_ingredients.append(ingredient_obj)
+    
+    if new_ingredients:
+        recipe.want_to_try_ingredients.extend(new_ingredients)
+    db.commit()
+    db.refresh(recipe)
+    return recipe
+
+
+def remove_want_to_try_ingredients_from_recipe(
+    db: Session,
+    recipe_id: int = None,
+    name: str = None,
+    ingredient_names: list = None
+) -> Recipe:
+    """Remove want to try ingredients from an existing recipe."""
+    recipe = get_recipe(db, name=name, recipe_id=recipe_id)
+    if not recipe:
+        raise ValueError(f"Recipe not found")
+    
+    if not ingredient_names:
+        return recipe
+    
+    ingredients_to_remove = []
+    for ingredient_name in ingredient_names:
+        normalized_name, _ = normalize_name(ingredient_name)
+        ingredient_obj = get_ingredient(db, name=normalized_name)
+        if ingredient_obj and ingredient_obj in recipe.want_to_try_ingredients:
+            ingredients_to_remove.append(ingredient_obj)
+    
+    if ingredients_to_remove:
+        for ingredient in ingredients_to_remove:
+            recipe.want_to_try_ingredients.remove(ingredient)
+    
+    db.commit()
+    db.refresh(recipe)
+    return recipe

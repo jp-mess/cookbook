@@ -5,11 +5,14 @@
   "tags": [
     "excellent",
     "indian",
-    "beans"
+    "patty"
   ],
   "ingredients": [
     "lentils",
     "serrano peppers",
     "ginger"
-  ]
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
 }

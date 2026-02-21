@@ -1,0 +1,35 @@
+{
+  "name": "french chicken pot pie",
+  "instructions": "",
+  "notes": "",
+  "tags": [
+    "excellent",
+    "french",
+    "meat main",
+    "soup/stew"
+  ],
+  "ingredients": [
+    "white onions",
+    "carrots",
+    "celery",
+    "chicken",
+    "flour",
+    "white wine",
+    "black pepper",
+    "bread",
+    "potatoes",
+    "tarragon",
+    "bouillon"
+  ],
+  "secondary_ingredients": [
+    "scallions",
+    "leeks",
+    "old bay",
+    "thyme",
+    "rosemary",
+    "light miso paste",
+    "porcini mushroom powder"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": ["corn", "peas"]
+}

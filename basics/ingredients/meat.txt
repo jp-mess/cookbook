@@ -4,5 +4,7 @@ salmon
 impossible meat
 tofurkey
 ground turkey
+ground vegan meat
+turkey
 shrimp
 lard

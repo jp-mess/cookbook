@@ -23,3 +23,5 @@ panini
 sandwich
 leftover fusion
 patty
+instapot
+tofu bake

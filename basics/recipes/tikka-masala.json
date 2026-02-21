@@ -1,14 +1,15 @@
 {
   "name": "tikka masala",
-  "instructions": "",
+  "instructions": "the core of the dish is baking chicken/tofu in a yogurt marinade with toasted spices (toasted without oil before grinding). coconut is supported by pungent ingredients like curry leaves, ginger and serrano peppers. I'm not sure how to balance dairy in this, but the tomatoes must be pureed (it is not a chunky sauce)",
   "notes": "",
   "tags": [
     "excellent",
     "indian",
-    "curry"
+    "curry",
+    "tofu bake"
   ],
   "ingredients": [
-    "tomato paste",
+    "canned tomatoes",
     "yogurt",
     "sour cream",
     "creme fraiche",
@@ -20,8 +21,8 @@
     "garlic",
     "cardamom",
     "chili powder",
-    "cauliflower",
-    "broccoli",
+    "coconut milk",
+    "coconut cream",
     "firm tofu",
     "coriander",
     "chicken",
@@ -31,6 +32,6 @@
     "cilantro"
   ],
   "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "clashing_ingredients": ["broccoli", "cauliflower"],
   "want_to_try": []
 }

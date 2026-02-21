@@ -23,6 +23,6 @@
     "olive oil"
   ],
   "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "clashing_ingredients": ["garlic"],
   "want_to_try": []
 }

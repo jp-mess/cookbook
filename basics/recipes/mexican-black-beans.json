@@ -1,20 +1,25 @@
 {
-  "name": "coriander black beans",
+  "name": "mexican black beans",
   "instructions": "",
   "notes": "",
   "tags": [
-    "good enough",
+    "excellent",
     "mexican",
     "beans"
   ],
   "ingredients": [
     "black beans",
-    "coriander",
+    "oregano",
+    "thyme",
+    "radishes",
+    "turnips",
+    "chipotle chiles",
     "cilantro",
     "white onions",
-    "olive oil"
+    "olive oil",
+    "bouillon"
   ],
   "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "clashing_ingredients": ["coriander", "cumin"],
   "want_to_try": []
 }

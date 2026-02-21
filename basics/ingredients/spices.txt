@@ -26,7 +26,7 @@ celery salt
 saffron
 amchur powder
 old bay
-shawarma spice
+shawarma
 curry powder
 garam masala
 za'atar

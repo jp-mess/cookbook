@@ -1,25 +1,27 @@
 {
-  "name": "romesco",
+  "name": "mexicanized romesco",
   "instructions": "",
   "notes": "The tomatoes and bell peppers should be fire roasted. Eat on flatbreads, with vegetables or meat",
   "tags": [
-    "good enough",
-    "external recipe",
+    "excellent",
     "spanish",
-    "spread/dip/sauce"
+    "mexican",
+    "spread/dip/sauce",
+    "tofu bake",
+    "skillet"
   ],
   "ingredients": [
     "almonds",
-    "tomatoes",
     "bell peppers",
     "red wine vinegar",
     "garlic",
     "olive oil",
-    "paprika",
-    "cauliflower",
-    "asparagus"
+    "california chiles",
+    "raisins",
+    "porcini mushroom powder",
+    "oregano"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": ["asparagus", "cauliflower", "firm tofu"],
   "clashing_ingredients": [],
-  "want_to_try": []
+  "want_to_try": ["thyme"]
 }

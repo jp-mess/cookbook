@@ -1,25 +1,24 @@
 {
   "name": "mint parsnip salad",
-  "instructions": "",
+  "instructions": "julienne the root vegetables, prepare tangerine juice (orange doesnt work). soak mint in tangerine juice (minced). let infuse with small amount of vinegar. toss julienned vegetables in the dressing then strain. add to bed of dried mix greens with tangerine juice and chifonnaded mint on top (do not soak).",
   "notes": "mint seems non-optional",
   "tags": [
     "excellent",
-    "french",
-    "salad/dressing",
-    "side"
-  ],
+    "asian",
+    "salad/dressing"  ],
   "ingredients": [
-    "arugula",
-    "mixed greens",
+    "radishes",
+    "turnips",
+    "carrots",
     "parsnips",
     "mint",
-    "light miso paste",
+    "spinach",
     "tangerine",
-    "olive oil",
     "rice vinegar",
-    "orange"
+    "apple cider vinegar",
+    "mixed greens"
   ],
-  "secondary_ingredients": ["turnips", "radishes"],
-  "clashing_ingredients": ["spinach"],
+  "secondary_ingredients": [],
+  "clashing_ingredients": ["arugula", "orange", "olive oil"],
   "want_to_try": []
 }

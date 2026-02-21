@@ -1,29 +1,26 @@
 {
-  "name": "vegetable korma",
+  "name": "korma vegetable bake",
   "instructions": "",
   "notes": "",
   "tags": [
     "has potential",
     "indian",
-    "curry"
+    "skillet",
+    "tofu bake"
   ],
   "ingredients": [
     "cashews",
-    "yogurt",
-    "cottage cheese",
-    "tomato paste",
     "broccoli",
     "cauliflower",
-    "green beans",
     "cumin",
     "coriander",
     "cardamom",
     "garam masala",
     "mint",
-    "red onions",
-    "garlic"
+    "cilantro",
+    "chili powder"
   ],
-  "secondary_ingredients": ["lemon", "cilantro"],
-  "clashing_ingredients": [],
+  "secondary_ingredients": ["lime"],
+  "clashing_ingredients": ["lemon"],
   "want_to_try": []
 }

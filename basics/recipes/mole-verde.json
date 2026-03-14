@@ -1,0 +1,25 @@
+{
+  "name": "mole verde",
+  "instructions": "",
+  "notes": "",
+  "tags": [
+    "mexican",
+    "meat main",
+    "excellent",
+    "chlorophyll sauce"
+  ],
+  "ingredients": [
+    "chicken",
+    "bouillon",
+    "bay leaf",
+    "zucchini",
+    "cilantro",
+    "green tomatoes",
+    "pumpkin seeds",
+    "sesame seeds",
+    "scallions"
+  ],
+  "secondary_ingredients": ["spinach"],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

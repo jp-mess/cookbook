@@ -1,0 +1,31 @@
+{
+  "name": "saag aloo",
+  "instructions": "",
+  "notes": "mortar + pestle the spinach. use minimal seeds if any. bake the potatoes before putting them in the masala. use chili powder but it is necessary. lime is NOT optional",
+  "tags": [
+    "good enough",
+    "indian",
+    "curry",
+    "chlorophyll sauce",
+    "leftover fusion"
+  ],
+  "ingredients": [
+    "spinach",
+    "mixed greens",
+    "potatoes",
+    "cumin",
+    "coriander",
+    "red onions",
+    "garlic",
+    "turmeric",
+    "garam masala",
+    "vegetable oil",
+    "amchur powder",
+    "cardamom",
+    "lime",
+    "chili powder"
+  ],
+  "secondary_ingredients": ["sunflower seeds", "pumpkin seeds"],
+  "clashing_ingredients": ["lemon"],
+  "want_to_try": []
+}

@@ -25,3 +25,4 @@ leftover fusion
 patty
 instapot
 tofu bake
+rice

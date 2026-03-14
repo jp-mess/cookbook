@@ -12,7 +12,6 @@
   "ingredients": [
     "basil",
     "canned tomatoes",
-    "heavy whipping cream",
     "olive oil",
     "pine nuts",
     "garlic",
@@ -20,7 +19,7 @@
     "parmesan cheese",
     "green pesto"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": ["heavy whipping cream"],
   "clashing_ingredients": [],
   "want_to_try": []
 }

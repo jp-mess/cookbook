@@ -1,13 +1,12 @@
 {
   "name": "basil pesto pasta",
   "instructions": "",
-  "notes": "",
+  "notes": "the pasta version is special \u2014 store-bought green pesto isn't good enough here. mash fresh basil, pine nuts, garlic, parm in a mortar.",
   "tags": [
-    "chlorophyll sauce",
     "pasta",
     "italian",
     "excellent",
-    "skillet"
+    "mortar/pestle"
   ],
   "ingredients": [
     "basil",
@@ -16,10 +15,11 @@
     "pine nuts",
     "garlic",
     "black pepper",
-    "parmesan cheese",
-    "green pesto"
+    "parmesan cheese"
   ],
-  "secondary_ingredients": ["heavy whipping cream"],
+  "secondary_ingredients": [
+    "heavy whipping cream"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

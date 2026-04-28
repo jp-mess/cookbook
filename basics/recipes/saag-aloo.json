@@ -6,7 +6,6 @@
     "good enough",
     "indian",
     "curry",
-    "chlorophyll sauce",
     "leftover fusion"
   ],
   "ingredients": [
@@ -25,7 +24,12 @@
     "lime",
     "chili powder"
   ],
-  "secondary_ingredients": ["sunflower seeds", "pumpkin seeds"],
-  "clashing_ingredients": ["lemon"],
+  "secondary_ingredients": [
+    "sunflower seeds",
+    "pumpkin seeds"
+  ],
+  "clashing_ingredients": [
+    "lemon"
+  ],
   "want_to_try": []
 }

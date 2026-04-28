@@ -1,0 +1,27 @@
+{
+  "name": "french yogurt cake",
+  "instructions": "ratio 3:2:1:1 (flour:sugar:yogurt:oil) where 1 part = 1/2 cup. so 1.5 cup all-purpose flour (not wheat or cake), 1 cup sugar, 1/2 cup yogurt, 1/2 cup oil. plus 3 eggs, 1.5 tsp baking powder, 1/2 tsp salt, 1 tsp vanilla.",
+  "notes": "yogurt or greek yogurt both work. vegetable or olive oil both acceptable.",
+  "tags": [
+    "french",
+    "dessert",
+    "excellent"
+  ],
+  "ingredients": [
+    "flour",
+    "sugar",
+    "yogurt",
+    "vegetable oil",
+    "whole egg",
+    "baking powder",
+    "salt",
+    "vanilla"
+  ],
+  "secondary_ingredients": [
+    "greek yogurt",
+    "olive oil",
+    "lemon zest"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

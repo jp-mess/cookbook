@@ -1,21 +1,20 @@
 {
-  "name": "lemon pepper breadcrumbs",
-  "instructions": "",
-  "notes": "used as a topping (e.g. on salmon and leeks).",
+  "name": "pine nut breadcrumbs",
+  "instructions": "smash everything together in a mortar.",
+  "notes": "",
   "tags": [
-    "french",
+    "italian",
     "excellent",
     "spread/dip/sauce",
     "mortar/pestle"
   ],
   "ingredients": [
-    "garlic",
+    "salt",
+    "black pepper",
     "olive oil",
     "breadcrumbs",
-    "lemon zest",
-    "lemon",
-    "salt",
-    "black pepper"
+    "garlic",
+    "pine nuts"
   ],
   "secondary_ingredients": [],
   "clashing_ingredients": [],

@@ -1,6 +1,9 @@
 flour
 sugar
 salt
+kosher salt
 vanilla
 chocolate
 starch
+baking powder
+baking soda

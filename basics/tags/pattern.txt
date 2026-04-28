@@ -14,7 +14,6 @@ curry
 spread/dip/sauce
 pasta
 taco/burrito
-chlorophyll sauce
 flatbread
 wonton/dumpling
 protein shake
@@ -26,3 +25,4 @@ patty
 instapot
 tofu bake
 rice
+mortar/pestle

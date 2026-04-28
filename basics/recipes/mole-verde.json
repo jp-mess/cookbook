@@ -5,8 +5,7 @@
   "tags": [
     "mexican",
     "meat main",
-    "excellent",
-    "chlorophyll sauce"
+    "excellent"
   ],
   "ingredients": [
     "chicken",
@@ -19,7 +18,9 @@
     "sesame seeds",
     "scallions"
   ],
-  "secondary_ingredients": ["spinach"],
+  "secondary_ingredients": [
+    "spinach"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

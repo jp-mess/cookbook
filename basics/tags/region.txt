@@ -7,3 +7,4 @@ indian
 middle eastern
 spanish
 mexican
+thai

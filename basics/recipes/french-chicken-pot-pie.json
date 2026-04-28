@@ -13,7 +13,7 @@
     "carrots",
     "celery",
     "chicken",
-    "flour",
+    "all-purpose flour",
     "white wine",
     "black pepper",
     "bread",
@@ -31,5 +31,8 @@
     "porcini mushroom powder"
   ],
   "clashing_ingredients": [],
-  "want_to_try": ["corn", "peas"]
+  "want_to_try": [
+    "corn",
+    "peas"
+  ]
 }

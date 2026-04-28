@@ -1,4 +1,5 @@
-flour
+all-purpose flour
+wheat flour
 sugar
 salt
 kosher salt
@@ -7,3 +8,4 @@ chocolate
 starch
 baking powder
 baking soda
+yeast

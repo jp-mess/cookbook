@@ -1,6 +1,6 @@
 {
   "name": "banana bread",
-  "instructions": "1 cup all-purpose flour, 3 bananas, 3/4 cup sugar, 1/3 cup yogurt, 2 eggs, 1 tsp baking powder, 1 tsp baking soda, 1/2 tsp salt, 1 tsp vanilla. 1/3 cup butter can swap for the yogurt.",
+  "instructions": "1 cup all-purpose flour, 3 bananas, 3/4 cup sugar, 1/3 cup yogurt, 2 eggs, 1 tsp baking powder, 1 tsp baking soda, 1/2 tsp salt, 1 tsp vanilla. 1/3 cup butter can swap for the yogurt. bake at 350.",
   "notes": "zaynab issa, third culture cooking.",
   "tags": [
     "dessert",
@@ -15,7 +15,9 @@
     "baking powder",
     "baking soda",
     "salt",
-    "vanilla"
+    "vanilla",
+    "almonds",
+    "walnuts"
   ],
   "secondary_ingredients": [
     "butter"

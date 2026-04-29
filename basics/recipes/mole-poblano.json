@@ -9,8 +9,6 @@
   ],
   "ingredients": [
     "guajillo chiles",
-    "ancho chiles",
-    "pasilla chiles",
     "california chiles",
     "chocolate",
     "peanut butter",
@@ -22,6 +20,9 @@
     "cumin"
   ],
   "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "clashing_ingredients": [
+    "ancho chiles",
+    "pasilla chiles"
+  ],
   "want_to_try": []
 }

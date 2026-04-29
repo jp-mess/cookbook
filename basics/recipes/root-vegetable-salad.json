@@ -1,0 +1,24 @@
+{
+  "name": "root vegetable salad",
+  "instructions": "julienne the root vegetables. toss with tangerine mint vinaigrette. serve on a bed of mixed greens.",
+  "notes": "mint seems non-optional. the vinaigrette has olive oil in it now — the prior note that olive oil clashed has been retired.",
+  "tags": [
+    "french",
+    "excellent",
+    "salad/dressing"
+  ],
+  "ingredients": [
+    "parsnips",
+    "carrots",
+    "radishes",
+    "celery root",
+    "mixed greens",
+    "tangerine mint vinaigrette"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "arugula",
+    "orange"
+  ],
+  "want_to_try": []
+}

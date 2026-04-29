@@ -1,6 +1,7 @@
 all-purpose flour
 wheat flour
 sugar
+powdered sugar
 salt
 kosher salt
 vanilla

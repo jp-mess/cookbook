@@ -1,7 +1,7 @@
 {
   "name": "mushroom bourguignon",
   "instructions": "",
-  "notes": "Start with sauteed mushrooms in butter, then flour for roux. Other vegetables like celery/carrot are stew vegetables coarsely chopped, not sauce base (finely chopped and sauteed)",
+  "notes": "Start with sauteed mushrooms in butter, then flour for roux. Other vegetables like celery/carrot are stew vegetables coarsely chopped, not sauce base (finely chopped and sauteed). Tomatoes are non-optional for this recipe.",
   "tags": [
     "excellent",
     "french",
@@ -21,12 +21,18 @@
     "parsnips",
     "fennel bulb",
     "tarragon",
-    "parsley",
     "rosemary",
     "thyme",
-    "potatoes"
+    "potatoes",
+    "tomato paste"
   ],
-  "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "secondary_ingredients": [
+    "ground beef",
+    "impossible meat",
+    "ground vegan meat"
+  ],
+  "clashing_ingredients": [
+    "parsley"
+  ],
   "want_to_try": []
 }

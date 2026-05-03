@@ -1,7 +1,7 @@
 {
   "name": "breadcrumb tofu",
   "instructions": "press or boil the tofu, top with breadcrumbs, bake.",
-  "notes": "any of the 3 composite breadcrumbs work — lemon pepper, pine nut, or deviled.",
+  "notes": "any of the 4 composite breadcrumbs work — lemon pepper, pine nut, deviled, or massaman.",
   "tags": [
     "tofu bake",
     "unattempted"
@@ -13,7 +13,8 @@
   ],
   "secondary_ingredients": [
     "pine nut breadcrumbs",
-    "deviled breadcrumbs"
+    "deviled breadcrumbs",
+    "massaman breadcrumbs"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

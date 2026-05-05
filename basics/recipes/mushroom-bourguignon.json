@@ -1,7 +1,7 @@
 {
   "name": "mushroom bourguignon",
   "instructions": "",
-  "notes": "Start with sauteed mushrooms in butter, then flour for roux. Other vegetables like celery/carrot are stew vegetables coarsely chopped, not sauce base (finely chopped and sauteed). Tomatoes are non-optional for this recipe.",
+  "notes": "Vegetarian riff on boeuf bourguignon — mushrooms and vegan beef stand in for the beef.\n\nTECHNIQUE: start with sauteed mushrooms in butter, then flour for roux. Other vegetables like celery/carrot are stew vegetables coarsely chopped, not sauce base (finely chopped and sauteed).\n\nVEGAN BEEF: use a very neutral vegan ground beef — Abbott's ground beef is probably the best. Seitan is not appropriate; impossible meat is borderline (too distinctly flavored). Flavor in the vegetarian version is NOT derived from the beef, so a good vegan beef bouillon is doing the heavy lifting.\n\nHERBS / AROMATICS (non-optional): rosemary and bay leaf in large quantities are mandatory. Rosemary is nice-to-have in chicken stews or italian vegetable soups, but it's mandatory in this vegetarian beef stew — the wine + soy meat + potatoes + mushrooms + carrots will be flat without the sharpness of bay leaf and rosemary together. Garlic is also non-optional. Use sharp white onions, not yellow or red.\n\nNORTHERN PULL: worcestershire sauce rounds it out and pushes the flavor more 'northern'. Without it the rosemary/bay/tomato combination can drift italian even with the potatoes.\n\nTOMATO: use more tomato paste than traditional boeuf bourguignon, and add a chopped fresh tomato as extra tomato flavor — you get less umami from the pseudo meat than from real beef, so compensate here. Tomatoes are non-optional for this recipe.",
   "tags": [
     "excellent",
     "french",
@@ -11,7 +11,8 @@
     "portabella mushrooms",
     "oyster mushrooms",
     "shittake mushrooms",
-    "yellow onions",
+    "white onions",
+    "garlic",
     "all-purpose flour",
     "butter",
     "red wine",
@@ -22,17 +23,21 @@
     "fennel bulb",
     "tarragon",
     "rosemary",
-    "thyme",
+    "bay leaf",
     "potatoes",
-    "tomato paste"
-  ],
-  "secondary_ingredients": [
-    "ground beef",
+    "tomato paste",
+    "tomatoes",
+    "worcestershire sauce",
     "impossible meat",
     "ground vegan meat"
   ],
+  "secondary_ingredients": [
+    "ground beef"
+  ],
   "clashing_ingredients": [
-    "parsley"
+    "parsley",
+    "mixed greens",
+    "spinach"
   ],
   "want_to_try": []
 }

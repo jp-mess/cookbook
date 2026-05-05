@@ -18,7 +18,6 @@
     "red wine",
     "bouillon",
     "carrots",
-    "celery",
     "parsnips",
     "fennel bulb",
     "tarragon",
@@ -32,7 +31,8 @@
     "ground vegan meat"
   ],
   "secondary_ingredients": [
-    "ground beef"
+    "ground beef",
+    "celery"
   ],
   "clashing_ingredients": [
     "parsley",

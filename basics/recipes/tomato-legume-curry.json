@@ -1,0 +1,43 @@
+{
+  "name": "tomato legume curry",
+  "instructions": "shared base: bloom whole spices (bay leaf, cardamom) in fat, add red onions, then garlic + ginger, then ground spices (cumin, coriander, turmeric, garam masala, kashmiri chili powder, amchur). add tomato (form depends on variant — see notes). add legume + cooking liquid, simmer to consistency. finish with kasoori methi (and cilantro for the chickpea/lentil variants).",
+  "notes": "A FAMILY OF THREE: this recipe is the shared engine behind chana masala (chickpea), a lentil curry, and rajma (kidney bean). the spice base is identical; the variants differ in onion treatment, tomato form, peppers, fat, and finish.\n\nTHE CONSISTENCY AXIS: chickpeas want a stew, kidney beans want a gravy, lentils sit in between.\n\nCHICKPEA VARIANT (stew end):\n- chickpeas as the legume\n- onions: chunky, not pureed\n- tomato form: fresh tomatoes only (and/or canned tomatoes), NO tomato paste\n- peppers: variety welcome — anaheim, serrano, even bell pepper\n- brightness: lemon AND lemon zest (zest > juice)\n- color/tannin: unflavored black tea (this is the chana signature)\n- finish: cilantro is welcome, kasoori methi too\n\nLENTIL VARIANT (middle):\n- lentils as the legume\n- onions: chunky\n- tomato form: fresh tomatoes, tolerates some tomato paste\n- peppers: minimal — not the lemon-and-peppers parade of the chickpea variant\n- finish: BOTH cilantro and kasoori methi\n\nKIDNEY BEAN VARIANT — RAJMA (gravy end):\n- red beans as the legume\n- onions: pureed (not chunky)\n- tomato form: tomato paste, as concentrated as possible\n- follows mexican logic — minimize anything that distracts from the glutamates and the kidney beans themselves\n- fat: GHEE is non-optional here\n- finish: kasoori methi over cilantro (rajma prefers methi)\n- chili powder gets a bigger role here than in the chickpea version\n\nKASHMIRI CHILI POWDER: should be in all three variants. it does color and bright heat without overpowering — different from generic chili powder.\n\nKASOORI METHI: non-optional in rajma. welcome in all three variants. the dried fenugreek leaf is a load-bearing flavor, not a garnish.\n\nSEE ALSO: there's an inverted version of the chickpea variant in this cookbook (inverted chana masala) — fries cooked rice in the spices/onions and adds boiled chickpeas at the end. more pilaf than curry. uses the chickpea-variant spice profile minus the black tea / fresh tomatoes.",
+  "tags": [
+    "indian",
+    "curry",
+    "beans",
+    "excellent"
+  ],
+  "ingredients": [
+    "cumin",
+    "coriander",
+    "turmeric",
+    "garam masala",
+    "cardamom",
+    "ginger",
+    "bay leaf",
+    "kasoori methi",
+    "amchur powder",
+    "kashmiri chili powder",
+    "garlic",
+    "red onions",
+    "chickpeas",
+    "lentils",
+    "red beans",
+    "tomatoes",
+    "tomato paste",
+    "anaheim peppers",
+    "lemon",
+    "lemon zest",
+    "cilantro",
+    "black tea",
+    "ghee"
+  ],
+  "secondary_ingredients": [
+    "canned tomatoes",
+    "serrano peppers",
+    "bell peppers"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

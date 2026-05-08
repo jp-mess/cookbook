@@ -1,9 +1,9 @@
 {
   "name": "massaman stuffed poblanos",
   "instructions": "",
-  "notes": "",
+  "notes": "Original recipe from priya krishna. tagged indian (not thai) because massaman curry paste — despite being a 'yellow thai curry paste' — is essentially indian in its spice profile (cumin, coriander, cardamom, cinnamon, cloves). it's the most indian thing in the thai curry shelf.\n\nAUGMENT THE PASTE: if your massaman curry paste is light on indian spices (some commercial pastes lean more thai-aromatic than indian-spice), augment with turmeric, cumin, and coriander to push the indian profile forward.\n\nDAIRY: cream cheese binds the filling, milk loosens it. heavy whipping cream is a richer alternative — keeps it as a secondary option.",
   "tags": [
-    "american",
+    "indian",
     "beans",
     "good enough"
   ],
@@ -14,9 +14,15 @@
     "olive oil",
     "massaman curry paste",
     "lemon",
-    "monterrey jack cheese"
+    "cream cheese",
+    "milk",
+    "turmeric",
+    "cumin",
+    "coriander"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": [
+    "heavy whipping cream"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

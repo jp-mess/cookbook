@@ -1,33 +1,40 @@
 {
   "name": "french grandma soup",
-  "instructions": "",
-  "notes": "any mushroom works.",
+  "instructions": "TWO PATHS:\n(A) sautee leeks, celery, and carrots as the base.\n(B) sautee chicken thighs first, deglaze with white wine, then add julienned leeks/celery/carrots.\n\nin both cases, supplemental chicken stock is required — the soup is built on stock, not water. simmer with white beans and chosen herbs. egg noodles can go in toward the end if making it heartier.\n\nTO MAKE POT PIE GRAVY: stir in a beurre manie at the end to thicken the broth into a gravy consistency, then use as pot pie filling.",
+  "notes": "From julia child.\n\nBASE IS LEEKS + CELERY + CARROTS — that's it. no onions. leeks are the only allium that belongs here.\n\nHERBS ARE NECESSARY: rosemary, thyme, or — optimally — tarragon. without an aromatic herb the soup is just stock and vegetables and reads flat. tarragon is the canonical french-grandma move.\n\nSTOCK-FORWARD: this is the cookbook's official stock-based soup slot (per the fennel-old-bay-soup notes — if you want injected-stock soup, make french). chicken stock is non-negotiable.\n\nNO ONIONS, NO MUSHROOMS, NO PARSLEY, NO MIXED GREENS: onions overlap and muddy what leeks are doing. mushrooms drag the soup earthy/heavy in a direction that doesn't suit the bright leek/tarragon profile. parsley adds nothing here — tarragon owns the herb slot. mixed greens turn it muddy.\n\nVARIATIONS: heavy whipping cream is an optional finish for richness. cabbage works as a structural addition. egg noodles for a heartier version. and the beurre manie thickener path turns it into pot pie filling.",
   "tags": [
     "french",
     "soup/stew",
-    "leftover fusion",
-    "good enough"
+    "excellent"
   ],
   "ingredients": [
-    "white beans",
     "leeks",
-    "chicken",
-    "bouillon",
-    "carrots",
     "celery",
-    "yellow onions",
+    "carrots",
+    "white beans",
+    "bouillon",
     "rosemary",
     "thyme",
-    "tarragon",
-    "turnips",
-    "radishes",
-    "parsley",
-    "mixed greens",
-    "bell peppers",
-    "portabella mushrooms",
-    "potatoes"
+    "tarragon"
   ],
-  "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "secondary_ingredients": [
+    "chicken thighs",
+    "white wine",
+    "egg noodles",
+    "heavy whipping cream",
+    "cabbage",
+    "beurre manie"
+  ],
+  "clashing_ingredients": [
+    "yellow onions",
+    "white onions",
+    "red onions",
+    "portabella mushrooms",
+    "oyster mushrooms",
+    "lions mane mushrooms",
+    "shittake mushrooms",
+    "parsley",
+    "mixed greens"
+  ],
   "want_to_try": []
 }

@@ -3,6 +3,7 @@ farro
 couscous
 bread
 pasta
+egg noodles
 tortilla
 tostada
 pizza dough

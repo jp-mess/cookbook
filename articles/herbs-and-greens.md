@@ -86,3 +86,36 @@ I haven't found a meaningful use for thyme in eastern european or indian cooking
 ### Practical takeaway
 
 Think of thyme as a contextual herb. In mexican cooking it's a structural ingredient and you should reach for it confidently. In abrasive european dishes (mushroom-heavy, mustard-heavy) it earns its keep as a lifting agent. In simple european stews it's a supporting role, often skippable in favor of rosemary. In eastern european or indian cooking, it doesn't currently belong.
+
+## Rosemary
+
+Rosemary is the antidote to a specific failure mode.
+
+There's a class of western sauces and stews that suffer from being too savory for their own good. The meat is in there, the glutamates are in there, the wine and the stock and the slow simmer have all done their work, and the dish should taste great — but instead it tastes flat, heavy, and one-note. The savoriness has stacked on itself until there's nothing distinct underneath. Comfort food gravies, mushroom-heavy braises, beef-stew-and-vegan-stand-in dishes, anything where the umami is doing all the work — these are the dishes that lose complexity to their own intensity.
+
+Rosemary fixes this. It's the only herb that can stand up to that kind of savory weight and add a counterpoint without being absorbed by it. Its flavor is loud enough, fat-soluble enough, and structurally different enough — piney, slightly bitter, almost medicinal — to read as a separate voice in the dish rather than getting blended into the savory wash. Add enough rosemary and a heavy comfort-food gravy turns back into something with shape and interest.
+
+### Why nothing else works for this
+
+- **Thyme** is the closest robust herb in handling, but it's too funky for this slot. Where rosemary cuts through and adds clarity, thyme gets folded into the savory profile and reinforces the muddiness rather than fighting it. Thyme reads as an additive to a sauce; rosemary reads as a corrective.
+- **Sage** can sometimes substitute, but it pulls the dish toward a poultry/stuffing direction it might not want.
+- **Fine herbs are non-starters** for this role. They either don't survive the heat (basil, tarragon, mint, cilantro) or they compete with the sauce in a bad way (parsley) — the parsley case is exactly the one described above: in a complex savory dish, parsley dominates rather than counterpoints.
+
+That leaves rosemary as the only real tool for the job.
+
+### Where this matters in practice
+
+The mushroom bourguignon is the clearest example: it's specifically a vegetarian beef stew, which means it's leaning hard on bouillon, soy meat, mushrooms, wine, tomato — every glutamate source available. Without rosemary (paired with bay leaf), the dish is exactly the failure mode described above: heavy and flat. Rosemary is mandatory there, and the recipe notes call this out.
+
+The same principle shows up in:
+
+- Mushroom gravy and chicken-pot-pie sauces
+- Mushroom soups
+- Wild rice mushroom soup
+- Anything in the "comfort food gravy" category
+
+In each case rosemary isn't there for flavor diversity — it's load-bearing.
+
+### When rosemary is unnecessary
+
+If the dish has its own complexity already (acid, brightness, fresh herbs, distinct spices, layered cooking) rosemary becomes optional or actively in the way. It's a tool for fixing a specific problem; if you don't have that problem, you don't need to reach for it.

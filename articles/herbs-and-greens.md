@@ -27,7 +27,7 @@ Brings flavor to bland bases. Dominates already-complex dishes.
 
 ## Cilantro
 
-Eastern counterpart to parsley. Tarragon of the east.
+Mostly a non-european herb — its range is in mexican, indian, persian, and asian cooking, and there isn't a clean western analogue.
 
 - Used as fresh finish in mexican, indian, persian, and asian cooking. In mexican/indian it enhances; in persian/asian it seems closer to balancing — likely structural rather than optional. (Caveat: rusty in those cuisines.)
 - Mexican mole verde and indian/persian green chutneys blend it directly into the sauce — its structural slot.

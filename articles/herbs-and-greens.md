@@ -100,6 +100,45 @@ I haven't found a use for cilantro in european or western cooking yet. There are
 
 Cilantro is the default fresh-green-finish for asian, mexican, indian, and persian dishes. Treat it like parsley in those cuisines: in late, off heat, as a finish. The exceptions where it gets blended (chutneys, mole verde, herb-heavy persian stews) are where it earns a structural role rather than a garnish role. Outside of those cuisines, you probably don't need it.
 
+## Mint
+
+Mint is a strange herb because it operates by three strong rules at once.
+
+### Rule 1: mint does not pair with tomato
+
+This is the headline. Mint clashes with tomato — they fight rather than complement, and the combination produces a result that tastes confused. This single fact excludes mint from a huge range of savory dishes, because a lot of savory cooking is tomato-driven: italian sauces, mexican stews, shakshuka and middle-eastern tomato-pepper dishes, ratatouille, indian tomato-based curries (chana masala, the kidney bean rajma profile, etc.). Mint doesn't have a place in any of those.
+
+What mint does pair well with:
+
+- **Other greens.** Mint is at home in salads with leafy greens, especially when the salad has a citrus or vinegar acid rather than a tomato component.
+- **Cilantro.** The two herbs are the canonical cilantro-mint pair, mashed together or blended into chutneys, sauces, and indian-persian green pastes. The two balance each other (mint's brightness against cilantro's earthiness) in a way neither does alone — see the cilantro section above.
+- **Thai green curry.** Mint and basil both belong in green curry — it's one of the few cooked dishes where mint doesn't feel out of place.
+- **Persian yogurt and meat dishes.** Persian cooking uses mint extensively with yogurt (cooling cucumber-yogurt sauces) and with meat (lamb especially). I'm not deeply experienced in persian cooking, so I won't claim more than that, but the use is well-established.
+
+The unifying pattern: mint thrives where the dish is clean (citrus, yogurt, fresh greens, lemongrass-coconut) and wilts where the dish is acidic-savory in the tomato direction.
+
+### Rule 2: where mint shines, it is non-optional
+
+The other thing about mint, opposite to most fine herbs, is that it's almost never a "nice to have" addition. Mint is either wrong for the dish or it's load-bearing — there's very little middle ground.
+
+Certain vinaigrettes and certain indian dishes are mint-defined. The mint isn't a finishing flourish; it's the actual identity of the dish. A tangerine-mint vinaigrette without the mint is just a sweet citrus dressing; the mint is what makes it a distinct dressing in the cookbook. Cilantro-mint chutney without the mint is a one-note cilantro paste. Mint-cilantro lamb without the mint loses half its character.
+
+This is the inversion of how parsley or cilantro work. Parsley brings flavor to bland bases; cilantro is a default fresh finish across a wide cuisine range. Mint isn't either of those — it's a specialist ingredient, used rarely, but when it's used it's structural.
+
+### Rule 3: mint has a place in desserts
+
+Most herbs are functionally restricted to savory cooking. Parsley, cilantro, tarragon, basil, sage, thyme — none of these belong in a dessert. Mint is one of two real exceptions. The other is rosemary (rosemary works in shortbread, in citrus desserts, in honey-and-fruit territory), but mint has a wider dessert range than rosemary does.
+
+Mint pairs naturally with chocolate, with fresh fruit (especially berries, melon, and stone fruit), with cream and yogurt-based desserts, with citrus desserts, and with anything in the sorbet/granita/iced family. The cooling sensation that makes mint a load-bearing ingredient in savory persian and indian cooking translates almost directly to the dessert context — mint refreshes a sweet dish the same way it refreshes a yogurt sauce.
+
+This is genuinely unusual. Basil and rosemary are mint's only competitors for dessert flavor — basil with stone fruit, strawberries, and chocolate; rosemary with shortbread, citrus, and honey-fruit territory. Outside of those three herbs, the rest of the cabinet stays firmly on the savory side of the kitchen.
+
+### Practical takeaway
+
+If a recipe calls for mint, treat it as a load-bearing ingredient: don't substitute, don't omit, don't reduce the quantity hoping it'll be subtler. Mint either belongs in the dish at full quantity or it doesn't belong at all.
+
+If you're improvising and tempted to add mint to something tomato-driven, don't. The mint will fight the tomato, and the dish will read as confused rather than fresh.
+
 ## Thyme
 
 Thyme is harder to place than the other robust herbs. It's a real workhorse in some contexts and almost redundant in others, and the difference comes down to what else is in the pot.

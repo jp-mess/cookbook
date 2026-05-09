@@ -62,6 +62,44 @@ Parsley is the only fine herb that holds up to dry heat. Toasted parsley, baked 
 
 This makes parsley a specifically useful tool: it can be a finish, but it can also be a baked-in component when the dish wants a green note that survives the oven. Nothing else in the fine-herb category gives you that.
 
+## Cilantro
+
+Cilantro is the eastern counterpart to parsley — both are fine herbs that hold up to heat better than basil or tarragon, but their cuisine ranges barely overlap. Where parsley does its work in european and mediterranean cooking, cilantro does its work in asian, mexican, persian, and indian cooking. I think of it as the tarragon of the east — the herb that gets reached for first when a dish from those cuisines needs a fresh green finish.
+
+### Where cilantro excels
+
+- **Mexican cooking** — fresh cilantro on tacos, in salsas, on pozole, in mole verde. Mostly a finish, occasionally a structural ingredient (mole verde blends it directly into the sauce).
+- **Indian cooking** — finished onto curries, dals, chutneys; sometimes blended into green chutney.
+- **Persian cooking** — used heavily, often alongside parsley and other fresh herbs, in dishes like ghormeh sabzi where mass quantities of fresh herbs are core to the dish, not garnish.
+- **Asian cooking** (broadly: thai, vietnamese, chinese) — cilantro on noodle soups, in spring rolls, finishing curries, in dipping sauces.
+
+The role varies by cuisine. In mexican and indian cooking, cilantro is closer to optional — it enhances and finishes, but the dish usually still works without it. In persian and asian cooking, my impression is that cilantro is more essential — it doesn't just enhance flavor, it balances it. Without cilantro, certain thai or persian dishes lose a piece of their intended flavor structure rather than just losing a garnish. (I'm rusty in those cuisines, so this read should be taken with a grain of salt — but the distinction is worth keeping in mind.)
+
+### Cilantro as a salad green
+
+Cilantro's other distinctive trait, separating it from the rest of the fine-herb category, is that it makes a good salad green at non-trivial volume. Parsley is too fibrous for this — eaten in salad-quantity it gets stringy and intrusive. Basil is too soft and bruises into nothing. Cilantro sits in the middle: enough texture to feel like a green, soft enough to eat in handfuls.
+
+This is why cilantro shows up as a leaf-ingredient (not a sprinkle) in things like:
+
+- **Kachumber** — indian chopped cucumber-tomato-onion salad, where cilantro is one of the leaf components, not a garnish.
+- **Spring rolls** — vietnamese rolls use whole cilantro sprigs alongside mint, basil, and lettuce as the wrapping greens.
+
+In both, cilantro is doing the work that mixed greens does in a western salad: bringing volume, freshness, and structure rather than punctuation.
+
+### Cilantro in mortar/blender sauces
+
+Cilantro pairs unusually well with mint, and the combination has its own niche: blended or pestled into sauces. Indian and persian green chutneys and yogurt sauces frequently lean on a cilantro-and-mint base. The two herbs balance each other — cilantro's earthiness against mint's brightness — in a way that neither does alone.
+
+Mexican cooking has a parallel use: mole verde and other green sauces lean on cilantro blended directly into the sauce, sometimes with herbs like parsley but more typically as the dominant green.
+
+### Where cilantro hasn't found a place
+
+I haven't found a use for cilantro in european or western cooking yet. There are presumably some spanish and mediterranean dishes that use it (the cuisine reach of cilantro is wider than the cuisines i'm best at), but in my own cooking it doesn't show up in the french, italian, or eastern european registers. The herbs that do that work — parsley, tarragon, basil — already occupy the fresh-finish slot, and cilantro doesn't displace any of them.
+
+### Practical takeaway
+
+Cilantro is the default fresh-green-finish for asian, mexican, indian, and persian dishes. Treat it like parsley in those cuisines: in late, off heat, as a finish. The exceptions where it gets blended (chutneys, mole verde, herb-heavy persian stews) are where it earns a structural role rather than a garnish role. Outside of those cuisines, you probably don't need it.
+
 ## Thyme
 
 Thyme is harder to place than the other robust herbs. It's a real workhorse in some contexts and almost redundant in others, and the difference comes down to what else is in the pot.

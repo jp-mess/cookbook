@@ -119,3 +119,54 @@ In each case rosemary isn't there for flavor diversity — it's load-bearing.
 ### When rosemary is unnecessary
 
 If the dish has its own complexity already (acid, brightness, fresh herbs, distinct spices, layered cooking) rosemary becomes optional or actively in the way. It's a tool for fixing a specific problem; if you don't have that problem, you don't need to reach for it.
+
+## Spinach and Mixed Greens
+
+These two get a shared section because, unlike the herbs above, they're largely interchangeable. The herbs in this article each occupy a unique niche — there is no real substitute for rosemary, no swap for parsley. Spinach and mixed greens, by contrast, do similar work in similar dishes. They are not, however, indistinct.
+
+### Mixed greens
+
+In this cookbook, "mixed greens" means a baby arugula spring mix — the kind sold prewashed, intended for salads.
+
+Mixed greens are the salad green of choice. They're bitter and fibrous in a way iceberg or romaine isn't, but they're also calibrated — not overwhelming the way radicchio is, or the way full-grown frisée and full-grown arugula can be. The baby-leaf format is what makes them work: bitter enough to be interesting, soft enough to be eaten raw without aggressive dressings, fibrous enough to hold structure under vinaigrette.
+
+This is why mixed greens earn the salad slot in things like apple fennel salad and root vegetable salad — they bring the bitterness/structure those dishes need without crowding out the lemon, the apple, or the roasted vegetables.
+
+### Spinach
+
+Spinach has a similar soft, earthy character to baby arugula mix, but it doesn't make a good salad green. Two reasons:
+
+1. **Texture is wrong for raw eating.** Spinach is too soft and chewy on its own — it lacks the fibrous spring that makes a mixed-greens salad satisfying.
+2. **Flavor is too flat.** It's earthy without being interesting. Where mixed greens offer bitterness as a structural flavor, spinach just sits there.
+
+Where spinach actually shines is in cooked, bulk, or blended applications:
+
+- **Pesto-style pasta sauces** — spinach blended into a green sauce works beautifully because the soft texture is now an asset (you want a smooth purée) and the flat flavor becomes a neutral carrier for the louder ingredients (basil, garlic, parmesan, lemon).
+- **Spanakopita and spanakorizo** — spinach is bought in large quantities, wilted down, and used as bulk filling. The chewy texture that's a problem in salad becomes the right texture for a baked filling or a rice dish.
+- **Saag-style indian curries** — saag is the broadest category of indian dishes that turn cooked-down greens into the body of the curry itself. Spinach is the canonical green for these, but mustard greens, fenugreek leaves, and other bitter cooked greens can take the same role. The principle is the same as pesto and spanakopita: cooked in large quantity, often pureed, and used as bulk and color rather than as a flavor accent. The flatness of spinach actually helps here — it lets the spice base (cumin, coriander, ginger, garlic, kasoori methi, etc.) sit on top rather than fighting through a competing herbal flavor.
+
+The pattern: spinach wants to be cooked or pulverized; mixed greens want to be raw and whole.
+
+### Where they overlap: stews and pilafs
+
+Both spinach and mixed greens serve the same purpose when added to stews or pilafs as a finishing addition: they bring **color, nutrition, and earthiness without changing the flavor the way an herb would.** They're a structural-but-quiet add. This is exactly the role they play in fennel old bay soup, where the notes call them out specifically: flavorless on their own, but excellent because they add bitterness, nutrition, and color without competing with the established flavor profile.
+
+In this slot they're genuinely interchangeable — pick whichever you have. Spinach wilts faster and disappears into the broth more, mixed greens hold a little more structure, but neither choice meaningfully changes the dish.
+
+### When greens clash
+
+Greens behave very differently depending on how long they're cooked, and this is what determines whether they help or hurt a dish.
+
+**Undercooked / barely wilted:** vegetal, refreshing, slightly bitter. This is the mode where greens do useful work — adding brightness, structure, and a clean herbal note.
+
+**Long-cooked / stewed:** sweeter, muddier, denser. The bitterness mellows and the texture breaks down. The greens stop being a fresh element and become part of the broth's body.
+
+The long-cooked mode is where greens get into trouble. In a dish that's already heavy on glutamates and savory weight — long-built stews, beef-stew-shaped vegan stews, mushroom-driven braises, anything in the rosemary-shines category — adding greens contributes more sweetness and muddiness on top of an already heavy base. Spinach is the bigger offender (it's softer, sweeter, and disappears more completely into the broth), but arugula isn't the answer either; even mixed greens cooked into a beef stew don't bring the brightness they bring to a salad.
+
+A useful heuristic: **wherever rosemary shines, keep greens out.** Rosemary is there to fix the savory-stack-overflow problem; greens, cooked long, contribute to that same problem rather than helping. The two herbs/greens have opposite effects on the same family of dishes.
+
+The exception is **italian vegetable soups, which are undertuned by design.** They're built around simple soffrito + tomato + bean architecture without heavy stock or strong umami, so the muddying effect of cooked greens isn't a problem — the dish wasn't relying on a tight flavor profile to begin with, and bulk-and-color is exactly what it needed. Fennel old bay soup falls in this category: greens belong there because there's no aromatic budget to crowd.
+
+This is also why both spinach and mixed greens end up as clashing ingredients in dishes like mushroom bourguignon and french grandma soup — both committed to a defined flavor profile (heavy savory in one case, clean leek-and-tarragon in the other) where cooked greens would muddy the result rather than support it.
+
+The rule of thumb: greens belong in salads, in dedicated greens-driven dishes (saag, spanakopita, pesto), in undertuned italian vegetable soups for color and bulk — not in dishes already running on a tight aromatic budget.

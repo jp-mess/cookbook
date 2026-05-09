@@ -1,7 +1,7 @@
 {
   "name": "ratatouille",
   "instructions": "TWO PARALLEL TRACKS, COMBINED AT THE END:\n\n1. BASE (skillet): sautee yellow onions and bell peppers in olive oil. add canned tomatoes and tomato paste, simmer down into a thick tomato sauce. season with black pepper, fennel powder, fennel seeds (crushed in a mortar), and tarragon.\n\n2. VEGETABLES (separate skillet): sautee eggplant and zucchini SEPARATELY from the base. once cooked through, pat them dry — you want their meat, not their juices. soggy eggplant/zucchini ruins the dish.\n\n3. COMBINE: lay the cooked eggplant and zucchini on top of the tomato sauce at the end. this is the standard ratatouille technique — the vegetables sit on top, they don't simmer in the sauce.",
-  "notes": "TOMATO FORM: canned tomatoes + tomato paste is the current path — opinion is that this works better than raw tomatoes for getting the concentrated sauce the dish wants. WANT TO TRY: whole fresh tomatoes someday as a cleaner direction (in want_to_try). NO vinegar — definitely don't add vinegar.\n\nONIONS: yellow onions are the canonical choice. shallots can substitute and work surprisingly well — this is one of the better uses for them.\n\nBELL PEPPERS: optional. the fennel-bulb + fennel-powder + fennel-seed path tastes more refined and is worth trying as a bell-pepper-free variant. when using bell peppers, julia child recommends green bell peppers over red/yellow/orange — green's more vegetal/grassy character holds up against the tomato better than the sweetness of the colored varieties.\n\nFENNEL SEEDS: best crushed in a mortar. crushed fennel seeds give the dish a nice texture (unlike in a soup, where that texture isn't welcome). fennel powder works too if you don't want to mortar.\n\nGARLIC IS A CLASH (CONTRARY TO POPULAR LOGIC): most ratatouille recipes go heavy on garlic. i think garlic + tomato + eggplant pushes the dish too italian and erases what makes ratatouille distinct from a vegetable parmigiana or caponata. EXCEPTION: a head of garlic roasted whole in a skillet at the end as a separate component (eaten alongside, not stirred in) is fine.\n\nSERVE WITH WHITE RICE: this dish tastes best with white rice rather than bread — unusual for a western dish (the other category that prefers rice over bread is curries). bread soaks up the sauce wrong; rice catches and holds it.",
+  "notes": "TOMATO FORM: canned tomatoes + tomato paste is the current path — opinion is that this works better than raw tomatoes for getting the concentrated sauce the dish wants. WANT TO TRY: whole fresh tomatoes someday as a cleaner direction (in want_to_try). NO vinegar — definitely don't add vinegar.\n\nONIONS: yellow onions are the canonical choice. shallots can substitute and work surprisingly well — this is one of the better uses for them.\n\nBELL PEPPERS: optional. the fennel-bulb + fennel-powder + fennel-seed path tastes more refined and is worth trying as a bell-pepper-free variant. when using bell peppers, julia child recommends green bell peppers over red/yellow/orange — green's more vegetal/grassy character holds up against the tomato better than the sweetness of the colored varieties.\n\nFENNEL SEEDS: best crushed in a mortar. crushed fennel seeds give the dish a nice texture (unlike in a soup, where that texture isn't welcome). fennel powder works too if you don't want to mortar.\n\nGARLIC AND PARSLEY (USE JUDICIOUSLY): the dish sits on an axis between italian and french provincial, and the alliums + herbs are what pull it one way or the other.\n\n- ITALIAN PULL: garlic + parsley + eggplant + tomato paste together pushes the dish into italian / eggplant parmigiana territory.\n- FRENCH PULL: bell peppers + anaheim peppers + fennel bulb pull it back toward french provincial.\n\nMatch your alliums and herbs to which vegetables you're actually using:\n\n- ZUCCHINI VARIANT (zucchini + raw tomatoes + peppers, NO eggplant): garlic and parsley are welcome. without eggplant and tomato paste, the italian-leaning ingredients aren't there, so adding garlic/parsley doesn't drag the dish away from french.\n- EGGPLANT VARIANT (eggplant + tomato paste, NO peppers): skip the garlic. lean on tarragon and extra yellow onion instead. eggplant + tomato paste already pulls italian; adding garlic on top of that crosses the line into vegetable parmigiana.\n\nSERVE WITH WHITE RICE: this dish tastes best with white rice rather than bread — unusual for a western dish (the other category that prefers rice over bread is curries). bread soaks up the sauce wrong; rice catches and holds it.",
   "tags": [
     "excellent",
     "french",
@@ -17,6 +17,9 @@
     "fennel powder",
     "yellow onions",
     "bell peppers",
+    "anaheim peppers",
+    "garlic",
+    "parsley",
     "black pepper",
     "tarragon",
     "olive oil"
@@ -26,7 +29,6 @@
     "rice"
   ],
   "clashing_ingredients": [
-    "garlic",
     "red wine vinegar"
   ],
   "want_to_try": [

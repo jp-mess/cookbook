@@ -44,6 +44,8 @@ Parsley is exceptional at making bland things taste better. It works especially 
 
 The unifying principle: parsley adds flavor to a base that doesn't have much of its own. It does not adapt itself to the dish — it brings its own thing — and that's exactly why bland foundations need it.
 
+For two of those three categories — eggs and white fish — tarragon is a real competitor and often the better french-leaning choice (see the tarragon section). Quiches, frittatas, and white fish all sit in a fine-herb-friendly niche where either parsley or tarragon works. Potatoes, however, are parsley territory specifically. Tarragon doesn't do the same job on potatoes — they want the heartier, slightly grassy character of parsley, not the licorice-edged sharpness of tarragon. Reach for tarragon when the dish wants to read french; reach for parsley when the dish is potato-anchored or wants a more neutral green lift.
+
 ### Where parsley does NOT belong
 
 In dishes that already have complexity, parsley is a problem rather than a solution. A stew with built-up fond, browned aromatics, several spices, and an acid finish does not benefit from parsley — parsley will either dominate the flavor profile or erase the subtle layers underneath. The stronger the foundation, the more parsley sandblasts it.
@@ -122,7 +124,13 @@ This is exactly the role tarragon plays in french grandma soup (where the recipe
 
 ### Beyond leeks and chicken
 
-Tarragon's reach is wider than just leek/chicken — it shows up as a fine-herb finish on french fish dishes (especially salmon and white fish), in some egg dishes, in béarnaise sauce — but the leek/chicken anchor is where it earns its keep most reliably. Outside of french cooking, tarragon doesn't really have a home: italian cooking has basil, eastern european has dill and parsley, indian and asian have cilantro and mint. Tarragon is unusually cuisine-bound.
+Tarragon's reach is wider than just leek/chicken — it shows up as a fine-herb finish on french fish dishes (especially salmon and white fish), in some egg dishes, in béarnaise sauce — but the leek/chicken anchor is where it earns its keep most reliably.
+
+In two of those wider niches — **eggs and white fish** — tarragon is in direct competition with parsley. Quiches, frittatas, and white fish (sole, cod, etc.) all welcome either herb, and the choice is mostly stylistic: tarragon pulls the dish toward a recognizably french register, parsley keeps it more neutral and broadly european. They're roughly substitutable in those slots and pairing them together also works.
+
+The one place where this competition cleanly resolves in parsley's favor is **potatoes**. Mashed potatoes, parslied potatoes, potato skillets — these want parsley's heartier, grassy character rather than tarragon's licorice-edged sharpness. Tarragon on potatoes reads off; parsley on potatoes is canonical.
+
+Outside of french cooking, tarragon doesn't really have a home: italian cooking has basil, eastern european has dill and parsley, indian and asian have cilantro and mint. Tarragon is unusually cuisine-bound.
 
 ### Handling
 

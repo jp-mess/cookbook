@@ -1,408 +1,157 @@
 # Herbs and Greens
 
-## Fine Herbs vs Robust Herbs
+Working notebook. Observations from cooking, organized by herb.
 
-The most useful distinction to keep in mind when cooking with herbs is whether you're working with a **robust herb** or a **fine herb**. The two categories want completely opposite treatment.
+## Fine vs Robust
 
-### Robust herbs
+The single most useful axis: robust herbs vs fine herbs. The two want opposite handling.
 
-Sage, thyme, rosemary.
+- **Robust** (sage, thyme, rosemary): fat-soluble. Reward long cooking. In early, infuse the fat.
+- **Fine** (basil, tarragon, parsley, cilantro, mint, dill): heat-fragile. Lose flavor over time. In late, off heat, sometimes raw.
 
-Their flavor is fat-soluble, which means they release into hot oil, butter, or simmering broth slowly over time. They reward long cooking — you want them in the pot early so they have time to break down and infuse the fat. A stew with rosemary added in the last two minutes wastes the rosemary; a stew with rosemary added forty minutes in tastes like rosemary all the way through.
+Within fine herbs, fragility runs:
+- **Basil** most fragile — bruises, dies in heat within ~1 min.
+- **Tarragon, mint** middle.
+- **Cilantro, parsley** hold up best to brief heat.
 
-This is also why these are the herbs that go into a bouquet garni, into roasts, into anything with a long braise. They are doing structural flavor work, not garnish work.
-
-### Fine herbs
-
-Basil, tarragon, parsley, cilantro, mint.
-
-Fine herbs are delicate and lose flavor with cooking time. Heat drives off the volatile aromatic compounds that make them taste like themselves, so they need to go in at the very end — off the heat, on top of the finished dish, or stirred in as a final step.
-
-Within the fine herb category, the fragility runs on a spectrum:
-
-- **Basil** is the most fragile. It bruises easily and loses its character within a minute or two of contact with heat. Even chopping it too aggressively dulls it. Add at the very last moment.
-- **Tarragon, mint** sit in the middle — delicate enough that they don't want to be cooked, but more forgiving than basil.
-- **Cilantro and parsley** are the most heat-tolerant of the fine herbs. They still don't reward long cooking, but they hold up better than basil does. You can stir them in a few minutes before service rather than seconds.
-
-### Practical takeaway
-
-If a recipe calls for a robust herb, treat it as a structural ingredient: in early, in fat, simmer with everything else. If it calls for a fine herb, treat it as a finish: in last, off heat, sometimes raw. Mixing the two within one dish is fine and common — rosemary into the braise, cilantro on top of the finished bowl.
-
-The most common mistake is treating fine herbs as if they were robust ones. Basil simmered for an hour in a tomato sauce gives you a tomato sauce that smells like grass and tastes flat. Add the basil after you've turned the heat off.
+The standard mistake is treating a fine herb like a robust one. Basil simmered for an hour smells like grass.
 
 ## Parsley
 
-Parsley is the workhorse of the fine herbs. It's also the most misunderstood, because it occupies a niche the other fine herbs can't fill, and it gets used in places where it doesn't belong.
+Brings flavor to bland bases. Dominates already-complex dishes.
 
-### What parsley is good for
-
-Parsley is exceptional at making bland things taste better. It works especially well with foods that have a clean, neutral base flavor and need a green, savory lift to come alive:
-
-- **Eggs** — frittatas, quiche, omelettes. The egg is the canvas; parsley is what gives it edge.
-- **Potatoes** — mashed potatoes, parslied potatoes (more on these below), potato skillets, anything potato-and-fat where there's nothing fighting it.
-- **White fish** — sardines, sole, cod. The fish itself is mild and parsley brings the brightness it lacks.
-
-The unifying principle: parsley adds flavor to a base that doesn't have much of its own. It does not adapt itself to the dish — it brings its own thing — and that's exactly why bland foundations need it.
-
-For two of those three categories — eggs and white fish — tarragon is a real competitor and often the better french-leaning choice (see the tarragon section). Quiches, frittatas, and white fish all sit in a fine-herb-friendly niche where either parsley or tarragon works. Potatoes, however, are parsley territory specifically. Tarragon doesn't do the same job on potatoes — they want the heartier, slightly grassy character of parsley, not the licorice-edged sharpness of tarragon. Reach for tarragon when the dish wants to read french; reach for parsley when the dish is potato-anchored or wants a more neutral green lift.
-
-### Where parsley does NOT belong
-
-In dishes that already have complexity, parsley is a problem rather than a solution. A stew with built-up fond, browned aromatics, several spices, and an acid finish does not benefit from parsley — parsley will either dominate the flavor profile or erase the subtle layers underneath. The stronger the foundation, the more parsley sandblasts it.
-
-This is why parsley clashes in things like:
-
-- Long-built stews and braises (mushroom bourguignon, fennel old bay soup, anything tomato-and-spice)
-- Dishes with their own herb identity (italian dishes leaning on basil, indian curries leaning on cilantro/methi)
-- Dishes with their own dominant aromatic (anything with a heavy garlic-and-onion-and-spice base)
-
-The instinct that "a green sprinkle on top makes it look nice" is the trap. If the dish already tastes like itself, parsley will take that away.
-
-### The toasted-parsley exception
-
-Parsley is the only fine herb that holds up to dry heat. Toasted parsley, baked parsley, parslied potatoes (chopped parsley folded into the potatoes during a roast or skillet) all work beautifully — the parsley keeps its character even when cooked. None of the other fine herbs do this. Basil falls apart, tarragon goes bitter, cilantro browns and dies, mint disappears.
-
-This makes parsley a specifically useful tool: it can be a finish, but it can also be a baked-in component when the dish wants a green note that survives the oven. Nothing else in the fine-herb category gives you that.
+- Strong with neutral foundations: eggs (frittata, quiche, omelette), potatoes (mashed, parslied, skillets), white fish (sardines, sole, cod).
+- Parsley vs tarragon overlap: eggs and white fish are shared territory (parsley = neutral, tarragon = french-leaning). Potatoes are parsley-only — they want grassy, not licorice-edged.
+- Clashes in: long-built stews/braises, dishes with their own herb identity (italian basil, indian cilantro/methi), heavy garlic-onion-spice bases. If a dish already tastes like itself, parsley sandblasts it.
+- Toasted-parsley exception — the only fine herb that survives dry heat. Baked, roasted, parslied. Other fine herbs die: basil shreds, tarragon goes bitter, cilantro browns, mint vanishes.
 
 ## Cilantro
 
-Cilantro is the eastern counterpart to parsley — both are fine herbs that hold up to heat better than basil or tarragon, but their cuisine ranges barely overlap. Where parsley does its work in european and mediterranean cooking, cilantro does its work in asian, mexican, persian, and indian cooking. I think of it as the tarragon of the east — the herb that gets reached for first when a dish from those cuisines needs a fresh green finish.
+Eastern counterpart to parsley. Tarragon of the east.
 
-### Where cilantro excels
-
-- **Mexican cooking** — fresh cilantro on tacos, in salsas, on pozole, in mole verde. Mostly a finish, occasionally a structural ingredient (mole verde blends it directly into the sauce).
-- **Indian cooking** — finished onto curries, dals, chutneys; sometimes blended into green chutney.
-- **Persian cooking** — used heavily, often alongside parsley and other fresh herbs, in dishes like ghormeh sabzi where mass quantities of fresh herbs are core to the dish, not garnish.
-- **Asian cooking** (broadly: thai, vietnamese, chinese) — cilantro on noodle soups, in spring rolls, finishing curries, in dipping sauces.
-
-The role varies by cuisine. In mexican and indian cooking, cilantro is closer to optional — it enhances and finishes, but the dish usually still works without it. In persian and asian cooking, my impression is that cilantro is more essential — it doesn't just enhance flavor, it balances it. Without cilantro, certain thai or persian dishes lose a piece of their intended flavor structure rather than just losing a garnish. (I'm rusty in those cuisines, so this read should be taken with a grain of salt — but the distinction is worth keeping in mind.)
-
-### Cilantro as a salad green
-
-Cilantro's other distinctive trait, separating it from the rest of the fine-herb category, is that it makes a good salad green at non-trivial volume. Parsley is too fibrous for this — eaten in salad-quantity it gets stringy and intrusive. Basil is too soft and bruises into nothing. Cilantro sits in the middle: enough texture to feel like a green, soft enough to eat in handfuls.
-
-This is why cilantro shows up as a leaf-ingredient (not a sprinkle) in things like:
-
-- **Kachumber** — indian chopped cucumber-tomato-onion salad, where cilantro is one of the leaf components, not a garnish.
-- **Spring rolls** — vietnamese rolls use whole cilantro sprigs alongside mint, basil, and lettuce as the wrapping greens.
-
-In both, cilantro is doing the work that mixed greens does in a western salad: bringing volume, freshness, and structure rather than punctuation.
-
-### Cilantro in mortar/blender sauces
-
-Cilantro pairs unusually well with mint, and the combination has its own niche: blended or pestled into sauces. Indian and persian green chutneys and yogurt sauces frequently lean on a cilantro-and-mint base. The two herbs balance each other — cilantro's earthiness against mint's brightness — in a way that neither does alone.
-
-Mexican cooking has a parallel use: mole verde and other green sauces lean on cilantro blended directly into the sauce, sometimes with herbs like parsley but more typically as the dominant green.
-
-### Where cilantro hasn't found a place
-
-I haven't found a use for cilantro in european or western cooking yet. There are presumably some spanish and mediterranean dishes that use it (the cuisine reach of cilantro is wider than the cuisines i'm best at), but in my own cooking it doesn't show up in the french, italian, or eastern european registers. The herbs that do that work — parsley, tarragon, basil — already occupy the fresh-finish slot, and cilantro doesn't displace any of them.
-
-### Practical takeaway
-
-Cilantro is the default fresh-green-finish for asian, mexican, indian, and persian dishes. Treat it like parsley in those cuisines: in late, off heat, as a finish. The exceptions where it gets blended (chutneys, mole verde, herb-heavy persian stews) are where it earns a structural role rather than a garnish role. Outside of those cuisines, you probably don't need it.
+- Used as fresh finish in mexican, indian, persian, and asian cooking. In mexican/indian it enhances; in persian/asian it seems closer to balancing — likely structural rather than optional. (Caveat: rusty in those cuisines.)
+- Mexican mole verde and indian/persian green chutneys blend it directly into the sauce — its structural slot.
+- Pairs unusually well with mint (cilantro earthy, mint bright) for chutneys, sauces, green pastes.
+- Salad-green capable at non-trivial volume — only fine herb where this works. Parsley too fibrous, basil too soft. See: kachumber, vietnamese spring rolls.
+- No real western/european slot. Parsley/tarragon/basil already cover that ground.
 
 ## Tarragon
 
-If cilantro is the tarragon of the east, then tarragon is the cilantro of france. The two herbs occupy mirrored positions: each is the canonical fresh-finish herb for a specific cuisine, and each is largely confined to that cuisine's tradition.
+Cilantro of france.
 
-Julia Child says tarragon is the perfect companion to chicken, and she's right — but I think the real anchor for tarragon is something else.
-
-### The leek thesis
-
-Leeks are the most overwhelming allium. They have more body than onions, more sweetness than shallots, and a soft, almost gelatinous quality that can make chicken broths and other leek-heavy stews go gummy and one-note. The dish ends up tasting like leeks even when leeks aren't supposed to be the main event.
-
-Tarragon fixes this. It's both sharp and aromatic — sharp enough to cut through the gumminess, aromatic enough to pull the dish back into a recognizable french profile. Parsley can't do this job: it's not distinct enough to fight a strong leek presence. Most other herbs lose to leeks. Tarragon doesn't.
-
-This is why tarragon works on chicken: chicken broths and roasts are usually built on leeks (or onions doing leek-like work) plus chicken stock, both of which slide toward the same flat-savory direction tarragon was designed to fix. Julia Child's chicken-and-tarragon pairing is real, but I think the underlying mechanism is the leek — chicken just happens to be the most common dish leeks show up in.
-
-### Practical rule
-
-If a dish has leeks and/or chicken, tarragon is almost always the right finishing herb. It's the canonical french move there: a few sprigs of fresh tarragon stirred in at the end (or sprinkled on top) takes a leek-and-chicken dish from gummy and indistinct to bright and clearly french.
-
-This is exactly the role tarragon plays in french grandma soup (where the recipe notes call it the optimal herb choice over rosemary or thyme) and in tarragon chicken salad and the various french leek/chicken dishes in the cookbook. In each one, tarragon is the herb that gives the dish its identity.
-
-### Beyond leeks and chicken
-
-Tarragon's reach is wider than just leek/chicken — it shows up as a fine-herb finish on french fish dishes (especially salmon and white fish), in some egg dishes, in béarnaise sauce — but the leek/chicken anchor is where it earns its keep most reliably.
-
-In two of those wider niches — **eggs and white fish** — tarragon is in direct competition with parsley. Quiches, frittatas, and white fish (sole, cod, etc.) all welcome either herb, and the choice is mostly stylistic: tarragon pulls the dish toward a recognizably french register, parsley keeps it more neutral and broadly european. They're roughly substitutable in those slots and pairing them together also works.
-
-The one place where this competition cleanly resolves in parsley's favor is **potatoes**. Mashed potatoes, parslied potatoes, potato skillets — these want parsley's heartier, grassy character rather than tarragon's licorice-edged sharpness. Tarragon on potatoes reads off; parsley on potatoes is canonical.
-
-Outside of french cooking, tarragon doesn't really have a home: italian cooking has basil, eastern european has dill and parsley, indian and asian have cilantro and mint. Tarragon is unusually cuisine-bound.
-
-### Handling
-
-Tarragon is a fine herb in the basil/cilantro/mint family — heat-fragile, lose-flavor-with-cooking, add-at-the-end. Like the others, fresh is preferred, but unlike basil it tolerates dried use in long-cooked applications (see the dried herbs section below — dried tarragon trades flavor depth for heat tolerance, which is sometimes the right trade for a slow-built french soup).
+- Julia Child says tarragon is the herb for chicken. Probably true, but the underlying anchor seems to be **leeks**: leeks are the most overwhelming allium, broths and stews go gummy and one-note around them, and tarragon (sharp + aromatic) cuts through where parsley can't. Chicken usually shows up alongside leeks, which is why the chicken pairing works.
+- Practical heuristic: leeks and/or chicken in the dish → tarragon is probably the right finish. Canonical in french grandma soup, tarragon chicken salad, french leek/salmon dishes.
+- Eggs and white fish: shares ground with parsley. Tarragon pulls french; parsley stays neutral. Pairing them works.
+- Cuisine-bound. No use yet found outside french.
+- Handling: fine herb. Unlike basil, tolerates dried use in long cooks (see Dried Herbs).
 
 ## Mint
 
-Mint is a strange herb because it operates by three strong rules at once.
+Three patterns I keep noticing.
 
-### Rule 1: mint does not pair with tomato
+**Pattern 1: mint clashes with tomato.** This excludes it from a huge slice of savory cooking — italian sauces, mexican stews, shakshuka, ratatouille, tomato-based indian curries.
 
-This is the headline. Mint clashes with tomato — they fight rather than complement, and the combination produces a result that tastes confused. This single fact excludes mint from a huge range of savory dishes, because a lot of savory cooking is tomato-driven: italian sauces, mexican stews, shakshuka and middle-eastern tomato-pepper dishes, ratatouille, indian tomato-based curries (chana masala, the kidney bean rajma profile, etc.). Mint doesn't have a place in any of those.
+What mint does pair with:
+- Other greens (citrus or vinegar acid, not tomato).
+- Cilantro (canonical pair for chutneys/green pastes).
+- Thai green curry.
+- Persian yogurt and meat dishes (especially lamb).
 
-What mint does pair well with:
+Pattern: thrives in clean dishes (citrus, yogurt, greens, lemongrass-coconut), wilts in tomato-savory.
 
-- **Other greens.** Mint is at home in salads with leafy greens, especially when the salad has a citrus or vinegar acid rather than a tomato component.
-- **Cilantro.** The two herbs are the canonical cilantro-mint pair, mashed together or blended into chutneys, sauces, and indian-persian green pastes. The two balance each other (mint's brightness against cilantro's earthiness) in a way neither does alone — see the cilantro section above.
-- **Thai green curry.** Mint and basil both belong in green curry — it's one of the few cooked dishes where mint doesn't feel out of place.
-- **Persian yogurt and meat dishes.** Persian cooking uses mint extensively with yogurt (cooling cucumber-yogurt sauces) and with meat (lamb especially). I'm not deeply experienced in persian cooking, so I won't claim more than that, but the use is well-established.
+**Pattern 2: where mint shines, it's non-optional.** Either wrong for the dish or load-bearing. Tangerine-mint vinaigrette without the mint is just sweet citrus dressing. Reducing the quantity doesn't subtilize — just leaves it weak.
 
-The unifying pattern: mint thrives where the dish is clean (citrus, yogurt, fresh greens, lemongrass-coconut) and wilts where the dish is acidic-savory in the tomato direction.
-
-### Rule 2: where mint shines, it is non-optional
-
-The other thing about mint, opposite to most fine herbs, is that it's almost never a "nice to have" addition. Mint is either wrong for the dish or it's load-bearing — there's very little middle ground.
-
-Certain vinaigrettes and certain indian dishes are mint-defined. The mint isn't a finishing flourish; it's the actual identity of the dish. A tangerine-mint vinaigrette without the mint is just a sweet citrus dressing; the mint is what makes it a distinct dressing in the cookbook. Cilantro-mint chutney without the mint is a one-note cilantro paste. Mint-cilantro lamb without the mint loses half its character.
-
-This is the inversion of how parsley or cilantro work. Parsley brings flavor to bland bases; cilantro is a default fresh finish across a wide cuisine range. Mint isn't either of those — it's a specialist ingredient, used rarely, but when it's used it's structural.
-
-### Rule 3: mint has a place in desserts
-
-Most herbs are functionally restricted to savory cooking. Parsley, cilantro, tarragon, basil, sage, thyme — none of these belong in a dessert. Mint is one of two real exceptions. The other is rosemary (rosemary works in shortbread, in citrus desserts, in honey-and-fruit territory), but mint has a wider dessert range than rosemary does.
-
-Mint pairs naturally with chocolate, with fresh fruit (especially berries, melon, and stone fruit), with cream and yogurt-based desserts, with citrus desserts, and with anything in the sorbet/granita/iced family. The cooling sensation that makes mint a load-bearing ingredient in savory persian and indian cooking translates almost directly to the dessert context — mint refreshes a sweet dish the same way it refreshes a yogurt sauce.
-
-This is genuinely unusual. Basil and rosemary are mint's only competitors for dessert flavor — basil with stone fruit, strawberries, and chocolate; rosemary with shortbread, citrus, and honey-fruit territory. Outside of those three herbs, the rest of the cabinet stays firmly on the savory side of the kitchen.
-
-### Practical takeaway
-
-If a recipe calls for mint, treat it as a load-bearing ingredient: don't substitute, don't omit, don't reduce the quantity hoping it'll be subtler. Mint either belongs in the dish at full quantity or it doesn't belong at all.
-
-If you're improvising and tempted to add mint to something tomato-driven, don't. The mint will fight the tomato, and the dish will read as confused rather than fresh.
+**Pattern 3: dessert range.** Most herbs are restricted to savory. Mint pairs with chocolate, fresh fruit (berries, melon, stone fruit), cream, yogurt, citrus desserts, sorbet/granita. Basil and rosemary are the only competitors here — basil with stone fruit/strawberries/chocolate; rosemary with shortbread/citrus/honey-fruit. Three-herb cabinet for desserts; the rest stay savory.
 
 ## Basil
 
-Basil is the most delicate herb. The intro to this article already places it at the fragile end of the fine-herb spectrum, but it's worth saying directly: basil bruises if you look at it wrong, browns within seconds of contact with heat, and goes from beautiful to muddy with one extra second in a food processor.
+Most delicate herb in the cabinet. Everything follows from this.
 
-This single fact organizes everything about how basil should be handled.
-
-### Handling rules
-
-- **No heat.** Basil added to a simmering pot loses its character within a minute. The only correct way to use basil in a hot dish is off the heat — sprinkled on top of the finished plate, stirred in after the burner is off, or torn directly onto a freshly served pasta.
-- **Chiffonade, not chop.** Basil is the only herb worth the chiffonade treatment (stack the leaves, roll them into a cigar, slice into thin ribbons). Aggressive chopping bruises the leaf and turns it black at the cut edges. Other fine herbs forgive ordinary knife work; basil doesn't.
-- **The stems are skippable.** Basil stems are noticeably less satisfying than the leaves — slightly bitter, woody, and lacking the aromatic punch of the leaf itself. This is unusual: parsley stems carry good flavor, cilantro stems are arguably better than the leaves for stocks and sauces, mint stems have some use. Basil stems don't earn their place. Strip the leaves and discard the stems.
-
-### What basil pairs with
-
-- **Tomato.** Basil and tomato is one of the most reliable herb-vegetable pairings in cooking. Anything tomato-based welcomes basil: fresh tomato salads, pasta with tomato sauce, caprese, shakshuka, pizza, focaccia, soffritto-based italian soups. If a dish leans on tomato, basil is almost always the right finishing herb.
-- **Cream and dairy.** Basil works with cream sauces, with mozzarella, with burrata, with ricotta. The combination of fat-rich dairy and bright basil is core to caprese, pesto pasta, and a wide range of italian summer dishes.
-- **Stone fruit, strawberries, chocolate.** Basil's dessert range — covered in the mint section — is small but real. Strawberries-and-basil is a canonical pairing; basil ice cream and basil with stone fruit (peach, plum, nectarine) hold up; basil with dark chocolate is a less common but established move.
-
-### Where basil shines as a garnish
-
-Basil is probably the best "just add fresh on top" herb in the cabinet, particularly for pasta. A bowl of pasta in tomato sauce, with mozzarella torn over the top, finished with chiffonaded basil, is the canonical italian summer plate — and the basil is doing real work in that finish, not just decoration. The volatile aromatic compounds that get destroyed by heat are exactly what you taste when the basil is added at the very end.
-
-This is why basil's role in italian cooking is almost entirely as a finishing herb. Sauce simmers without basil; basil goes on the plate.
-
-### Where basil takes a structural role: pesto
-
-The exception to the no-process rule is pesto. Basil's softness is actually an advantage when blending: it breaks down quickly in a mortar (or food processor) and yields a smooth green paste without resistance. The same softness that makes basil bruise during chopping makes it grind beautifully when that's the goal. Spinach behaves similarly in green sauces — see the spinach and mixed greens section below — and the underlying physics is the same: soft texture is a problem when you want intact leaves and an asset when you want a smooth sauce.
-
-Pesto is one of the only contexts where basil gets processed in volume, and it's where the herb shifts from being a garnish into being the structural ingredient of the dish.
-
-### Practical takeaway
-
-Treat basil as the most delicate herb in the cabinet. Use it raw, off heat, chiffonaded if appearance matters, and finished onto plates rather than cooked into sauces. The two structural roles where basil moves from garnish to main ingredient are pesto (where its softness is the point) and dessert pairings with stone fruit, strawberries, or chocolate. Outside those niches, basil is a finish, not a step.
+- **No heat.** Basil added to a simmer dies within a minute. Off heat or onto the plate.
+- **Chiffonade only.** Aggressive chopping bruises and blackens. Only herb where this matters.
+- **Stems are skippable.** Unique among herbs — parsley/cilantro/mint stems all carry flavor; basil stems are bitter and woody. Strip and discard.
+- Pairs with tomato (most reliable herb-vegetable pairing in cooking), cream/dairy (caprese, pesto, mozzarella, ricotta, burrata), and the dessert range (stone fruit, strawberries, chocolate).
+- Best pure-garnish herb for pasta. Italian role is almost entirely a finish: sauce simmers without basil, basil goes on the plate.
+- **Pesto is the structural exception.** The softness that's a problem when chopping intact leaves is an asset when blending — same physics as spinach in green sauces. Pesto is where basil shifts from garnish to main ingredient.
 
 ## Dill
 
-Dill is a hybrid herb. It borrows traits from three other herbs in this article and ends up doing all three jobs depending on the dish — which makes it harder to pin down with a single thesis. I haven't studied it as carefully as the others, so this section is more provisional than the rest.
+Hybrid herb. Behaves like three different herbs depending on the dish.
 
-### Three modes
+- **Like parsley** — lifts neutral eastern/northern european bases (sour cream, yogurt, mild fish, cucumbers, boiled potatoes, soft eggs).
+- **Like thyme** — counter-funk unifier with sour/fermented/brined ingredients (kefir, pickles, sauerkraut, gravlax). Borscht, tzatziki, dilled cucumber.
+- **Like mint** — load-bearing identity-defining. Egg salad with dill is "dilled egg salad," not egg salad with dill in it. Doesn't play nice with basil or tarragon.
 
-**Like parsley: dill lifts bland bases.** In the same way parsley brings flavor to eggs, potatoes, and white fish, dill brings flavor to eastern european and northern european bases that have a similar neutral-canvas character. Sour cream, plain yogurt, mild fish, cucumbers, boiled potatoes, soft-cooked eggs — these are all dishes that benefit from a green herb adding identity, and dill is the canonical choice for that work in cuisines where parsley would feel out of place.
+Likely explanation: different culinary tradition (eastern european + northern european + greek) than the herbs above. Less tomato/garlic, more fermented dairy, brine, smoked fish, root vegetables. Dill is shaped by that environment.
 
-**Like thyme: dill is a counter-funk unifier.** Dill pairs unusually well with fermented and sour ingredients — sour cream, kefir, yogurt, pickles, brined fish, sauerkraut. The pattern fits the thyme thesis: in a dish where one strong, slightly aggressive flavor (sourness, ferment, brine) threatens to dominate, dill harmonizes the dish and pulls it toward something more natural and aromatic. Borscht, tzatziki, gravlax, and dilled-cucumber salads all rely on this counter-funk role.
+Highly situational. Eastern european, northern european, mediterranean-greek, or funk-forward → dill is right and often non-optional. Otherwise rarely the answer.
 
-**Like mint: dill takes over the identity of the dish.** When dill is present, the dish often becomes "the dilled version" of whatever it would otherwise be. Egg salad with dill is a dilled egg salad, not an egg salad that happens to have dill. Salmon with dill is dilled salmon. This is the mint-like behavior — load-bearing rather than incidental, and it doesn't always play nice with other distinct herbs. Dill in the same dish as basil or tarragon usually means one of them is being subordinated.
-
-### Why this hybrid behavior
-
-The simplest explanation is that dill belongs to a different culinary tradition than most of the herbs in this article. Where parsley/tarragon/basil are mediterranean-european, and cilantro/mint sit in the asian-mexican-persian-indian axis, dill is the canonical herb of eastern and northern european cooking — russian, polish, scandinavian, jewish, baltic, greek (greek cooking uses dill heavily even though it's mediterranean). That tradition handles flavor differently: less reliance on tomato and garlic, more on fermented dairy, brined vegetables, smoked or cured fish, and earthy root vegetables. Dill is shaped by that environment and behaves accordingly.
-
-When you use dill outside that tradition, it imports some of those expectations — which is part of why it tends to take over the dish's identity. A dilled potato no longer reads as a generic side; it reads as a polish or russian potato. That's a feature when you want it and a problem when you don't.
-
-### Highly situational
-
-The right way to think about dill is probably as the most situational of the herbs in this article. Parsley, cilantro, and basil have broad default uses across many cuisines; dill is much more specific. If a dish is leaning eastern european, northern european, mediterranean (greek), or specifically funk-forward (sour cream, brine, pickled, cured fish), dill is the right herb and often non-optional. Outside those niches, dill is rarely the answer — there's usually a better choice (parsley, tarragon, cilantro, or no herb at all).
-
-### Handling
-
-Dill is a fine herb in handling: heat-fragile, lose-flavor-with-cooking, add-late or off heat. As covered in the dried herbs section, dried dill is one of the rare cases where the dried form is interchangeable with fresh for seasoning purposes — so dill is unusually flexible compared to the other fine herbs.
+Handling: fine herb. Dried dill is the rare case where dried = fresh as a seasoning (see Dried Herbs).
 
 ## Thyme
 
-Thyme is the unifier. Where rosemary fixes one-dimensional dishes by adding a second dimension, thyme does the opposite job: it takes dishes that are already pulled in too many directions — funky, pungent, scattered, abrasive — and makes them taste like a single coherent thing. Thyme's clean, slightly piney aromatic profile is the connective tissue that turns a collection of strong individual flavors into a unified whole.
+The unifier. Inverse role to rosemary.
 
-This is the single thesis that explains where thyme works and where it doesn't.
-
-### Where thyme works: dishes pulled in too many directions
-
-- **Mexican cooking.** Mexican savory cooking is full of strong individual components — cumin, coriander, oregano, chiles, beans, garlic, onion, meat, sometimes chocolate, sometimes citrus, sometimes vinegar. Each of those is doing its own thing, and a mexican stew can easily read as a pile of distinct flavors rather than a finished dish. Thyme is what binds them. It's almost always paired with oregano in this slot, and the two together act as the aromatic signature that pulls everything into focus. Black bean dishes especially benefit from this.
-- **Pungent or abrasive european dishes** — mushroom-heavy braises, mustard-heavy sauces, anything where a single strong aromatic is bulldozing the rest of the ingredients. Thyme harmonizes the heavy aromatic with whatever else is in the pot, making the dish taste natural rather than dominated. The mushroom or mustard becomes part of an integrated flavor instead of an interloper.
-
-The pattern in both cases: there's already a lot going on, and thyme is what keeps it from sounding like noise.
-
-### Where thyme is unnecessary: dishes that are already unified
-
-In simple or savory european stews — anything tomato-and-vegetable, chicken-and-vegetable, or french-grandma adjacent — thyme has nothing to unify. The dish is already coherent: a soffrito or mirepoix, a single stock, a clean herb finish. There's no clash to resolve, no funkiness to subdue. Thyme can ride alongside for flavor diversity but isn't doing structural work.
-
-This is also the slot where rosemary tends to outperform thyme — but for a different reason. Simple stews aren't pulled in too many directions, but they can be pulled in too few (the savory-monolith problem rosemary fixes). In those dishes you want a second dimension, not a unifier — and rosemary is the right tool for that. Thyme and rosemary aren't competing for the same role; they're solving opposite problems and just happen to share a slot in the cabinet.
-
-This is why mushroom bourguignon dropped thyme entirely in favor of rosemary: the dish's problem was savory-monolithic, not aromatically scattered. The right answer was a counterpoint, not a unifier.
-
-### Where thyme has not earned a place
-
-Eastern european and indian cooking already have their own internal unification systems. Eastern european cooking leans on dill, parsley, and sour cream to tie things together; indian cooking has a deeply developed spice-and-herb grammar (cumin, coriander, garam masala, kasoori methi, ginger, garlic) that handles harmonization without outside help. Thyme doesn't slot into either tradition — there's no role for it because the unification work is already covered.
-
-### Practical takeaway
-
-Reach for thyme when a dish has too many strong voices fighting each other. Reach for rosemary when a dish has only one strong voice and needs a second. If a dish is already balanced and unified, neither is mandatory — both become optional flavor diversity rather than load-bearing ingredients.
+- Works in dishes pulled in too many directions:
+  - **Mexican.** Cumin, coriander, oregano, chiles, beans, garlic, sometimes chocolate or citrus — many strong components needing a binder. Thyme + oregano = the canonical mexican signature.
+  - **Pungent/abrasive european dishes** — mushroom-heavy braises, mustard-heavy sauces. Thyme harmonizes a single dominant aromatic with the rest of the pot.
+- Unnecessary in dishes already unified — simple european stews (tomato-and-vegetable, chicken-and-vegetable). Nothing to unify. Rosemary is the right tool there for the opposite reason (savory monolith needing a second dimension).
+- Thyme and rosemary aren't competitors. They solve opposite problems. Mushroom bourguignon dropped thyme for rosemary because the dish's problem was savory-monolithic, not aromatically scattered.
+- No eastern european or indian niche found. Both cuisines have their own internal unification systems (dill/parsley/sour cream; the indian spice grammar).
 
 ## Oregano
 
-Oregano is the herb that is most easily mistaken for a spice — and the right way to use it leans into that mistake rather than fighting it.
+The herb most easily mistaken for a spice — and that mistake is correct.
 
-### Treat it like a spice, not an herb
-
-Most of the herbs in this article want to be added at the end of cooking (fine herbs) or want to infuse the fat early and stay in the dish as fragments (robust herbs). Oregano is different. It does its best work the way ground spices do their best work: bloomed in hot oil, stirred into the spice base of the dish, and then left to disappear into the body of the sauce. You don't notice individual oregano leaves in a finished mexican stew or italian tomato sauce the way you'd notice a sprig of rosemary or a chiffonade of basil. The oregano is dissolved into the structure of the dish.
-
-This is why dried oregano is the canonical form (covered in the dried herbs section) — drying concentrates the resinous, slightly camphor-like compounds that survive blooming in oil, and removes the grassy character that would otherwise read as a herb-on-top note. The dried form is closer to a ground spice than an herb leaf, both physically and behaviorally.
-
-### Where oregano belongs: spice pairings
-
-Oregano's identity is built on its pairings with cumin. Two of those pairings are foundational to entire cuisine traditions:
-
-- **Cumin + oregano = distinctly mexican.** This is the aromatic backbone of mexican savory cooking. Mexican bean stews, adobo bases, mole verde and other moles, chili colorado, taco seasonings, sopa de tortilla — anything that reads as recognizably mexican on the herb-and-spice axis is built on this pairing. It's so reliable that adding cumin and oregano to a dish is enough to push the dish in a mexican direction even if nothing else in the recipe is overtly mexican.
-- **Cumin + coriander = distinctly indian.** This is the parallel pairing in indian cooking. Indian cuisine doesn't really use oregano — it uses ground coriander where mexican cooking uses oregano, and the result is an aromatic profile that reads indian instead of mexican despite the shared cumin base.
-
-These two pairings are essentially how the herb-and-spice base differentiates the two cuisines. If you can taste cumin + oregano, you're in mexican territory; cumin + coriander, you're in indian territory. The cumin is constant; the partner switches.
-
-Oregano also shows up in italian cooking — pizza, tomato sauces, herb mixes — but its mexican role is the more distinctive one. Italian uses oregano alongside basil and many other herbs; mexican uses it as one of two structural pillars.
-
-### New mexico chili powder and oregano blends
-
-It's worth noting that oregano sometimes gets blended directly into new mexico chili powder and other regional chili powder blends. This is consistent with the spice-not-herb framing: oregano is acting as a ground component of a spice mix rather than as a finishing herb. When a recipe calls for a generic "chili powder" in a mexican-leaning dish, you may already be getting some oregano whether you add it separately or not — worth checking the label of your chili powder before doubling up.
-
-### Practical takeaway
-
-When using oregano, treat it like a spice. Use the dried form. Add it early in cooking, ideally bloomed in oil with the other ground spices. Pair it with cumin in mexican-leaning dishes; let it ride alongside basil in italian. Don't try to use oregano as a finishing herb the way you would parsley, cilantro, or basil — its role is structural and dissolved, not visual or fresh.
+- Bloom in oil early. Disappears into the body of the dish. Dried form is canonical (see Dried Herbs).
+- Cumin pairings define cuisines. Cumin is constant, partner switches:
+  - Cumin + oregano = mexican (bean stews, adobo, mole, chili colorado).
+  - Cumin + coriander = indian.
+- Italian usage exists, but rides alongside basil — less distinctive than the mexican role.
+- Often pre-blended into new mexico chili powder. Check the label before doubling up.
+- Doesn't work as a finishing herb. Structural and dissolved.
 
 ## Rosemary
 
-Rosemary is the antidote to a specific failure mode.
+The antidote to a specific failure mode: western sauces and stews that are too savory for their own good and lose complexity. Comfort-food gravies, mushroom-heavy braises, vegan-meat stews — anything where umami stacks and the dish reads flat.
 
-There's a class of western sauces and stews that suffer from being too savory for their own good. The meat is in there, the glutamates are in there, the wine and the stock and the slow simmer have all done their work, and the dish should taste great — but instead it tastes flat, heavy, and one-note. The savoriness has stacked on itself until there's nothing distinct underneath. Comfort food gravies, mushroom-heavy braises, beef-stew-and-vegan-stand-in dishes, anything where the umami is doing all the work — these are the dishes that lose complexity to their own intensity.
+Rosemary's loud, fat-soluble, structurally distinct (piney, slightly bitter, almost medicinal). Reads as a separate voice in the dish rather than getting absorbed into the savory wash.
 
-Rosemary fixes this. It's the only herb that can stand up to that kind of savory weight and add a counterpoint without being absorbed by it. Its flavor is loud enough, fat-soluble enough, and structurally different enough — piney, slightly bitter, almost medicinal — to read as a separate voice in the dish rather than getting blended into the savory wash. Add enough rosemary and a heavy comfort-food gravy turns back into something with shape and interest.
-
-### Why nothing else works for this
-
-- **Thyme** is the closest robust herb in handling, but it's too funky for this slot. Where rosemary cuts through and adds clarity, thyme gets folded into the savory profile and reinforces the muddiness rather than fighting it. Thyme reads as an additive to a sauce; rosemary reads as a corrective.
-- **Sage** can sometimes substitute, but it pulls the dish toward a poultry/stuffing direction it might not want.
-- **Fine herbs are non-starters** for this role. They either don't survive the heat (basil, tarragon, mint, cilantro) or they compete with the sauce in a bad way (parsley) — the parsley case is exactly the one described above: in a complex savory dish, parsley dominates rather than counterpoints.
-
-That leaves rosemary as the only real tool for the job.
-
-### Where this matters in practice
-
-The mushroom bourguignon is the clearest example: it's specifically a vegetarian beef stew, which means it's leaning hard on bouillon, soy meat, mushrooms, wine, tomato — every glutamate source available. Without rosemary (paired with bay leaf), the dish is exactly the failure mode described above: heavy and flat. Rosemary is mandatory there, and the recipe notes call this out.
-
-The same principle shows up in:
-
-- Mushroom gravy and chicken-pot-pie sauces
-- Mushroom soups
-- Wild rice mushroom soup
-- Anything in the "comfort food gravy" category
-
-In each case rosemary isn't there for flavor diversity — it's load-bearing.
-
-### When rosemary is unnecessary
-
-If the dish has its own complexity already (acid, brightness, fresh herbs, distinct spices, layered cooking) rosemary becomes optional or actively in the way. It's a tool for fixing a specific problem; if you don't have that problem, you don't need to reach for it.
+- Why nothing else works for this slot:
+  - **Thyme** reinforces the muddiness rather than fighting it (additive, not corrective).
+  - **Sage** drifts toward poultry/stuffing.
+  - **Fine herbs** either die in the heat (basil, tarragon, mint, cilantro) or compete badly (parsley).
+- Where it matters: mushroom bourguignon (mandatory), mushroom gravy and chicken-pot-pie sauces, mushroom soups, wild rice mushroom soup, anything in the comfort-food-gravy category.
+- When unnecessary: dishes with their own complexity already (acid, brightness, fresh herbs, distinct spices). Rosemary is a fix for a specific problem, not a default add.
 
 ## Dried Herbs
 
-The general rule is that fresh herbs are better than dried ones. Drying drives off most of the volatile aromatic compounds that make an herb taste like itself; what's left is usually a duller, flatter version of the original. For most herbs in this article — basil, parsley, cilantro, mint, tarragon, thyme, rosemary — fresh is the default and dried is a fallback.
+Generally fresh > dried. Three exceptions:
 
-There are exactly three exceptions worth knowing about, where dried is either better or genuinely interchangeable.
-
-### Dried oregano is better than fresh
-
-This is the strongest case. Dried oregano isn't just a substitute for fresh — it's the preferred form. Fresh oregano is grassy, sharp, and slightly soapy in a way that doesn't always cooperate with the dishes oregano belongs in (mexican bean stews, italian tomato sauces, pizza, chimichurri). Drying concentrates oregano's resinous, slightly camphor-like character and removes the grassy edge, which is exactly what those dishes want.
-
-Most experienced cooks reach for dried oregano without thinking about it. Fresh oregano is rarely the right call.
-
-### Dried tarragon holds up to heat where fresh doesn't
-
-Fresh tarragon is more flavorful — that part is uncontested. The trade-off is that fresh tarragon, like the other fine herbs, doesn't survive long cooking. Dried tarragon loses some flavor depth, but it gains the ability to be added early in a dish and simmer with the rest of the ingredients without disappearing.
-
-This makes dried tarragon useful for things like long-cooked stocks, slow-built french soups, and any tarragon-leaning dish where you want the herb integrated into the body of the broth rather than added as a finishing flourish. Fresh tarragon goes on top at the end; dried tarragon goes in early and rides the simmer.
-
-Both forms have their place — they're not really substitutes for each other so much as different tools.
-
-### Dried dill is interchangeable with fresh as a seasoning
-
-Dill is the unusual case where dried doesn't lose much. Dried dill is essentially as good as fresh for use as a seasoning — sprinkled into sauces, salads, sour cream dips, fish dishes, and bean sides. The flavor compounds in dill are robust enough that drying preserves most of what makes dill taste like dill.
-
-The only place where fresh dill is preferred is when you want the texture and visual of fresh fronds (a crusted-fish topping, a salad with fresh dill leaves as a structural component). For pure flavor seasoning, dried is fine and easier to keep on hand.
-
-### Practical takeaway
-
-For most herbs, default to fresh and treat dried as a backup. The three exceptions: reach for dried oregano without hesitation; keep dried tarragon around for long-cooked applications even if you also have fresh; treat dried dill as fully interchangeable with fresh for seasoning purposes.
+- **Oregano** — dried is *better* than fresh. Drying concentrates the resinous, camphor-like character and removes the grassy edge mexican and italian dishes don't want.
+- **Tarragon** — dried less flavorful than fresh, but tolerates long cooking. Fresh on top at the end; dried in early to ride the simmer. Different tools.
+- **Dill** — dried interchangeable with fresh as a seasoning. Use fresh only when you want the texture or visual of fronds.
 
 ## Spinach and Mixed Greens
 
-These two get a shared section because, unlike the herbs above, they're largely interchangeable. The herbs in this article each occupy a unique niche — there is no real substitute for rosemary, no swap for parsley. Spinach and mixed greens, by contrast, do similar work in similar dishes. They are not, however, indistinct.
+Largely interchangeable in some contexts (unlike the herbs above, which all occupy unique niches). Not indistinct, though.
 
-### Mixed greens
+- **Mixed greens** = baby arugula spring mix in this cookbook. Salad green of choice — bitter and fibrous, but calibrated. Not overwhelming like radicchio, full-grown frisée, or full-grown arugula.
+- **Spinach** is similar in soft/earthy character but bad as a salad green: too soft and chewy raw, flavor too flat.
 
-In this cookbook, "mixed greens" means a baby arugula spring mix — the kind sold prewashed, intended for salads.
+Spinach's strong applications are cooked, blended, or bulk:
+- Pesto-style green pasta sauces (soft texture is an asset when blending).
+- Spanakopita, spanakorizo — large-quantity wilted bulk filling.
+- Saag-style indian curries — spinach canonical, but mustard greens and fenugreek leaves take the same role. Spinach's flatness lets the spice base sit on top without competing.
 
-Mixed greens are the salad green of choice. They're bitter and fibrous in a way iceberg or romaine isn't, but they're also calibrated — not overwhelming the way radicchio is, or the way full-grown frisée and full-grown arugula can be. The baby-leaf format is what makes them work: bitter enough to be interesting, soft enough to be eaten raw without aggressive dressings, fibrous enough to hold structure under vinaigrette.
+Pattern: spinach wants to be cooked or pulverized; mixed greens want to be raw and whole.
 
-This is why mixed greens earn the salad slot in things like apple fennel salad and root vegetable salad — they bring the bitterness/structure those dishes need without crowding out the lemon, the apple, or the roasted vegetables.
+In stews and pilafs both add color, nutrition, earthiness without changing the flavor like an herb would. Genuinely interchangeable in this slot.
 
-### Spinach
+**When greens clash:**
+- Cooking-time curve. Undercooked / barely wilted: vegetal, refreshing, bitter (helpful). Long-cooked / stewed: sweeter, muddier, denser (problematic in already-glutamate-heavy dishes).
+- Heuristic: **wherever rosemary shines, keep greens out.** Rosemary fixes savory-stack-overflow; greens cooked long contribute to it. Opposite effects on the same family of dishes.
+- Italian vegetable soups are the exception — undertuned by design. No tight flavor profile to crowd, so greens can add bulk and color without clashing. Fennel old bay soup falls in this category.
+- Spinach is the bigger offender than arugula, but mixed greens cooked into beef stew aren't the answer either.
 
-Spinach has a similar soft, earthy character to baby arugula mix, but it doesn't make a good salad green. Two reasons:
-
-1. **Texture is wrong for raw eating.** Spinach is too soft and chewy on its own — it lacks the fibrous spring that makes a mixed-greens salad satisfying.
-2. **Flavor is too flat.** It's earthy without being interesting. Where mixed greens offer bitterness as a structural flavor, spinach just sits there.
-
-Where spinach actually shines is in cooked, bulk, or blended applications:
-
-- **Pesto-style pasta sauces** — spinach blended into a green sauce works beautifully because the soft texture is now an asset (you want a smooth purée) and the flat flavor becomes a neutral carrier for the louder ingredients (basil, garlic, parmesan, lemon).
-- **Spanakopita and spanakorizo** — spinach is bought in large quantities, wilted down, and used as bulk filling. The chewy texture that's a problem in salad becomes the right texture for a baked filling or a rice dish.
-- **Saag-style indian curries** — saag is the broadest category of indian dishes that turn cooked-down greens into the body of the curry itself. Spinach is the canonical green for these, but mustard greens, fenugreek leaves, and other bitter cooked greens can take the same role. The principle is the same as pesto and spanakopita: cooked in large quantity, often pureed, and used as bulk and color rather than as a flavor accent. The flatness of spinach actually helps here — it lets the spice base (cumin, coriander, ginger, garlic, kasoori methi, etc.) sit on top rather than fighting through a competing herbal flavor.
-
-The pattern: spinach wants to be cooked or pulverized; mixed greens want to be raw and whole.
-
-### Where they overlap: stews and pilafs
-
-Both spinach and mixed greens serve the same purpose when added to stews or pilafs as a finishing addition: they bring **color, nutrition, and earthiness without changing the flavor the way an herb would.** They're a structural-but-quiet add. This is exactly the role they play in fennel old bay soup, where the notes call them out specifically: flavorless on their own, but excellent because they add bitterness, nutrition, and color without competing with the established flavor profile.
-
-In this slot they're genuinely interchangeable — pick whichever you have. Spinach wilts faster and disappears into the broth more, mixed greens hold a little more structure, but neither choice meaningfully changes the dish.
-
-### When greens clash
-
-Greens behave very differently depending on how long they're cooked, and this is what determines whether they help or hurt a dish.
-
-**Undercooked / barely wilted:** vegetal, refreshing, slightly bitter. This is the mode where greens do useful work — adding brightness, structure, and a clean herbal note.
-
-**Long-cooked / stewed:** sweeter, muddier, denser. The bitterness mellows and the texture breaks down. The greens stop being a fresh element and become part of the broth's body.
-
-The long-cooked mode is where greens get into trouble. In a dish that's already heavy on glutamates and savory weight — long-built stews, beef-stew-shaped vegan stews, mushroom-driven braises, anything in the rosemary-shines category — adding greens contributes more sweetness and muddiness on top of an already heavy base. Spinach is the bigger offender (it's softer, sweeter, and disappears more completely into the broth), but arugula isn't the answer either; even mixed greens cooked into a beef stew don't bring the brightness they bring to a salad.
-
-A useful heuristic: **wherever rosemary shines, keep greens out.** Rosemary is there to fix the savory-stack-overflow problem; greens, cooked long, contribute to that same problem rather than helping. The two herbs/greens have opposite effects on the same family of dishes.
-
-The exception is **italian vegetable soups, which are undertuned by design.** They're built around simple soffrito + tomato + bean architecture without heavy stock or strong umami, so the muddying effect of cooked greens isn't a problem — the dish wasn't relying on a tight flavor profile to begin with, and bulk-and-color is exactly what it needed. Fennel old bay soup falls in this category: greens belong there because there's no aromatic budget to crowd.
-
-This is also why both spinach and mixed greens end up as clashing ingredients in dishes like mushroom bourguignon and french grandma soup — both committed to a defined flavor profile (heavy savory in one case, clean leek-and-tarragon in the other) where cooked greens would muddy the result rather than support it.
-
-The rule of thumb: greens belong in salads, in dedicated greens-driven dishes (saag, spanakopita, pesto), in undertuned italian vegetable soups for color and bulk — not in dishes already running on a tight aromatic budget.
+Both are clashing in mushroom bourguignon and french grandma soup — defined flavor profiles where cooked greens muddy rather than support.

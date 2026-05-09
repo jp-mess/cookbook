@@ -209,6 +209,32 @@ Pesto is one of the only contexts where basil gets processed in volume, and it's
 
 Treat basil as the most delicate herb in the cabinet. Use it raw, off heat, chiffonaded if appearance matters, and finished onto plates rather than cooked into sauces. The two structural roles where basil moves from garnish to main ingredient are pesto (where its softness is the point) and dessert pairings with stone fruit, strawberries, or chocolate. Outside those niches, basil is a finish, not a step.
 
+## Dill
+
+Dill is a hybrid herb. It borrows traits from three other herbs in this article and ends up doing all three jobs depending on the dish — which makes it harder to pin down with a single thesis. I haven't studied it as carefully as the others, so this section is more provisional than the rest.
+
+### Three modes
+
+**Like parsley: dill lifts bland bases.** In the same way parsley brings flavor to eggs, potatoes, and white fish, dill brings flavor to eastern european and northern european bases that have a similar neutral-canvas character. Sour cream, plain yogurt, mild fish, cucumbers, boiled potatoes, soft-cooked eggs — these are all dishes that benefit from a green herb adding identity, and dill is the canonical choice for that work in cuisines where parsley would feel out of place.
+
+**Like thyme: dill is a counter-funk unifier.** Dill pairs unusually well with fermented and sour ingredients — sour cream, kefir, yogurt, pickles, brined fish, sauerkraut. The pattern fits the thyme thesis: in a dish where one strong, slightly aggressive flavor (sourness, ferment, brine) threatens to dominate, dill harmonizes the dish and pulls it toward something more natural and aromatic. Borscht, tzatziki, gravlax, and dilled-cucumber salads all rely on this counter-funk role.
+
+**Like mint: dill takes over the identity of the dish.** When dill is present, the dish often becomes "the dilled version" of whatever it would otherwise be. Egg salad with dill is a dilled egg salad, not an egg salad that happens to have dill. Salmon with dill is dilled salmon. This is the mint-like behavior — load-bearing rather than incidental, and it doesn't always play nice with other distinct herbs. Dill in the same dish as basil or tarragon usually means one of them is being subordinated.
+
+### Why this hybrid behavior
+
+The simplest explanation is that dill belongs to a different culinary tradition than most of the herbs in this article. Where parsley/tarragon/basil are mediterranean-european, and cilantro/mint sit in the asian-mexican-persian-indian axis, dill is the canonical herb of eastern and northern european cooking — russian, polish, scandinavian, jewish, baltic, greek (greek cooking uses dill heavily even though it's mediterranean). That tradition handles flavor differently: less reliance on tomato and garlic, more on fermented dairy, brined vegetables, smoked or cured fish, and earthy root vegetables. Dill is shaped by that environment and behaves accordingly.
+
+When you use dill outside that tradition, it imports some of those expectations — which is part of why it tends to take over the dish's identity. A dilled potato no longer reads as a generic side; it reads as a polish or russian potato. That's a feature when you want it and a problem when you don't.
+
+### Highly situational
+
+The right way to think about dill is probably as the most situational of the herbs in this article. Parsley, cilantro, and basil have broad default uses across many cuisines; dill is much more specific. If a dish is leaning eastern european, northern european, mediterranean (greek), or specifically funk-forward (sour cream, brine, pickled, cured fish), dill is the right herb and often non-optional. Outside those niches, dill is rarely the answer — there's usually a better choice (parsley, tarragon, cilantro, or no herb at all).
+
+### Handling
+
+Dill is a fine herb in handling: heat-fragile, lose-flavor-with-cooking, add-late or off heat. As covered in the dried herbs section, dried dill is one of the rare cases where the dried form is interchangeable with fresh for seasoning purposes — so dill is unusually flexible compared to the other fine herbs.
+
 ## Thyme
 
 Thyme is the unifier. Where rosemary fixes one-dimensional dishes by adding a second dimension, thyme does the opposite job: it takes dishes that are already pulled in too many directions — funky, pungent, scattered, abrasive — and makes them taste like a single coherent thing. Thyme's clean, slightly piney aromatic profile is the connective tissue that turns a collection of strong individual flavors into a unified whole.

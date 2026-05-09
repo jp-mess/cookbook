@@ -100,6 +100,34 @@ I haven't found a use for cilantro in european or western cooking yet. There are
 
 Cilantro is the default fresh-green-finish for asian, mexican, indian, and persian dishes. Treat it like parsley in those cuisines: in late, off heat, as a finish. The exceptions where it gets blended (chutneys, mole verde, herb-heavy persian stews) are where it earns a structural role rather than a garnish role. Outside of those cuisines, you probably don't need it.
 
+## Tarragon
+
+If cilantro is the tarragon of the east, then tarragon is the cilantro of france. The two herbs occupy mirrored positions: each is the canonical fresh-finish herb for a specific cuisine, and each is largely confined to that cuisine's tradition.
+
+Julia Child says tarragon is the perfect companion to chicken, and she's right — but I think the real anchor for tarragon is something else.
+
+### The leek thesis
+
+Leeks are the most overwhelming allium. They have more body than onions, more sweetness than shallots, and a soft, almost gelatinous quality that can make chicken broths and other leek-heavy stews go gummy and one-note. The dish ends up tasting like leeks even when leeks aren't supposed to be the main event.
+
+Tarragon fixes this. It's both sharp and aromatic — sharp enough to cut through the gumminess, aromatic enough to pull the dish back into a recognizable french profile. Parsley can't do this job: it's not distinct enough to fight a strong leek presence. Most other herbs lose to leeks. Tarragon doesn't.
+
+This is why tarragon works on chicken: chicken broths and roasts are usually built on leeks (or onions doing leek-like work) plus chicken stock, both of which slide toward the same flat-savory direction tarragon was designed to fix. Julia Child's chicken-and-tarragon pairing is real, but I think the underlying mechanism is the leek — chicken just happens to be the most common dish leeks show up in.
+
+### Practical rule
+
+If a dish has leeks and/or chicken, tarragon is almost always the right finishing herb. It's the canonical french move there: a few sprigs of fresh tarragon stirred in at the end (or sprinkled on top) takes a leek-and-chicken dish from gummy and indistinct to bright and clearly french.
+
+This is exactly the role tarragon plays in french grandma soup (where the recipe notes call it the optimal herb choice over rosemary or thyme) and in tarragon chicken salad and the various french leek/chicken dishes in the cookbook. In each one, tarragon is the herb that gives the dish its identity.
+
+### Beyond leeks and chicken
+
+Tarragon's reach is wider than just leek/chicken — it shows up as a fine-herb finish on french fish dishes (especially salmon and white fish), in some egg dishes, in béarnaise sauce — but the leek/chicken anchor is where it earns its keep most reliably. Outside of french cooking, tarragon doesn't really have a home: italian cooking has basil, eastern european has dill and parsley, indian and asian have cilantro and mint. Tarragon is unusually cuisine-bound.
+
+### Handling
+
+Tarragon is a fine herb in the basil/cilantro/mint family — heat-fragile, lose-flavor-with-cooking, add-at-the-end. Like the others, fresh is preferred, but unlike basil it tolerates dried use in long-cooked applications (see the dried herbs section below — dried tarragon trades flavor depth for heat tolerance, which is sometimes the right trade for a slow-built french soup).
+
 ## Mint
 
 Mint is a strange herb because it operates by three strong rules at once.

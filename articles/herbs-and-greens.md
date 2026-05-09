@@ -139,30 +139,68 @@ If a recipe calls for mint, treat it as a load-bearing ingredient: don't substit
 
 If you're improvising and tempted to add mint to something tomato-driven, don't. The mint will fight the tomato, and the dish will read as confused rather than fresh.
 
-## Thyme
+## Basil
 
-Thyme is harder to place than the other robust herbs. It's a real workhorse in some contexts and almost redundant in others, and the difference comes down to what else is in the pot.
+Basil is the most delicate herb. The intro to this article already places it at the fragile end of the fine-herb spectrum, but it's worth saying directly: basil bruises if you look at it wrong, browns within seconds of contact with heat, and goes from beautiful to muddy with one extra second in a food processor.
 
-### Where thyme is strongest
+This single fact organizes everything about how basil should be handled.
 
-- **Mexican cooking.** This is thyme's clearest niche. Mexican bean stews, adobo bases, anything with cumin/coriander/oregano/chiles welcomes thyme alongside oregano. The two are paired so often that thyme reads as part of the flavor signature rather than as an addition. Black bean dishes especially.
-- **Pungent or abrasive european dishes** — specifically mushroom-heavy ones, mustard-heavy ones, or anything that has a single dominant aromatic threatening to bulldoze the dish. Thyme's clean, slightly piney top note cuts through and lifts the dish without competing for the same ground. Mushroom soups, mushroom gravies, anything mustard-forward.
+### Handling rules
 
-In both of these cases thyme is doing the same job: providing a clean herbal high-note over a strong, savory, sometimes muddy base.
+- **No heat.** Basil added to a simmering pot loses its character within a minute. The only correct way to use basil in a hot dish is off the heat — sprinkled on top of the finished plate, stirred in after the burner is off, or torn directly onto a freshly served pasta.
+- **Chiffonade, not chop.** Basil is the only herb worth the chiffonade treatment (stack the leaves, roll them into a cigar, slice into thin ribbons). Aggressive chopping bruises the leaf and turns it black at the cut edges. Other fine herbs forgive ordinary knife work; basil doesn't.
+- **The stems are skippable.** Basil stems are noticeably less satisfying than the leaves — slightly bitter, woody, and lacking the aromatic punch of the leaf itself. This is unusual: parsley stems carry good flavor, cilantro stems are arguably better than the leaves for stocks and sauces, mint stems have some use. Basil stems don't earn their place. Strip the leaves and discard the stems.
 
-### Where thyme is outclassed
+### What basil pairs with
 
-In simple or savory european stews — especially anything tomato-and-vegetable, chicken-and-vegetable, or french-grandma adjacent — thyme is almost always outclassed by rosemary. Rosemary has more presence, more sweetness, more staying power through long cooking. If the dish has a long simmer and a vegetable-and-stock base, rosemary tends to win the herb slot. Thyme can ride alongside for flavor diversity, but it's usually the second voice, not the lead.
+- **Tomato.** Basil and tomato is one of the most reliable herb-vegetable pairings in cooking. Anything tomato-based welcomes basil: fresh tomato salads, pasta with tomato sauce, caprese, shakshuka, pizza, focaccia, soffritto-based italian soups. If a dish leans on tomato, basil is almost always the right finishing herb.
+- **Cream and dairy.** Basil works with cream sauces, with mozzarella, with burrata, with ricotta. The combination of fat-rich dairy and bright basil is core to caprese, pesto pasta, and a wide range of italian summer dishes.
+- **Stone fruit, strawberries, chocolate.** Basil's dessert range — covered in the mint section — is small but real. Strawberries-and-basil is a canonical pairing; basil ice cream and basil with stone fruit (peach, plum, nectarine) hold up; basil with dark chocolate is a less common but established move.
 
-This is why mushroom bourguignon has rosemary as mandatory and dropped thyme entirely — rosemary was already doing the work, and a second robust herb didn't add enough to justify the slot.
+### Where basil shines as a garnish
 
-### Where thyme has not earned a place
+Basil is probably the best "just add fresh on top" herb in the cabinet, particularly for pasta. A bowl of pasta in tomato sauce, with mozzarella torn over the top, finished with chiffonaded basil, is the canonical italian summer plate — and the basil is doing real work in that finish, not just decoration. The volatile aromatic compounds that get destroyed by heat are exactly what you taste when the basil is added at the very end.
 
-I haven't found a meaningful use for thyme in eastern european or indian cooking. Eastern european cooking tends toward dill and parsley; indian cooking has its own herb vocabulary (cilantro, mint, kasoori methi) that thyme doesn't slot into. If a use case exists, I haven't run into it.
+This is why basil's role in italian cooking is almost entirely as a finishing herb. Sauce simmers without basil; basil goes on the plate.
+
+### Where basil takes a structural role: pesto
+
+The exception to the no-process rule is pesto. Basil's softness is actually an advantage when blending: it breaks down quickly in a mortar (or food processor) and yields a smooth green paste without resistance. The same softness that makes basil bruise during chopping makes it grind beautifully when that's the goal. Spinach behaves similarly in green sauces — see the spinach and mixed greens section below — and the underlying physics is the same: soft texture is a problem when you want intact leaves and an asset when you want a smooth sauce.
+
+Pesto is one of the only contexts where basil gets processed in volume, and it's where the herb shifts from being a garnish into being the structural ingredient of the dish.
 
 ### Practical takeaway
 
-Think of thyme as a contextual herb. In mexican cooking it's a structural ingredient and you should reach for it confidently. In abrasive european dishes (mushroom-heavy, mustard-heavy) it earns its keep as a lifting agent. In simple european stews it's a supporting role, often skippable in favor of rosemary. In eastern european or indian cooking, it doesn't currently belong.
+Treat basil as the most delicate herb in the cabinet. Use it raw, off heat, chiffonaded if appearance matters, and finished onto plates rather than cooked into sauces. The two structural roles where basil moves from garnish to main ingredient are pesto (where its softness is the point) and dessert pairings with stone fruit, strawberries, or chocolate. Outside those niches, basil is a finish, not a step.
+
+## Thyme
+
+Thyme is the unifier. Where rosemary fixes one-dimensional dishes by adding a second dimension, thyme does the opposite job: it takes dishes that are already pulled in too many directions — funky, pungent, scattered, abrasive — and makes them taste like a single coherent thing. Thyme's clean, slightly piney aromatic profile is the connective tissue that turns a collection of strong individual flavors into a unified whole.
+
+This is the single thesis that explains where thyme works and where it doesn't.
+
+### Where thyme works: dishes pulled in too many directions
+
+- **Mexican cooking.** Mexican savory cooking is full of strong individual components — cumin, coriander, oregano, chiles, beans, garlic, onion, meat, sometimes chocolate, sometimes citrus, sometimes vinegar. Each of those is doing its own thing, and a mexican stew can easily read as a pile of distinct flavors rather than a finished dish. Thyme is what binds them. It's almost always paired with oregano in this slot, and the two together act as the aromatic signature that pulls everything into focus. Black bean dishes especially benefit from this.
+- **Pungent or abrasive european dishes** — mushroom-heavy braises, mustard-heavy sauces, anything where a single strong aromatic is bulldozing the rest of the ingredients. Thyme harmonizes the heavy aromatic with whatever else is in the pot, making the dish taste natural rather than dominated. The mushroom or mustard becomes part of an integrated flavor instead of an interloper.
+
+The pattern in both cases: there's already a lot going on, and thyme is what keeps it from sounding like noise.
+
+### Where thyme is unnecessary: dishes that are already unified
+
+In simple or savory european stews — anything tomato-and-vegetable, chicken-and-vegetable, or french-grandma adjacent — thyme has nothing to unify. The dish is already coherent: a soffrito or mirepoix, a single stock, a clean herb finish. There's no clash to resolve, no funkiness to subdue. Thyme can ride alongside for flavor diversity but isn't doing structural work.
+
+This is also the slot where rosemary tends to outperform thyme — but for a different reason. Simple stews aren't pulled in too many directions, but they can be pulled in too few (the savory-monolith problem rosemary fixes). In those dishes you want a second dimension, not a unifier — and rosemary is the right tool for that. Thyme and rosemary aren't competing for the same role; they're solving opposite problems and just happen to share a slot in the cabinet.
+
+This is why mushroom bourguignon dropped thyme entirely in favor of rosemary: the dish's problem was savory-monolithic, not aromatically scattered. The right answer was a counterpoint, not a unifier.
+
+### Where thyme has not earned a place
+
+Eastern european and indian cooking already have their own internal unification systems. Eastern european cooking leans on dill, parsley, and sour cream to tie things together; indian cooking has a deeply developed spice-and-herb grammar (cumin, coriander, garam masala, kasoori methi, ginger, garlic) that handles harmonization without outside help. Thyme doesn't slot into either tradition — there's no role for it because the unification work is already covered.
+
+### Practical takeaway
+
+Reach for thyme when a dish has too many strong voices fighting each other. Reach for rosemary when a dish has only one strong voice and needs a second. If a dish is already balanced and unified, neither is mandatory — both become optional flavor diversity rather than load-bearing ingredients.
 
 ## Rosemary
 
@@ -196,6 +234,36 @@ In each case rosemary isn't there for flavor diversity — it's load-bearing.
 ### When rosemary is unnecessary
 
 If the dish has its own complexity already (acid, brightness, fresh herbs, distinct spices, layered cooking) rosemary becomes optional or actively in the way. It's a tool for fixing a specific problem; if you don't have that problem, you don't need to reach for it.
+
+## Dried Herbs
+
+The general rule is that fresh herbs are better than dried ones. Drying drives off most of the volatile aromatic compounds that make an herb taste like itself; what's left is usually a duller, flatter version of the original. For most herbs in this article — basil, parsley, cilantro, mint, tarragon, thyme, rosemary — fresh is the default and dried is a fallback.
+
+There are exactly three exceptions worth knowing about, where dried is either better or genuinely interchangeable.
+
+### Dried oregano is better than fresh
+
+This is the strongest case. Dried oregano isn't just a substitute for fresh — it's the preferred form. Fresh oregano is grassy, sharp, and slightly soapy in a way that doesn't always cooperate with the dishes oregano belongs in (mexican bean stews, italian tomato sauces, pizza, chimichurri). Drying concentrates oregano's resinous, slightly camphor-like character and removes the grassy edge, which is exactly what those dishes want.
+
+Most experienced cooks reach for dried oregano without thinking about it. Fresh oregano is rarely the right call.
+
+### Dried tarragon holds up to heat where fresh doesn't
+
+Fresh tarragon is more flavorful — that part is uncontested. The trade-off is that fresh tarragon, like the other fine herbs, doesn't survive long cooking. Dried tarragon loses some flavor depth, but it gains the ability to be added early in a dish and simmer with the rest of the ingredients without disappearing.
+
+This makes dried tarragon useful for things like long-cooked stocks, slow-built french soups, and any tarragon-leaning dish where you want the herb integrated into the body of the broth rather than added as a finishing flourish. Fresh tarragon goes on top at the end; dried tarragon goes in early and rides the simmer.
+
+Both forms have their place — they're not really substitutes for each other so much as different tools.
+
+### Dried dill is interchangeable with fresh as a seasoning
+
+Dill is the unusual case where dried doesn't lose much. Dried dill is essentially as good as fresh for use as a seasoning — sprinkled into sauces, salads, sour cream dips, fish dishes, and bean sides. The flavor compounds in dill are robust enough that drying preserves most of what makes dill taste like dill.
+
+The only place where fresh dill is preferred is when you want the texture and visual of fresh fronds (a crusted-fish topping, a salad with fresh dill leaves as a structural component). For pure flavor seasoning, dried is fine and easier to keep on hand.
+
+### Practical takeaway
+
+For most herbs, default to fresh and treat dried as a backup. The three exceptions: reach for dried oregano without hesitation; keep dried tarragon around for long-cooked applications even if you also have fresh; treat dried dill as fully interchangeable with fresh for seasoning purposes.
 
 ## Spinach and Mixed Greens
 

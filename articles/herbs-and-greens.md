@@ -264,6 +264,35 @@ Eastern european and indian cooking already have their own internal unification 
 
 Reach for thyme when a dish has too many strong voices fighting each other. Reach for rosemary when a dish has only one strong voice and needs a second. If a dish is already balanced and unified, neither is mandatory — both become optional flavor diversity rather than load-bearing ingredients.
 
+## Oregano
+
+Oregano is the herb that is most easily mistaken for a spice — and the right way to use it leans into that mistake rather than fighting it.
+
+### Treat it like a spice, not an herb
+
+Most of the herbs in this article want to be added at the end of cooking (fine herbs) or want to infuse the fat early and stay in the dish as fragments (robust herbs). Oregano is different. It does its best work the way ground spices do their best work: bloomed in hot oil, stirred into the spice base of the dish, and then left to disappear into the body of the sauce. You don't notice individual oregano leaves in a finished mexican stew or italian tomato sauce the way you'd notice a sprig of rosemary or a chiffonade of basil. The oregano is dissolved into the structure of the dish.
+
+This is why dried oregano is the canonical form (covered in the dried herbs section) — drying concentrates the resinous, slightly camphor-like compounds that survive blooming in oil, and removes the grassy character that would otherwise read as a herb-on-top note. The dried form is closer to a ground spice than an herb leaf, both physically and behaviorally.
+
+### Where oregano belongs: spice pairings
+
+Oregano's identity is built on its pairings with cumin. Two of those pairings are foundational to entire cuisine traditions:
+
+- **Cumin + oregano = distinctly mexican.** This is the aromatic backbone of mexican savory cooking. Mexican bean stews, adobo bases, mole verde and other moles, chili colorado, taco seasonings, sopa de tortilla — anything that reads as recognizably mexican on the herb-and-spice axis is built on this pairing. It's so reliable that adding cumin and oregano to a dish is enough to push the dish in a mexican direction even if nothing else in the recipe is overtly mexican.
+- **Cumin + coriander = distinctly indian.** This is the parallel pairing in indian cooking. Indian cuisine doesn't really use oregano — it uses ground coriander where mexican cooking uses oregano, and the result is an aromatic profile that reads indian instead of mexican despite the shared cumin base.
+
+These two pairings are essentially how the herb-and-spice base differentiates the two cuisines. If you can taste cumin + oregano, you're in mexican territory; cumin + coriander, you're in indian territory. The cumin is constant; the partner switches.
+
+Oregano also shows up in italian cooking — pizza, tomato sauces, herb mixes — but its mexican role is the more distinctive one. Italian uses oregano alongside basil and many other herbs; mexican uses it as one of two structural pillars.
+
+### New mexico chili powder and oregano blends
+
+It's worth noting that oregano sometimes gets blended directly into new mexico chili powder and other regional chili powder blends. This is consistent with the spice-not-herb framing: oregano is acting as a ground component of a spice mix rather than as a finishing herb. When a recipe calls for a generic "chili powder" in a mexican-leaning dish, you may already be getting some oregano whether you add it separately or not — worth checking the label of your chili powder before doubling up.
+
+### Practical takeaway
+
+When using oregano, treat it like a spice. Use the dried form. Add it early in cooking, ideally bloomed in oil with the other ground spices. Pair it with cumin in mexican-leaning dishes; let it ride alongside basil in italian. Don't try to use oregano as a finishing herb the way you would parsley, cilantro, or basil — its role is structural and dissolved, not visual or fresh.
+
 ## Rosemary
 
 Rosemary is the antidote to a specific failure mode.

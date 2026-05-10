@@ -1,11 +1,11 @@
 {
   "name": "massaman stuffed poblanos",
-  "instructions": "",
-  "notes": "Original recipe from priya krishna. tagged indian (not thai) because massaman curry paste — despite being a 'yellow thai curry paste' — is essentially indian in its spice profile (cumin, coriander, cardamom, cinnamon, cloves). it's the most indian thing in the thai curry shelf.\n\nAUGMENT THE PASTE: if your massaman curry paste is light on indian spices (some commercial pastes lean more thai-aromatic than indian-spice), augment with turmeric, cumin, and coriander to push the indian profile forward.\n\nDAIRY (NOT COCONUT): cream cheese — or cheese generally — is the right pairing for poblanos. poblanos want a dairy-forward fat, so dairy cream/cheese works better here than coconut milk, even though massaman normally pairs beautifully with coconut. the poblano is the dish's center of gravity; dairy is what melds with it. cream cheese binds the filling, milk loosens it. heavy whipping cream is a richer alternative — keep it as a secondary option.",
+  "instructions": "Preheat oven to 400. Halve and seed the poblanos and start them baking — getting them started while you make the filling.\n\nSautee garlic in olive oil with the massaman curry paste until fragrant. Add the white beans and cook, mashing them as you go. Add splashes of milk as needed to keep the bottom from burning while you mash and cook the funk out of the beans. Don't add salt — the curry paste is usually salty enough on its own.\n\nWhen the bean paste tastes done (smooth, no raw-bean character left), add cream cheese to taste — about 1/8 to 1/4 of a block, or two large spoonfuls. Don't be too delicate; the cream cheese balances the poblano in the finished dish.\n\nTake the poblanos out, stuff them with the bean paste, return them to the 400 oven. Some of the bean paste will leak out as the peppers finish cooking — that's fine. Cook to taste. Optionally peel the burned skin off the poblanos when done.",
+  "notes": "Original recipe from priya krishna. tagged indian (not thai) because massaman curry paste — despite being a 'yellow thai curry paste' — is essentially indian in its spice profile (cumin, coriander, cardamom, cinnamon, cloves). it's the most indian thing in the thai curry shelf.\n\nDAIRY (NOT COCONUT): cream cheese — or cheese generally — is the right pairing for poblanos. poblanos want a dairy-forward fat, so dairy works better here than coconut milk, even though massaman normally pairs beautifully with coconut. the poblano is the dish's center of gravity; dairy melds with it. cream cheese binds the filling, milk loosens it.\n\nINDIAN SPICE ADDITIONS (OPTIONAL): turmeric, cumin, coriander, and garam masala are all valid additions if you want to push the indian profile — useful if your massaman paste is light on indian spices, or just for variety between batches. but massaman is so flavorful on its own that adding more indian spices is probably irrelevant in most batches. don't feel obligated.",
   "tags": [
     "indian",
     "beans",
-    "good enough"
+    "excellent"
   ],
   "ingredients": [
     "poblano peppers",
@@ -13,15 +13,14 @@
     "garlic",
     "olive oil",
     "massaman curry paste",
-    "lemon",
-    "cream cheese",
     "milk",
-    "turmeric",
-    "cumin",
-    "coriander"
+    "cream cheese"
   ],
   "secondary_ingredients": [
-    "heavy whipping cream"
+    "turmeric",
+    "cumin",
+    "coriander",
+    "garam masala"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

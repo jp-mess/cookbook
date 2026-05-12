@@ -1,0 +1,49 @@
+{
+  "name": "italian grandma soup",
+  "instructions": "",
+  "notes": "A clean italian soup. Soffrito (yellow onion, celery, carrot) + tomato (both fresh AND paste) as the base, white beans or lentils as the protein, then one of three flavoring directions.\n\nTHREE FLAVORING DIRECTIONS: pick one (or layer them lightly):\n- old bay + bay leaf\n- fennel (powder, bulb, or seeds)\n- porcini mushroom powder\nEach gives the soup a different identity. All three at once is busy; pairing two is fine.\n\nTOMATO IS NON-OPTIONAL — BOTH FORMS: every time I've left out either fresh tomatoes OR tomato paste, I've been disappointed. The soup ends up flat and unsatisfying. Fresh tomatoes give body and brightness; tomato paste gives concentrated depth and color. Together they make the base sing; alone neither is enough.\n\nNO STOCK / BOUILLON: every time I've made an italian soup from a soffrito and added stock, I've been disappointed — it tastes gummy and artificial. This is a soffrito-and-tomato soup that builds its own body. If you want an injected-stock soup, make something french instead.\n\nHERBS: all fine herbs (parsley, tarragon) clash here — they fight the chosen flavoring axis and muddle the soup. Robust herbs (rosemary, thyme, oregano) are OK as secondary additions for diversity, but unnecessary — the chosen flavoring direction already does most of the flavor work.\n\nGREENS: mixed greens and spinach (flavorless on their own) are excellent additions because they bring bitterness, nutrition, and color without competing with the established flavors.\n\nGLUTAMATE INJECTIONS ARE ANTIPATTERNS: nutritional yeast, soy sauce, dark miso, etc. distract from whichever flavoring backbone you chose. Porcini powder is the one exception (it's already one of the three flavoring directions).\n\nBEANS: white beans are superior to lentils, but both work. Both are better than chickpeas, which are too harsh and break the dish.\n\nPOTATOES: optional structural addition. Soaks up the tomato base, gives the soup more chew.",
+  "tags": [
+    "has potential",
+    "italian",
+    "soup/stew",
+    "beans"
+  ],
+  "ingredients": [
+    "yellow onions",
+    "celery",
+    "carrots",
+    "tomatoes",
+    "tomato paste",
+    "old bay",
+    "fennel powder",
+    "bay leaf",
+    "white beans",
+    "lentils",
+    "spinach",
+    "mixed greens"
+  ],
+  "secondary_ingredients": [
+    "portabella mushrooms",
+    "shittake mushrooms",
+    "zucchini",
+    "porcini mushroom powder",
+    "rosemary",
+    "thyme",
+    "oregano",
+    "potatoes"
+  ],
+  "clashing_ingredients": [
+    "dark miso paste",
+    "chickpeas",
+    "ginger",
+    "black tea",
+    "cardamom",
+    "soy sauce",
+    "fennel seeds",
+    "parsley",
+    "tarragon",
+    "nutritional yeast",
+    "bouillon"
+  ],
+  "want_to_try": []
+}

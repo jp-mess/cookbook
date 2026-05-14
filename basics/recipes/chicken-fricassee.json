@@ -1,0 +1,32 @@
+{
+  "name": "chicken fricassee",
+  "instructions": "POACH THE CHICKEN: in a pot, gently cook the chicken in bouillon with bay leaves and salt until done. Set the chicken aside; reserve the broth.\n\nSAUTE THE VEGETABLES: in a separate pan, sauté leeks, bell peppers, and portabella mushrooms in butter cut with vegetable oil (the oil keeps the butter from burning). \n\nBUILD THE SAUCE: sprinkle in all-purpose flour and stir to coat, cooking for a minute to lose the raw flour flavor. Deglaze with white wine. Salt to taste. Add heavy cream and thyme. Optionally splash in some of the reserved chicken bouillon if the sauce needs more body. Simmer to thicken.\n\nFINISH: stir the cooked chicken into the sauce near the end, just to heat through. Salt to taste.",
+  "notes": "WORK IN PROGRESS: still tuning this recipe — the proportions and the leek/bell pepper balance aren't dialed in yet. Tag is good enough rather than excellent for that reason.\n\nDEFENDING ITS UNIQUENESS: chicken fricassee has to fight for its life against an array of similar italian and french dishes. The classic french recipe uses onions, carrots, and mushrooms — but that combination starts to alias with italian cooking (it's basically a creamy soffrito). Two adjustments pull the dish back into a recognizable french register:\n- LEEKS instead of (or alongside) onions. Leeks read french in a way onions don't, especially when paired with thyme and cream (see the tarragon section in the herbs and greens article for why leeks specifically need an herb counterpoint).\n- BELL PEPPERS to prevent the dish from aliasing with a standard julia child chicken stew. Bell peppers aren't traditional in fricassee, but they give the dish enough visual and flavor distinction that it doesn't read as a generic french chicken stew.\n\nHERBS: thyme is the canonical choice. If thyme isn't available, tarragon is a good substitute — it's the other french herb that pairs naturally with chicken and leeks.\n\nFAT: butter cut with vegetable oil. Pure butter burns at the temperatures you want for sautéing the vegetables; adding the oil raises the smoke point without losing the butter flavor that's central to the sauce.",
+  "tags": [
+    "french",
+    "soup/stew",
+    "meat main",
+    "good enough"
+  ],
+  "ingredients": [
+    "chicken",
+    "leeks",
+    "garlic",
+    "bell peppers",
+    "portabella mushrooms",
+    "white wine",
+    "thyme",
+    "butter",
+    "vegetable oil",
+    "all-purpose flour",
+    "heavy whipping cream",
+    "bouillon",
+    "bay leaf",
+    "salt"
+  ],
+  "secondary_ingredients": [
+    "tarragon"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

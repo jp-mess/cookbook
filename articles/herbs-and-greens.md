@@ -39,8 +39,8 @@ Mostly a non-european herb — its range is in mexican, indian, persian, and asi
 
 Cilantro of france.
 
-- Julia Child says tarragon is the herb for chicken. Probably true, but the underlying anchor seems to be **leeks**: leeks are the most overwhelming allium, broths and stews go gummy and one-note around them, and tarragon (sharp + aromatic) cuts through where parsley can't. Chicken usually shows up alongside leeks, which is why the chicken pairing works.
-- Practical heuristic: leeks and/or chicken in the dish → tarragon is probably the right finish. Canonical in french grandma soup, tarragon chicken salad, french leek/salmon dishes.
+- Julia Child says tarragon is the herb for chicken. Probably true, especially in northern french chicken-and-leek dishes — leeks can go gummy in broths, and tarragon (sharp + aromatic) pairs well alongside them. Not the only option (thyme works on leeks too, particularly in southern french register), but tarragon is the canonical northern french call.
+- Practical heuristic: northern french chicken-and-leek dish → tarragon is probably the right finish. Canonical in french grandma soup, tarragon chicken salad, french leek/salmon dishes.
 - Eggs and white fish: shares ground with parsley. Tarragon pulls french; parsley stays neutral. Pairing them works.
 - Cuisine-bound. No use yet found outside french.
 - Handling: fine herb. Unlike basil, tolerates dried use in long cooks (see Dried Herbs).
@@ -94,8 +94,9 @@ The unifier. Inverse role to rosemary.
 
 - Works in dishes pulled in too many directions:
   - **Mexican.** Cumin, coriander, oregano, chiles, beans, garlic, sometimes chocolate or citrus — many strong components needing a binder. Thyme + oregano = the canonical mexican signature.
+  - **Southern french / mediterranean.** Thyme has a real regional home in southern french cooking — paired with leeks, bell peppers, paprika, and white fish. Provençal-leaning skillets, mediterranean lentil dishes, fish poaches. The leek-and-thyme pairing in particular is solid here.
   - **Pungent/abrasive european dishes** — mushroom-heavy braises, mustard-heavy sauces. Thyme harmonizes a single dominant aromatic with the rest of the pot.
-- Unnecessary in dishes already unified — simple european stews (tomato-and-vegetable, chicken-and-vegetable). Nothing to unify. Rosemary is the right tool there for the opposite reason (savory monolith needing a second dimension).
+- Unnecessary in dishes already unified — simple european stews (tomato-and-vegetable, chicken-and-vegetable, northern french chicken-and-leek dishes). Rosemary is the right tool there for the opposite reason (savory monolith needing a second dimension).
 - Thyme and rosemary aren't competitors. They solve opposite problems. Mushroom bourguignon dropped thyme for rosemary because the dish's problem was savory-monolithic, not aromatically scattered.
 - No eastern european or indian niche found. Both cuisines have their own internal unification systems (dill/parsley/sour cream; the indian spice grammar).
 
@@ -155,3 +156,11 @@ In stews and pilafs both add color, nutrition, earthiness without changing the f
 - Spinach is the bigger offender than arugula, but mixed greens cooked into beef stew aren't the answer either.
 
 Both are clashing in mushroom bourguignon and french grandma soup — defined flavor profiles where cooked greens muddy rather than support.
+
+## When to Skip Herbs Entirely
+
+Almost every savory dish I cook ends up better with at least one herb or green in it — even if just a finishing pinch. The default should be to use them.
+
+The one exception I keep landing on is **simple braised or sautéed vegetables that are already green or vegetal**. A pan of sautéed broccoli with garlic and olive oil, sautéed swiss chard, garlic-and-greens skillets — these dishes are already so green that adding parsley (which marcella and many classic recipes call for) doesn't add anything. The dish has its own vegetal character; parsley just duplicates it without contrast.
+
+The principle: if the dish is already carrying enough green/vegetal flavor on its own, herbs become redundant rather than additive. They're tools for adding something that isn't already there. When the vegetable IS the green, the herb has no work to do.

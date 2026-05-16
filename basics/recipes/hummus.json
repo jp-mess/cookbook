@@ -1,0 +1,30 @@
+{
+  "name": "hummus",
+  "instructions": "Throw everything in a blender cold and blend until smooth.",
+  "notes": "HUMMUS vs ROMESCO: hummus and romesco share some ingredient surface area — peppers, almonds, and pine nuts are reasonably interchangeable between the two — but the two dishes have opposite acid preferences and opposite centers of gravity.\n\n- ROMESCO has a soft preference for red wine vinegar and strongly dislikes lemon. The acid axis lives on the vinegar side. The center of gravity is the pepper-and-tomato base; nuts and bread are doing thickening / textural work.\n- HUMMUS needs lemon to be edible. The lemon-and-tahini axis is what makes hummus taste like itself; vinegar is wrong. The center of gravity is the beans — chickpeas (or white beans) are the dish, not a thickener.\n\nDon't add vinegar to hummus in lieu of lemon juice. Different acid, different cuisine register, different result.\n\nBEAN CHOICE: chickpeas are canonical. White beans work alongside or as a partial substitute — they make the texture creamier and slightly milder.\n\nNUT / SEED ADDITIONS: pine nuts and almonds add body and a richer mouthfeel. Both can ride in the blender with the chickpeas.\n\nBELL PEPPERS: optional roasted-pepper addition for color and sweetness. Pushes the dish toward a red-hummus / romesco-adjacent register without committing to romesco's vinegar axis.",
+  "tags": [
+    "spread/dip/sauce",
+    "middle eastern",
+    "good enough",
+    "beans"
+  ],
+  "ingredients": [
+    "chickpeas",
+    "white beans",
+    "tahini",
+    "pine nuts",
+    "almonds",
+    "bell peppers",
+    "cumin",
+    "lemon",
+    "garlic",
+    "olive oil"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "red wine vinegar",
+    "white wine vinegar",
+    "apple cider vinegar"
+  ],
+  "want_to_try": []
+}

@@ -99,6 +99,7 @@ The unifier. Inverse role to rosemary.
 - Unnecessary in dishes already unified — simple european stews (tomato-and-vegetable, chicken-and-vegetable, northern french chicken-and-leek dishes). Rosemary is the right tool there for the opposite reason (savory monolith needing a second dimension).
 - Thyme and rosemary aren't competitors. They solve opposite problems. Mushroom bourguignon dropped thyme for rosemary because the dish's problem was savory-monolithic, not aromatically scattered.
 - No eastern european or indian niche found. Both cuisines have their own internal unification systems (dill/parsley/sour cream; the indian spice grammar).
+- **Cooking-method tendency.** Thyme often shows up in sautéed and skillet dishes that don't reduce into a stew — mediterranean lentil skillets, mexican bean sides, parsley-potato skillets, herb-y fish poaches. Rosemary, by contrast, mostly lives in stews and braises. The herbs aren't strictly tied to a method (thyme does appear in soups, rosemary does appear in sautéed dishes), but the tendency is real and helps narrow which one to reach for: short-cooked / dry-finish skillet → thyme leans correct; long-cooked / saucy stew → rosemary leans correct.
 
 ## Oregano
 

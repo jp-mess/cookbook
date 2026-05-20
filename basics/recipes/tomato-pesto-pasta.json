@@ -1,7 +1,7 @@
 {
   "name": "tomato pesto pasta",
   "instructions": "",
-  "notes": "Basil is non-optional or else it will be underwhelming. pine nuts are too rich for tomato paste blends",
+  "notes": "Basil is non-optional or else the dish will be underwhelming. Pine nuts are too rich for tomato paste blends — the combination becomes a comfort-food bomb that buries the tomato. Almonds and sunflower seeds are the right nut/seed pairing for a red pesto (see nuts-and-seeds article: almonds anchor red pestos, pine nuts anchor green ones).",
   "tags": [
     "excellent",
     "italian",
@@ -18,6 +18,8 @@
     "pasta"
   ],
   "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "clashing_ingredients": [
+    "pine nuts"
+  ],
   "want_to_try": []
 }

@@ -1,7 +1,7 @@
 {
   "name": "cream vinaigrette",
-  "instructions": "whisk white wine vinegar, heavy whipping cream, and raw minced garlic together.",
-  "notes": "garlic stays raw.",
+  "instructions": "whisk white wine vinegar (or lemon juice — either works), heavy whipping cream, and raw minced garlic together.",
+  "notes": "Garlic stays raw.\n\nACID CHOICE: white wine vinegar or lemon juice — either is fine. Lemon juice gives a brighter, slightly sweeter dressing; white wine vinegar gives a sharper, more traditionally french-vinaigrette read. The two are roughly substitutable here.",
   "tags": [
     "french",
     "salad/dressing",
@@ -9,6 +9,7 @@
   ],
   "ingredients": [
     "white wine vinegar",
+    "lemon",
     "heavy whipping cream",
     "garlic"
   ],

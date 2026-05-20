@@ -1,7 +1,7 @@
 {
   "name": "endive lentil salad",
-  "instructions": "saute leeks in olive oil. toss over cooked, cold lentils. add raw cut endives. dress with cream vinaigrette.",
-  "notes": "endives stay raw. leeks are the only thing cooked.",
+  "instructions": "Sauté leeks and garlic in olive oil until softened. Add cooked, cold lentils on top and sauté briefly to drive off excess liquid — this is the key step that prevents the dish from going slimy later. Stir in the cream vinaigrette during this sauté so it coats the lentils and warms briefly. Remove from heat, fold in raw cut endives. If using turnips, peel with a y-peeler and grate into slivers with a cheese grater, then fold in raw alongside the endives.",
+  "notes": "Endives stay raw. Leeks (and garlic) are the only cooked components.\n\nWHY SAUTE THE LENTILS: cold lentils tossed straight with a cream vinaigrette tend to seep liquid as the salad sits, and the dish goes slimy. A short sauté with the leeks (and folding the vinaigrette in while the pan is still warm) drives off the lentil moisture and lets the cream-and-acid coat the lentils properly.\n\nTURNIP PREP: peel with a y-peeler (it's faster than a paring knife for the curved sides), then use a cheese grater to produce thin slivers rather than chunks. The slivers integrate with the endives and lentils texturally, where chunks would feel like a different dish bolted on.\n\nVINAIGRETTE ACID PREFERENCE: I prefer the lemon-juice version of the cream vinaigrette here (see cream-vinaigrette recipe — lemon juice and white wine vinegar are both valid acids). Lemon brightens the lentils and endives in a way vinegar doesn't quite match.\n\nTARRAGON IS OPTIONAL: tarragon is the natural french herb to reach for in a leek-and-cream dish, and it works here. But the endives and leeks together already carry enough green/vegetal character that another herb isn't needed. Keep it as a secondary addition for when you want the extra herbal voice — don't feel obligated.",
   "tags": [
     "french",
     "salad/dressing",
@@ -11,10 +11,14 @@
     "lentils",
     "endives",
     "leeks",
+    "garlic",
+    "turnips",
     "olive oil",
     "cream vinaigrette"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": [
+    "tarragon"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

@@ -1,7 +1,7 @@
 {
   "name": "mole verde",
-  "instructions": "",
-  "notes": "",
+  "instructions": "Roast all the green-base ingredients — pumpkin seeds, sesame seeds, scallions, zucchini, green tomatoes, cilantro — until everything is lightly charred. Blend with bouillon until smooth. This is the mole verde, same technique as any other mole.\n\nSimmer chicken (thighs preferred) and halved red tomatoes in the blended sauce along with bay leaf, until the chicken is cooked through.",
+  "notes": "TOMATOES AS SIDE STEAKS: cut red tomatoes in half and simmer them in the sauce alongside the chicken thighs. The tomato halves soak up the green sauce and develop a meaty, satisfying texture — they end up reading like 'side steaks' on the plate, not just an ingredient in the sauce. This is the best use of regular red tomatoes in a mole verde context (they don't belong in the blended green base — green tomatoes for that).\n\nGREEN BASE vs. CHICKEN BASE: the seeds, scallions, zucchini, green tomatoes, and cilantro all get roasted and blended into the sauce. The chicken (and the halved red tomatoes) get simmered in the finished sauce, not blended.",
   "tags": [
     "mexican",
     "meat main",
@@ -14,12 +14,14 @@
     "zucchini",
     "cilantro",
     "green tomatoes",
+    "tomatoes",
     "pumpkin seeds",
     "sesame seeds",
     "scallions"
   ],
   "secondary_ingredients": [
-    "spinach"
+    "spinach",
+    "chicken thighs"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

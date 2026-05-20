@@ -50,10 +50,11 @@ Outside these two slots cashews show up less often. Their flavor is too neutral 
 
 ## Pumpkin Seeds
 
-Two strong slots, plus a weaker version of the sunflower-seed role.
+Three strong slots, plus a weaker version of the sunflower-seed role.
 
 - **Optimal for mexican cooking.** Pumpkin seeds (pepitas) are central to mole verde, salsas, and other green-sauce mexican dishes — toasted and blended into the sauce as a structural thickener and earthy nut note. No other seed sits as cleanly into the mexican green-sauce family. This is pumpkin seeds' clearest niche.
 - **Universal pesto extender** (like sunflower). Cuts other nuts cleanly without taking over the flavor. Useful when you want to stretch a pesto or temper a strong-flavored nut.
+- **Best seed for dessert and cake toppings.** Pumpkin seeds are the right choice on top of cakes, quick breads, and other desserts — they hold their shape under heat, have an attractive dark-green color against frosting or crumb, and their slightly bitter-earthy flavor balances sweet bases better than sunflower or sesame do. Sunflower seeds work too but read flatter on dessert; pumpkin seeds bring more presence.
 - **Tartines and bagels** — work, but outclassed by sunflower seeds for this role. The texture is similar but the flavor is more vegetal and less rich; sunflower wins the cream-cheese pairing.
 
 ## Sesame Seeds

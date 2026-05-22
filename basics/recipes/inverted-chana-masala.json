@@ -1,7 +1,7 @@
 {
   "name": "inverted chana masala",
-  "instructions": "fry cooked rice in the spices and onions, then add boiled chickpeas, finish with cilantro. more pilaf than curry.",
-  "notes": "uses the chickpea variant of tomato legume curry as the spice base, minus the black tea and fresh tomatoes. tomato paste optional. fries cooked rice in the spices/onions, then folds in boiled chickpeas — more pilaf than curry.",
+  "instructions": "BUILD THE MASALA BASE: heat ghee in a heavy pot. Add bay leaf and cardamom, then red onions and saute until softened. Add garlic and ginger. Add the ground spices: cumin, coriander, turmeric, garam masala, amchur powder. If going the CHANA MASALA direction, stir in tomato paste here. If going the CHANA MADRA direction, stir in fennel powder.\n\nFRY THE DRY RICE: add uncooked rice directly to the masala base and toast it briefly in the spiced fat (like spanish rice). This is the key step — don't skip it. Frying the dry rice in the spices is what keeps the rice from going bland later. (Cooking rice separately and adding it in cooked dilutes the spice contact and the whole dish reads flat.)\n\nSIMMER: add water (or yogurt-thinned-with-water for the chana madra direction), bring to a boil, then cover and simmer until the rice is cooked.\n\nFOLD IN AND FINISH: once the rice is done, fold in boiled chickpeas, slivered almonds, and raisins. Finish with chopped cilantro and crumbled kasoori methi. For the CHANA MASALA direction, finish with lemon juice. For the CHANA MADRA direction, stir the yogurt in here (off heat, so it doesn't break).",
+  "notes": "TWO FLAVOR STACKS: this recipe is inspired by both chana masala and chana madra. Pick one direction; don't mix them.\n- CHANA MASALA STACK: tomato paste in the masala base + lemon juice at the end. The tomato/lemon combo is what makes it read chana-masala-shaped.\n- CHANA MADRA STACK: yogurt as the cooking liquid (or stirred in at the end) + fennel powder in the spice base. Yogurt-and-fennel is the chana madra signature.\n\nREQUIRED REGARDLESS OF DIRECTION: slivered almonds, raisins, boiled chickpeas, cilantro, and kasoori methi. These are non-negotiable in both stacks — they're what give the dish meat and texture and keep it from feeling like spiced rice.\n\nDRY RICE, NOT COOKED RICE: the rice gets fried dry into the masala base, then simmered with the cooking liquid (spanish rice technique). Adding cooked rice at the end was the old approach and it produced a bland result — the rice doesn't pick up enough spice contact. (Want to try someday: oven-baking cooked rice in the masala instead of stovetop simmering dry rice.)\n\nFAILURE MODE — STARCH SOUL-SUCK: the combination of rice + chickpea starch will dilute and flatten flavor, especially if the rice is over-hydrated. The dish goes bland fast if any of: rice was already overcooked or soggy, under-salted, or under-spiced. CORRECTION STEP: more slivered almonds, more raisins, more fresh cilantro — these add meat-and-texture and pull the flavor back from the brink. Reach for more nuts and dried fruit before reaching for more salt.\n\nGHEE IS NON-OPTIONAL: ghee is the right fat for this dish regardless of which flavor stack you pick. The rice + chickpea starch base needs the rich, nutty depth ghee provides — vegetable oil or olive oil leaves the dish reading thin and flat. Ghee is one of the main weapons against the starch-soul-suck problem.\n\nTOMATO PASTE > FRESH TOMATO: in this dish, tomato paste beats fresh or canned tomato. The concentrated form integrates into the masala fry; fresh tomato just adds water and dilutes the spice base. Don't use fresh or canned tomato as a substitute. Lemon is required when using tomato paste — it brightens the dish back up after the heavy tomato-paste base.",
   "tags": [
     "indian",
     "rice",
@@ -9,27 +9,34 @@
     "excellent"
   ],
   "ingredients": [
+    "rice",
+    "chickpeas",
+    "almonds",
+    "raisins",
+    "cilantro",
+    "kasoori methi",
+    "red onions",
+    "garlic",
+    "ginger",
     "cumin",
     "coriander",
     "turmeric",
-    "chickpeas",
-    "lentils",
-    "anaheim peppers",
-    "lemon",
-    "cilantro",
-    "amchur powder",
-    "kasoori methi",
-    "garlic",
-    "red onions",
-    "bay leaf",
     "garam masala",
-    "ginger",
     "cardamom",
-    "rice"
+    "amchur powder",
+    "bay leaf",
+    "ghee",
+    "tomato paste",
+    "lemon",
+    "yogurt",
+    "fennel powder"
   ],
   "secondary_ingredients": [
-    "tomato paste"
+    "anaheim peppers"
   ],
-  "clashing_ingredients": [],
+  "clashing_ingredients": [
+    "tomatoes",
+    "canned tomatoes"
+  ],
   "want_to_try": []
 }

@@ -1,0 +1,24 @@
+{
+  "name": "greek yogurt bread",
+  "instructions": "Preheat oven to 375°F. Line a 9x5 loaf pan with parchment paper.\n\nIn a large bowl, combine 3 cups all-purpose flour, 1 1/2 tablespoons baking powder, and 1 1/4 teaspoons salt. Stir well. Sift the mixture through a fine mesh sieve into another large bowl — this step is important; it aerates the flour and is the difference between a fluffy loaf and a dense one. Don't skip.\n\nAdd 1 1/2 cups of milk (any kind — whole, low-fat, skim, or unsweetened plant milk all work) and 1 cup of 2% greek yogurt. Stir gently with a spatula just until combined. The dough should be thick and sticky but spreadable. A few small flour patches are fine — don't overmix.\n\nTransfer to the loaf pan and smooth the top. Bake at 375°F for 60 minutes, or until a toothpick inserted in the center comes out clean (a few crumbs is fine). If the top browns too quickly, cover loosely with parchment or foil.\n\nCool in the pan for 5 minutes, then transfer to a wire rack and cool for another hour (or until fully cool) before slicing. Serrated knife; cuts into 10 slices.",
+  "notes": "External recipe from iFoodReal (Olena Osipov). 9g protein per slice; yields 10 slices.\n\nDIFFERENT FORMULA FROM regular yogurt bread: this is NOT the same recipe as `yogurt-bread.json` despite the similar name. Greek yogurt is thicker and lower in moisture than regular yogurt, so the formula compensates with a full 1 1/2 cups of milk (the regular-yogurt version uses no milk at all). The recipes are not substitutable for each other — match the bread to the yogurt you have.\n\nNO REGULAR YOGURT HERE: this is calibrated specifically for greek yogurt. Regular (non-strained) yogurt will throw off the moisture balance — too much water, the bread will collapse or stay raw in the center. If you have regular yogurt, use the other yogurt-bread recipe instead.\n\nSIFTING IS LOAD-BEARING: don't skip the mesh-sieve step. The sift aerates the dry mix and is the difference between fluffy and dense. The recipe is shorter on leavening tricks than other quick breads, so the sift is doing real work.\n\nYOGURT FAT %: 2% is the source's default. 1%, 3.5%, and 5% all work; higher fat = better texture. 0% works but the texture suffers.\n\nFLOUR SUBSTITUTION (using AP + baking powder + salt instead of self-rising): the original calls for 3 cups self-rising flour OR 3 cups AP + 1 1/2 tbsp baking powder + 1 1/4 tsp salt. This recipe uses the AP-substitution path, consistent with how we wrote the regular yogurt bread.\n\nMEASURING FLOUR: spoon flour into the measuring cup and level with a knife. Scooping from the bag compacts the flour and throws off the ratio.\n\nMILK CHOICE: the source notes any milk works — dairy or plant. Whole milk gives the richest result; unsweetened soy or almond milk works for a plant-based version.\n\nVARIATIONS:\n- Dried herbs: up to 1 tsp rosemary, thyme, oregano, sage, or parsley.\n- Chocolate chips: 1/2 cup dark or semi-sweet.\n- Dried fruit: 1/3 cup raisins, cranberries, apricots, dates, figs, or blueberries.\n- Parmesan + herbs: ~1/3 cup freshly grated parmesan with a teaspoon of herbs.\n- Vanilla greek yogurt for a sweeter loaf.\n- Topping: sesame seeds or everything-bagel seasoning before baking.",
+  "tags": [
+    "american",
+    "side",
+    "external recipe"
+  ],
+  "ingredients": [
+    "all-purpose flour",
+    "baking powder",
+    "salt",
+    "milk",
+    "greek yogurt"
+  ],
+  "secondary_ingredients": [
+    "sesame seeds"
+  ],
+  "clashing_ingredients": [
+    "yogurt"
+  ],
+  "want_to_try": []
+}

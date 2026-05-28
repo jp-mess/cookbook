@@ -1,0 +1,31 @@
+{
+  "name": "refried beans",
+  "instructions": "Sauté white onions and garlic in lard until softened. Transfer to a blender with stock and blend smooth — this step is non-optional, blended onions are the structural backbone of the dish.\n\nReturn the blended onion-and-stock mixture to the pan with the pinto beans. Add cumin (and new mexican chili powder if using). Cook down, mashing the beans as you go, until you reach the texture you want. Add more lard as needed for flavor and richness.\n\nFinish: salt and black pepper to taste. Fold in a melting cheese (monterrey jack, colby jack, or similar) if going the cheese route.",
+  "notes": "BLENDED ONIONS ARE NON-OPTIONAL: the onions get sautéed first, then blended with stock before they meet the beans. This is the structural step — chunky diced onions in refried beans read off, and skipping the blend leaves the dish flat. The blended onion-and-stock paste is what gives the beans body and aromatic depth.\n\nSTOCK, NOT BOUILLON: refried beans are a bean-led dish and want the gentler, more layered body of liquid stock. Bouillon cubes are too concentrated and salty here — see the bouillon-vs-stock article.\n\nLARD IS THE FAT: this is what makes the dish read as proper refried beans rather than 'mashed beans with onion.' Don't substitute neutral oil or butter — lard's flavor is doing real work. Add more than you think you need.\n\nNEW MEXICAN CHILI POWDER (OPTIONAL): a small amount adds warmth and color without changing the dish's identity. Optional but recommended.\n\nMELTING CHEESE (OPTIONAL): if adding cheese, use a melting cheese — monterrey jack, colby jack, or similar mild meltable cheese. NOT sharp cheddar: sharp cheddar clashes with the bean-and-lard base, dominates the flavor, and reads anglo/american rather than mexican.\n\nNO LIME: lime clashes here. Refried beans aren't a brightness-and-acid dish — they're a starchy savory base. Lime pulls the dish in a direction it doesn't want to go.",
+  "tags": [
+    "mexican",
+    "side",
+    "beans",
+    "excellent"
+  ],
+  "ingredients": [
+    "pinto beans",
+    "white onions",
+    "garlic",
+    "stock",
+    "lard",
+    "cumin",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "new mexican chili powder",
+    "monterrey jack cheese",
+    "colby jack cheese"
+  ],
+  "clashing_ingredients": [
+    "lime",
+    "cheddar cheese"
+  ],
+  "want_to_try": []
+}

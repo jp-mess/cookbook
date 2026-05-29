@@ -1,7 +1,7 @@
 {
   "name": "leek pepper lentil skillet",
-  "instructions": "Sauté leeks, garlic, and thyme in olive oil until tender — but not fully sauteed the way you would for a soffrito. The leeks should soften and pick up flavor, not collapse.\n\nAdd raw lentils to the pan and cook long enough to drive off the funky lentil-water character.\n\nStir in fresh cucumbers OR bell peppers of any color (orange recommended). If using bell peppers, add a tiny bit of dijon mustard. If using cucumbers, no dijon — let the cucumber stay clean.\n\nSeason with salt and black pepper. Don't add other herbs. No cream. No vinegar.",
-  "notes": "A clean mediterranean lentil dish that needs neither stock nor tomatoes — but it isn't a stew. The skillet format keeps it dry; the leek + thyme combination carries the flavor without any of the usual lentil-stew supports.\n\nFRESH VEGETABLE FORK: cucumbers OR bell peppers, not both. The two pull the dish in different directions:\n- CUCUMBERS: lean and clean. The cucumber stays crisp and adds a cool fresh contrast to the warm lentils. No dijon needed; cucumber carries its own freshness.\n- BELL PEPPERS (orange recommended): sweeter and more substantial. With bell peppers, a tiny bit of dijon mustard adds the bright sharpness that the bell pepper alone doesn't quite deliver. Without the dijon, the bell-pepper version reads a little flat.\n\nLEEK + THYME: this dish is one of the best uses of the leek-thyme combination outside of soup contexts. Along with mexican cooking, leek-and-thyme mediterranean skillets are where thyme really earns its keep.\n\nNO STOCK, NO TOMATOES, NO OTHER HERBS, NO CREAM: deliberate. Stock pushes toward a chicken-and-vegetable stew; tomatoes push italian; other herbs muddy the leek-thyme axis; cream pushes french. Holding all of these out is what keeps the dish in its own distinct mediterranean territory.\n\nRED WINE VINEGAR: traditionally used in mediterranean lentil salads like this one — but I don't particularly love it here. The dish is built around the leek-thyme axis and the freshness of the cucumber or bell pepper, and vinegar competes with both rather than supporting them. Keeping it as a secondary acknowledgment that it's the canonical move, even if it's not my preference.",
+  "instructions": "Sauté leeks, garlic, and thyme in olive oil until tender — leeks should soften and pick up flavor, not collapse like for a soffrito. Remove from heat and let the sauté cool.\n\nIn a bowl, combine cold cooked lentils with raw cucumbers OR raw bell peppers (orange recommended). DO NOT add the lentils to the pan — they stay cold and raw alongside the vegetables.\n\nToss the lentil-and-vegetable mixture with red wine vinegar. If using bell peppers, add a tiny bit of dijon mustard. If using cucumbers, no dijon — cucumber stays clean.\n\nFold the cooled leek-garlic-thyme sauté into the bowl. Season with salt and black pepper to taste.",
+  "notes": "Mediterranean lentil salad. Built around a cold lentil + raw vegetable base, finished with a sautéed-then-cooled leek-garlic-thyme aromatic and red wine vinegar.\n\nLENTILS STAY COLD AND RAW (NOT IN THE PAN): the lentils must be cooked, but they don't enter the sauté pan. This is the same rule as french-lentil-salad — cold lentils play with raw vegetables and an acidic vinaigrette. If you cook the lentils in the pan, they start demanding tomatoes, mushrooms, and stock, and the dish veers into italian lentil stew territory (which is a different recipe entirely). Keep them cold.\n\nLEEKS + GARLIC + THYME ARE ALL NON-OPTIONAL: this is the aromatic backbone. The leek-thyme combination is the canonical mediterranean-skillet use of thyme (covered in the herbs and greens article). Garlic rides alongside; don't skip it.\n\nRED WINE VINEGAR IS CORE: red wine vinegar is part of the dressing, not optional. It works specifically because the vegetables are raw — the vinegar's sharpness cuts the raw cucumber or bell pepper and pulls everything together. (In the french-lentil-salad version, vinegar is one of several flexible acid choices alongside a cream base; here it's the canonical acid, full stop.)\n\nFRESH VEGETABLE FORK: cucumbers OR bell peppers, not both.\n- CUCUMBERS: lean and clean. The cucumber stays crisp; no dijon needed.\n- BELL PEPPERS (orange recommended): sweeter and more substantial. With bell peppers, a small amount of dijon mustard adds the bright sharpness the bell pepper alone doesn't quite deliver.\n\nNO STOCK, NO TOMATOES, NO OTHER HERBS, NO CREAM: stock pushes toward a chicken-and-vegetable stew; tomatoes push italian-stew; other herbs muddy the leek-thyme axis; cream pushes french. Holding these out is what keeps the dish in its own distinct mediterranean lentil-salad territory.",
   "tags": [
     "french",
     "skillet",
@@ -15,14 +15,14 @@
     "bell peppers",
     "cucumbers",
     "garlic",
+    "thyme",
+    "red wine vinegar",
     "salt",
     "black pepper",
-    "olive oil",
-    "thyme"
+    "olive oil"
   ],
   "secondary_ingredients": [
-    "dijon mustard",
-    "red wine vinegar"
+    "dijon mustard"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

@@ -39,8 +39,8 @@ Mostly a non-european herb — its range is in mexican, indian, persian, and asi
 
 Cilantro of france.
 
-- Julia Child says tarragon is the herb for chicken. Probably true, especially in northern french chicken-and-leek dishes — leeks can go gummy in broths, and tarragon (sharp + aromatic) pairs well alongside them. Not the only option (thyme works on leeks too, particularly in southern french register), but tarragon is the canonical northern french call.
-- Practical heuristic: northern french chicken-and-leek dish → tarragon is probably the right finish. Canonical in french grandma soup, tarragon chicken salad, french leek/salmon dishes.
+- Julia Child says tarragon is the herb for chicken. Canonical pairing across french cuisine — works in chicken-and-cream dishes, chicken stocks, and chicken roasts.
+- Practical heuristic: french chicken dish → tarragon is probably the right finish. Canonical in french grandma soup, tarragon chicken salad, french leek/salmon dishes.
 - Eggs and white fish: shares ground with parsley. Tarragon pulls french; parsley stays neutral. Pairing them works.
 - Cuisine-bound. No use yet found outside french.
 - Handling: fine herb. Unlike basil, tolerates dried use in long cooks (see Dried Herbs).
@@ -53,6 +53,7 @@ Three patterns I keep noticing.
 
 What mint does pair with:
 - Other greens (citrus or vinegar acid, not tomato).
+- **Cream and vinegar.** Mint pairs unusually well with both cream and vinegar — and especially with the two together (cream vinaigrettes, yogurt-and-lime dressings, cucumber-and-mint-in-cream sides). This is the basis for adding minced mint to french cold-lentil salads and similar dishes.
 - Cilantro (canonical pair for chutneys/green pastes).
 - Thai green curry.
 - Persian yogurt and meat dishes (especially lamb).

@@ -1,7 +1,7 @@
 {
   "name": "savory pie crust",
-  "instructions": "1 cup all-purpose flour, 1/2 cup wheat flour, 1 tbsp sugar, 1/2 tsp salt, 1/2 cup fat split between butter and vegetable shortening (more butter than shortening). bake at 400.",
-  "notes": "some recipes call for a much higher flour-to-fat ratio but this works well enough for a brittle/flaky crust. shortening makes the crust easier to form and stretchier; butter makes it flaky/brittle. more butter than shortening is ideal.",
+  "instructions": "1 cup all-purpose flour, 1/2 cup wheat flour, 1 tbsp sugar, 1/2 tsp salt, 1/2 cup fat split between butter and vegetable shortening (or lard — see notes), more butter than the second fat. Bake at 400°F.",
+  "notes": "Some recipes call for a much higher flour-to-fat ratio but this works well enough for a brittle/flaky crust. Shortening makes the crust easier to form and stretchier; butter makes it flaky/brittle. More butter than the second fat is ideal.\n\nLARD INSTEAD OF SHORTENING: lard can substitute for the vegetable shortening 1:1 and gives a noticeably better flavor — savory, slightly meaty depth that vegetable shortening can't deliver. Use lard when the filling can stand a slightly less-neutral crust (most savory pie fillings, anything mushroom or meat). Stick with shortening when the filling wants a fully neutral crust.\n\nPAN SIZE: this recipe fits an 11-inch pie tray exactly. Scale up or down accordingly for other sizes.",
   "tags": [
     "french",
     "excellent"
@@ -14,7 +14,9 @@
     "butter",
     "vegetable shortening"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": [
+    "lard"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

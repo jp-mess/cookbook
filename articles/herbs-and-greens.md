@@ -64,6 +64,23 @@ Pattern: thrives in clean dishes (citrus, yogurt, greens, lemongrass-coconut), w
 
 **Pattern 3: dessert range.** Most herbs are restricted to savory. Mint pairs with chocolate, fresh fruit (berries, melon, stone fruit), cream, yogurt, citrus desserts, sorbet/granita. Basil and rosemary are the only competitors here — basil with stone fruit/strawberries/chocolate; rosemary with shortbread/citrus/honey-fruit. Three-herb cabinet for desserts; the rest stay savory.
 
+### Extraction and handling
+
+Mint's flavor doesn't extract uniformly across techniques. Worth knowing which method matches the dish:
+
+- **Cooking: doesn't work.** Heat doesn't pull mint's character out — it drives off the volatile compounds that make mint taste like mint. Simmered mint just loses itself and contributes nothing.
+- **Blending: OK, but limited.** Blending extracts some flavor, but the result is grassier than fresh. More appropriate for yogurt dips and chutneys (where the smooth texture is the point) than for salads (where you want the mint to actually taste minty).
+- **Water or acid infusion / maceration: very effective.** Mint releases its character readily into water, citrus juice, and acids over a short steep. This is the mint-tea, mint-syrup, and tangerine-mint-vinaigrette technique. A 10-minute infusion in tangerine juice or a maceration in lemon juice pulls more usable mint flavor than any other method.
+
+For salads specifically, **infusion alone is not enough** — you also need to **chiffonade fresh leaves onto the salad itself**. The infusion gets you the dressing; the chiffonade gets you the refreshing-mint-in-each-bite that the dressing alone can't deliver.
+
+### Chiffonading mint for salads
+
+- Pick the leaves OFF the stems before cutting. Stems are bitter and have a sharp, raw flavor.
+- Chiffonade fine — stack the leaves, roll them into a cigar, slice into thin ribbons. Coarse chopping bruises the leaf and releases bitter compounds.
+- Discard any leaves that are large, browned, or already crushed. They've started oxidizing and will taste bitter.
+- Only the small, fresh, fine-cut leaves carry the refreshing mint character that salads want.
+
 ## Basil
 
 Most delicate herb in the cabinet. Everything follows from this.

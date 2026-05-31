@@ -1,7 +1,7 @@
 {
   "name": "tangerine mint vinaigrette",
-  "instructions": "mix all ingredients in a glass — heavily skewed towards tangerine juice and mint, only a splash of vinegar and olive oil. let sit 10 minutes for the mint to infuse. strain out the mint and serve.",
-  "notes": "white vinegar or white wine vinegar both work.",
+  "instructions": "Mix tangerine juice, a small handful of mint leaves, a splash of vinegar (white or white wine), and a splash of olive oil in a glass. Heavily skewed toward tangerine juice and mint; only splashes of the vinegar and oil.\n\nINFUSION STEP: let the mixture sit at least 10 minutes for the mint to infuse. Optionally blend at this stage — see notes for the diminishing-returns caveat. Strain out the mint.\n\nFOR THE SALAD ITSELF: separately, take fresh mint leaves off the stems, chiffonade FINE, and fold into the salad as a leaf component. The dressing's infused mint flavor is not enough on its own — the salad wants the chiffonaded fresh leaves on top of it. Don't skip this step.",
+  "notes": "Standard form uses tangerine juice for the sweet citrus component. Vinegar (white or white wine) and olive oil are splashes only — the dish is about the tangerine and mint, not the vinaigrette mechanics.\n\nBLENDING THE MINT (DIMINISHING RETURNS): blending the mint extracts a bit more flavor than a standing infusion, but not enough to skip the chiffonade-the-leaves-into-the-salad step. Blender + strained infusion alone leaves the salad under-minty. The chiffonaded leaves on the salad itself are doing real work.\n\nCHIFFONADE TECHNIQUE (FOR THE SALAD MINT): pick the leaves off the stems before chiffonading — do NOT include the stems, which are bitter. Chiffonade fine; bruising large leaves with a coarse cut releases bitter compounds. Skip any large, mishandled, or crushed leaves that are starting to brown. The finely-cut clean leaves are what carry the dish.\n\nLEMON ALTERNATIVE (REQUIRES SUGAR): lemon juice and lemon zest can replace the tangerine, but lemon doesn't bring tangerine's natural sweetness. To match the canonical version with lemon, you need to add external sugar — mint specifically wants something sweet to play against. Lemon-and-sugar gets you closer to the tangerine register but it's not quite the same; the tangerine's combined sweet-and-citrus is the easier path.",
   "tags": [
     "french",
     "salad/dressing",
@@ -14,7 +14,10 @@
     "olive oil"
   ],
   "secondary_ingredients": [
-    "white wine vinegar"
+    "white wine vinegar",
+    "lemon",
+    "lemon zest",
+    "sugar"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

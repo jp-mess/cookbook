@@ -1,7 +1,7 @@
 {
   "name": "american bean chile",
   "instructions": "",
-  "notes": "I don't have a solid recipe nailed down for this one yet — american chili is a wide category with lots of valid variations. ingredients listed are common building blocks rather than a fixed formula. picnic-leaning version uses ketchup/mustard/dill/tofurkey-or-turkey; stew-leaning version pulls in jalapenos, red beans, beer. greek yogurt or sour cream finish the bowl; maple syrup balances acidity from the ketchup/tomato; cilantro brightens.",
+  "notes": "I don't have a solid recipe nailed down for this one yet — american chili is a wide category with lots of valid variations. Ingredients listed are common building blocks rather than a fixed formula. Picnic-leaning version uses ketchup/mustard/dill/tofurkey-or-turkey; stew-leaning version pulls in jalapenos, red beans, beer. Maple syrup balances acidity from the ketchup/tomato; cilantro brightens.\n\nCHEESE OVER CREAM/YOGURT: sharp cheddar (or other sharp aged cheese) is the right finishing dairy for american chili, not greek yogurt or sour cream. The cheese melts into the hot stew, contributes fat and salt and umami, and stands up to the assertive sweet-acid-and-meat profile of an american chili. Greek yogurt and sour cream — the right finish for indian curries and pure mexican stews (chipotle-led bean dishes, etc.) — read out of place here. They're cooling, smooth, and slightly tangy, which works against a sweet/spicy chili already getting acidity from tomato or ketchup. The cuisine sorts itself: american chili wants cheese; indian curries and clean mexican bean stews want yogurt or sour cream.",
   "tags": [
     "excellent",
     "beans",
@@ -20,11 +20,13 @@
     "beer",
     "maple syrup",
     "cilantro",
-    "greek yogurt",
-    "sour cream",
+    "cheddar cheese",
     "paprika"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": [
+    "greek yogurt",
+    "sour cream"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

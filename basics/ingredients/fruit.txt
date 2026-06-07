@@ -1,6 +1,7 @@
 apples
 bananas
 strawberries
+peaches
 blueberries
 raspberries
 blackberries

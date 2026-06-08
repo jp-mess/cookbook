@@ -1,0 +1,24 @@
+{
+  "name": "american black bean salad",
+  "instructions": "Make the ketchup vinaigrette per its own recipe.\n\nBrown ground beef (or impossible meat / ground vegan meat) in a pan until well caramelized. Drain excess fat. Let cool slightly.\n\nBuild the salad: combine black beans (drained), finely chopped celery, finely diced red onions, chopped fresh dill, and the cooked-and-cooled ground meat. Toss with the ketchup vinaigrette.\n\nFinish with shredded or torn soft cheese (monterrey jack or fontina) — let it melt slightly against the still-warm beef.",
+  "notes": "TARGET FLAVOR: a mcdonald's burger in salad form. Every ingredient maps to a component of that flavor profile:\n- Black beans + ground beef: the patty.\n- Ketchup vinaigrette: the ketchup + mustard + pickle relish flavor axis (the vinaigrette has ketchup, dijon, and macerated dill in it — see ketchup-vinaigrette recipe).\n- Dill (extra, in the salad): amplifies the pickle note.\n- Red onions: the classic burger onion.\n- Soft cheese (monterrey jack or fontina): the melted cheese on the patty. Both melt into the warm beef and read as classic american burger cheese.\nThe whole thing is a deconstructed assembly that tastes recognizably mcdonald's-shaped without being a burger.\n\nWHY SOFT CHEESE (NOT CHEDDAR): mcdonald's-style american cheese is a melting cheese with a mild flavor — monterrey jack and fontina are the closest analogs in the cookbook. Sharp cheddar would push the dish toward something different (smokier, more grown-up — less like the mcdonald's target).\n\nMEAT — BEEF OR VEGAN: ground beef is the canonical choice for the burger target, but impossible meat and ground vegan meat both work and arguably read more burger-y than other vegan options (their soy-protein extrusion structure is specifically tuned to mimic beef). Brown the meat aggressively — the maillard sear is part of what makes this dish read as burger rather than as bean salad.\n\nNO TOMATOES IN THE SALAD: the ketchup vinaigrette already carries the tomato note (concentrated, sweet, vinegar-balanced). Adding fresh tomato on top of that would be redundant and would push the dish away from the burger target toward a more generic mediterranean salad.\n\nSERVE WARM, OR ROOM TEMP: the cheese needs the warm beef to melt into. Don't refrigerate before serving — chilling kills the cheese melt and the dish loses its burger-warm-bun character.",
+  "tags": [
+    "excellent",
+    "american"
+  ],
+  "ingredients": [
+    "black beans",
+    "ketchup vinaigrette",
+    "celery",
+    "dill",
+    "red onions",
+    "monterrey jack cheese",
+    "fontina cheese",
+    "ground beef",
+    "impossible meat",
+    "ground vegan meat"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

@@ -15,7 +15,7 @@ Concentrated, salty, and filled with MSG. More flavorful per unit than liquid st
 The refrigerated, perishable kind. Gentler body, less concentrated, no MSG. Right for everything that's NOT broth-as-the-dish or comfort-food-rich:
 
 - **Most sauces.** Pan sauces, reductions, braises where the stock is being reduced and concentrated as part of the cooking — bouillon would over-concentrate to harsh.
-- **Bean dishes.** Including refried beans, bean stews, lentil soups. Beans want a more layered, less aggressive liquid; bouillon makes bean dishes read salty and one-note. This is the chile colorado lesson and the amy's lentil soup lesson.
+- **Bean dishes.** Including refried beans, bean stews, lentil soups. Beans want a more layered, less aggressive liquid; bouillon makes bean dishes read salty and one-note. This is the chile colorado lesson and the lentil mushroom stew lesson.
 - **Subtle vegetable-led soups** where the stock is supporting, not headlining.
 
 ## The ambiguous middle

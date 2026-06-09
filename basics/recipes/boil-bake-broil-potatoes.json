@@ -1,0 +1,31 @@
+{
+  "name": "boil bake broil potatoes",
+  "instructions": "CUBE: cube the potatoes into bite-sized pieces (~3/4 inch).\n\nPAR-BOIL: boil the cubed potatoes in salted water until just tender but not falling apart. Drain and let steam off any excess moisture for a couple of minutes.\n\nSAUTE IN SEASONINGS: heat vegetable oil in a skillet. Add the par-boiled potatoes. Season aggressively — cajun blend (or its component parts: cayenne pepper, paprika, garlic powder, onion powder, salt, black pepper, oregano, thyme). Toss to coat. Add chopped fresh thyme, rosemary, and parsley if using.\n\nBAKE: transfer to a baking sheet (or leave in an oven-safe pan). Bake at 425°F until the surfaces start to crisp.\n\nBROIL: switch the oven to broil and finish for a few minutes until the tops are deeply golden and crispy. Watch closely — broil moves fast.",
+  "notes": "The technique is the title — boil, then sauté with seasonings, then bake, then broil. Each step has a specific job:\n- BOIL: cooks the potato interior to tender without browning the outside. Without this step, the outside burns before the inside softens.\n- SAUTE IN SEASONINGS: the only step where the seasoning makes direct sticky contact with the potato. Dry-toasting in oil here means the seasoning adheres rather than scattering off during the bake.\n- BAKE: drives off moisture and starts the crust.\n- BROIL: finishes the crust to deep crispy gold. The bake alone doesn't get there; the broil is what makes them read as proper crispy breakfast potatoes.\n\nGARLIC POWDER AND ONION POWDER OVER FRESH: for this dish specifically, powdered garlic and onion work better than the fresh form. Fresh garlic and onion burn during the long bake-and-broil; the powdered versions adhere to the potato surface and toast evenly through all three heat stages. Fresh garlic added to roasted potatoes is a different recipe entirely.\n\nVEGETABLE OIL OVER OLIVE OIL: vegetable oil's higher smoke point handles the broiler step better. Olive oil works but starts to smoke and burn at the broil temperatures, which can leave a slightly bitter edge. Use neutral oil unless you specifically want olive flavor.\n\nMORE SALT THAN YOU THINK YOU NEED: potatoes are absorbent and salt gets buried under the crispy crust. Salt aggressively in the sauté step; you can always add more at the end if needed but you can't pull it back out.\n\nSMOKED PAPRIKA IS PREFERRED OVER REGULAR PAPRIKA: the smoked variety adds a depth that regular paprika doesn't. If you only have regular, it works but loses one dimension.\n\nFRESH HERBS — THYME, ROSEMARY, PARSLEY: fresh thyme and rosemary are robust herbs (see herbs and greens article) and survive the bake-and-broil; they belong in the sauté step with the dry spices. Parsley is more delicate but adds the right green note at the end. All three are optional but recommended.\n\nCAJUN SEASONING AS A SHORTCUT: a good cajun blend already contains most of the right spices (paprika, cayenne, garlic powder, onion powder, oregano, thyme, salt) in roughly the right proportions. Using it instead of building the spice mix from scratch is a perfectly valid shortcut.",
+  "tags": [
+    "american",
+    "side",
+    "skillet",
+    "excellent"
+  ],
+  "ingredients": [
+    "potatoes",
+    "vegetable oil",
+    "cajun blend",
+    "cayenne pepper",
+    "paprika",
+    "garlic powder",
+    "onion powder",
+    "salt",
+    "black pepper",
+    "oregano",
+    "thyme",
+    "rosemary",
+    "parsley"
+  ],
+  "secondary_ingredients": [
+    "olive oil"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

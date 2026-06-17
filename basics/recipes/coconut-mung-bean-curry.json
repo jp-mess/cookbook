@@ -1,7 +1,7 @@
 {
   "name": "coconut mung bean curry",
-  "instructions": "",
-  "notes": "",
+  "instructions": "Cook the mung beans separately until tender.\n\nIn a heavy pot, bloom curry leaves, bay leaf, and whole spices in oil or ghee. Add garlic, ginger, and finely chopped jalapeños or serrano peppers (these are for heat — pick based on how spicy you want it). Sauté briefly.\n\nAdd the ground spices: turmeric, fennel powder, amchur powder, cloves, asafoetida, cumin, coriander.\n\nAdd coconut milk and the cooked mung beans. Simmer until everything is integrated.\n\nFor the chicken version: cook the chicken in the curry as it simmers — let it pick up the flavor.\n\nFor the tofu version: don't simmer the tofu in the curry. Press firm tofu, then pan-fry or bake it crispy SEPARATELY, and fold it in at the end alongside the mung beans. Soft simmered tofu would absorb too much of the coconut base and lose its identity in the dish.",
+  "notes": "SPICE HIERARCHY — TURMERIC, FENNEL, AMCHUR ARE THE BIGGEST: these three carry the dish.\n- TURMEREIC + FENNEL POWDER are the flavor backbone — earthy + slightly sweet-licorice, layered against the coconut base.\n- AMCHUR (DRIED MANGO POWDER) brings the tang. It's better here than lemon or lime — the dried-mango tang sits in the same register as the coconut and turmeric without pulling the dish in a citrus direction.\n- CLOVES and ASAFOETIDA are nice supporting characters — small amounts add depth.\n\nCURRY LEAVES AND BAY LEAF — NON-OPTIONAL: both are necessary here. Without them the dish reads weirdly flat, like something obvious is missing. Bloom both in the oil/ghee at the start with the whole spices. Fresh curry leaves preferred but dried work; don't skip either.\n\nNO LIME (AND NO LEMON): citrus brightness pulls the dish floral and sideways. Amchur handles the tang slot more appropriately. Don't squeeze lime over the top to brighten — that's a common move in other indian curries but it doesn't work here.\n\nGREEN CHILES — JALAPENOS OR SERRANO FOR HEAT: jalapeños and serrano peppers are the heat source. Pick based on how spicy you want it (serrano is sharper and hotter). They're not adding much flavor beyond heat — turn to them when you want spice without complicating the spice profile further.\n\nTOFU — CRISPY AND ADDED LATE, NOT SIMMERED: if going the tofu route, press firm tofu and pan-fry or bake it crispy separately, then fold it in near the end. Simmering tofu in the coconut curry leaves it soft and waterlogged, and the curry's flavor overwhelms it. Crispy tofu added late keeps its texture and lets it sit on top of the curry as a discrete element.\n\nCHICKEN — SIMMERS IN THE CURRY: chicken is the easier protein here — just simmer it in the coconut base as the curry comes together. It picks up the spice and coconut flavor as it cooks.",
   "tags": [
     "excellent",
     "curry",
@@ -12,18 +12,26 @@
   "ingredients": [
     "coconut milk",
     "mung beans",
+    "chicken",
+    "firm tofu",
     "curry leaves",
+    "bay leaf",
     "turmeric",
+    "fennel powder",
+    "amchur powder",
+    "cloves",
+    "asafetida",
     "coriander",
     "cumin",
     "ginger",
-    "garlic"
-  ],
-  "secondary_ingredients": [
-    "chicken",
-    "chili powder",
+    "garlic",
+    "jalapenos",
     "serrano peppers"
   ],
-  "clashing_ingredients": [],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "lime",
+    "lemon"
+  ],
   "want_to_try": []
 }

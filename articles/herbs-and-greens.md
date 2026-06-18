@@ -49,7 +49,7 @@ Cilantro of france.
 
 Three patterns I keep noticing.
 
-**Pattern 1: mint clashes with tomato.** This excludes it from a huge slice of savory cooking — italian sauces, mexican stews, shakshuka, ratatouille, tomato-based indian curries.
+**Pattern 1: mint and tomato clash in simple aromatic dishes, but work in heavily-spiced ones.** Where the aromatic base is light — italian tomato sauces, mexican stews, shakshuka, ratatouille — mint reads off and slightly aggressive against the tomato. But where a heavy spice profile is doing structural work — indian curries with cumin / coriander / garam masala, persian stews with cardamom / cinnamon / saffron — the mint + tomato combination becomes a welcome funky layer rather than a clash. The spice cabinet absorbs the mint's edge and gives it somewhere to sit.
 
 What mint does pair with:
 - Other greens (citrus or vinegar acid, not tomato).
@@ -58,7 +58,7 @@ What mint does pair with:
 - Thai green curry.
 - Persian yogurt and meat dishes (especially lamb).
 
-Pattern: thrives in clean dishes (citrus, yogurt, greens, lemongrass-coconut), wilts in tomato-savory.
+Pattern: thrives in clean dishes (citrus, yogurt, greens, lemongrass-coconut). With tomato: clashes in simple aromatic contexts (italian, mexican); works in heavily-spiced ones (indian, persian).
 
 **Pattern 2: where mint shines, it's non-optional.** Either wrong for the dish or load-bearing. Tangerine-mint vinaigrette without the mint is just sweet citrus dressing. Reducing the quantity doesn't subtilize — just leaves it weak.
 

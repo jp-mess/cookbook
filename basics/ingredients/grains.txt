@@ -3,6 +3,7 @@ farro
 couscous
 bread
 pasta
+small pasta
 egg noodles
 tortilla
 tostada

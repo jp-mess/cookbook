@@ -1,0 +1,22 @@
+{
+  "name": "dumplings",
+  "instructions": "MIX THE DRY: in a bowl, whisk together 1 cup all-purpose flour, 2 teaspoons baking powder, 1 teaspoon sugar, and 1/2 teaspoon salt.\n\nCUT IN THE BUTTER: cut 2 tablespoons of cold unsalted butter into the dry mixture (fingers, pastry cutter, or two knives) until the mixture looks like coarse meal with pea-sized butter bits.\n\nADD THE MILK: pour in 1/2 cup milk (2% or whole) and stir just until a sticky dough forms. Do not overmix.\n\nDROP INTO BROTH: drop spoonfuls of the dough onto the surface of a simmering soup or stew. Cover the pot and simmer for about 15 minutes — do not lift the lid early. The dumplings should puff up and be cooked through.",
+  "notes": "BISCUIT-STYLE DUMPLINGS — RICHER THAN WATER+FLOUR: this is the baking-powder, butter, and milk version of dumplings — the southern-american chicken-and-dumplings style. Fluffy, biscuity, with their own flavor. Distinct from the simple water+flour dumplings the french grandma soup notes mention as the inline default; this version is an upgrade when you want the dumplings to be a more flavorful component in their own right rather than just a neutral starch carrier.\n\nCOLD BUTTER MATTERS: the butter should be cold when cut in — same logic as biscuit/pie-crust technique. Cold butter pockets create steam during cooking, which is what makes the dumpling fluffy rather than dense. Room-temperature butter melts into the flour and gives you a flat, cakey result.\n\nDON'T LIFT THE LID: covered simmering is non-negotiable. The steam trapped under the lid is what cooks the tops of the dumplings. Lifting the lid early releases the steam and gives you raw-on-top dumplings.\n\nDON'T OVERMIX: stir just until the dough comes together. Gluten development from overmixing yields tough, chewy dumplings instead of tender biscuity ones.\n\nFITS FRENCH GRANDMA SOUP: works as the carb component in french grandma soup if you want richer dumplings than the inline water+flour version. The biscuity flavor doesn't fight the white-wine-and-tarragon broth — if anything, the butter-milk character complements it.",
+  "tags": [
+    "american",
+    "wonton/dumpling",
+    "side",
+    "external recipe"
+  ],
+  "ingredients": [
+    "all-purpose flour",
+    "baking powder",
+    "sugar",
+    "salt",
+    "butter",
+    "milk"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

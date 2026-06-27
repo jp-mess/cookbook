@@ -5,6 +5,7 @@ asian
 italian
 indian
 middle eastern
+mediterranean
 spanish
 mexican
 thai

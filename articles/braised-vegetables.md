@@ -61,4 +61,4 @@ Not for funkiness — braised leeks are edible. The reason is opportunity cost.
 
 - Better technique for leeks-as-headliner: cut into 2–3 inch dense cylinders, stand on end, olive oil + salt, bake until caramelized outside / silky inside. Concentrates the sugars; cylinder format keeps layers from going gummy.
 - Braised-leeks-vinaigrette = same problem as braised endives. Vinaigrette masks the texture loss.
-- Leeks-as-aromatic in stocks and bases (french grandma soup, fish poaches, mushroom-leek galettes) is a different question — gumminess doesn't matter when leeks are dispersed.
+- Leeks-as-aromatic in stocks and bases (french chicken soup, fish poaches, mushroom-leek galettes) is a different question — gumminess doesn't matter when leeks are dispersed.

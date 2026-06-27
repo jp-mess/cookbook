@@ -40,7 +40,7 @@ Mostly a non-european herb — its range is in mexican, indian, persian, and asi
 Cilantro of france.
 
 - Julia Child says tarragon is the herb for chicken. Canonical pairing across french cuisine — works in chicken-and-cream dishes, chicken stocks, and chicken roasts.
-- Practical heuristic: french chicken dish → tarragon is probably the right finish. Canonical in french grandma soup, tarragon chicken salad, french leek/salmon dishes.
+- Practical heuristic: french chicken dish → tarragon is probably the right finish. Canonical in french chicken soup, tarragon chicken salad, french leek/salmon dishes.
 - Eggs and white fish: shares ground with parsley. Tarragon pulls french; parsley stays neutral. Pairing them works.
 - Cuisine-bound. No use yet found outside french.
 - Handling: fine herb. Unlike basil, tolerates dried use in long cooks (see Dried Herbs).
@@ -141,7 +141,7 @@ Rosemary's loud, fat-soluble, structurally distinct (piney, slightly bitter, alm
   - **Thyme** reinforces the muddiness rather than fighting it (additive, not corrective).
   - **Sage** drifts toward poultry/stuffing.
   - **Fine herbs** either die in the heat (basil, tarragon, mint, cilantro) or compete badly (parsley).
-- Where it matters: mushroom bourguignon (mandatory), mushroom gravy and chicken-pot-pie sauces, mushroom soups, wild rice mushroom soup, anything in the comfort-food-gravy category.
+- Where it matters: french beef and mushroom stew (mandatory), mushroom gravy and chicken-pot-pie sauces, mushroom soups, anything in the comfort-food-gravy category.
 - When unnecessary: dishes with their own complexity already (acid, brightness, fresh herbs, distinct spices). Rosemary is a fix for a specific problem, not a default add.
 
 ## Dried Herbs
@@ -174,7 +174,7 @@ In stews and pilafs both add color, nutrition, earthiness without changing the f
 - Italian vegetable soups are the exception — undertuned by design. No tight flavor profile to crowd, so greens can add bulk and color without clashing. Fennel old bay soup falls in this category.
 - Spinach is the bigger offender than arugula, but mixed greens cooked into beef stew aren't the answer either.
 
-Both are clashing in mushroom bourguignon and french grandma soup — defined flavor profiles where cooked greens muddy rather than support.
+Both are clashing in french beef and mushroom stew and french chicken soup — defined flavor profiles where cooked greens muddy rather than support.
 
 ## When to Skip Herbs Entirely
 

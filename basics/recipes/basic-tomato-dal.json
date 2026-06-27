@@ -30,7 +30,6 @@
     "anaheim peppers",
     "lemon",
     "lemon zest",
-    "cilantro",
     "black tea",
     "ghee"
   ],
@@ -39,7 +38,8 @@
     "serrano peppers",
     "bell peppers",
     "mint",
-    "cloves"
+    "cloves",
+    "cilantro"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

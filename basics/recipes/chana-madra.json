@@ -25,12 +25,13 @@
     "bay leaf",
     "porcini mushroom powder",
     "serrano peppers",
-    "cilantro",
     "kasoori methi",
     "lemon",
     "black pepper"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": [
+    "cilantro"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

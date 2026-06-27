@@ -1,5 +1,5 @@
 {
-  "name": "french rolls",
+  "name": "artisan french bread",
   "instructions": "1.5 tsp salt, 3 cups all-purpose flour, 0.5 cup wheat flour, 1.5 tbsp yeast. Bake at 425°F.",
   "notes": "Adapted from Julia Child (Mastering the Art of French Cooking).\n\nADAPTED RATIOS (THE CURRENT RECIPE): the version above is what I landed on after iterating on Julia's original. Tighter salt, more yeast, and a different flour split work much better for me than her published version.\n\nJULIA CHILD'S ORIGINAL: her original called for 2 tsp salt, 3.5 cups all-purpose flour, 2 tbsp wheat flour, and 1 tbsp yeast. I found that version came out too salty, too dense, and too plain. The adjustments I made:\n- DROP SALT from 2 tsp → 1.5 tsp (fixes the too-salty problem)\n- BUMP YEAST from 1 tbsp → 1.5 tbsp (more rise, less dense)\n- REWORK THE FLOUR SPLIT: 3 cups AP + 0.5 cup wheat flour (instead of 3.5 cups AP + 2 tbsp wheat) — more wheat flour gives the rolls more character without taking over.\n\nIf you want to taste the original alongside the adapted version sometime, run a side-by-side to confirm the changes are real. My memory of the original is that the differences are noticeable.\n\nWATER / HYDRATION: from experience, 2 cups is way too much. 1 cup is probably not enough. Right number is in between somewhere — needs to be pinned down from the original book.",
   "tags": [

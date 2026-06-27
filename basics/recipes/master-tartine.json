@@ -1,0 +1,42 @@
+{
+  "name": "master tartine",
+  "instructions": "STRUCTURAL FORMAT: a slice of bread + a spread + toppings. Pick a spread, pick toppings; the four named variants below are reliable combinations, but mix-and-match is encouraged.\n\nSHARED: toast the bread first — a tartine on un-toasted bread reads soggy. Crust optional.\n\nVARIANT A — CLOVER TARTINE (astringent / french):\n- Spread softened butter on the toast.\n- Spread dijon mustard over the butter.\n- Pile clovers or sprouts on top. Black pepper.\n\nVARIANT B — SEEDS ON TOAST (american):\n- Spread cream cheese on the toast.\n- Scatter sunflower seeds and pumpkin seeds (toasted is better).\n- Torn basil leaves on top. Black pepper.\n\nVARIANT C — AVOCADO TOAST:\n- Mash ripe avocado with salt and lemon. Spread thick.\n- Toppings (any or all): faux pickled red onions (see faux-pickled-red-onions recipe), thin-sliced chives, raw chopped tomatoes, torn basil leaves, a small handful of greens (spinach, arugula, mixed greens). Black pepper.\n\nVARIANT D — MUSHROOM-SOY TARTINE:\n- Sauté thinly-sliced mushrooms (portabella, shittake, or both) in olive oil until browned.\n- Splash in soy sauce at the end, cook off the liquid.\n- Pile mushrooms on toasted bread. Optional cream cheese underneath as the spread.",
+  "notes": "ONE STRUCTURAL SHAPE, FOUR RELIABLE COMBINATIONS: tartines are spread + topping on toast. The four variants are landmark combinations that work; the ingredients list is everything that belongs anywhere in this family, and you're encouraged to compose freely. Avocado toast slots in here as variant C — it's a tartine in everything but name.\n\nTOAST THE BREAD: un-toasted bread under a wet topping reads soggy. Toast first, every time. A second pass under the broiler after assembly is optional but works.\n\nCREAM CHEESE IS THE WORKHORSE SPREAD: variants B and C (and even variant D, optionally) lean on cream cheese as the base layer. It's the most forgiving spread — carries seeds, holds tomato, anchors mushrooms. Butter is for variant A specifically because the dijon-and-sprouts pairing wants a leaner fat. Mashed avocado is its own spread (variant C).\n\nVARIANT A — DIJON IS NON-OPTIONAL: clover tartine without dijon is just buttered toast with sprouts on it. The mustard is the load-bearing flavor; the butter is the binder; the sprouts are the freshness.\n\nVARIANT B — TOAST THE SEEDS: raw seeds on a tartine read flat. Quick toast in a dry pan (or in the oven while you toast the bread) wakes them up.\n\nVARIANT C — TOPPINGS ARE A MENU, NOT A RECIPE: pickled red onions, chives, raw tomatoes, basil, greens — any combination works on avocado toast. The avocado is the canvas; the toppings are how you make it interesting. Faux pickled red onions are especially good (the quick-acid sharpness cuts the avocado's fattiness).\n\nVARIANT D — SOY SAUCE IS A FINISHER, NOT A BRAISE: splash the soy in at the end of the mushroom sauté and let it cook off into a glaze. Soy added too early steams the mushrooms instead of letting them brown.\n\nFRESH HERBS AS TOPPING — BASIL AND CHIVES: torn basil leaves and thin-sliced chives are both excellent finishing herbs across multiple variants. Parsley also works but reads more standard-european.",
+  "tags": [
+    "french",
+    "american",
+    "side",
+    "excellent"
+  ],
+  "ingredients": [
+    "bread",
+    "butter",
+    "dijon mustard",
+    "clovers/sprouts",
+    "cream cheese",
+    "sunflower seeds",
+    "pumpkin seeds",
+    "basil",
+    "avocados",
+    "red onions",
+    "chives",
+    "tomatoes",
+    "spinach",
+    "arugula",
+    "mixed greens",
+    "portabella mushrooms",
+    "shittake mushrooms",
+    "soy sauce",
+    "olive oil",
+    "black pepper",
+    "salt",
+    "lemon"
+  ],
+  "secondary_ingredients": [
+    "chia seeds",
+    "sesame seeds",
+    "parsley"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

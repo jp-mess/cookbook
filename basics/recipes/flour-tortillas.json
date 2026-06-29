@@ -1,20 +1,21 @@
 {
   "name": "flour tortillas",
-  "instructions": "2 cups all-purpose flour, 1.5 tsp baking powder, 1.5 tsp kosher salt, 3 tbsp lard or vegetable shortening, 3/4 cup water.",
-  "notes": "tried a similar recipe with a larger flour-to-salt ratio (3 cups flour to 1.5 tsp salt) and it wasn't salty enough. tried vegetable oil instead of shortening and it was bad. this recipe seems to correct both.",
+  "instructions": "INGREDIENTS:\n- 2 cups all-purpose flour\n- 1 teaspoon kosher salt (see note — bump ~20%)\n- 3/4 teaspoon baking powder\n- 4-5 tablespoons lard, butter, or vegetable shortening (shortening is the preferred fat — see note)\n- 3/4 cup boiling water\n\nPROCEDURE:\n1. In a medium bowl or stand mixer, whisk together the flour, salt, and baking powder.\n2. Add the fat and rub into the flour with your fingers or a pastry cutter until the mixture resembles coarse crumbs.\n3. Slowly pour in the boiling water while stirring with a wooden spoon or hook. Mix until a shaggy dough forms, then knead for 2-3 minutes until smooth.\n4. Cover and let rest at room temperature for 30 minutes to relax the gluten.\n5. Divide into 8 equal pieces (about 73 g each). Roll into balls, cover, and rest 10 minutes.\n6. On a lightly floured surface, roll each ball very thin — about 8 inches across.\n7. Heat a dry iron griddle (or large pan) over medium-high. Do NOT oil it (see note).\n8. Cook each tortilla for 30-40 seconds, until blisters appear. Flip and cook another 20-30 seconds. Flip once more for 5-10 seconds if you want extra mottling. DO NOT cook them much longer or they'll go crispy like a cracker.\n9. Stack tortillas immediately in a clean towel or tortilla warmer so the steam keeps them soft and pliable.",
+  "notes": "I LIKE THIS RECIPE A LOT — confirmed good.\n\nFAT — SHORTENING (CLOSER TO 5 TBSP) OVER LARD: used vegetable shortening instead of lard, and went closer to 5 tablespoons rather than 4. The extra fat made rolling them thin a breeze. Will do this again. Lard works but shortening is the easier path; butter is the third option (slightly different character, fine but less rolling-friendly than shortening).\n\nSALT — BUMP ~20% AT 4 TBSP FAT: at 4 tablespoons of fat the recipe is a little light on salt. Add about 20% more salt than she recommends.\n\nKOSHER SALT SPECIFICALLY: the original recipe is in kosher salt. If you're substituting table salt, use noticeably less — table salt is denser per teaspoon than kosher and will over-salt the dough at 1:1.\n\nDRY IRON GRIDDLE, NO OIL: deliberately did NOT oil the iron griddle. Past experience: oiling the griddle creates a ton of burned material and smoke even with high-heat fats like ghee, and the dough is already oily enough from the crisco/shortening. A dry griddle gives you clean blistering without the smoke headache. Don't oil the pan for this.\n\nDON'T OVERCOOK: 30-40 seconds first side, 20-30 seconds second, optional 5-10 second third flip for mottling. Anything beyond that and the tortilla goes crispy like a cracker — the dish is dead at that point. Pull them off early-ish and let the residual heat in the stack finish them.\n\nSTACK + TOWEL FOR PLIABILITY: stack immediately in a clean towel or tortilla warmer. The trapped steam from the hot tortillas keeps them soft. Tortillas left on a wire rack or open plate go stiff fast.",
   "tags": [
     "mexican",
     "flatbread",
-    "unattempted"
+    "excellent"
   ],
   "ingredients": [
     "all-purpose flour",
-    "baking powder",
     "kosher salt",
+    "baking powder",
+    "vegetable shortening",
     "lard"
   ],
   "secondary_ingredients": [
-    "vegetable shortening"
+    "butter"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

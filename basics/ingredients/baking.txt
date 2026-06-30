@@ -2,6 +2,7 @@ all-purpose flour
 wheat flour
 masa harina
 sugar
+brown sugar
 powdered sugar
 salt
 kosher salt

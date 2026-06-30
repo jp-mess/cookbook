@@ -2,6 +2,7 @@ beets
 cabbage
 turnips
 radishes
+daikon
 parsnips
 carrots
 celery

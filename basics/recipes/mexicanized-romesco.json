@@ -7,7 +7,6 @@
     "spanish",
     "mexican",
     "spread/dip/sauce",
-    "tofu bake",
     "skillet"
   ],
   "ingredients": [
@@ -24,7 +23,7 @@
     "porcini mushroom powder",
     "oregano"
   ],
-  "secondary_ingredients": ["asparagus", "cauliflower", "firm tofu"],
+  "secondary_ingredients": ["asparagus", "cauliflower"],
   "clashing_ingredients": [],
   "want_to_try": ["thyme"]
 }

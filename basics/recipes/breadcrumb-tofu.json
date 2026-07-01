@@ -1,20 +1,25 @@
 {
   "name": "breadcrumb tofu",
-  "instructions": "press or boil the tofu, top with breadcrumbs, bake.",
-  "notes": "any of the 4 composite breadcrumbs work — lemon pepper, pine nut, deviled, or massaman.",
+  "instructions": "PREP THE TOFU: press or boil firm tofu to drive out water. Slice into flat slabs (not cubes).\n\nADHESIVE LAYER (PICK ONE):\n- MAYO + DIJON MUSTARD (canonical): smear a thin layer of mayonnaise and dijon mustard onto the tofu. The mayo gives fat and structure; the dijon adds tang and helps the breadcrumbs grip. This is the best adhesive for this dish.\n- OIL + STARCH (alternative): brush the tofu with a thin layer of oil, then dust with potato or corn starch. The starch absorbs the oil and creates a sticky surface for the breadcrumbs.\n\nBREADCRUMB COAT: press breadcrumbs onto the adhesive layer until evenly covered. Any of the 4 composite breadcrumbs work — lemon pepper, pine nut, deviled, or massaman.\n\nFINISH: spray or drizzle avocado oil over the top of the breaded slabs (helps the breadcrumbs crisp during the bake).\n\nBAKE: at ~425°F until the breadcrumbs are deeply golden and the tofu is heated through. Finish with chopped chives.",
+  "notes": "MAYO + DIJON IS THE BEST ADHESIVE: a thin smear of mayonnaise plus dijon mustard does two jobs at once — the mayo adds fat that the dry tofu surface lacks (which is half of why breadcrumbs slide off), and the mustard's tang gives the dish acid-and-mustard depth without needing a sauce. Together they hold the breadcrumbs better than oil-and-starch alone, and they contribute real flavor instead of just gluing things on.\n\nOIL + STARCH IS THE ALTERNATIVE: if you don't want mayo or dijon, the fallback is brush oil onto the tofu first, then dust with potato or corn starch, then press breadcrumbs on top. The oil wets the surface; the starch absorbs the oil and turns sticky; the breadcrumbs grip the starch. Order matters here — oil before starch, not after. This is a cleaner-tasting version (no mayo richness, no mustard bite) but the breadcrumbs don't grip as confidently and the dish reads plainer.\n\nDON'T SKIP THE AVOCADO-OIL SPRAY ON TOP: a thin spray (or drizzle) of avocado oil over the top of the breaded tofu before baking is what crisps the breadcrumbs into a real crust. Without it the breadcrumbs go beige and stale-bread-textured instead of golden and crisp. Avocado oil specifically because of the high smoke point — olive oil works but burns at the bake temperature this dish wants.\n\nPRESS OR BOIL FIRST — DRIVE OUT WATER: tofu carries a lot of water. Without pressing or boiling, the bake releases that water into the breadcrumb crust and softens it back into mush. Pressing for ~15 min, or boiling for ~5 min and patting dry, both work — pressing keeps a denser texture, boiling cooks-and-firms the surface protein.\n\nSLABS, NOT CUBES: flat slices are easier to bread evenly and present better on the plate. Cubes get the breadcrumb coat on only 3-4 sides cleanly; slabs have two large flat faces that take the coating consistently.\n\nFIRM TOFU OVER SUPER FIRM: super firm is good when you want crumbles (see italian stuffed peppers variant B). For this dish you want sliceable, dense-but-not-overly-firm slabs — that's regular firm tofu, pressed.",
   "tags": [
     "tofu bake",
     "unattempted"
   ],
   "ingredients": [
     "firm tofu",
+    "mayonnaise",
+    "dijon mustard",
+    "starch",
+    "avocado oil",
     "chives",
     "lemon pepper breadcrumbs"
   ],
   "secondary_ingredients": [
     "pine nut breadcrumbs",
     "deviled breadcrumbs",
-    "massaman breadcrumbs"
+    "massaman breadcrumbs",
+    "olive oil"
   ],
   "clashing_ingredients": [],
   "want_to_try": []

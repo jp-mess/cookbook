@@ -1,0 +1,30 @@
+{
+  "name": "breadcrumb chicken",
+  "instructions": "PREP THE CHICKEN: pound chicken breast (or thigh) to even thickness so it cooks uniformly.\n\nDREDGE IN FLOUR: dust each piece in all-purpose flour, shaking off the excess. The flour gives the egg yolk something to grip.\n\nEGG YOLK COAT: dip in beaten egg yolk until fully coated. Yolk only — not whole egg. Yolk gives richer fat content and a more golden crust than whole egg or whites.\n\nSEASONED BREADCRUMB COAT: press into a mix of breadcrumbs (panko gives the crunchiest result) plus dry seasonings — salt, black pepper, garlic powder, onion powder, paprika, herbes de provence, dried oregano, etc. Mix the seasonings into the breadcrumbs first so they distribute evenly.\n\nFINISH: spray or drizzle avocado oil over the breaded chicken.\n\nBAKE OR PAN-FRY: bake at ~425°F until the breadcrumbs are deeply golden and the chicken is cooked through, OR pan-fry in a thin layer of oil for a more deeply browned crust.",
+  "notes": "DIFFERENT ADHESIVE FROM BREADCRUMB TOFU — FLOUR + EGG YOLK, NOT MAYO + MUSTARD: chicken doesn't need the mayo + dijon adhesive that breadcrumb tofu uses. Chicken's own surface protein and moisture grip the flour-and-yolk coat cleanly — the classic three-step dredge (flour → egg → breadcrumbs) works because chicken has surface chemistry that tofu lacks. Mayo + mustard would work but adds a flavor layer that competes with whatever's in the breadcrumb seasoning; the cleaner flour-yolk path lets the chicken and the seasoned breadcrumbs lead.\n\nYOLK ONLY, NOT WHOLE EGG: egg yolk gives the richest fat content and the deepest-golden crust. Whole egg dilutes the yolk's binding power with whites (which set rubbery in the bake), and egg whites alone don't have the fat needed for a real crust. Yolk-only is the upgrade move.\n\nSEASON THE BREADCRUMBS, NOT THE CHICKEN: dry seasonings go into the breadcrumb mix, not directly onto the chicken. Reason: seasoning the chicken before the breading means the seasoning is trapped under the coat where you can't taste it; seasoning the breadcrumbs puts the flavor on the outside where it lands on your tongue first. Standard seasoning stack: salt, black pepper, garlic powder, onion powder, paprika, herbes de provence, and/or dried oregano. Mix into the breadcrumbs thoroughly before dredging.\n\nPANKO OVER REGULAR BREADCRUMBS: panko's larger, drier flakes give a much crunchier crust than regular fine breadcrumbs. Regular works but reads softer and less interesting. Panko is the upgrade.\n\nAVOCADO OIL SPRAY ON TOP — SAME AS BREADCRUMB TOFU: a spray or drizzle of avocado oil before baking crisps the breadcrumbs into a real crust. High smoke point matters because the bake temp wants to be hot (425°F). Olive oil burns at that temp; vegetable oil is fine if no avocado on hand.\n\nPOUND TO EVEN THICKNESS: chicken breast right out of the package tapers — thick on one end, thin on the other. The thin end overcooks while the thick end is still raw. Pound to even thickness first so the bake is uniform.\n\nBAKE OR PAN-FRY: both work. Bake is hands-off but the crust is shallower; pan-fry gives a deeper, browner crust but you have to babysit it. Pick by laziness vs crust depth on the day.",
+  "tags": [
+    "meat main",
+    "unattempted"
+  ],
+  "ingredients": [
+    "chicken",
+    "all-purpose flour",
+    "egg yolk",
+    "breadcrumbs",
+    "avocado oil",
+    "salt",
+    "black pepper",
+    "garlic powder",
+    "onion powder",
+    "paprika",
+    "herbes de provence",
+    "oregano"
+  ],
+  "secondary_ingredients": [
+    "chicken thighs",
+    "vegetable oil",
+    "olive oil"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

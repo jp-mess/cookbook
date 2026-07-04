@@ -1,5 +1,5 @@
 {
-  "name": "spinach vanilla protein shake",
+  "name": "apple spinach smoothie",
   "instructions": "",
   "notes": "",
   "tags": [
@@ -8,8 +8,10 @@
     "good enough"
   ],
   "ingredients": [
-    "vanilla protein powder",
-    "spinach"
+    "apples",
+    "spinach",
+    "ginger",
+    "vanilla protein powder"
   ],
   "secondary_ingredients": [],
   "clashing_ingredients": [],

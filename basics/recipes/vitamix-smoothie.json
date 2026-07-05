@@ -1,0 +1,28 @@
+{
+  "name": "vitamix smoothie",
+  "instructions": "FORMULA — 1 GREEN + 1 FRUIT + YOGURT + PROTEIN POWDER: build every smoothie around these four slots.\n- 1 GREEN: spinach, mixed greens, arugula, kale — really any leafy green works.\n- 1 FRUIT: apples, strawberries, bananas — pick one or combine.\n- YOGURT: greek yogurt (see notes on why it's non-negotiable for texture).\n- PROTEIN POWDER: vanilla protein powder.\n\nAROMATIC SLOT — GINGER OR CILANTRO (NOT BOTH): fresh ginger (a small knob) OR a handful of fresh cilantro. These are mutually exclusive — pick one to shape the flavor. Blend in a vitamix (or high-power blender) until smooth.",
+  "notes": "FORMULA-FIRST: this isn't really one recipe, it's a template for smoothies. Any 1 leafy green + 1 fruit + yogurt + protein powder combination works. The current canonical build uses spinach, apple, strawberries, ginger, greek yogurt, and vanilla protein powder, but the formula generalizes.\n\nANY LEAFY GREEN WORKS — NOT JUST SPINACH: spinach is the default because it blends smoothest and has the mildest flavor, but mixed greens, arugula, and kale all work fine in a vitamix. Kale needs a longer blend to break down its fibrous stems; arugula and mixed greens are somewhere between spinach and kale in blend difficulty. Pick what you have.\n\nBANANA IS A VIABLE FRUIT: alongside apple and strawberries, banana is a good fruit slot. Its higher sugar content makes the smoothie sweeter and creamier — one whole banana already anchors the texture even before the greek yogurt does its thing. Banana + strawberry is a classic combo; banana alone works too. If you want a less sweet result, stick to apple or strawberries.\n\nGREEK YOGURT IS NECESSARY — MAKES IT CREAMY: greek yogurt is what turns the smoothie from a weird frothy water into an actual creamy drink. Without it, the vitamix aerates the ingredients into a foamy suspended-fiber mess that reads more like green pond water than a smoothie. The greek yogurt's thickness anchors the texture. Not optional.\n\nPLAIN YOGURT (SECONDARY) — I HAVEN'T TRIED IT: plain yogurt might work as a substitute but I've never tested it. Plain yogurt is thinner and higher-water than greek yogurt, so the concern is whether it can carry the texture load. If you try it and it works, the win is a cheaper and more available yogurt option; if it doesn't, the smoothie will read more like the frothy-water failure mode above.\n\nAROMATIC SLOT — GINGER OR CILANTRO (NOT BOTH): the smoothie wants a single aromatic element to keep it from reading one-note-sweet. Two options — they're mutually exclusive, don't stack them:\n- GINGER: fresh ginger (thumb-tip knob) adds warmth and bite. Pushes the smoothie toward a familiar tropical / juice-bar register.\n- CILANTRO: a small handful of fresh cilantro takes the place of ginger. Pushes the smoothie toward a herbal / green-forward register — pairs especially well with cucumber or lime if you happen to add them, and with the more assertive greens (kale, mixed greens).\nEither works; the choice depends on which flavor direction you want. Ginger + cilantro together is muddled and off — pick one.\n\nSTRAWBERRIES + APPLE IS A GOOD FRUIT COMBO: strawberry supplies the brighter fruit flavor; apple supplies bulk and gentle sweetness. Either alone works too, but the combo reads more interesting than a single fruit.",
+  "tags": [
+    "protein shake",
+    "american",
+    "good enough"
+  ],
+  "ingredients": [
+    "apples",
+    "strawberries",
+    "bananas",
+    "spinach",
+    "mixed greens",
+    "arugula",
+    "kale",
+    "ginger",
+    "cilantro",
+    "greek yogurt",
+    "vanilla protein powder"
+  ],
+  "secondary_ingredients": [
+    "yogurt"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

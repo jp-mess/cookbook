@@ -4,3 +4,4 @@ bouillon cubes
 stock
 chicken stock
 vegetable stock
+beef stock

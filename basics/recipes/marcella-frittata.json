@@ -1,7 +1,7 @@
 {
   "name": "marcella frittata",
   "instructions": "saute onion, zucchini, and red bell pepper in butter + olive oil until tender. cool. beat eggs with grated parmesan, parsley, salt, pepper. combine with veg. cook in skillet on very low heat until set; flip or finish under broiler.",
-  "notes": "marcella hazan. low heat is the whole point — high heat makes it rubbery. filling can't be watery — saute all the vegetables first to drive off moisture. also works as a scramble.",
+  "notes": "marcella hazan. low heat is the whole point — high heat makes it rubbery. filling can't be watery — saute all the vegetables first to drive off moisture. also works as a scramble.\n\nTOMATOES ARE CLASHING — DESPITE MARCELLA USING THEM IN SOME OF HER FRITTATA RECIPES: marcella puts tomatoes into some of her frittata recipes but I've concluded they're an overall loss. Tomatoes carry too much water; the moist filling makes the INTERIOR cook much slower than the exterior, and to fully set the middle you end up with a hard/dark parmesan crust on the outside and a squishy interior underneath. Neither texture reads well. This is a case where I'm departing from marcella's canon — tomatoes are wrong here even if the source recipe includes them. The frittata format wants dry-cooked vegetables and eggs; anything that drives moisture back into the filling fights the low-heat-even-set technique.\n\nSEEDED ZUCCHINI IS PREFERRED — SAME LOGIC AS THE TOMATO RULE: zucchini seeds carry most of the vegetable's water. Deseeding zucchini before sautéing (halve lengthwise, scrape out the seed core with a spoon, then dice) leaves you with the drier zucchini flesh that behaves properly in the frittata. Non-deseeded zucchini works but the extra water it releases during the sauté means longer cook time to drive off, and if you don't drive it off completely you get the same slow-interior / burnt-exterior problem the tomato rule describes. Deseeded is the cleaner path.",
   "tags": [
     "italian",
     "skillet",
@@ -20,6 +20,10 @@
     "olive oil"
   ],
   "secondary_ingredients": [],
-  "clashing_ingredients": [],
+  "clashing_ingredients": [
+    "tomatoes",
+    "canned tomatoes",
+    "diced tomatoes"
+  ],
   "want_to_try": []
 }

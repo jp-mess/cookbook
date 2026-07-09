@@ -1,7 +1,7 @@
 {
   "name": "sardine parsley pasta",
-  "instructions": "spaghetti tossed with sardines, parsley, lemon juice, and pine nut breadcrumbs.",
-  "notes": "lemon juice, not zest.",
+  "instructions": "spaghetti tossed with sardines, parsley, lemon juice, and pine nut breadcrumbs. Season with fennel powder — a pinch is canonical for the sicilian sardine profile.",
+  "notes": "lemon juice, not zest.\n\nFENNEL POWDER IS CANONICAL HERE: pasta con le sarde traditionally uses wild fennel; fennel powder is the practical stand-in that carries the same anise-forward register. A pinch (or more) is the sicilian-sardine signature. Whole fennel seeds also work and give more textural bite.
   "tags": [
     "italian",
     "pasta",
@@ -13,7 +13,8 @@
     "lemon",
     "pasta",
     "pine nut breadcrumbs",
-    "raisins"
+    "raisins",
+    "fennel powder"
   ],
   "secondary_ingredients": [],
   "clashing_ingredients": [],

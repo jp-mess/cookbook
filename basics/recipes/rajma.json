@@ -1,0 +1,48 @@
+{
+  "name": "rajma",
+  "instructions": "The kidney bean gravy — the smooth-concentrated end of the family. Follows mexican-bean logic: minimize anything that distracts from the glutamates and the beans themselves.\n\nSHARED SPICE BASE: cumin, coriander, turmeric, garam masala, kashmiri chili powder (bigger role here), cardamom, plus kasoori methi at the finish.\n\nDISTINCTIVES:\n- RED BEANS (kidney beans) as the legume. Pre-cook or use canned.\n- ONIONS: BOILED (3-4 min in water) then BLENDED into a smooth puree — same as chole. Non-negotiable.\n- WHOLE SPICES bloomed: bay leaf, cardamom.\n- TOMATOES: TOMATO PASTE, as concentrated as possible. NO fresh tomatoes, no canned. The concentration is what makes rajma read as gravy rather than stew.\n- GHEE is NON-OPTIONAL. The gravy needs ghee's richness — vegetable oil alone reads thin.\n- KASHMIRI CHILI POWDER LEADS: bigger role than in chole/chana masala. Color and gentle heat carry the dish.\n- KASOORI METHI is non-optional and canonical finish. Dried fenugreek is a load-bearing flavor here.\n- Cilantro is welcome but methi leads.\n- NO amchur, NO lemon (rajma doesn't want the tang slot filled — kasoori methi + tomato paste + kashmiri chili is the flavor structure).\n- NO mint, NO cloves, NO cinnamon (chole territory).\n\nPROCEDURE:\n1. Pre-boil onions 3-4 min in water; drain and puree smooth. Make a ginger-garlic paste.\n2. Heat GHEE (generously). Bloom bay leaf and cardamom.\n3. Add pureed boiled onions; cook on medium 15-20 min until light brown.\n4. Add ginger-garlic paste; cook briefly.\n5. Add tomato paste; cook hard into the ghee until it darkens a shade (~5 min).\n6. Add ground spice mix (cumin, coriander, turmeric, garam masala, kashmiri chili powder heavy, chili powder). Cook 3-4 min.\n7. Add red beans and enough water to loosen (or use the bean-cook liquid if from dry). Simmer to gravy consistency.\n8. Crumble kasoori methi in generously at the end. Optional cilantro finish.",
+  "notes": "This recipe used to be Variant D of a master-tomato-dal file. Now standalone.\n\n=== CONSISTENCY — GRAVY, NOT STEW ===\n\nRajma is the smooth-concentrated end of the tomato-dal family. Smooth blended onion base + concentrated tomato paste + generous ghee + kashmiri chili powder = a proper gravy that coats a mound of rice on the plate. If your rajma is soupy or watery, cook it down further.\n\n=== WHY TOMATO PASTE, NOT FRESH ===\n\nRajma follows mexican-bean logic — minimize anything that distracts from the glutamates and the beans themselves. Fresh tomatoes add water and visible pieces; canned tomatoes add water and chunky texture. Tomato paste is pure concentrated tomato without either. The concentration is what makes rajma read as gravy rather than stew, and what lets the kidney beans stay structurally in charge.\n\n=== GHEE IS NON-OPTIONAL ===\n\nRajma is the ghee-forward variant of the family. Vegetable oil alone reads thin against the concentrated tomato paste and kidney bean gravy. Use ghee generously, or ghee + a splash of oil to raise the smoke point. Chana masala and mediterranean dal are flexible on fat; rajma is not.\n\n=== KASHMIRI CHILI POWDER LEADS ===\n\nKashmiri chili powder plays a bigger role in rajma than in the other family variants. Bright red color, gentle heat, and it stands up to the tomato paste concentration. Load up on it here.\n\n=== KASOORI METHI IS CANONICAL FINISH ===\n\nDried fenugreek leaves crumbled in generously at the end. Rajma leans on methi where the other variants use it as a supporting ingredient — here it's the aromatic finish that ties the concentrated gravy together. Non-optional.\n\n=== WHAT'S OUT ===\n\nNo amchur, no lemon: rajma doesn't want the tang slot filled — the gravy structure is tomato paste + methi + kashmiri chili + ghee. Adding amchur or lemon fights the concentrated register.\n\nNo mint, no cloves, no cinnamon: chole territory (see chole-masala). Adding them pushes rajma toward chole and loses the concentrated-gravy identity.\n\nNO GREEN PEPPERS AT ALL: rajma and chana masala are the two family variants that don't take green peppers (poblano, jalapeño, serrano, anaheim, bell all wrong). Chole-masala and mediterranean-dal are the pepper-friendly variants; rajma is the smooth-concentrated-gravy variant where fresh peppers push the dish toward chunky-curry territory and fight the ghee + tomato paste + kashmiri chili + methi structure. Heat comes from chili powder + kashmiri chili powder only.\n\n=== ONION TREATMENT — BOILED AND BLENDED ===\n\nSame rule as chole: boil the onions 3-4 min in water before pureeing. Raw onion puree is bitter and aggressive. This is one of the two variants (rajma and chole) where boiled-and-blended is non-negotiable.\n\n=== SHARED FAMILY RULES ===\n\nKASHMIRI CHILI POWDER: color and gentle heat without overpowering. Different from generic chili powder. Non-optional across the tomato-dal family (chole, chana masala, mediterranean dal, rajma).\n\nKASOORI METHI: non-optional in this family. Load-bearing flavor, not a garnish.\n\nSIBLING RECIPES:\n- chole-masala: the darker, thicker, more aromatic chickpea preparation with black tea + cardamom + cloves + cinnamon.\n- chana-masala: the lighter, tangier, lemon-and-peppers-forward chickpea preparation.\n- mediterranean-dal: the chunky lentil dal — dry lentils into the pot, lots of chunky peppers and onions. The most 'curry' of the family.",
+  "tags": [
+    "indian",
+    "curry",
+    "beans",
+    "excellent"
+  ],
+  "ingredients": [
+    "red beans",
+    "red onions",
+    "cumin",
+    "coriander",
+    "turmeric",
+    "garam masala",
+    "cardamom",
+    "kashmiri chili powder",
+    "chili powder",
+    "kasoori methi",
+    "bay leaf",
+    "ginger",
+    "garlic",
+    "tomato paste",
+    "ghee",
+    "salt"
+  ],
+  "secondary_ingredients": [
+    "vegetable oil",
+    "cilantro"
+  ],
+  "clashing_ingredients": [
+    "tomatoes",
+    "canned tomatoes",
+    "amchur powder",
+    "lemon",
+    "mint",
+    "cloves",
+    "cinnamon",
+    "poblano peppers",
+    "jalapenos",
+    "serrano peppers",
+    "anaheim peppers",
+    "bell peppers"
+  ],
+  "want_to_try": []
+}

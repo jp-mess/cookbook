@@ -11,6 +11,7 @@ paprika
 chili powder
 kashmiri chili powder
 new mexican chili powder
+ancho chili powder
 cayenne pepper
 cinnamon
 nutmeg

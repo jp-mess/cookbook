@@ -13,3 +13,4 @@ clams
 lard
 ground beef
 beef
+soy curls

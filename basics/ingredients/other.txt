@@ -5,3 +5,5 @@ vodka
 coca cola
 black tea
 breadcrumbs
+panko
+potato chips

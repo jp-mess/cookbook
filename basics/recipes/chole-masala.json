@@ -23,7 +23,6 @@
     "kasoori methi",
     "asafetida",
     "bay leaf",
-    "fennel powder",
     "ginger",
     "garlic",
     "tomatoes",
@@ -38,7 +37,8 @@
   ],
   "secondary_ingredients": [
     "canned tomatoes",
-    "vegetable oil"
+    "vegetable oil",
+    "fennel powder"
   ],
   "clashing_ingredients": [
     "tomato paste",

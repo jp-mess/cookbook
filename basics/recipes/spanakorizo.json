@@ -2,6 +2,7 @@
   "name": "spanakorizo",
   "instructions": "suggested coarse garlic slices, not fine. https://www.youtube.com/watch?v=cO-9ovh7Pps ",
   "notes": "",
+  "why_i_like_this_recipe": "",
   "tags": [
     "middle eastern",
     "unattempted",
@@ -17,7 +18,10 @@
     "garlic",
     "black pepper"
   ],
-  "secondary_ingredients": ["mint", "leeks"],
+  "secondary_ingredients": [
+    "mint",
+    "leeks"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

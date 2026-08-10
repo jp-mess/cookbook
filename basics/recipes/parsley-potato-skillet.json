@@ -2,6 +2,7 @@
   "name": "parsley potato skillet",
   "instructions": "",
   "notes": "Rosemary/thyme is just for infusing olive oil, while parsley is baked fresh",
+  "why_i_like_this_recipe": "",
   "tags": [
     "excellent",
     "eastern european",
@@ -12,7 +13,10 @@
     "olive oil",
     "potatoes"
   ],
-  "secondary_ingredients": ["rosemary", "thyme"],
+  "secondary_ingredients": [
+    "rosemary",
+    "thyme"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

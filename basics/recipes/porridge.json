@@ -2,6 +2,7 @@
   "name": "porridge",
   "instructions": "",
   "notes": "",
+  "why_i_like_this_recipe": "",
   "tags": [
     "unattempted",
     "american",
@@ -15,7 +16,9 @@
     "raspberries",
     "blueberries"
   ],
-  "secondary_ingredients": ["strawberries"],
+  "secondary_ingredients": [
+    "strawberries"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

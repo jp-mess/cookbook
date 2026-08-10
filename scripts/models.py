@@ -74,6 +74,7 @@ class Recipe(Base):
     name = Column(String(200), nullable=False)
     instructions = Column(Text)
     notes = Column(Text)  # General notes about the recipe
+    why_i_like_this_recipe = Column(Text)  # User's reflection on what makes this recipe unique/useful
     
     # Many-to-many relationship with Tags
     tags = relationship('Tag', secondary=recipe_tags, back_populates='recipes')

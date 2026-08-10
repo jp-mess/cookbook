@@ -2,6 +2,7 @@
   "name": "faux pickled red onions",
   "instructions": "",
   "notes": "",
+  "why_i_like_this_recipe": "",
   "tags": [
     "good enough",
     "french",
@@ -14,7 +15,10 @@
     "olive oil",
     "lemon zest"
   ],
-  "secondary_ingredients": ["white wine vinegar", "white vinegar"],
+  "secondary_ingredients": [
+    "white wine vinegar",
+    "white vinegar"
+  ],
   "clashing_ingredients": [],
   "want_to_try": []
 }

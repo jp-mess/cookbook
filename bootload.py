@@ -354,7 +354,8 @@ def bootload_recipes(db, recipes_dir: Path) -> int:
                 instructions=json_data.get('instructions'),
                 notes=json_data.get('notes'),
                 ingredients=ingredients,
-                tags=tags
+                tags=tags,
+                why_i_like_this_recipe=json_data.get('why_i_like_this_recipe')
             )
             
             # Add secondary_ingredients if provided

@@ -2,6 +2,7 @@
   "name": "borscht",
   "instructions": "",
   "notes": "Advise against carrots or parsnips",
+  "why_i_like_this_recipe": "",
   "tags": [
     "eastern european",
     "good enough",
@@ -15,7 +16,13 @@
     "sour cream",
     "ketchup"
   ],
-  "secondary_ingredients": ["turnips", "radishes"],
-  "clashing_ingredients": ["parsnips", "carrots"],
+  "secondary_ingredients": [
+    "turnips",
+    "radishes"
+  ],
+  "clashing_ingredients": [
+    "parsnips",
+    "carrots"
+  ],
   "want_to_try": []
 }

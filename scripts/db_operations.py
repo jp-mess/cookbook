@@ -605,21 +605,23 @@ def add_recipe(
     instructions: str = None,
     notes: str = None,
     tags: list = None,
-    ingredients: list = None
+    ingredients: list = None,
+    why_i_like_this_recipe: str = None
 ) -> Recipe:
     """Add a new recipe to the database."""
     # Normalize name (convert to singular and lowercase)
     normalized_name, _ = normalize_name(name)
-    
+
     # Check if recipe already exists (using normalized name)
     existing = db.query(Recipe).filter(Recipe.name == normalized_name).first()
     if existing:
         raise ValueError(f"Recipe '{name}' already exists (as '{existing.name}')")
-    
+
     recipe = Recipe(
         name=normalized_name,
         instructions=instructions,
-        notes=notes
+        notes=notes,
+        why_i_like_this_recipe=why_i_like_this_recipe
     )
     
     # Add tags (must exist - no auto-creation)
@@ -795,28 +797,32 @@ def update_recipe(
     name: str = None,
     new_name: str = None,
     instructions: str = None,
-    notes: str = None
+    notes: str = None,
+    why_i_like_this_recipe: str = None
 ) -> Recipe:
-    """Update basic recipe fields (name, instructions, notes)."""
+    """Update basic recipe fields (name, instructions, notes, why_i_like_this_recipe)."""
     recipe = get_recipe(db, name=name, recipe_id=recipe_id)
     if not recipe:
         raise ValueError(f"Recipe not found")
-    
+
     if new_name is not None:
         # Normalize new name (convert to singular and lowercase)
         normalized_new_name, _ = normalize_name(new_name)
-        
+
         # Check if new name already exists
         existing = db.query(Recipe).filter(Recipe.name == normalized_new_name, Recipe.id != recipe.id).first()
         if existing:
             raise ValueError(f"Recipe '{new_name}' already exists (as '{existing.name}')")
         recipe.name = normalized_new_name
-    
+
     if instructions is not None:
         recipe.instructions = instructions
-    
+
     if notes is not None:
         recipe.notes = notes
+
+    if why_i_like_this_recipe is not None:
+        recipe.why_i_like_this_recipe = why_i_like_this_recipe
     
     db.commit()
     db.refresh(recipe)

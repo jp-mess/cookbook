@@ -4,6 +4,7 @@ beer
 vodka
 coca cola
 black tea
+coffee
 breadcrumbs
 panko
 potato chips

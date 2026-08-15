@@ -26,3 +26,4 @@ tofu bake
 rice
 mortar/pestle
 bulking goals
+drink

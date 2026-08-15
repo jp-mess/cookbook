@@ -5,6 +5,8 @@ vodka
 coca cola
 black tea
 coffee
+espresso
+ginger ale
 breadcrumbs
 panko
 potato chips

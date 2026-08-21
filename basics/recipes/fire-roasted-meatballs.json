@@ -1,0 +1,27 @@
+{
+  "name": "fire roasted meatballs",
+  "instructions": "Meatballs in a fire-roasted tomato sauce, served over pasta. Split off from the original master-ragu file (now master-bolognese.json) — the fire-roasted character + meatball shape distinguish this from the other ragu variants.\n\n- Shape impossible meat into meatballs and brown in olive oil.\n- Add FIRE ROASTED canned tomatoes (not regular — the fire-roasted character is the dish's signature), red wine vinegar, fennel seeds, bay leaf.\n- Simmer until thickened.\n- Toss with pasta.",
+  "notes": "=== FIRE-ROASTED TOMATOES ARE LOAD-BEARING ===\n\nRegular canned tomatoes make a fine dish but not this dish. The smoky fire-roasted character is what makes this recipe distinct from the bolognese family (master-bolognese.json) and the vegetable ragus (vegetable-ragu.json), all of which want regular canned tomatoes. If you're out of fire-roasted, save this recipe for another day rather than substituting.\n\n=== MEATBALL SHAPE IS LOAD-BEARING ===\n\nImpossible meat shaped into meatballs. The shaping matters — without the meatball format, this collapses into a generic vegan ragu with fire-roasted tomatoes. The distinct meatball-per-forkful texture IS the recipe.\n\n=== FENNEL SEEDS + BAY LEAF ===\n\nBoth in the sauce. Fennel seeds are especially at home with the fire-roasted + meatball combination — classic italian-american meatball register.\n\n=== SIBLING RECIPES ===\n\n- master-bolognese.json: bolognese family (Marcella, Nisha, ATK, my mix). Different shape entirely — no fire-roasted, no meatballs.\n- vegetable-ragu.json: eggplant ragu and mushroom-lentil ragu, split off from the same master. Different protein slot, different tomato treatment.\n- master-italian-tomato-sauce-and-pesto.json: the protein-free italian pasta-sauce side.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "pasta",
+    "meat main",
+    "excellent",
+    "vegan option"
+  ],
+  "ingredients": [
+    "pasta",
+    "impossible meat",
+    "olive oil",
+    "fire roasted tomatoes",
+    "red wine vinegar",
+    "fennel seeds",
+    "bay leaf",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

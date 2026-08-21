@@ -1,0 +1,36 @@
+{
+  "name": "vegetable ragu",
+  "instructions": "TWO VEGETABLE-FORWARD RAGUS under one roof. Both are pasta ragus but neither is a bolognese — mushrooms + eggplant (variant A) or mushrooms + lentils (variant B) carry the protein slot. See notes for how these differ from the bolognese family (master-bolognese.json).\n\n=== VARIANT A — EGGPLANT RAGU (VEGAN) ===\n\n- Sauté finely diced yellow onions and shallots in olive oil with garlic.\n- Add diced eggplant and portabella mushrooms; cook down until soft and browned.\n- Add ground vegan meat, break it up, cook through.\n- Stir in canned tomatoes, porcini mushroom powder, nutritional yeast, red wine vinegar. Simmer until thickened.\n- Toss with pasta.\n\n=== VARIANT B — MUSHROOM LENTIL RAGU (VEGETARIAN) ===\n\n- Brown mushrooms HARD in olive oil — get real color on them. Set aside.\n- Sauté yellow onions in the same pan. Deglaze with red wine; reduce.\n- Add lentils, canned tomatoes, and enough water to cover the lentils. Simmer until lentils are tender.\n- Return mushrooms to the pan; warm through.\n- Finish OFF HEAT with parmesan, nutritional yeast, basil, and parsley. Salt and black pepper to taste.\n- Toss with pasta.",
+  "notes": "=== NOT BOLOGNESE — SEPARATE FAMILY ===\n\nThese two variants used to live in the same file as the bolognese variants (now master-bolognese.json). They were split out because they aren't bolognese-shaped: neither uses milk-before-wine, neither runs on the 3-hour uncovered simmer, and the protein slot is entirely vegetable (mushroom + eggplant, or mushroom + lentil). See master-bolognese.json for the bolognese family (Marcella, Nisha, ATK, my mix).\n\n=== SHARED SHAPE ACROSS BOTH VARIANTS ===\n1. Tomato base (canned tomatoes; regular, NOT fire-roasted — that's the meatball recipe's signature).\n2. Vegetable protein slot: mushroom + eggplant + ground vegan meat (A); mushroom + lentil (B).\n3. Acid: red wine vinegar (A); red wine (B). Don't mix or swap.\n4. Soffrito-style aromatics: yellow onion always in; shallots/celery/carrot/garlic vary.\n5. Served over pasta. Penne / rigatoni / other short shapes work fine — long-cut isn't required here.\n\n=== FAUX MEAT (VARIANT A) ===\n\nGround vegan meat is the canonical choice for variant A. Impossible also works but is overkill — the eggplant + mushroom already carry the meat-analog work, so a very meaty faux meat competes rather than blends.\n\n=== NO FIRE-ROASTED TOMATOES ===\n\nRegular canned tomatoes for both variants. Fire-roasted is the signature of the separate fire-roasted-meatballs recipe — using them here reads too smoky against the mushroom + eggplant or mushroom + lentil register.\n\n=== HERB FINISH — VARIANT B ONLY ===\n\nVariant B (mushroom lentil) wants basil and parsley off heat — the wine-and-lentil base is brightened by fresh herb finishes. Variant A (eggplant) does NOT take fresh herb finishes well — the porcini powder and nutritional yeast do the umami work and fresh herbs read as a distraction against the eggplant + mushroom base.\n\n=== DISTINCTION FROM LENTIL-MUSHROOM-STEW ===\n\nVariant B has overlapping headline ingredients with lentil-mushroom-potato-stew (mushrooms, lentils, tomato). Different dish: the stew is broth-forward, served as a soup, explicitly anti-canned-tomato and anti-tomato-paste, uses stock not pasta. Don't merge.\n\n=== SIBLING RECIPES ===\n\n- master-bolognese.json: the bolognese family (Marcella, Nisha, ATK, my mix). Related shape but structurally distinct (milk before wine, 3-hour simmer for the canonical Marcella).\n- fire-roasted-meatballs.json: split off from the same master, uses fire-roasted tomatoes + meatball shape.\n- master-italian-tomato-sauce-and-pesto.json: the protein-free pasta-sauce side of the italian pasta family.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "pasta",
+    "excellent",
+    "vegan option"
+  ],
+  "ingredients": [
+    "canned tomatoes",
+    "pasta",
+    "yellow onions",
+    "shallots",
+    "garlic",
+    "olive oil",
+    "eggplant",
+    "portabella mushrooms",
+    "ground vegan meat",
+    "porcini mushroom powder",
+    "nutritional yeast",
+    "red wine vinegar",
+    "red wine",
+    "lentils",
+    "parmesan cheese",
+    "basil",
+    "parsley",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

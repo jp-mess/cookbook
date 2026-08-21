@@ -1,0 +1,22 @@
+{
+  "name": "strawberry compote",
+  "instructions": "1. Sauté strawberries in lemon juice — 1/4 of a lemon is enough. Don't overdo the lemon in the early stages (see notes — easy failure mode).\n2. Add sugar. Cook and stir/crush rapidly until syrupy.\n3. Mix 1-2 tablespoons of water with cornstarch and stir in for desired thickness. Hard to under- or over-do.\n\nBlueberries can go in alongside the strawberries. Vanilla and salt also go in.",
+  "notes": "=== LEMON JUICE — GO EASY AT THE START ===\n\n1/4 of a lemon is enough. The strawberries will add their own tartness as they cook, so don't overdo the lemon in the early stages — easy failure mode.\n\n=== CORNSTARCH SLURRY FOR THICKNESS ===\n\n1-2 tablespoons of water mixed with cornstarch, stirred in. Hard to under- or over-do — adjust to the thickness you want.\n\n=== SIBLING RECIPE ===\n\nChia jam (chia-jam.json) — different thickening mechanism (chia seeds instead of cornstarch), different final texture. Reach for whichever fits.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "dessert",
+    "spread/dip/sauce"
+  ],
+  "ingredients": [
+    "strawberries",
+    "blueberries",
+    "sugar",
+    "lemon",
+    "cornstarch",
+    "vanilla",
+    "salt"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

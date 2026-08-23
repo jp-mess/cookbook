@@ -1,5 +1,6 @@
 all-purpose flour
 wheat flour
+bread flour
 masa harina
 sugar
 brown sugar
@@ -16,6 +17,7 @@ dutch process cocoa powder
 espresso powder
 starch
 cornstarch
+potato starch
 baking powder
 baking soda
 yeast

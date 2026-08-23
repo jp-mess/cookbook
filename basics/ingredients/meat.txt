@@ -12,6 +12,7 @@ scallops
 mussels
 clams
 lard
+bacon
 ground beef
 beef
 soy curls

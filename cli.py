@@ -138,6 +138,10 @@ def print_recipe_info(recipe):
         print(f"\nWhy I Like This Recipe:")
         print(recipe.why_i_like_this_recipe)
 
+    if recipe.original_chef:
+        print(f"\nOriginal Chef:")
+        print(recipe.original_chef)
+
     if recipe.secondary_ingredients:
         secondary_names = [ing.name for ing in recipe.secondary_ingredients if ing]
         if secondary_names:

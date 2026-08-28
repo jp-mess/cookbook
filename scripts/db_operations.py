@@ -606,7 +606,8 @@ def add_recipe(
     notes: str = None,
     tags: list = None,
     ingredients: list = None,
-    why_i_like_this_recipe: str = None
+    why_i_like_this_recipe: str = None,
+    original_chef: str = None
 ) -> Recipe:
     """Add a new recipe to the database."""
     # Normalize name (convert to singular and lowercase)
@@ -621,7 +622,8 @@ def add_recipe(
         name=normalized_name,
         instructions=instructions,
         notes=notes,
-        why_i_like_this_recipe=why_i_like_this_recipe
+        why_i_like_this_recipe=why_i_like_this_recipe,
+        original_chef=original_chef
     )
     
     # Add tags (must exist - no auto-creation)
@@ -798,9 +800,10 @@ def update_recipe(
     new_name: str = None,
     instructions: str = None,
     notes: str = None,
-    why_i_like_this_recipe: str = None
+    why_i_like_this_recipe: str = None,
+    original_chef: str = None
 ) -> Recipe:
-    """Update basic recipe fields (name, instructions, notes, why_i_like_this_recipe)."""
+    """Update basic recipe fields (name, instructions, notes, why_i_like_this_recipe, original_chef)."""
     recipe = get_recipe(db, name=name, recipe_id=recipe_id)
     if not recipe:
         raise ValueError(f"Recipe not found")
@@ -823,6 +826,9 @@ def update_recipe(
 
     if why_i_like_this_recipe is not None:
         recipe.why_i_like_this_recipe = why_i_like_this_recipe
+
+    if original_chef is not None:
+        recipe.original_chef = original_chef
     
     db.commit()
     db.refresh(recipe)

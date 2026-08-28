@@ -75,6 +75,7 @@ class Recipe(Base):
     instructions = Column(Text)
     notes = Column(Text)  # General notes about the recipe
     why_i_like_this_recipe = Column(Text)  # User's reflection on what makes this recipe unique/useful
+    original_chef = Column(Text)  # Attribution — cookbook / chef / website source when the recipe is external
     
     # Many-to-many relationship with Tags
     tags = relationship('Tag', secondary=recipe_tags, back_populates='recipes')

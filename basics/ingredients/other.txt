@@ -2,6 +2,7 @@ white wine
 red wine
 beer
 vodka
+brandy
 coca cola
 black tea
 coffee

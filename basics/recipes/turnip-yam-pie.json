@@ -34,7 +34,9 @@
     "nutritional yeast",
     "panko"
   ],
-  "clashing_ingredients": [],
+  "clashing_ingredients": [
+    "garden vegetable bouillon"
+  ],
   "want_to_try": [],
   "original_chef": "America's Test Kitchen — Vegetable Pot Pie (Hearty Vegetable Mains). Modifications: bouillon-based stock instead of vegetable broth, porcini mushroom powder instead of parmesan, fresh ginger added off heat as part of a lemon-and-ginger brightening axis (interchangeable or together), parsley skipped. Renamed 'turnip yam pie' to name the two roots that carry the dish."
 }

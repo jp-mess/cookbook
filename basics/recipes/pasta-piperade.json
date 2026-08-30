@@ -1,0 +1,36 @@
+{
+  "name": "pasta piperade",
+  "instructions": "A sautéed-and-blended vegetable-and-tomato sauce for pasta. Same underlying technique as the piperade in [[ratatouille]] variant B, but with additions that push it toward pasta-sauce territory (see notes on how this differs from the ratatouille version).\n\nSee sibling recipes in the italian-tomato-sauces folder ([[marcella-tomato-sauce]], [[sicilian-pesto-rosso]], [[vodka-sauce]], [[marcella-eggplant-sauce]]) for other italian tomato-sauce shapes.\n\n=== INGREDIENTS ===\n\n- 1 medium yellow onion, roughly chopped\n- 1-2 bell peppers, roughly chopped\n- 1-2 carrots, roughly chopped\n- 3-4 cloves garlic\n- tomatoes (canned whole peeled or fresh — both work; sauce gets blended smooth)\n- olive oil\n- salt to taste\n- pasta (short shapes; long-cut also fine since this blends smooth)\n\nPICK-ANY-ONE-OR-MORE FOR PASTA SAVORINESS (see PIPERADE VS RATATOUILLE note):\n- tomato paste (a spoonful, cooked into the base for depth)\n- heavy cream (a splash near the end)\n- butter (a knob mounted in off heat)\n- light miso paste (small amount, adds fermented depth)\n\n=== PROCEDURE ===\n\n1. Sauté the chopped onion + bell pepper + carrot + garlic in olive oil until softened and starting to caramelize.\n2. Add tomatoes; simmer to cook down (~15-20 min).\n3. Add any of the savoriness options (tomato paste, cream, butter, miso).\n4. Blend smooth (immersion blender in the pot, or transfer to a countertop blender).\n5. Salt to taste. Toss with cooked pasta.",
+  "notes": "The blended vegetable-tomato pasta sauce. Split out from the former italian-tomato-sauces.json (Variant D) into its own file.\n\n=== CORE INGREDIENTS ===\n\nOnion + bell pepper + tomato + carrot + garlic sautéed and blended smooth. That's the whole thing. Everything else in the ingredient list is a savoriness option.\n\n=== PIPERADE VS RATATOUILLE PIPERADE — SAME BASE, DIFFERENT ADDITIONS ===\n\nThis recipe IS structurally the same sauce as the piperade in [[ratatouille]] variant B. Both are onion + bell pepper + carrot + tomato + garlic sautéed and blended smooth.\n\nThe difference: THIS ONE (pasta piperade) often takes SAVORINESS ADDITIONS to make it richer and pasta-appropriate:\n- TOMATO PASTE for depth\n- HEAVY CREAM for body\n- BUTTER for richness\n- LIGHT MISO PASTE for fermented depth\n\nRatatouille's piperade is the bed for a vegetable tian and stays cleaner (no dairy, no miso, no paste beyond a spoonful) so the tianed vegetables lead. This one is the sauce that COATS pasta, so it can take more richness without being upstaged.\n\nPick any one or more of the savoriness additions based on what you want. All work.\n\n=== WALNUTS / NUTRITIONAL YEAST / RED CHILI FLAKES WERE HERE AS IMPROVISATIONAL ADDS — REMOVED ===\n\nEarlier versions of this recipe listed a few walnuts, nutritional yeast, and red chili flakes as part of the ingredient list. Removed — they're improvisational tools, not part of the core piperade identity. If you want to add them, do; but they don't need to live in the ingredient list. Same principle applies to any other improvised add.\n\n=== BLEND SMOOTH — SAUCE, NOT CHUNKY ===\n\nThe whole point of the sauté-and-blend format is a smooth sauce. Immersion blender in the pot is easiest; countertop blender works too. Chunky texture pushes the sauce into a stewed-vegetables register, which isn't the target.\n\n=== IF YOU IMPROVISE WITH NUTS — TOASTED WALNUTS OR PEELED ALMONDS ===\n\nAcross all italian tomato sauces (siblings in this folder), toasted walnuts or peeled almonds are best if you're substituting nuts. Pine nuts + sunflower seeds stay clashing across this family (see [[sicilian-pesto-rosso]] for the full argument).\n\n=== SIBLING RECIPES (TOMATO PASTA SAUCE TAG) ===\n\n- [[marcella-tomato-sauce]]: 3-ingredient simmered tomato + butter + onion.\n- [[sicilian-pesto-rosso]]: raw blended sun-dried-tomato + almond pesto.\n- [[vodka-sauce]]: tomato paste + cream outlier.\n- [[marcella-eggplant-sauce]]: fried eggplant + garlic-tomato.\n- [[ratatouille]]: variant B uses the same base piperade as a bed for a vegetable tian."
+  ,
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "pasta",
+    "tomato pasta sauce",
+    "excellent"
+  ],
+  "ingredients": [
+    "yellow onions",
+    "bell peppers",
+    "carrots",
+    "garlic",
+    "canned tomatoes",
+    "tomatoes",
+    "olive oil",
+    "salt",
+    "pasta"
+  ],
+  "secondary_ingredients": [
+    "tomato paste",
+    "heavy whipping cream",
+    "butter",
+    "light miso paste"
+  ],
+  "clashing_ingredients": [
+    "pine nuts",
+    "sunflower seeds"
+  ],
+  "want_to_try": [],
+  "original_chef": "Mine (blended vegetable-tomato sauce; not one specific author)."
+}

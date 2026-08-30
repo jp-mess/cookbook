@@ -1,0 +1,33 @@
+{
+  "name": "sicilian pesto rosso",
+  "instructions": "Pesto rosso alla trapanese — the traditional sicilian red pesto. Raw blended sun-dried-tomato + almond + basil paste. No cook.\n\nSee sibling recipes in the italian-tomato-sauces folder ([[marcella-tomato-sauce]], [[vodka-sauce]], [[pasta-piperade]], [[marcella-eggplant-sauce]]) for other italian tomato-sauce shapes.\n\n=== INGREDIENTS ===\n\n- sun-dried tomatoes (rehydrated in warm water if dry-packed; drain and pat dry)\n- almonds (blanched, unsalted)\n- fresh basil leaves\n- garlic (raw, 1-2 cloves)\n- olive oil (good quality)\n- pecorino cheese (traditional) or parmesan cheese\n- salt\n- red chili flakes (optional, traditional in some sicilian versions)\n- pasta (short shapes like busiate traditionally; penne, fusilli, or trofie all work)\n\n=== PROCEDURE ===\n\n1. Rehydrate the sun-dried tomatoes if dry-packed. Skip if oil-packed.\n2. In a food processor or blender, combine sun-dried tomatoes, almonds, basil, garlic, and a pinch of red chili flakes. Pulse to a rough paste.\n3. With the motor running, drizzle in olive oil until the sauce reaches a thick, spreadable consistency — a loose paste, not a smooth sauce.\n4. Fold in grated pecorino (or parmesan) and salt to taste. Fold in by hand off the blades — don't blend the cheese.\n5. Toss with hot cooked pasta. Loosen with a splash of pasta water if too thick.",
+  "notes": "Traditional sicilian red pesto (pesto rosso alla trapanese). Split out from the former italian-tomato-sauces.json (Variant B) into its own file. Classical / traditional recipe — not one specific author.\n\n=== SUN-DRIED TOMATOES ARE THE STRUCTURAL INGREDIENT — NOT TOMATO PASTE, NOT CANNED ===\n\nThe tomato base is specifically SUN-DRIED tomatoes. Their chewy, umami-forward, slightly sweet dried-fruit register is what makes this read as pesto rather than sauce. Tomato paste is too cooked/concentrated; canned tomatoes carry too much water for a raw blended paste.\n\n=== ALMONDS ARE THE NUT — BLANCHED, UNSALTED ===\n\nPine nuts are for green pesto; almonds anchor red. Blanched (skins off) gives the cleanest color. Unsalted so you control the seasoning.\n\n=== PINE NUTS ARE CLASHING — DIFFERENT PESTO ENTIRELY ===\n\nPine nuts belong in green pesto (see [[italian-green-sauce-and-pesto]]) where their delicate resiny sweetness bridges basil and parmesan. In a tomato base they get lost.\n\n=== SUNFLOWER SEEDS ARE CLASHING — CHALKY IN RED SAUCES ===\n\nSunflower seeds work in green pesto but read CHALKY in red / tomato sauces. Tested and confirmed. Stick with almonds; skip sunflower seeds entirely. Same principle applies across all the italian-tomato-sauces siblings.\n\n=== BASIL IS NON-OPTIONAL ===\n\nWithout fresh basil the dish reads underwhelming — just ground sun-dried tomatoes and almonds with cheese. Basil is what makes it a pesto rather than an italian-tomato-and-almond spread.\n\n=== PECORINO IS TRADITIONAL; PARMESAN IS FINE ===\n\nThe classic sicilian version uses pecorino — sharper, saltier, sheep's-milk depth against the sweet sun-dried tomatoes. Parmesan works too and is more likely to be on hand; pecorino is the upgrade when you have it.\n\n=== FOOD PROCESSOR OR BLENDER, NOT MORTAR ===\n\nRed pesto wants a blender or food processor. Almonds are too hard to break down by hand with a pestle in reasonable time. Green pesto is a mortar dish; red pesto is a blender dish.\n\n=== SHORT PASTA SHAPES ===\n\nSicilian tradition pairs pesto trapanese with busiate (a twisted pasta). Penne, fusilli, trofie, cavatelli, or orecchiette all work. Long strands (spaghetti, linguine) don't grip red pesto well.\n\n=== IF YOU IMPROVISE WITH NUTS — TOASTED WALNUTS OR PEELED ALMONDS ===\n\nAcross all italian tomato sauces (siblings in this folder), toasted walnuts or peeled almonds are best if you're substituting nuts. Pine nuts + sunflower seeds stay clashing across this family.\n\n=== SIBLING RECIPES (TOMATO PASTA SAUCE TAG) ===\n\n- [[marcella-tomato-sauce]]: Marcella Hazan's 3-ingredient simmered tomato sauce.\n- [[vodka-sauce]]: tomato paste + cream outlier.\n- [[pasta-piperade]]: blended vegetable-tomato base.\n- [[marcella-eggplant-sauce]]: fried eggplant + garlic-tomato."
+  ,
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "pasta",
+    "tomato pasta sauce",
+    "excellent"
+  ],
+  "ingredients": [
+    "sun-dried tomatoes",
+    "almonds",
+    "basil",
+    "garlic",
+    "olive oil",
+    "pecorino cheese",
+    "parmesan cheese",
+    "salt",
+    "pasta"
+  ],
+  "secondary_ingredients": [
+    "red chili flakes"
+  ],
+  "clashing_ingredients": [
+    "pine nuts",
+    "sunflower seeds"
+  ],
+  "want_to_try": [],
+  "original_chef": "Traditional sicilian — pesto rosso alla trapanese. Not one specific author."
+}

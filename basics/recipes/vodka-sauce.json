@@ -1,0 +1,31 @@
+{
+  "name": "vodka sauce",
+  "instructions": "A DIFFERENT BRANCH of the tomato-sauce family — this one adds heavy cream. Structurally it belongs somewhere between the pure-tomato family and a cream sauce. It's grouped with the italian-tomato-sauces siblings because the sauce is fundamentally a tomato dish that happens to add cream, not a cream dish that happens to add tomato. Gigi Hadid style.\n\nSee sibling recipes in the italian-tomato-sauces folder ([[marcella-tomato-sauce]], [[sicilian-pesto-rosso]], [[pasta-piperade]], [[marcella-eggplant-sauce]]) for other italian tomato-sauce shapes.\n\n=== INGREDIENTS ===\n\n- 1 medium yellow onion, finely chopped\n- 3-4 cloves garlic, minced\n- 2-3 tablespoons butter\n- 2-3 tablespoons olive oil\n- 4-6 tablespoons tomato paste (concentrated)\n- 1/4 cup vodka\n- 1/2 to 3/4 cup heavy whipping cream\n- red chili flakes (canonical here — the gigi hadid version leans on them)\n- grated parmesan cheese\n- fresh basil (torn, off heat)\n- salt to taste\n- pasta (short shapes — penne, rigatoni)\n\n=== PROCEDURE ===\n\n1. Sauté onion and garlic in butter + olive oil until softened.\n2. Add tomato paste and cook it hard in the fat until it darkens a shade and smells sweet-caramelized (~3-5 min). This is the load-bearing flavor step.\n3. Pour in vodka; let it reduce briefly (~2 min).\n4. Stir in heavy cream and red chili flakes. Simmer to combine.\n5. Off heat, fold in grated parmesan and torn fresh basil. Salt to taste.\n6. Toss with cooked short pasta.",
+  "notes": "The vodka sauce outlier of the italian-tomato-sauces family. Split out from the former italian-tomato-sauces.json (Variant C) into its own file. Gigi Hadid-style version — heavy on the chili flakes.\n\n=== SITS ON A DIFFERENT BRANCH FROM THE OTHER TOMATO SAUCES ===\n\nVodka sauce is the outlier in the family. [[marcella-tomato-sauce]] and [[sicilian-pesto-rosso]] stay on the pure-tomato axis (with almonds+cheese carrying fat load in the pesto rosso); this one adds heavy cream and moves the sauce toward a cross-family space between italian tomato and cream sauces. That's why it's called 'a different branch.' It still belongs in the folder because the tomato paste + tomato register is doing the flavor work — this is a tomato sauce that happens to add cream, not a cream sauce that happens to add tomato.\n\n=== TOMATO PASTE IS THE TOMATO SOURCE — LOAD-BEARING ===\n\nUses tomato PASTE cooked hard in the fat until it darkens as the main tomato base. This is opposite of [[marcella-tomato-sauce]] and [[sicilian-pesto-rosso]] (which want canned whole tomatoes or sun-dried respectively). Paste is structural here.\n\n=== COOK THE TOMATO PASTE HARD IN THE FAT ===\n\nThe darken-and-caramelize step (~3-5 min) is where the flavor comes from. Under-cook it and the sauce tastes tinny and raw. Cook it until it visibly darkens a shade and smells sweet-caramelized.\n\n=== RED CHILI FLAKES CANONICAL ===\n\nThe gigi hadid version leans on chili flakes. Not optional here (unlike the sicilian pesto rosso where they're optional). Adjust to taste but include them.\n\n=== SHORT PASTA — PENNE OR RIGATONI ===\n\nThe thick creamy sauce needs ridged short shapes to grip. Long strands slide out from under it.\n\n=== FRESH BASIL AT THE END ===\n\nTorn fresh basil folded in off heat. Same rule as most italian cream/tomato dishes — basil wilts fast and turns brown if you cook it.\n\n=== SIBLING RECIPES (TOMATO PASTA SAUCE TAG) ===\n\n- [[marcella-tomato-sauce]]: 3-ingredient tomato + butter + onion simmered.\n- [[sicilian-pesto-rosso]]: raw blended sun-dried-tomato + almond pesto.\n- [[pasta-piperade]]: blended vegetable-tomato base.\n- [[marcella-eggplant-sauce]]: fried eggplant folded into a garlic-tomato base."
+  ,
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "pasta",
+    "tomato pasta sauce",
+    "excellent"
+  ],
+  "ingredients": [
+    "yellow onions",
+    "garlic",
+    "butter",
+    "olive oil",
+    "tomato paste",
+    "vodka",
+    "heavy whipping cream",
+    "red chili flakes",
+    "parmesan cheese",
+    "basil",
+    "salt",
+    "pasta"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": [],
+  "original_chef": "Gigi Hadid style. Not one specific author (viral home-cook version of a standard italian-american vodka sauce)."
+}

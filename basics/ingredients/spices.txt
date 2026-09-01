@@ -1,5 +1,6 @@
 turmeric
 cumin
+cumin powder
 coriander
 aleppo pepper
 sumac
@@ -8,6 +9,7 @@ white pepper
 fennel seeds
 fennel powder
 paprika
+smoked paprika
 chili powder
 kashmiri chili powder
 new mexican chili powder

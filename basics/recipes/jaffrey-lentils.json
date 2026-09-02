@@ -1,0 +1,40 @@
+{
+  "name": "jaffrey lentils",
+  "instructions": "Madhur Jaffrey's tarka-style dal — whole green lentils + tomato + asafetida + mustard seeds + dried red chiles + onion + garlic + coriander, finished with chopped fresh cilantro + mint stirred in raw off heat. The mint + cilantro herb pair is the through-line with [[mint-cilantro-skillet]] (chicken/tofu variants) but the technique family here is entirely different — this is a proper tarka dal, not a mortar-pestle herb-sauce-on-protein.\n\nOriginally captured as Variant C of the mint-cilantro-skillet file; split into its own recipe because it's structurally its own dish.\n\nSERVES 4. Stovetop, ~40-50 min.\n\n=== INGREDIENTS ===\n\n- 1 tbsp vegetable oil (see notes — tarka wants neutral oil, NOT ghee)\n- 1/2 tsp cumin seeds\n- 1/2 tsp mustard seeds\n- pinch of asafetida\n- 1-3 whole dried red chiles\n- 1 small yellow onion, sliced in fine half rings\n- 2 cloves garlic, chopped\n- 1 medium tomato, chopped\n- 1 cup whole green lentils\n- water to cover (~3 cups)\n- 3/4 tsp salt\n- 1 tsp ground coriander\n- 1/2 cup chopped fresh cilantro (added off heat at the end)\n- 1/2 cup chopped fresh mint (added off heat at the end)\n\n=== PROCEDURE ===\n\n1. BLOOM THE WHOLE SPICES: heat 1 tbsp vegetable oil in a pot over medium heat. Add cumin seeds, mustard seeds, asafetida, and dried red chiles. Bloom until fragrant and the mustard seeds start to pop (~30-60 seconds).\n\n2. SAUTÉ ONION: add the yellow onion half rings. Sauté until softening (~3-4 min).\n\n3. ADD GARLIC AND TOMATO: stir in the chopped garlic, then the chopped tomato. Cook until the tomato breaks down and the mixture starts to look like a chunky base (~5 min).\n\n4. ADD LENTILS AND WATER: pour in the whole green lentils, water to cover (~3 cups), salt, and ground coriander. Bring to a simmer.\n\n5. SIMMER UNTIL TENDER: reduce heat, cover partially, and simmer until the lentils are tender through — 30-40 min depending on lentil age. Add more water if it dries out too fast; the finished consistency should be moist but not soupy.\n\n6. FINISH WITH HERBS OFF HEAT: remove from heat. Stir in the chopped fresh cilantro and fresh mint. Serve immediately over rice or with flatbread.",
+  "notes": "Madhur Jaffrey's tarka-style dal (whole green lentil), finished with the mint + cilantro herb pair that also anchors [[mint-cilantro-skillet]]. Sister recipe by herb pair, unrelated by technique.\n\n=== TARKA-STYLE DAL STRUCTURE ===\n\nThis is a proper tarka dal — the technique is: bloom whole spices in neutral oil, then build the base (onion + garlic + tomato), then add lentils and water and simmer. Different structural pattern from ground-spice curries (which cook powdered spices into a masala before adding protein).\n\nThe mint + cilantro herb finish is Jaffrey's specific move that ties this recipe to the [[mint-cilantro-skillet]] chicken/tofu variants — but the tarka base + lentil-simmer format has nothing else in common with those. Same herb pair, entirely different cooking pattern.\n\n=== VEGETABLE OIL, NOT GHEE ===\n\nUnlike most indian dishes in the cookbook (which lean ghee-forward), this tarka dal wants NEUTRAL VEGETABLE OIL. Ghee's own character would compete with the mustard-seed-and-asafetida top note that the tarka is built around. 1 tbsp is enough — Jaffrey's original calls for 3 tbsp, which is too much fat for the finished dish. Keep the fat lean here so the whole spices lead.\n\n=== TOMATO AND ASAFETIDA ARE THE LENTIL-SPECIFIC INGREDIENTS ===\n\nBoth ingredients are absent from the mint-cilantro-skillet chicken and tofu variants. They belong to the dal pattern here:\n- TOMATO (one medium, chopped, into the tarka): breaks down into the base as it cooks with the lentils, adding acid and body.\n- ASAFETIDA (a pinch with the whole spices): distinctive sulfurous-oniony note that's classic in indian lentil dishes. Non-optional here.\n- MUSTARD SEEDS + DRIED RED CHILES: the tarka whole spices. Popping mustard seeds are what mark this as a proper tarka.\n\nDon't backport these to the mint-cilantro-skillet chicken or tofu variants — they belong to this recipe.\n\n=== NO GINGER, LIME, TURMERIC, OR CHILI POWDER HERE ===\n\nUnlike the [[mint-cilantro-skillet]] chicken/tofu variants, this dal skips:\n- GINGER and LIME (those brighten the mortar-pestle herb finish in variants A and B; the mint-cilantro raw-stir-in here doesn't want them)\n- TURMERIC and CHILI POWDER (variants A/B use them for a warming spice-crust on the protein; this tarka uses whole dried red chiles + asafetida for a different heat/aromatic axis)\n\nDifferent chile stack: whole dried red chiles here vs the kashmiri + generic chili powder + red chili flakes combination in the skillet variants.\n\n=== HERBS STIRRED IN AT THE END — NO MORTAR, NO CHIMICHURRI ===\n\nSame don't-cook-the-herbs principle as the [[mint-cilantro-skillet]] chicken/tofu variants, different application. Chopped cilantro + mint go in raw at the finish, off heat. No mortar-pestle work; no chimichurri on the side (see below).\n\n=== NO CHIMICHURRI PAIRING ===\n\nUnlike the mint-cilantro-skillet chicken and tofu variants, [[mint-cilantro-chimichurri]] is NOT appropriate here. The tarka-style dal has its own herbal finish (the raw mint + cilantro stir-in), and the chimichurri's vinegar-and-raw-onion structure would fight the tomato + asafetida base. Skip.\n\n=== SIBLING RECIPES ===\n\n- [[mint-cilantro-skillet]]: chicken and tofu variants sharing the mint + cilantro herb pair, but built on the priya-krishna mortar-pestle-or-chop herb-finish-on-protein pattern rather than this tarka-style dal pattern. Same herb pair, different technique family.\n- [[mint-cilantro-chimichurri]]: NOT appropriate here (see above); belongs with the skillet chicken/tofu variants only.\n- Other indian dals / dal-adjacent dishes in the cookbook: [[mediterranean-dal]] (chunky lentil dal, different herb finish), [[coconut-mung-bean-curry]] (mung bean curry with coconut milk)."
+  ,
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "indian",
+    "curry",
+    "beans",
+    "excellent"
+  ],
+  "ingredients": [
+    "lentils",
+    "cilantro",
+    "mint",
+    "garlic",
+    "yellow onions",
+    "tomatoes",
+    "cumin",
+    "coriander",
+    "mustard seeds",
+    "asafetida",
+    "red chili flakes",
+    "vegetable oil",
+    "salt"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "ghee",
+    "turmeric",
+    "chili powder",
+    "kashmiri chili powder",
+    "ginger",
+    "lime",
+    "mint cilantro chimichurri"
+  ],
+  "want_to_try": [],
+  "original_chef": "Madhur Jaffrey — tarka-style dal (whole green lentils). Split from an earlier mint-cilantro-skillet umbrella file (originally Variant C there)."
+}

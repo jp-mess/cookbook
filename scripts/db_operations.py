@@ -4,7 +4,7 @@ Database operations for recipes and ingredients.
 import warnings
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
-from models import Recipe, Ingredient, Tag, IngredientType, Article, Subtag
+from models import Recipe, Ingredient, Tag, IngredientType, Article, Subtag, Bundle
 
 # Suppress urllib3/OpenSSL warnings
 try:
@@ -711,43 +711,53 @@ def search_recipes_by_ingredients_exact(
     if not requested_terms:
         return []
     
-    # Get all ingredients and types from database
+    # Get all ingredients, bundles, and types from database
     all_ingredients_list = db.query(Ingredient).all()
     all_ingredients_in_db = {ing.name.lower(): ing for ing in all_ingredients_list if ing and ing.name}
+    all_bundles = db.query(Bundle).all()
+    all_bundles_in_db = {b.name.lower(): b for b in all_bundles if b and b.name}
     all_types = list_ingredient_types(db)
     all_types_in_db = {type_obj.name.lower(): type_obj for type_obj in all_types}
-    
-    # Build a set of ingredient names that match each search term
-    # Each term can be either an ingredient name or a type name
+
+    # Build a set of ingredient names that match each search term.
+    # Each term can be an ingredient name, a bundle name, or a type name.
+    # Bundle and exact-ingredient matches UNION (a bundle name may also be a
+    # real ingredient name — e.g. 'bell peppers' the ingredient and the bundle
+    # that adds fire roasted bell peppers).
     term_matching_ingredients = {}
     missing_terms = []
-    
+
     for term in requested_terms:
         matching_ingredient_names = set()
-        
-        # Check if it's an exact ingredient match
+
+        # Exact ingredient match
         if term in all_ingredients_in_db:
             matching_ingredient_names.add(term)
-        # Check if it's a type name
-        elif term in all_types_in_db:
+        # Bundle match — expand to all member ingredients (unions with exact match)
+        if term in all_bundles_in_db:
+            for ing in all_bundles_in_db[term].ingredients:
+                if ing and ing.name:
+                    matching_ingredient_names.add(ing.name.lower())
+        # Type match (only if nothing matched yet — types are the coarsest tier)
+        if not matching_ingredient_names and term in all_types_in_db:
             type_obj = all_types_in_db[term]
-            # Get all ingredients of this type
             for ing in type_obj.ingredients:
                 if ing and ing.name:
                     matching_ingredient_names.add(ing.name.lower())
-        else:
+
+        if not matching_ingredient_names:
             missing_terms.append(term)
             continue
-        
+
         term_matching_ingredients[term] = matching_ingredient_names
     
     # Validate - report missing terms
     if missing_terms:
         if len(missing_terms) == 1:
-            raise ValueError(f"Ingredient or type \"{missing_terms[0]}\" does not exist. Please check the spelling and try again.")
+            raise ValueError(f"Ingredient, bundle, or type \"{missing_terms[0]}\" does not exist. Please check the spelling and try again.")
         else:
             missing_str = ", ".join(f"\"{term}\"" for term in missing_terms)
-            raise ValueError(f"Ingredients or types {missing_str} do not exist. Please check the spelling and try again.")
+            raise ValueError(f"Ingredients, bundles, or types {missing_str} do not exist. Please check the spelling and try again.")
 
     # Get all recipes
     all_recipes = db.query(Recipe).all()

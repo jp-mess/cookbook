@@ -1,0 +1,21 @@
+# Ingredient bundles — group related ingredients under a common search token.
+# Format: bundle name: member1, member2, ...
+# Searching for the bundle name matches ALL member ingredients.
+# Members must be canonical ingredients (from basics/ingredients/).
+# A bundle name MAY also be a real ingredient name (search unions both).
+
+bell peppers: bell peppers, fire roasted bell peppers
+tomatoes: tomatoes, canned tomatoes, diced tomatoes, fire roasted tomatoes, cherry tomatoes, sun-dried tomatoes, green tomatoes
+cumin: cumin, cumin powder
+ginger: ginger, ginger powder
+garlic: garlic, garlic powder
+fennel: fennel seeds, fennel powder, fennel bulb
+paprika: paprika, smoked paprika
+lemon: lemon, lemon zest
+yogurt: yogurt, greek yogurt
+potatoes: potatoes, golden potatoes, fingerling potatoes
+breadcrumbs: breadcrumbs, panko, lemon pepper breadcrumbs, pine nut breadcrumbs, deviled breadcrumbs, massaman breadcrumbs
+onions: white onions, yellow onions, sweet onions, red onions, pearl onions, onion powder
+chili powders: chili powder, kashmiri chili powder, new mexican chili powder, ancho chili powder, guajillo chili powder
+yeast extract: marmite, vegemite
+butter: butter, salted butter, vegan butter, ghee

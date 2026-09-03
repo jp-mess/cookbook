@@ -21,7 +21,7 @@ from db_operations import (
     add_tag,
     add_recipe, get_recipe
 )
-from models import Recipe, Article, Ingredient, Tag, IngredientType, Subtag
+from models import Recipe, Article, Ingredient, Tag, IngredientType, Subtag, Bundle
 from sqlalchemy import delete
 import json
 
@@ -122,7 +122,7 @@ def reset_database(db):
     from models import (
         RecipeIngredient, recipe_tags, article_tags,
         recipe_secondary_ingredients, recipe_clashing_ingredients,
-        recipe_want_to_try_ingredients
+        recipe_want_to_try_ingredients, bundle_ingredients
     )
     db.execute(delete(RecipeIngredient))
     db.execute(recipe_tags.delete())
@@ -130,10 +130,12 @@ def reset_database(db):
     db.execute(recipe_secondary_ingredients.delete())
     db.execute(recipe_clashing_ingredients.delete())
     db.execute(recipe_want_to_try_ingredients.delete())
-    
+    db.execute(bundle_ingredients.delete())
+
     # Then delete main entities
     db.execute(delete(Recipe))
     db.execute(delete(Article))
+    db.execute(delete(Bundle))
     db.execute(delete(Ingredient))
     db.execute(delete(Tag))
     db.execute(delete(IngredientType))
@@ -205,6 +207,77 @@ def bootload_ingredients(db, ingredients_dir: Path):
         print(f"    ({added_count} added, {skipped_count} skipped)")
     
     print(f"\n  Total: {total_ingredients} ingredients added across {len(ingredient_files)} types")
+
+
+def bootload_bundles(db, bundles_file: Path):
+    """Load ingredient bundles from basics/bundles.txt.
+
+    Format: one bundle per line — 'bundle name: member1, member2, ...'
+    Lines starting with # and blank lines are ignored.
+    Every member must be an existing canonical ingredient; unknown members
+    fail the bundle loudly (bootload continues, but reports the error).
+    """
+    print("\n" + "="*70)
+    print("Loading Bundles")
+    print("="*70)
+
+    if not bundles_file.exists():
+        print("  (no bundles.txt — skipping)")
+        return
+
+    from db_operations import get_ingredient
+
+    total_bundles = 0
+    failed_bundles = 0
+
+    with open(bundles_file, 'r', encoding='utf-8') as f:
+        for line_num, line in enumerate(f, 1):
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+
+            if ':' not in line:
+                print(f"  ✗ line {line_num}: no ':' separator — expected 'bundle name: member1, member2'")
+                failed_bundles += 1
+                continue
+
+            bundle_name, members_str = line.split(':', 1)
+            bundle_name = bundle_name.strip().lower()
+            member_names = [m.strip().lower() for m in members_str.split(',') if m.strip()]
+
+            if not bundle_name or not member_names:
+                print(f"  ✗ line {line_num}: empty bundle name or member list")
+                failed_bundles += 1
+                continue
+
+            # Validate all members are canonical ingredients
+            members = []
+            missing = []
+            for m in member_names:
+                ing = get_ingredient(db, name=m)
+                if ing:
+                    members.append(ing)
+                else:
+                    missing.append(m)
+
+            if missing:
+                print(f"  ✗ {bundle_name}: unknown ingredient(s): {', '.join(missing)}")
+                failed_bundles += 1
+                continue
+
+            # Check for duplicate bundle name
+            existing = db.query(Bundle).filter(Bundle.name == bundle_name).first()
+            if existing:
+                print(f"  ✗ {bundle_name}: duplicate bundle name (line {line_num})")
+                failed_bundles += 1
+                continue
+
+            bundle = Bundle(name=bundle_name, ingredients=members)
+            db.add(bundle)
+            print(f"  ✓ {bundle_name} ({len(members)} members)")
+            total_bundles += 1
+
+    print(f"\n  Total: {total_bundles} bundle(s) loaded" + (f", {failed_bundles} failed" if failed_bundles else ""))
 
 
 def bootload_tags(db, tags_dir: Path):
@@ -647,7 +720,11 @@ def main():
         # Load ingredients (must be first - recipes depend on ingredients)
         bootload_ingredients(db, ingredients_dir)
         db.commit()  # Ensure ingredients are committed before loading tags/recipes
-        
+
+        # Load bundles (after ingredients - bundles reference ingredients)
+        bootload_bundles(db, project_root / 'basics' / 'bundles.txt')
+        db.commit()
+
         # Load tags (must be second - recipes depend on tags)
         bootload_tags(db, tags_dir)
         db.commit()  # Ensure tags are committed before loading recipes
@@ -664,6 +741,7 @@ def main():
         print("="*70)
         print("\nDatabase initialized with:")
         print("  - Ingredients (from basics/ingredients/)")
+        print("  - Bundles (from basics/bundles.txt)")
         print("  - Tags (from basics/tags/)")
         print("  - Recipes (from basics/recipes/)")
         print()

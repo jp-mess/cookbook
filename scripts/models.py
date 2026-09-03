@@ -51,6 +51,32 @@ recipe_want_to_try_ingredients = Table(
 )
 
 
+# Junction table for many-to-many: Bundle ↔ Ingredients
+bundle_ingredients = Table(
+    'bundle_ingredients',
+    Base.metadata,
+    Column('bundle_id', Integer, ForeignKey('bundles.id'), primary_key=True),
+    Column('ingredient_id', Integer, ForeignKey('ingredients.id'), primary_key=True)
+)
+
+
+class Bundle(Base):
+    """Bundle model - groups related ingredients under a common search token.
+
+    Bundles associate close ingredient variants (e.g. 'bell peppers' bundles
+    bell peppers + fire roasted bell peppers) and non-regex-relatable pairs
+    (e.g. marmite + vegemite) so a search for the bundle name matches every
+    member ingredient. Defined in basics/bundles.txt.
+    """
+    __tablename__ = 'bundles'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False, unique=True)
+
+    # Many-to-many relationship with Ingredients
+    ingredients = relationship('Ingredient', secondary=bundle_ingredients)
+
+
 # Association object for many-to-many: Recipe ↔ Ingredients (with quantity and notes)
 class RecipeIngredient(Base):
     """Association object linking recipes to ingredients with quantity and notes."""

@@ -11,3 +11,5 @@ ginger ale
 breadcrumbs
 panko
 potato chips
+corn chips
+pita chips

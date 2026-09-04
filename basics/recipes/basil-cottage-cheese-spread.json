@@ -1,0 +1,27 @@
+{
+  "name": "basil cottage cheese spread",
+  "instructions": "A spreadable cheese base: cream cheese + cottage cheese + fresh basil, run through a food processor until smooth-ish, spread on bread. That's the whole recipe right now.\n\nSTUB / EXPERIMENT IN PROGRESS: this recipe exists to find the perfect spreadable-cheese balance for an HEIRLOOM TOMATO TARTINE (bruschetta-adjacent — toasted bread + cheese spread + ripe tomato on top). The 'spreadable cheese olympics' — see notes for the framing and the comparison against [[tomato-tart]]'s bakeable cheese stack.\n\n=== INGREDIENTS (CURRENT STARTING POINT) ===\n\n- cream cheese\n- cottage cheese\n- fresh basil\n\n=== PROCEDURE ===\n\n1. FOOD PROCESS: cream cheese + cottage cheese + basil in a food processor until integrated and spreadable. The cottage cheese curds should smooth out; the basil should fleck through.\n2. SPREAD: on toasted bread. Top with sliced ripe tomato (heirloom when in season) for the tartine use case.\n\nRatios unset — this is the experiment. Log findings in notes.",
+  "notes": "=== THE SPREADABLE CHEESE OLYMPICS — WHAT THIS RECIPE IS FOR ===\n\nThis is a STUB with a mission: find the perfect spreadable cheese base for an HEIRLOOM TOMATO TARTINE (similar to bruschetta — toasted bread, cheese spread, ripe tomato + basil on top). The cheese needs to be THICK AND SPREADABLE — it holds the tomato on the toast, carries fat and tang, and doesn't slide.\n\nCurrent starting lineup: CREAM CHEESE (thickness, fat, tang, spreadability) + COTTAGE CHEESE (lighter body, curd texture, protein) + BASIL (the flavor tie to the tomato topping). Food processor smooths the cottage curds into the cream cheese.\n\nOPEN QUESTIONS (the olympics):\n- Cream:cottage ratio — where's the balance between thick-spreadable (cream-cheese-heavy) and light-fresh (cottage-heavy)?\n- Does the basil belong IN the spread (processed in, flecked through) or ON TOP (whole leaves over the tomato)? Or both?\n- Does the spread want salt / lemon zest / garlic / olive oil, or does the tomato topping provide enough?\n- Ricotta as a third cheese, or does that muddy the cream-cheese thesis (see TOMATO TART comparison below)?\n\n=== COMPARISON — [[tomato-tart]]'S CHEESE STACK IS OPTIMIZED FOR BAKING, THIS IS OPTIMIZED FOR SPREADING ===\n\nThe [[tomato-tart]] uses a three-cheese base (parmesan + ricotta + mozzarella) under shingled tomatoes — same cheese-under-tomato idea, but optimized to be BAKEABLE: ricotta holds structure in the oven, mozzarella melts, parmesan sharpens. It's a cooked format.\n\nTHIS spread is the RAW / SPREADABLE counterpart: no bake, so the optimization flips — CREAM CHEESE (which would be wrong in a baked tart) is exactly right here because thickness-and-tang-at-room-temperature is the goal, not oven behavior. The two recipes are the two poles of cheese-under-tomato:\n- BAKEABLE (tomato-tart): ricotta-led, oven-structured\n- SPREADABLE (this): cream-cheese-led, knife-structured\n\nExpect learnings to flow both ways as the olympics progress.\n\n=== RELATED FORMATS ===\n\n- [[tartine]]: the structural parent format (bread + spread + toppings). This spread is a candidate for that recipe's spread slot once the ratios settle.\n- [[sardine-cream-cheese-spread]]: the other cream-cheese-based spread in the cookbook — savory-fishy direction, same cream-cheese-as-thick-base logic.\n- Bruschetta (no recipe yet): the italian reference point for the tomato-on-toast use case — classically no cheese at all (garlic-rubbed toast + tomato + basil + oil). This spread version is deliberately richer than classical bruschetta.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "spread/dip/sauce",
+    "unattempted",
+    "has potential"
+  ],
+  "ingredients": [
+    "cream cheese",
+    "cottage cheese",
+    "basil"
+  ],
+  "secondary_ingredients": [
+    "bread",
+    "tomatoes"
+  ],
+  "clashing_ingredients": [],
+  "want_to_try": [
+    "ricotta cheese",
+    "lemon zest",
+    "garlic"
+  ]
+}

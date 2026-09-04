@@ -4,6 +4,7 @@ couscous
 bread
 pasta
 small pasta
+whole wheat pasta
 egg noodles
 tortilla
 tostada

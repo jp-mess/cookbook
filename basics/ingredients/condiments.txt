@@ -10,3 +10,4 @@ bean sprouts
 worcestershire sauce
 tamarind paste
 gochujang
+harissa

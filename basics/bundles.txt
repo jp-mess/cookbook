@@ -19,3 +19,4 @@ onions: white onions, yellow onions, sweet onions, red onions, pearl onions, oni
 chili powders: chili powder, kashmiri chili powder, new mexican chili powder, ancho chili powder, guajillo chili powder
 yeast extract: marmite, vegemite
 butter: butter, salted butter, vegan butter, ghee
+pickles: dill pickles, pickle juice

@@ -1,28 +1,37 @@
 {
   "name": "chicken pot pie",
-  "instructions": "",
-  "notes": "PEAS BELONG HERE: peas work well in a pot pie specifically because all the resulting gravy is consumed inside the pie — no broth is left behind on the plate, no bowl-bottom puddle. Peas are small enough to be eaten alongside the other components in every bite, they add an earthy vegetal note that the cream-rosemary-chicken base doesn't otherwise carry, and they bring more protein. They're not a standard chicken-stew addition (in a fricassee they'd get lost in a deep bowl of sauce), but the pot-pie format makes them earn their place.\n\nPOTATOES FOR STARCH WITHOUT MSG GUMMINESS: potatoes add starchy body that thickens the final filling and gives it more chew. This matters because the alternative — pushing the gravy thicker with more bouillon/MSG or more flour — leaves the filling gummy and one-note. Potatoes do the thickening structurally instead of chemically; the dish reads richer without reading artificial. Cube them small (see chopping note below).\n\nFINELY CHOPPED, NOT PROCESSED — BITE-SIZED FOR THE GRAVY: every component (leeks, celery, carrots, potatoes, chicken) should be finely chopped but kept bite-sized — not pulverized in a food processor. The goal is a cohesive gravy solution where each forkful has a bit of everything in it. Knife-and-cutting-board instincts are right here. Processor-fine vegetables dissolve into the cream base and lose textural identity; large rustic-chunk cuts leave you fishing for specific components rather than eating a unified bite. Aim for the size that survives the bake but disappears against the others on the fork.",
+  "instructions": "Poached-and-shredded chicken breast in a leek-carrot-celery rosemary gravy, filled into a pie with a real pastry top.\n\n=== PROCEDURE ===\n\n1. POACH THE CHICKEN: poach shreddable chicken breast in chicken broth with a BAY LEAF. Chip it up, put it in knee-deep in braising liquid, and instapot at LOW PRESSURE for 5 MINUTES. Low pressure is preferred because it gets cooking faster and the chicken doesn't sit in boiling water as long. Keep the poaching stock — it becomes the gravy liquid.\n2. SAUTÉ THE VEGETABLES: in a big frying pan, sauté leeks + carrots + celery + garlic + rosemary in a MIX OF BUTTER AND OLIVE OIL. (Thyme works as well, but chicken pot pie has a strong preference for rosemary — see notes.)\n3. FLOUR WHEN THE LIQUID GOES AWAY: add flour once the pan liquid has cooked off. Stir well so all the vegetables are covered and NO WHITE FLOUR is visible.\n4. LIQUID IN: pour in the chicken stock you poached the breast in, plus more to fill the pot. Add a bit of cream.\n5. STEW COVERED until the carrots are cooked, then UNCOVER until it becomes a thick gravy.\n6. BEURRE MANIE to thicken further, until desired.\n7. PEAS AND POTATOES TOWARD THE END: both work well, but add them late. Peas are low risk; potatoes can get overcooked or undercooked easily — FINELY DICE them so they're predictable.\n8. CHICKEN IN AT THE END: shred and add the poached breast last, then fill the pie.\n9. TOP AND BAKE: a REAL PIE TOP is ideal for this recipe ([[savory-pie-crust]]). Gratining with breadcrumbs + spray oil is a good option too — use DEVILED BREADCRUMBS, superior to regular breadcrumbs here (see notes).",
+  "notes": "=== ROSEMARY IS THE HERB ===\n\nThyme works as well, but chicken pot pie has a strong preference for ROSEMARY. JULIA CHILD OPTS FOR TARRAGON AND PARSLEY — I skip both.\n\n=== LOW-PRESSURE POACH — WHY ===\n\nInstapot LOW pressure, 5 minutes, chicken knee-deep in broth with a bay leaf. Low pressure is preferred because it gets cooking faster and the chicken doesn't sit in boiling water as long — gentler on the breast, which needs to stay shreddable, not rubbery. The poaching liquid double-dips as the gravy stock.\n\n=== REAL CHICKEN STOCK OVER BOUILLON ===\n\nReal chicken stock (the perishable kind) is better than bouillon here. Bouillon is probably fine — it's a gravy, so it can handle a little MSG — but chicken pot pie is kind of an ordeal to make, so I don't like to risk it.\n\n=== THE GRAVY BUILD — FLOUR ON THE VEGETABLES, THEN STOCK, THEN REDUCE ===\n\nThe flour goes on the sautéed vegetables once their liquid has cooked off — stirred until no white flour is visible — before any stock goes in (roux-on-the-vegetables, not a separate roux). Then the poaching stock + more stock + a bit of cream, covered until the carrots are done, uncovered to reduce to a thick gravy, and a beurre manie to close the gap to the thickness you want.\n\n=== PEAS BELONG HERE ===\n\nPeas work well in a pot pie specifically because all the resulting gravy is consumed inside the pie — no broth is left behind on the plate, no bowl-bottom puddle. Peas are small enough to be eaten alongside the other components in every bite, they add an earthy vegetal note that the cream-rosemary-chicken base doesn't otherwise carry, and they bring more protein. They're not a standard chicken-stew addition (in a fricassee they'd get lost in a deep bowl of sauce), but the pot-pie format makes them earn their place. Add toward the end — low risk.\n\n=== POTATOES FOR STARCH WITHOUT MSG GUMMINESS — FINELY DICED, ADDED LATE ===\n\nPotatoes add starchy body that thickens the final filling and gives it more chew. This matters because the alternative — pushing the gravy thicker with more bouillon/MSG or more flour — leaves the filling gummy and one-note. Potatoes do the thickening structurally instead of chemically; the dish reads richer without reading artificial. They're the risky late addition though: easy to overcook or undercook — FINELY DICE them so they're predictable.\n\n=== DIJON — SECONDARY, ONLY WITH A POTATO ELEMENT ===\n\nDijon mustard is secondary — but I wouldn't include it unless you opted for a potato element.\n\n=== FINELY CHOPPED, NOT PROCESSED — BITE-SIZED FOR THE GRAVY ===\n\nEvery component (leeks, celery, carrots, potatoes, chicken) should be finely chopped but kept bite-sized — not pulverized in a food processor. The goal is a cohesive gravy solution where each forkful has a bit of everything in it. Knife-and-cutting-board instincts are right here. Processor-fine vegetables dissolve into the cream base and lose textural identity; large rustic-chunk cuts leave you fishing for specific components rather than eating a unified bite. Aim for the size that survives the bake but disappears against the others on the fork.\n\n=== TOP — REAL PIE CRUST FIRST; DEVILED BREADCRUMBS THE GRATIN PICK ===\n\nA real pastry pie top ([[savory-pie-crust]]) is ideal for this recipe. The breadcrumb + spray-oil gratin is a good option too — and DEVILED BREADCRUMBS are the pick there, superior to regular breadcrumbs.",
   "why_i_like_this_recipe": "",
   "tags": [
     "french",
-    "excellent"
+    "excellent",
+    "instapot"
   ],
   "ingredients": [
+    "chicken",
+    "chicken stock",
+    "bay leaf",
     "leeks",
     "celery",
     "carrots",
     "garlic",
     "rosemary",
-    "chicken",
-    "peas",
-    "potatoes",
-    "white wine",
+    "butter",
+    "olive oil",
+    "all-purpose flour",
     "heavy whipping cream",
     "beurre manie",
-    "savory pie crust",
+    "peas",
+    "potatoes",
+    "savory pie crust"
+  ],
+  "secondary_ingredients": [
+    "thyme",
+    "white wine",
+    "dijon mustard",
     "deviled breadcrumbs"
   ],
-  "secondary_ingredients": [],
   "clashing_ingredients": [],
   "want_to_try": []
 }

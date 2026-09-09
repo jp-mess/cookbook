@@ -5,3 +5,4 @@ asparagus
 green beans
 brussels sprouts
 endives
+escarole

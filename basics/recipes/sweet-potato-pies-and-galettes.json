@@ -1,0 +1,55 @@
+{
+  "name": "sweet potato pies and galettes",
+  "instructions": "The house for savory sweet-potato bakes. Two variants: VARIANT A is the AMERICA'S TEST KITCHEN pot pie (with its documented issues and salvage plans), VARIANT B is the OTTOLENGHI-style sweet potato galette. BOTH VARIANTS WANT A WHOLE WHEAT CRUST — the ATK whole wheat galette crust with white vinegar (recipe to be transcribed; [[savory-pie-crust]] stands in until then).\n\n=== VARIANT A — THE ATK VEGETABLE POT PIE (WIP — SALVAGE IN PROGRESS) ===\n\nATK's Vegetable Pot Pie scaffold: cremini mushrooms + sweet potato + turnips + swiss chard filling, roux-based gravy, pie crust on top. Cooked several times; the vegetable stack is right but the GRAVY has never landed (see the ISSUES note). Current salvage plans, untested:\n- CHICKEN STOCK as the gravy liquid.\n- REDUCE THE OVERALL AMOUNT OF GRAVY and rely on CHEESE AS A BINDER, as ATK suggests (their parmesan).\n- HEAVY CREAM, REDUCED, might also be the right answer — like [[dauphinois]].\n\nPROCEDURE (ATK scaffold, from the pot-pie era):\n1. Roll pie dough to a 10-inch circle, crimp the edge, cut four 2-inch vents, refrigerate. Oven to 400°F.\n2. Sauté onion + cremini mushrooms in butter until the mushrooms release their liquid (~5 min).\n3. Add sweet potato + turnips (1/2-inch pieces), cover, cook until edges soften (7-9 min). Add garlic; cook 30 seconds.\n4. Wilt in the swiss chard (~2 min); transfer everything to a bowl.\n5. Gravy: butter + flour roux, whisk in the liquid (see salvage plans), simmer to thicken. Off heat, whisk in lemon juice.\n6. Recombine, transfer to a deep-dish pie plate, top with the vented crust, egg wash, bake ~30 min at 400°F until golden and bubbling. Cool 10 min.\n\n=== VARIANT B — THE OTTOLENGHI SWEET POTATO GALETTE ===\n\nMinimal and settled in direction: SWEET POTATO + ONION + GARLIC, a THIN LAYER OF SOUR CREAM OR CRÈME FRAÎCHE ON THE BOTTOM of the galette (the way Ottolenghi does), with DILL and ALEPPO PEPPER as the drivers. Mushrooms, chard, and turnips are OUT of this variant.\n\nPROCEDURE (so far):\n1. SAUTÉ the onions and garlic.\n2. BRAISE the sweet potato in CHICKEN STOCK until soft — then DISCARD the stock (flavoring medium, not a gravy; cool the vegetables in the stock before draining to maximize absorption).\n3. SPREAD a thin layer of sour cream or crème fraîche on the rolled-out crust.\n4. Top with the vegetables; season with DRIED DILL, ALEPPO PEPPER, and LEMON JUICE (no zest).\n5. Fold the galette. BAKE AT 400°F to quickly settle the dough; take it out MIDWAY to add the EGG WASH, then keep going at 400°F.",
+  "notes": "=== VARIANT A — THE ISSUES (FAILED EXPERIMENTS, ALL DECIDED) ===\n\nThe ATK vegetable stack (sweet potato + turnips + chard + mushrooms) is right, but the gravy has failed in every configuration tried:\n- ATK'S VEGETABLE BROTH: light enough to let the vegetables shine (that's why they chose it) but makes a very awkward gravy.\n- DARK VEGETABLE BOUILLON: CLASHES. Decided.\n- GARDEN VEGETABLE BOUILLON: CLASHES — tasted fine but turned the gravy MOSSY GREEN once the roux thickened it. Decided.\n- GINGER: CLASHES. Decided — the old lemon+ginger+smoked-paprika profile is dead in both variants.\n- Stronger stocks (chicken/beef bouillon) just turned it into a suboptimal chicken/beef pot pie where the veggies don't shine.\n\nWHY IT'S STILL SALVAGEABLE: ATK's own suggestion — parmesan + a SMALLER amount of stock — is probably how they threaded this needle (I used to think that was swallowing a spider to catch a fly, but reducing the gravy's role is the idea worth keeping). The three salvage directions: real chicken stock; less gravy + cheese binder; or reduced heavy cream doing the binding like [[dauphinois]]. Untested — log results.\n\n=== VARIANT A — POT-PIE ERA LESSONS (KEPT) ===\n\n- TURNIPS + SWEET POTATOES are variant A's identity pair — earthy-bitter root + sweet/savory counterweight.\n- DON'T CHICKEN OUT ON SWISS CHARD quantities — greens wilt to a third of their raw volume.\n- ATK'S VEGETABLE REJECTIONS: no asparagus, no leeks — army-green and overcooked by the time the crust browns.\n- TOO MUCH LEMON: the sauce reduces in the oven and concentrates it — season under, let the oven concentrate.\n- PANKO OVER REGULAR BREADCRUMBS if doing a crumb top instead of crust.\n- CRUST VENTING: cut vents while the dough is flat, before it goes on.\n- PORCINI POWDER worked as the parmesan substitute in the old gravy — moot if the cheese-binder salvage direction wins, since real parmesan comes back.\n\n=== VARIANT B — THE SETTLED DECISIONS ===\n\n- MUSHROOMS, CHARD, AND TURNIPS ARE OUT. (Mushrooms: no room, and they're in too many savory pies already — not clashing, just not here. Chard and turnips: out of B; they live in variant A.)\n- GREEK YOGURT DOESN'T WORK — it WEEPS AND CURDLES in the bake. The binder is a THIN LAYER OF SOUR CREAM OR CRÈME FRAÎCHE ON THE BOTTOM of the galette, the way Ottolenghi does — under the vegetables, not mixed through them.\n- DILL + ALEPPO PEPPER ARE THE DRIVERS. Aleppo confirmed by experiment — in the filling before the oven, it does a lot. (Fresno judged too sweet against sweet potato; fresh serrano baked on top is the Ottolenghi-faithful alternative.)\n- LEMON JUICE, NO ZEST.\n- THE BRAISE-AND-DISCARD STOCK MOVE: braise the sweet potato in chicken stock, discard it. Salt + glutamate diffuse into the vegetable (oden/daikon logic); cooling the vegetables IN the liquid before draining is where most of the absorption happens. The exchange runs both ways — some vegetable flavor leaves with the discarded stock; that's the price of no-gravy.\n\n=== VARIANT B — CRUST-SQUARES FORMAT (OTTOLENGHI OBSERVATIONS) ===\n\nSome people just put the filling on top of SIMPLE CRUST SQUARES rather than making the full folded basin. If doing this approach, OMIT OR USE LESS OF THE ONION.\n\nSAGE also seems to be a common pairing (want to try).\n\n=== BOTH VARIANTS — WHOLE WHEAT CRUST ===\n\nBoth variants want a WHOLE WHEAT crust: the America's Test Kitchen whole wheat galette crust with white vinegar is perfect. Recipe to be found and transcribed — [[savory-pie-crust]] stands in until then.\n\n=== BAKE (VARIANT B, PROVEN) — 400°F, EGG WASH MIDWAY ===\n\nBake at 400°F to quickly settle the galette dough, take it out and add the egg wash midway through, then keep going at 400°F. (Related [[artisan-french-bread]] lesson: glazes applied from the start cause undercooking; midway application sidesteps it.)\n\n=== WANT TO TRY ===\n\n- CHEESE BINDERS (variant A salvage / variant B experiments): cream cheese, monterrey jack, parmesan.\n- FETA / GOAT CHEESE CRUMBLES and WALNUTS / CHESTNUTS (variant B).\n- HEAVY CREAM, REDUCED (variant A salvage — dauphinois logic).\n- PORK VARIANT of B (turnip already out): PROCESSED PORK probably best, minced pork shoulder could work. With crème fraîche + onion this is essentially flammkuchen logic — crème fraîche is also the more bake-stable binder against rendering pork fat.\n\n=== SIBLING RECIPES ===\n\n- [[atk-vegetable-pot-pie]]: ATK's original, by the book.\n- [[dauphinois]]: the reduced-heavy-cream binding precedent for variant A's salvage.\n- [[savory-pie-crust]]: the stand-in dough.\n- [[braised-turnips]]: the turnip register elsewhere.\n- [[southern-chickpea-soup]]: the other chicken-stock-as-flavoring-medium dish (there the stock stays; here it's discarded).",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "american",
+    "galette",
+    "casserole",
+    "has potential"
+  ],
+  "ingredients": [
+    "savory pie crust",
+    "sweet potato",
+    "turnips",
+    "cremini mushrooms",
+    "swiss chard",
+    "yellow onions",
+    "garlic",
+    "butter",
+    "all-purpose flour",
+    "chicken stock",
+    "sour cream",
+    "creme fraiche",
+    "dill",
+    "aleppo pepper",
+    "lemon",
+    "whole egg",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "panko"
+  ],
+  "clashing_ingredients": [
+    "ginger",
+    "lemon zest",
+    "greek yogurt",
+    "dark vegetable bouillon",
+    "garden vegetable bouillon"
+  ],
+  "want_to_try": [
+    "cream cheese",
+    "monterrey jack cheese",
+    "parmesan cheese",
+    "feta cheese",
+    "goat cheese",
+    "walnuts",
+    "chestnuts",
+    "pork",
+    "heavy whipping cream",
+    "sage"
+  ],
+  "original_chef": "Variant A: America's Test Kitchen — Vegetable Pot Pie (Hearty Vegetable Mains), with my salvage modifications. Variant B: mine, in the style of Ottolenghi's sweet potato galettes."
+}

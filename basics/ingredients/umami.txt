@@ -10,3 +10,4 @@ stock
 chicken stock
 vegetable stock
 beef stock
+dark vegetable bouillon

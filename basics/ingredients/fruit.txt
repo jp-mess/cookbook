@@ -15,3 +15,5 @@ orange
 tangerine
 mango
 dried sour cherries
+apricots
+figs

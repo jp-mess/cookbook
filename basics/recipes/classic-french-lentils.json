@@ -1,0 +1,38 @@
+{
+  "name": "classic french lentils",
+  "instructions": "The classic french le puy lentil side — no gravy core, no cream: aromatics, whole lentils cooked firm-tender in stock, and a dijon-vinegar finish. INSTAPOT recipe, starting from DRIED LE PUY LENTILS. Cooked once — the dijon + red wine vinegar finish is the VARIANT A BASELINE (see notes for first-cook results).\n\nSERVES 4 as a side.\n\n=== INGREDIENTS (DRAFT) ===\n\n- 1 cup dried LE PUY LENTILS, rinsed (the small dark-green french lentils — they hold their shape; don't sub red or brown here)\n- 1 small yellow onion (or 2 shallots), fine dice\n- 1 carrot, fine dice\n- 1 celery stalk, fine dice\n- 2-3 garlic cloves, minced\n- 1 bay leaf\n- thyme (a few fresh sprigs or ~1/2 tsp dried)\n- olive oil or butter for the sauté\n- 1 3/4 cups chicken stock (water works; stock is better)\n- salt (go light if the stock is salted) and black pepper\n\nFINISH:\n- 1-2 tsp dijon mustard\n- splash of red wine vinegar\n- chopped fresh parsley\n\n=== PROCEDURE (DRAFT) ===\n\n1. SAUTÉ MODE: soften the onion, carrot, and celery in olive oil/butter (~5 min). Add the garlic for the last minute.\n2. LENTILS IN: add the rinsed le puy lentils, stock, bay leaf, and thyme. Stir once.\n3. PRESSURE COOK: HIGH pressure, 12-14 MINUTES TOTAL (tested: 8 min wasn't enough, +3 more was sort of enough). Target: firm-tender lentils that hold their shape — le puy's whole point.\n4. FINISH: fish out the bay leaf and thyme stems. Whisk the dijon with the red wine vinegar, fold through the hot lentils. Salt and black pepper to taste; parsley over the top.\n5. Serve warm as a side.",
+  "notes": "=== FIRST COOK — RESULTS ===\n\nMade for real: chicken stock, lentils, onion/celery/garlic/carrot + bay leaf, sautéed in the pot with olive oil (UNCLEAR IF BUTTER WOULD HAVE BEEN BETTER — open question).\n\n- PRESSURE TIME: 8 minutes on high WASN'T ENOUGH; another 3 was sort of enough. Future: 12-14 MINUTES TOTAL.\n- LIQUID IS HARD TO GET RIGHT IN THE INSTAPOT — too easy for it to turn into a soup. Calibration ongoing.\n- FLAT WITHOUT TOMATO: tasted a little flat without tomato — RESISTED adding it (this dish's identity is the no-tomato spare french side).\n- RESCUE EXPERIMENT: cheese + dried thyme + tarragon helped a lot but didn't taste very unique. (ROSEMARY WOULD BE AWFUL HERE — clashing.)\n- THE WINNER: took a fresh spoonful of the flat stuff and tried RED WINE VINEGAR + DIJON MUSTARD — GREAT COMBO. That's the VARIANT A BASELINE.\n\n=== VARIANT A BASELINE ===\n\nThe spare build + the dijon + red wine vinegar finish is variant A. Future variants build from here. Overall: not fully satisfied with it yet — has potential, not more.\n\n=== WHERE THE EXPERIMENT SITS — MAY NEED AN IDEOLOGICAL REWORK ===\n\n- OLIVE OIL + SOFFRITO + CHICKEN BROTH: a bit boring.\n- CREAM/MUSTARD/VINEGAR: seems to be too much.\n- THE FORMAT MIGHT BE THE PROBLEM: I'm making it SUBMERGED IN LIQUID because that's instapot-convenient — but THIS DOESN'T WANT TO BE A STEW. The rework, if it comes, starts there.\n\n=== WHAT THIS RECIPE IS (AND ISN'T) ===\n\nThis is the classic preparation the mushroomed-lentils family explicitly ISN'T — no gravy core, no pureed mushrooms, no cream. Whole firm lentils + soffrito + a sharp dijon-vinegar finish. The french-kit logic still shows up (dijon in the finish), but as a bright accent on a spare dish rather than a silent balancer in a rich one.\n\n=== LE PUY SPECIFICALLY ===\n\nLe puy lentils hold their shape through cooking — that's the identity of the dish. Standard brown lentils go soft and muddy the texture; red lentils dissolve entirely (wrong dish).\n\n=== SIBLING RECIPES ===\n\n- [[french-lentil-salad]]: the cold expression of french lentils (cream vinaigrette + endives). This recipe is the warm classical side.\n- [[mushroomed-lentils-french]]: the rich gravy-core cousin — reach for that when you want a stew, this when you want a side.\n- [[jaffrey-lentils]]: the indian whole-lentil counterpart.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "french",
+    "side",
+    "beans",
+    "instapot",
+    "has potential"
+  ],
+  "ingredients": [
+    "le puy lentils",
+    "yellow onions",
+    "carrots",
+    "celery",
+    "garlic",
+    "bay leaf",
+    "thyme",
+    "olive oil",
+    "chicken stock",
+    "dijon mustard",
+    "red wine vinegar",
+    "parsley",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "butter",
+    "shallots",
+    "tarragon"
+  ],
+  "clashing_ingredients": [
+    "rosemary"
+  ],
+  "want_to_try": []
+}

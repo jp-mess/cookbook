@@ -1,21 +1,27 @@
 {
   "name": "garlic broccoli",
-  "instructions": "",
-  "notes": "lemon juice, not zest.",
+  "instructions": "Sautéed garlic broccoli, two ways. VARIANT A is the italian build; VARIANT B is the indian-spiced build (absorbed from the former indian-spiced-broccoli recipe). Both finish with lemon JUICE, not zest.\n\n=== VARIANT A — ITALIAN (GARLIC + CHILI + FENNEL) ===\n\nBroccoli in olive oil with garlic, red chili flakes, and fennel powder. Salt and black pepper. Lemon juice to finish.\n\n=== VARIANT B — INDIAN SPICES ===\n\nSame garlic-broccoli chassis with the indian spice stack instead: cumin, coriander, turmeric, garam masala, cardamom. Olive oil, garlic, salt. Lemon juice to finish.",
+  "notes": "Lemon juice, not zest — both variants.\n\n=== MERGED (SEPTEMBER 2026) ===\n\nThe former indian-spiced-broccoli recipe was merged in as variant B — same dish, different spice stack, no reason for two files.",
   "why_i_like_this_recipe": "",
   "tags": [
     "italian",
+    "indian",
     "pass"
   ],
   "ingredients": [
+    "broccoli",
     "olive oil",
-    "salt",
-    "black pepper",
     "garlic",
     "red chili flakes",
     "fennel powder",
-    "broccoli",
-    "lemon"
+    "cumin",
+    "coriander",
+    "turmeric",
+    "garam masala",
+    "cardamom",
+    "lemon",
+    "salt",
+    "black pepper"
   ],
   "secondary_ingredients": [],
   "clashing_ingredients": [],

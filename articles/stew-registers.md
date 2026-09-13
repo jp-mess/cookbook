@@ -9,7 +9,7 @@ The same hearty-stew chassis (aromatics + legume/meat + liquid + long cook) read
 - **Tomato only** as the backbone.
 - **Earthy vegetables**: beans, green beans.
 - **Parmesan cheese.**
-- The discipline is restraint — the tomato carries it, and additions crowd it. (Same philosophy as marcella-tomato-sauce's three ingredients, minestrone's committed tomato path, fasolakia-lathera.)
+- The discipline is restraint — the tomato carries it, and additions crowd it. (Same philosophy as marcella-gnocchi-sauce's three ingredients, minestrone's committed tomato path, fasolakia-lathera.)
 
 ## French — more is more
 

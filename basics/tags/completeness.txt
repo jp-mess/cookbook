@@ -1,6 +1,4 @@
-excellent
-good enough
 unattempted
-has potential
-educational failure
+needs work
+pass
 external recipe

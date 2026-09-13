@@ -1,0 +1,42 @@
+{
+  "name": "indian stuffed poblanos",
+  "instructions": "Roasted poblanos stuffed with a white-bean filling built on from-scratch indian spice work, bound with cream cheese, finished with lime. Priya Krishna's original recipe is the base — my changes: CREAM CHEESE as the binder, and the FENNEL/CLOVE whole-spice stack.\n\n=== PREP ===\n\n- Preheat oven to 400°F.\n- Prep the poblanos: HALVE lengthwise and seed them, OR stuff whole with the stem/top cut off — use judgement based on the specific poblanos (see notes). Don't parboil.\n- Start the poblanos baking while you make the filling.\n\n=== THE FILLING ===\n\n1. BLOOM WHOLE SPICES in vegetable oil over medium heat: whole cardamom, cinnamon stick (broken), whole cloves, fennel seeds. Just briefly, until fragrant.\n2. Add minced garlic (non-negotiable — see notes) and cook another minute.\n3. Add ground spices: cumin, coriander, turmeric, and GARAM MASALA (non-negotiable). Toast in the oil.\n4. No fresh onion at any stage — see notes.\n5. Add white beans and cook, mashing them as you go. Add splashes of milk as needed to keep the bottom from burning while you mash and cook the funk out of the beans.\n6. Season with salt to taste (no pre-salted paste is doing that work).\n7. When the bean paste tastes done (smooth, no raw-bean character), fold in CREAM CHEESE to taste — 1/8 to 1/4 of a block, or two large spoonfuls. Don't be too delicate.\n8. Stuff the poblanos, return to the oven, finish until done. Some bean paste will leak out — that's fine.\n9. FINISH WITH LIME at the plate (or into the filling at the very end). Cilantro over the top if you have it.",
+  "notes": "=== SOURCE — PRIYA KRISHNA, WITH TWO CHANGES ===\n\nPriya Krishna's original stuffed-poblano recipe is the base. My changes:\n1. CREAM CHEESE as the binding fat.\n2. The FENNEL/CLOVE whole-spice stack (the cardamom/cinnamon/cloves/fennel bloom).\n\n=== THE CORE — CHEESE + LIME + POBLANO + STARCH ===\n\nThe structural core of the dish: CREAM CHEESE (the binding fat), LIME (the acid finish, non-negotiable), POBLANO (the vessel — the namesake), and A STARCH (the white beans). Everything else is seasoning architecture on top.\n\n=== LIME IS NON-NEGOTIABLE — THIS DISH IS WHERE LIME SHINES ===\n\nSqueeze fresh lime over the stuffed poblanos at the plate (or into the filling at the very end). The cream cheese + roasted poblano + spiced filling combination all read RICHER, ROUNDER, and MORE INTEGRATED when the lime hits — the acid cuts the dairy and lifts the pepper's smoky-grassy character without competing with anything. One of the recipes in the cookbook where lime is doing structural work rather than just brightening. Don't substitute lemon — lemon's rounder acid reads wrong against the poblano; lime's citrus-forward, slightly floral edge is what pairs.\n\nCILANTRO IS NICE-TO-HAVE: a scatter of fresh chopped cilantro at serving reads noticeably fresher and more finished. Not required.\n\n=== POBLANO IS THE CENTER OF GRAVITY — DAIRY IS THE BINDER ===\n\nThe poblano is the dish's structural and flavor anchor; the filling exists to bridge the pepper's smoky-grassy character with a creamy fat. That binder is CREAM CHEESE — no exceptions. Coconut milk doesn't work here (proven in the removed massaman variant, where it would normally have paired beautifully); the poblano wants dairy, not coconut.\n\n=== HALVE OR STUFF WHOLE — USE JUDGEMENT BASED ON THE POBLANO ===\n\nPoblanos have a weird topology — some are curvy but flat, others rounder:\n- HALVE LENGTHWISE: for poblanos rounded or deep enough to hold filling as boats. Presents cleanly.\n- STUFF WHOLE: cut off the top/stem, seed through the opening, pack from the top. Better for flat-shaped poblanos. Slightly messier.\n\nNEVER PARBOIL: poblanos get soggy faster than thicker-walled bell peppers; parboiling collapses their structure. Roast them dry from the start.\n\nWHY POBLANO, NOT JALAPEÑO: wall thickness for stuffing, heat low enough to eat as a main, smoky-grassy character that bridges with dairy. Baked jalapeños are too spicy as a main, and baking them releases capsaicin aerosols that irritate eyes and lungs. Not worth the kitchen suffering.\n\n=== SPICE WORK — THE WHOLE-SPICE BLOOM IS THE POINT ===\n\n- BLOOM WHOLE SPICES FIRST: whole cardamom, cinnamon stick, whole cloves, fennel seeds in oil before the ground spices. Skip the bloom and the filling collapses toward generic-indian.\n- GROUND SPICE MIX: cumin, coriander, turmeric, garam masala — added after the bloom, before the beans. GARAM MASALA IS NON-NEGOTIABLE — the ground-spice glue that ties the bloom to the beans.\n- GARLIC IS NON-NEGOTIABLE: it builds the aromatic-savory base from scratch.\n- NO FRESH ONION: the white-bean + cream cheese + indian-spice combination reads clean and integrated without it; onion introduces texture and sweetness that fight the smooth mash. Garlic carries the allium slot alone.\n- SALT TO TASTE: nothing pre-salted in the build — season the filling yourself.\n\n=== BEAN MECHANICS ===\n\n- WHITE BEANS, NOT CHICKPEAS OR LENTILS: white beans mash into a smooth filling-shape; chickpeas stay too discrete, lentils go too loose.\n- MILK FOR DEGLAZING THE MASH: small splashes keep the bottom from burning and help cook the funk out of the beans.\n\n=== WANT TO TRY — POTATOES ===\n\nPotatoes as a filling component (parboiled, cubed small so they integrate with the bean mash). A mexican-shaped sibling recipe — parboiled potatoes + red chile paste (guajillo/ancho) + cream cheese in the same poblano format — is the other direction, but that would be its own recipe, not a variant of this one.\n\n=== REMOVED VARIANTS (SEPTEMBER 2026) ===\n\nThis recipe used to be a three-variant 'stuffed poblanos' master; cleaned up to the single indian build:\n- SEED VARIANT (former A — toasted pumpkin/sunflower/sesame seeds + cream cheese, american/mexican-leaning): removed — we don't need it.\n- MASSAMAN PASTE VARIANT (former C — Priya's own paste shortcut, 'the most indian thing on the thai shelf'): removed — thai doesn't fit the pantry (massaman recipes retired the same week). The coconut-milk-doesn't-work lesson was proven there.\nFull text of both survives in git history.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "indian",
+    "beans",
+    "pass"
+  ],
+  "ingredients": [
+    "poblano peppers",
+    "cream cheese",
+    "white beans",
+    "garlic",
+    "vegetable oil",
+    "cardamom",
+    "cinnamon",
+    "cloves",
+    "fennel seeds",
+    "cumin",
+    "coriander",
+    "turmeric",
+    "garam masala",
+    "milk",
+    "lime",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "cilantro",
+    "fennel powder"
+  ],
+  "clashing_ingredients": [
+    "coconut milk",
+    "jalapenos"
+  ],
+  "want_to_try": [
+    "potatoes"
+  ],
+  "original_chef": "Priya Krishna (original recipe), with my changes: cream cheese as the binder and the fennel/clove whole-spice stack."
+}

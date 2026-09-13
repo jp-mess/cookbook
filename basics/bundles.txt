@@ -20,3 +20,4 @@ chili powders: chili powder, kashmiri chili powder, new mexican chili powder, an
 yeast extract: marmite, vegemite
 butter: butter, salted butter, vegan butter, ghee
 pickles: dill pickles, pickle juice
+mushrooms: mushrooms, portabella mushrooms, oyster mushrooms, lions mane mushrooms, shittake mushrooms, cremini mushrooms

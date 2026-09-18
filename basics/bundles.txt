@@ -4,7 +4,7 @@
 # Members must be canonical ingredients (from basics/ingredients/).
 # A bundle name MAY also be a real ingredient name (search unions both).
 
-bell peppers: bell peppers, fire roasted bell peppers
+bell peppers: bell peppers, fire roasted bell peppers, green bell peppers
 tomatoes: tomatoes, canned tomatoes, diced tomatoes, fire roasted tomatoes, cherry tomatoes, sun-dried tomatoes, green tomatoes
 cumin: cumin, cumin powder
 ginger: ginger, ginger powder

@@ -22,3 +22,4 @@ oxtail
 short ribs
 pork chops
 vegan beef crumbles
+chorizo

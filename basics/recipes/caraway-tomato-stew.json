@@ -1,0 +1,48 @@
+{
+  "name": "caraway tomato stew",
+  "instructions": "The meat sibling of [[southern-chickpea-soup]] — same riviera (south of france + italy) tomato + chicken stock spine, with shredded protein (chicken breast the tested default; pork and shrimp hypothesized — see notes), white wine, and caraway seeds.\n\n=== INGREDIENTS ===\n\n- SHREDDED CHICKEN BREAST (best here — not chicken thigh; see notes)\n- ANAHEIM PEPPERS (preferred over green bell — maybe a little jalapeño too; see notes)\n- tomato\n- chicken stock\n- yellow onion\n- garlic\n- carrot\n- white wine\n- CARAWAY SEEDS\n- thyme\n- sage\n- olive oil\n- salt and black pepper\n- lemon juice (secondary — see notes)\n\n=== PROCEDURE (SKETCH) ===\n\n1. SOFRITO: sauté the onion, garlic, carrot, and anaheim (+ jalapeño if using), and cook the tomato down with them INTO A PASTE — this dish has sofrito discipline, not tomato-simmered-in-broth.\n2. Deglaze with white wine; chicken stock in with the caraway seeds, thyme, and sage.\n3. Poach and SHRED the chicken breast into it.\n4. Lemon juice to taste at the end if it wants brightness.",
+  "notes": "=== THE FAMILY — SOUTHERN TOMATO + CHICKEN STOCK ===\n\nBuilt on the same spine as [[southern-chickpea-soup]] (green peppers, tomato, chicken stock, onion, garlic) — the unusual-but-proven tomato + chicken stock combination — with three additions: CARROT, WHITE WINE, and CARAWAY SEEDS. Same family as [[chicken-with-vinegar]] variant B's basque rules (tomato + chicken stock + thyme).\n\n=== PEPPERS — ANAHEIM OVER BELL (FUNKIER BY DESIGN) ===\n\nI think I prefer ANAHEIM PEPPERS (and maybe a little JALAPEÑO) to bell peppers for this one — it's FUNKIER AND LESS SMOOTH BY DESIGN. Green bell stays the fallback (and remains the pick in the smoother [[southern-chickpea-soup]] sibling).\n\n=== SHREDDED BREAST, NOT THIGH ===\n\nBest with SHREDDED CHICKEN BREAST as opposed to chicken thigh — the lean shred suits the brothy tomato register where thigh would fatten it.\n\n=== HERBS — THYME + SAGE; ROSEMARY AND CELERY CLASHING ===\n\nTHYME and SAGE are the primary herbs (the family herbs — thyme from the basque spine, sage from the [[french-chicken-soup]] discovery). ROSEMARY is CLASHING (consistent with its failures across the tomato + stock dishes — nothing here for it to grip). CELERY is CLASHING too.\n\n=== SOFRITO DISCIPLINE — IMPLICIT BUT REAL ===\n\nThis recipe has sofrito discipline: the onions/garlic/tomato are made into a PASTE before deglazing with wine and adding stock for the chicken poach. That's the spanish build order, and it's part of why this dish could swing IBERIAN as easily as riviera.\n\n=== WANT TO TRY — THE IBERIAN SWING ===\n\nThis could swing IBERIAN or riviera. The levers to try:\n- SMOKED PAPRIKA (pimentón) bloomed in the oil — the single biggest spanish signal.\n- CHORIZO as the pork (cured, paprika-laden — the pork hypothesis in spanish form; chickpea sibling + chorizo = garbanzos con chorizo).\n- SHERRY VINEGAR in place of the white wine / lemon acid.\n- The iberian version would drop the CARAWAY and SAGE and go bay + parsley. (Though note: caraway isn't just central-european — it's sometimes part of HARISSA, which is also mediterranean. The caraway here can be read as the north-african/mediterranean thread, not only the german one.)\n\n=== WANT TO TRY — OTHER PROTEINS: SHRIMP + CHICKEN, OR PORK ALONE ===\n\nI think SHRIMP + CHICKEN could work together (shrimp added late, on top of the chicken), or PORK BY ITSELF (lean shredded — the same lean-over-fatty rule as the breast/thigh call). Shrimp + tomato + peppers + white wine is the basque/provençal coast; pork + caraway (+ the possible pickle experiment) is the german kit crossing over. One tension if shrimp happens: shrimp + caraway is an odd couple — the shrimp version might quietly prefer FENNEL SEED in the caraway slot. Same split for the pickle juice: it would likely HELP chicken or pork in isolation but FIGHT the shrimp if they appear. So the hypotheses cluster into two builds: (1) chicken-or-pork + caraway + pickle, (2) shrimp(+chicken) + fennel, no pickle. Beef judged doubtful — too dark for this spine.\n\n=== WANT TO TRY — PICKLES + PICKLE JUICE ===\n\nPickles and pickle juice — would be interesting with the jalapeño. (The caraway is already here, so this would be the german tang kit crossing into the southern tomato spine — the caraway + pickle pairing is proven in [[mushroomed-lentils-german]] and [[chard-pickle-pasta]].)\n\n=== LEMON JUICE — SECONDARY ===\n\nLemon juice is the brightness correction, secondary — to taste at the end, not structural.\n\n=== SIBLING RECIPES ===\n\n- [[southern-chickpea-soup]]: the chickpea + chard original of this spine.\n- [[chicken-with-vinegar]]: variant B shares the tomato + chicken stock + thyme rules (and the caraway curiosity).\n- [[french-chicken-soup]]: the other chicken soup — northern register (sage + herbes de provence, dumplings, no tomato).",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "french",
+    "italian",
+    "soup/stew",
+    "meat main",
+    "needs work"
+  ],
+  "ingredients": [
+    "chicken",
+    "anaheim peppers",
+    "tomatoes",
+    "chicken stock",
+    "yellow onions",
+    "garlic",
+    "carrots",
+    "white wine",
+    "caraway seeds",
+    "thyme",
+    "sage",
+    "olive oil",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "green bell peppers",
+    "jalapenos",
+    "lemon"
+  ],
+  "clashing_ingredients": [
+    "rosemary",
+    "celery",
+    "chicken thighs"
+  ],
+  "want_to_try": [
+    "dill pickles",
+    "pickle juice",
+    "shrimp",
+    "pork",
+    "smoked paprika",
+    "chorizo",
+    "sherry vinegar"
+  ]
+}

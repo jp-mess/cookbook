@@ -1,0 +1,50 @@
+{
+  "name": "sweet potato turnip pie",
+  "instructions": "The ATK vegetable pot pie line (split from the former sweet-potato-pies-and-galettes house): cremini mushrooms + sweet potato + turnips + swiss chard filling, roux-based gravy, crust on top. The vegetable stack is right, and the gravy secret is found: LEMON JUICE + ZEST and PARMESAN at the finish (see the breakthrough note). Crust: [[atk-galette-dough]] (whole wheat, white vinegar).\n\n=== PROCEDURE (ATK SCAFFOLD) ===\n\n1. Roll pie dough to a 10-inch circle, crimp the edge, cut four 2-inch vents, refrigerate. Oven to 400°F.\n2. Sauté onion + cremini mushrooms in butter until the mushrooms release their liquid (~5 min).\n3. Add sweet potato + turnips (1/2-inch pieces), cover, cook until edges soften (7-9 min). Add garlic; cook 30 seconds.\n4. Wilt in the swiss chard (~2 min); transfer everything to a bowl.\n5. Gravy: butter + flour roux, whisk in the liquid (see salvage plans), simmer to thicken. Off heat, whisk in lemon juice.\n6. Recombine, transfer to a deep-dish pie plate, top with the vented crust, egg wash, bake ~30 min at 400°F until golden and bubbling. Cool 10 min.",
+  "notes": "=== THE ISSUES — GRAVY FAILURES (ALL DECIDED) ===\n\nThe ATK vegetable stack (sweet potato + turnips + chard + mushrooms) is right, but the gravy has failed in every configuration tried:\n- ATK'S VEGETABLE BROTH: light enough to let the vegetables shine (that's why they chose it) but makes a very awkward gravy.\n- DARK VEGETABLE BOUILLON: CLASHES. Decided.\n- GARDEN VEGETABLE BOUILLON: CLASHES — tasted fine but turned the gravy MOSSY GREEN once the roux thickened it. Decided.\n- GINGER: CLASHES. Decided — the old lemon+ginger+smoked-paprika profile is dead.\n- Stronger stocks (chicken/beef bouillon) just turned it into a suboptimal chicken/beef pot pie where the veggies don't shine.\n\nTHE BREAKTHROUGH COOK — LEMON + PARMESAN IS THE SECRET: tried a chicken-pie-style gravy (white wine, cream, rosemary + thyme + sage), leeks swapped for onion, chard left out. It DIDN'T land as well as a chicken pot pie... until the ATK finishers went in: LEMON JUICE + ZEST and PARMESAN CHEESE — they helped ENORMOUSLY, and that seems to be THE SECRET. Historically I skipped the parmesan and swapped lemon for ginger — that was WRONG. ATK is right: the FUNKINESS OF PARMESAN + BRIGHTNESS OF LEMON is the correct axis for this pie.\n\nOther findings from that cook:\n- SAGE did a lot for savoriness; THYME did a little; ROSEMARY was orthogonal (the nothing-to-grip pattern again).\n- HALF A STALK OF CELERY made it WORSE — celery clashing.\n- LEEKS alone weren't enough; ONION POWDER helped — ONION NEEDS TO BE THERE.\n\nNEXT COOK: try again with the CHARD + ONION back in, alongside the mushroom/sweet potato/turnip stack, keeping the lemon + parmesan finish.\n\n=== POT-PIE ERA LESSONS (KEPT) ===\n\n- TURNIPS + SWEET POTATOES are the identity pair — earthy-bitter root + sweet/savory counterweight.\n- DON'T CHICKEN OUT ON SWISS CHARD quantities — greens wilt to a third of their raw volume.\n- ATK'S VEGETABLE REJECTIONS: no asparagus, no leeks — army-green and overcooked by the time the crust browns.\n- TOO MUCH LEMON: the sauce reduces in the oven and concentrates it — season under, let the oven concentrate.\n- PANKO OVER REGULAR BREADCRUMBS if doing a crumb top instead of crust.\n- CRUST VENTING: cut vents while the dough is flat, before it goes on.\n- PORCINI POWDER worked as the parmesan substitute in the old gravy — moot if the cheese-binder salvage direction wins, since real parmesan comes back.\n\n=== WANT TO TRY ===\n\n- The FULL-STACK COOK: chard + onion back in alongside mushroom/sweet potato/turnip, with the lemon + parmesan finish (queued as the next cook).\n- Cheese-binder variations if the gravy still wants less liquid: cream cheese, monterrey jack.\n\n=== SIBLING RECIPES ===\n\n- [[ottolenghi-sweet-potato-galette]]: the other half of the split — the minimal no-gravy sweet potato galette.\n- [[atk-galette-dough]]: the crust.\n- [[dauphinois]]: the reduced-cream binding precedent.\n- [[braised-turnips]]: the turnip register elsewhere.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "american",
+    "casserole",
+    "needs work"
+  ],
+  "ingredients": [
+    "atk galette dough",
+    "sweet potato",
+    "turnips",
+    "cremini mushrooms",
+    "swiss chard",
+    "yellow onions",
+    "garlic",
+    "sage",
+    "butter",
+    "all-purpose flour",
+    "lemon",
+    "lemon zest",
+    "parmesan cheese",
+    "whole egg",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "panko",
+    "chicken stock",
+    "leeks",
+    "onion powder",
+    "thyme",
+    "white wine",
+    "heavy whipping cream"
+  ],
+  "clashing_ingredients": [
+    "ginger",
+    "dark vegetable bouillon",
+    "garden vegetable bouillon",
+    "celery",
+    "rosemary"
+  ],
+  "want_to_try": [
+    "cream cheese",
+    "monterrey jack cheese"
+  ],
+  "original_chef": "America's Test Kitchen — Vegetable Pot Pie (Hearty Vegetable Mains), with my salvage modifications."
+}

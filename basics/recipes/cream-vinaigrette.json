@@ -1,7 +1,7 @@
 {
   "name": "cream vinaigrette",
   "instructions": "whisk white wine vinegar, heavy whipping cream, and raw minced garlic together.",
-  "notes": "Garlic stays raw.\n\nACID: white wine vinegar. Lemon juice was previously listed as a substitute but after making this a few times it isn't as good — the lemon reads brighter and slightly sweeter and pulls the dressing away from the sharp, traditionally french-vinaigrette register that's the whole point. Stick with white wine vinegar.",
+  "notes": "Garlic stays raw.\n\nACID: white wine vinegar. Lemon juice was previously listed as a substitute but after making this a few times it isn't as good — the lemon reads brighter and slightly sweeter and pulls the dressing away from the sharp, traditionally french-vinaigrette register that's the whole point. Stick with white wine vinegar.\n\n=== WANT TO TRY — CHAMPAGNE VINEGAR ===\n\nChampagne vinegar in place of the white wine vinegar — the more delicate member of the same family; this cream-based dressing is a natural test for it.",
   "why_i_like_this_recipe": "",
   "tags": [
     "french",
@@ -15,5 +15,7 @@
   ],
   "secondary_ingredients": [],
   "clashing_ingredients": [],
-  "want_to_try": []
+  "want_to_try": [
+    "champagne vinegar"
+  ]
 }

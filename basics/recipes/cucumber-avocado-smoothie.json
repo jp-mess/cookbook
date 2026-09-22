@@ -1,17 +1,18 @@
 {
   "name": "cucumber avocado smoothie",
-  "instructions": "Cucumber + green bell pepper + lime + avocado, all in a blender. Kind of a gazpacho — kind of Nisha Vora's avocado gazpacho (Rainbow Plant Life), approached slowly (see notes).\n\n=== INGREDIENTS ===\n\n- cucumber\n- ANAHEIM PEPPER (better than green bell — see notes; bell + serrano when anaheim isn't around)\n- LIME (incredibly important — see notes; considering 2 limes)\n- avocado\n- COCONUT MILK (helped a lot)\n- COCONUT FLAKES (pushed the flavor even more)\n- MINT (tested, good)\n\n=== PROCEDURE ===\n\nPut it all in a blender.",
-  "notes": "=== STATUS — BLANDNESS LARGELY SOLVED ===\n\nStarted good-but-bland; the fixes that landed: ANAHEIM over green bell, COCONUT MILK + COCONUT FLAKES, and MINT. Still building gradually rather than committing to Nisha's full build (see reference below).\n\n=== THE PEPPER — ANAHEIM > GREEN BELL ===\n\nSwapped green bell for ANAHEIM and it helped — but anaheim isn't always available. BELL + SERRANO sounds nice as the fallback combination (untested).\n\n=== COCONUT — MILK AND FLAKES BOTH ===\n\nCOCONUT MILK (in addition to the rest) helped a lot, and blending in COCONUT FLAKES pushed the flavor even more — a good use for flakes, since they don't get used often.\n\nWANT TO TRY — FLAKES + GREEK YOGURT, NO MILK: just coconut flakes and GREEK YOGURT for tang, rather than the coconut milk itself. (Yogurt graduates from hesitant to a specific plan — the tang slot, paired with the flakes carrying the coconut.)\n\n=== SWEETNESS — NEEDED ===\n\nIt does need some sweetness: BANANA or PINEAPPLE would be perfect. Unsure about MANGO — and how it would affect the color.\n\n=== HERB — MINT TESTED GOOD; BASIL NEXT; NO CILANTRO ===\n\nMINT was good. Next time: BASIL. CILANTRO seems too obvious — it would push this into mole-verde/savory territory, which isn't the direction.\n\n=== LIME IS INCREDIBLY IMPORTANT ===\n\nThe lime is incredibly important — I don't think this would work without it. Next time: maybe 2 LIMES.\n\n=== WANT TO TRY ===\n\n- CILANTRO / MINT — the herb fix for the blandness.\n- COCONUT FLAKES blended in (rather than using coconut cream). Coconut makes more sense here than silken tofu for protein — this ISN'T supposed to be a protein shake, and that's fine.\n- YOGURT might work, but I'm more hesitant on that one.\n\n=== VANILLA PROTEIN POWDER — CLASHING ===\n\nFirst verdict was tolerated-not-great; after drinking a whole glass, upgraded to CLASHING — the cucumber/pepper just doesn't like it. ([[spinach-yogurt-smoothie]] is where vanilla protein powder belongs; this one is not a protein shake, full stop.)\n\n=== NISHA REFERENCE — CREAMY AVOCADO PEA GAZPACHO ===\n\nNisha Vora (Rainbow Plant Life): https://rainbowplantlife.com/creamy-avocado-pea-gazpacho/ — she skips the tomato and does avocado, plus (per usual) a lot of other ingredients: coconut milk, a shallot, peas, olive oil, and SERRANO over bell pepper. Her version requires a lot of commitment, so I'm going slow — this recipe is the gradual approach to that destination.\n\n=== SIBLING RECIPES ===\n\n- [[spinach-yogurt-smoothie]] / [[chocolate-oatmeal-smoothie]]: the protein-shake smoothies — this one deliberately isn't one.\n- [[blender-cheat-meals]]: variant C's non-savory direction (tomatillos/cucumber/bell pepper) is circling the same gazpacho territory from the savory side.\n- [[kachumber]]: the cucumber + lime register in salad form (where cucumber + mango worked and tomato left).",
+  "instructions": "Cucumber + green bell pepper + lime + avocado, all in a blender. Kind of a gazpacho — kind of Nisha Vora's avocado gazpacho (Rainbow Plant Life), approached slowly (see notes).\n\n=== INGREDIENTS (SETTLED BUILD) ===\n\n- cucumber\n- ANAHEIM PEPPER (or maybe serrano)\n- BANANA (important/necessary — a sweet element must exist; maybe pineapple too/instead)\n- LIME (incredibly important — see notes; considering 2 limes)\n- avocado\n- COCONUT MILK or COCONUT WATER (a coconut element helps)\n- COCONUT FLAKES\n- MINT (tested, good)\n\n=== PROCEDURE ===\n\nPut it all in a blender.",
+  "notes": "=== STATUS — PASS ===\n\nStarted good-but-bland; the fixes that landed: ANAHEIM over green bell, COCONUT MILK + COCONUT FLAKES, and MINT. Still building gradually rather than committing to Nisha's full build (see reference below).\n\n=== THE PEPPER — ANAHEIM > GREEN BELL ===\n\nSwapped green bell for ANAHEIM and it helped — but anaheim isn't always available. BELL + SERRANO sounds nice as the fallback combination (untested).\n\n=== COCONUT — MILK AND FLAKES BOTH ===\n\nCOCONUT MILK (in addition to the rest) helped a lot, and blending in COCONUT FLAKES pushed the flavor even more — a good use for flakes, since they don't get used often.\n\nWANT TO TRY — FLAKES + GREEK YOGURT, NO MILK: just coconut flakes and GREEK YOGURT for tang, rather than the coconut milk itself. (Yogurt graduates from hesitant to a specific plan — the tang slot, paired with the flakes carrying the coconut.)\n\n=== SWEETNESS — CONFIRMED NECESSARY: BANANA ===\n\nRemade and confirmed: BANANA IS IMPORTANT/NECESSARY — a sweet element MUST exist, and a coconut element helps. Pineapple remains the maybe-alternative/addition. Still unsure about MANGO and its effect on the color.\n\n=== HERB — MINT TESTED GOOD; BASIL NEXT; NO CILANTRO ===\n\nMINT was good. Next time: BASIL. CILANTRO seems too obvious — it would push this into mole-verde/savory territory, which isn't the direction.\n\n=== LIME IS INCREDIBLY IMPORTANT ===\n\nThe lime is incredibly important — I don't think this would work without it. Next time: maybe 2 LIMES.\n\n=== WANT TO TRY ===\n\n- CILANTRO / MINT — the herb fix for the blandness.\n- COCONUT FLAKES blended in (rather than using coconut cream). Coconut makes more sense here than silken tofu for protein — this ISN'T supposed to be a protein shake, and that's fine.\n- YOGURT might work, but I'm more hesitant on that one.\n\n=== VANILLA PROTEIN POWDER — CLASHING ===\n\nFirst verdict was tolerated-not-great; after drinking a whole glass, upgraded to CLASHING — the cucumber/pepper just doesn't like it. ([[spinach-yogurt-smoothie]] is where vanilla protein powder belongs; this one is not a protein shake, full stop.)\n\n=== NISHA REFERENCE — CREAMY AVOCADO PEA GAZPACHO ===\n\nNisha Vora (Rainbow Plant Life): https://rainbowplantlife.com/creamy-avocado-pea-gazpacho/ — she skips the tomato and does avocado, plus (per usual) a lot of other ingredients: coconut milk, a shallot, peas, olive oil, and SERRANO over bell pepper. Her version requires a lot of commitment, so I'm going slow — this recipe is the gradual approach to that destination.\n\n=== SIBLING RECIPES ===\n\n- [[spinach-yogurt-smoothie]] / [[chocolate-oatmeal-smoothie]]: the protein-shake smoothies — this one deliberately isn't one.\n- [[blender-cheat-meals]]: variant C's non-savory direction (tomatillos/cucumber/bell pepper) is circling the same gazpacho territory from the savory side.\n- [[kachumber]]: the cucumber + lime register in salad form (where cucumber + mango worked and tomato left).",
   "why_i_like_this_recipe": "",
   "tags": [
     "smoothie",
     "american",
     "spanish",
-    "needs work"
+    "pass"
   ],
   "ingredients": [
     "cucumbers",
     "anaheim peppers",
+    "bananas",
     "lime",
     "avocados",
     "coconut milk",
@@ -19,7 +20,8 @@
     "mint"
   ],
   "secondary_ingredients": [
-    "green bell peppers"
+    "green bell peppers",
+    "coconut water"
   ],
   "clashing_ingredients": [
     "cilantro",
@@ -28,7 +30,6 @@
   "want_to_try": [
     "serrano peppers",
     "basil",
-    "bananas",
     "pineapple",
     "greek yogurt"
   ],

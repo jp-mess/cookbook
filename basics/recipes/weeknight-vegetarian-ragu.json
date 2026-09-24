@@ -1,12 +1,13 @@
 {
   "name": "weeknight vegetarian ragu",
-  "instructions": "The one-pan weeknight ragu: fry everything, eat with noodles and parmesan.\n\n=== INGREDIENTS ===\n\n- olive oil\n- onion\n- garlic\n- eggplant\n- mushrooms (any)\n- bell pepper\n- canned tomatoes and/or canned FIRE-ROASTED tomatoes — WHOLE, NOT CRUSHED (and no tomato paste — see notes)\n- vegan beef crumbles\n- salt and black pepper\n\n=== PROCEDURE ===\n\n1. Just fry it all in a pan.\n2. Eat it with any noodle and parmesan cheese. (I like it with spaghetti.)\n\nANY INGREDIENT CAN BASICALLY BE OMITTED — cook from what's in the fridge.",
-  "notes": "=== SOUNDS CRUDE, BUT IN SOME WAYS IT ISN'T ===\n\nIt sounds crude as a recipe, but in some ways it isn't: it's THE MOST NATURAL WAY TO USE SOY BEEF CRUMBLES, which can be hard to place. The crumbles want exactly this — a busy pan of vegetables and whole tomatoes to disappear into.\n\n=== WHOLE TOMATOES — TOMATO PASTE IS CLASHING ===\n\nYou really want WHOLE tomatoes here (canned, regular or fire-roasted — not crushed). Tomato paste is CLASHING.\n\n=== FLEXIBILITY IS THE POINT ===\n\nAny ingredient can basically be omitted. Any noodle works — SPAGHETTI is my pick. Parmesan over the top.\n\n=== SIBLING RECIPES ===\n\n- [[bolognese]] / [[spaghetti-and-meatballs]]: the real-deal ragus — long-simmered, protein-forward. This is the no-ceremony weeknight end of that family.\n- [[ratatouille]]: the same vegetable crowd (eggplant/pepper/tomato), french and vegetable-first instead of crumble-and-noodle.",
+  "instructions": "The weeknight base-substrate system: cook a big batch of protein pasta once, keep it all week, and finish portions in different directions.\n\n=== THE BASE SUBSTRATE ===\n\n1. Cook AS MUCH PASTA AS POSSIBLE.\n2. SAUTÉ an entire pack of VEGAN BEEF CRUMBLES (or ground beef) in OLIVE OIL with GARLIC and simple herbs — THYME/OREGANO.\n3. TOSS the pasta with the meat and PASTA WATER.\n4. SAVE IN A TUB — this is the substrate for the whole week.\n\n=== VARIANT A — TOMATO ===\n\nTomato with MUSHROOMS, ONIONS, or EGGPLANT: sauté them, then add to the substrate.\n\n=== VARIANT B — CREAM (VEGAN) ===\n\nCASHEW CREAM or a vegan SILKEN TOFU sauce (deliberately unspecified — whatever's on hand).\n\n=== VARIANT C — GREEN + LEMON ===\n\nAdd STEAMED BROCCOLI or GREEN BEANS and LEMON.",
+  "notes": "=== THE SUBSTRATE SYSTEM ===\n\nRestructured (September 2026) from a one-pan dish into a WEEK-LONG SUBSTRATE: the pasta + crumbles + garlic + herb base gets made once at maximum volume, lives in a tub, and individual portions get finished as variant A (tomato + vegetable) or variant B (vegan cream). Still the most natural way to use SOY BEEF CRUMBLES, which can be hard to place — the crumbles disappear into the base and let the finishing sauce lead.\n\n=== WHOLE TOMATOES — TOMATO PASTE IS CLASHING ===\n\nYou really want WHOLE tomatoes here (canned, regular or fire-roasted — not crushed). Tomato paste is CLASHING.\n\n=== FLEXIBILITY IS THE POINT ===\n\nAny ingredient can basically be omitted. Any noodle works — SPAGHETTI is my pick. Parmesan over the top.\n\n=== SIBLING RECIPES ===\n\n- [[bolognese]] / [[spaghetti-and-meatballs]]: the real-deal ragus — long-simmered, protein-forward. This is the no-ceremony weeknight end of that family.\n- [[ratatouille]]: the same vegetable crowd (eggplant/pepper/tomato), french and vegetable-first instead of crumble-and-noodle.",
   "why_i_like_this_recipe": "",
   "tags": [
     "italian",
     "pasta",
-    "pass"
+    "pass",
+    "bulking goals"
   ],
   "ingredients": [
     "vegan beef crumbles",
@@ -14,16 +15,25 @@
     "garlic",
     "eggplant",
     "mushrooms",
-    "bell peppers",
     "canned tomatoes",
     "fire roasted tomatoes",
+    "thyme",
+    "oregano",
     "olive oil",
     "parmesan cheese",
     "pasta",
     "salt",
     "black pepper"
   ],
-  "secondary_ingredients": [],
+  "secondary_ingredients": [
+    "bell peppers",
+    "ground beef",
+    "cashew cream",
+    "silken tofu",
+    "broccoli",
+    "green beans",
+    "lemon"
+  ],
   "clashing_ingredients": [
     "tomato paste",
     "crushed tomatoes"

@@ -1,30 +1,26 @@
 {
   "name": "tartar sauce",
-  "instructions": "Classical tartar sauce — mayonnaise base with finely chopped dill pickles, lemon juice, dijon mustard, capers, shallot, and fresh dill. Mix everything in a bowl, let sit at least 15-30 min for the flavors to meld. Serve cold.\n\n=== INGREDIENTS (makes about 3/4 cup) ===\n\n- 1/2 cup mayonnaise\n- 2 tbsp DILL PICKLES, very finely chopped\n- 1 tbsp fresh lemon juice\n- 1 tsp dijon mustard\n- 1 tsp BRINED CAPERS, drained and finely chopped (optional but classical)\n- 1 tbsp shallot (or red onion), very finely minced\n- 1 tbsp fresh dill, chopped (or 1 tbsp fresh parsley if no dill)\n- salt and black pepper to taste\n\n=== PROCEDURE ===\n\n1. Combine everything in a small bowl.\n2. Whisk / stir to combine evenly.\n3. Cover and refrigerate at least 15-30 min before serving — the pickle, dijon, and lemon need time to meld into the mayo base.\n4. Serve cold as a dipping sauce.",
-  "notes": "Classical tartar sauce. Standard companion to fried fish, breaded chicken (especially chicken-schnitzel — see PAIRINGS), and other fried/breaded proteins.\n\n=== MAYO IS THE BASE — DON'T SUBSTITUTE ===\n\nMayonnaise is the load-bearing base. Sour cream, greek yogurt, or crème fraîche don't sub cleanly — the tanginess is different and the emulsion structure doesn't hold the same way. Full-fat mayo is standard.\n\n=== DILL PICKLES — FINELY CHOPPED, NOT SWEET PICKLES ===\n\nDILL pickles (not sweet / bread-and-butter pickles). Very finely chopped so they distribute evenly through the sauce rather than sitting as discrete chunks. Pickle relish (already chopped) is a fine shortcut — use dill relish specifically, not sweet relish.\n\n=== LEMON JUICE IS THE BRIGHTNESS AXIS ===\n\nFresh lemon juice, not vinegar. The pickles are already contributing brine acid; lemon juice adds a brighter, cleaner citrus note that layers on top rather than doubling down on the pickle brine.\n\n=== CAPERS ARE CLASSICAL BUT OPTIONAL ===\n\nCapers add a briny-fermented pop that pairs with the pickles. Classical inclusion but skippable if you don't have any / don't like capers.\n\n=== SHALLOT OVER RED ONION ===\n\nShallot is milder and more elegant than raw red onion; the sauce sits in a delicate register. Red onion works but reads more aggressive.\n\n=== LET IT SIT ===\n\n15-30 min in the fridge before serving is what lets the flavors integrate. Freshly-made tartar sauce tastes like separate ingredients; rested tartar sauce tastes like tartar sauce.\n\n=== PAIRINGS ===\n\n- CHICKEN-SCHNITZEL: primary pairing (see chicken-schnitzel). Tartar sauce + a lemon wedge on the side is the classical schnitzel dip.\n- FRIED FISH: canonical use case.\n- CHICKEN-TENDERS: not the pick — tenders favor honey / barbecue dips (see chicken-tenders). Tartar sauce's dill + pickle register reads wrong against the standard tender-and-fries american-comfort context.\n- FREEZER FRIES: works, especially when serving with schnitzel — dip both the schnitzel and the fries in the same sauce.",
+  "instructions": "Basically [[relish]] suspended in mayonnaise.\n\n=== INGREDIENTS ===\n\n- mayonnaise\n- dill pickles\n- shallots\n- parsley\n- sugar (adds a lot — see notes)\n- lemon juice (LIGHTLY, or at the end — see the failure mode)\n- black pepper\n\n=== PROCEDURE ===\n\nThrow it all in a FOOD PROCESSOR — knowing the biggest failure mode is TOO MUCH LIQUID. Go light on the lemon juice, or add it at the end to taste.",
+  "notes": "=== THE BIGGEST FAILURE MODE — TOO MUCH LIQUID ===\n\nThe food processor makes it easy to end up with a wet, loose sauce. Lemon juice is the main culprit — add it LIGHTLY, or at the END after the texture is set. (Note no pickle juice in this recipe, unlike [[relish]] — the mayo is the suspension and doesn't want loosening.)\n\n=== NEXT TIME — MORE PICKLES, CHUNKIER ===\n\nNext make: FAR MORE PICKLES, and keep them CHUNKY / less processed — pulse the pickles briefly (or hand-chop them in after) rather than riding the processor. The pickle should be the body, in visible pieces.\n\n=== SUGAR IS DOING REAL WORK ===\n\nSugar adds a lot to balance it — the sweet against the pickle-sour and shallot-sharp is structural, not optional.\n\n=== SHALLOT TOLERANCE — HIGHER THAN RELISH ===\n\nThis sauce TOLERATES THE HARSHNESS OF THE SHALLOT more than pure relish does — the mayo buffers it, so you don't have to be as shy. (Corollary for [[relish]]: its biggest failure mode is TOO MUCH SHALLOT/PARSLEY and not enough pickle/celery — noted there too.)\n\n=== SIBLING RECIPES ===\n\n- [[relish]]: the suspension-free parent — pickle/celery-forward, shy on shallot.\n- [[sauce-andalouse]]: the other mayo-suspension sauce (red pepper direction).\n- [[chicken-tenders]] / [[chicken-salad]]: natural targets.",
   "why_i_like_this_recipe": "",
   "tags": [
     "american",
+    "french",
     "spread/dip/sauce",
-    "dipping sauce",
     "pass"
   ],
   "ingredients": [
     "mayonnaise",
     "dill pickles",
-    "lemon",
-    "dijon mustard",
-    "capers",
     "shallots",
-    "dill",
-    "salt",
+    "parsley",
+    "sugar",
+    "lemon",
     "black pepper"
   ],
-  "secondary_ingredients": [
-    "red onions",
-    "parsley"
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "pickle juice"
   ],
-  "clashing_ingredients": [],
-  "want_to_try": [],
-  "original_chef": "Classical dipping sauce; mine here is a standard version."
+  "want_to_try": []
 }

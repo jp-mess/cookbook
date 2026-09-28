@@ -1,0 +1,20 @@
+{
+  "name": "persillade",
+  "instructions": "The french parsley-garlic condiment, food-processor method.\n\n=== INGREDIENTS ===\n\n- parsley\n- garlic\n- olive oil\n- champagne vinegar\n\n=== PROCEDURE ===\n\nEverything in a FOOD PROCESSOR. Pulse to a coarse, spoonable condiment.",
+  "notes": "=== THE CHAMPAGNE VINEGAR SLOT ===\n\nChampagne vinegar is the acid — the delicate/raw-condiment register is exactly its home ([[mcfadden-cucumber-salad]] logic: champagne for raw and delicate, sherry for warm and earthy, round white wine/white balsamic for cream).\n\n=== FOOD PROCESSOR TERRITORY ===\n\nParsley is the herb that DOESN'T work in a mortar (too fibrous — the [[italian-green-sauce-and-pesto]] pestle rule), which makes persillade natural food-processor territory. Same coarse-not-puree discipline as [[relish]].\n\n=== SIBLING RECIPES ===\n\n- [[relish]]: the pickle-register food-processor condiment; this is the french-green one.\n- [[dijon-vinaigrette]] / [[cream-vinaigrette]]: the dressing family.\n- [[leeks-vinaigrette]] / [[braised-turnips]]: braised vegetable sides that would take this well.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "french",
+    "spread/dip/sauce",
+    "pass"
+  ],
+  "ingredients": [
+    "parsley",
+    "garlic",
+    "olive oil",
+    "champagne vinegar"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": []
+}

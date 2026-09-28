@@ -1,7 +1,7 @@
 {
   "name": "cream vinaigrette",
   "instructions": "whisk white wine vinegar, heavy whipping cream, and raw minced garlic together.",
-  "notes": "Garlic stays raw.\n\nACID: white wine vinegar. Lemon juice was previously listed as a substitute but after making this a few times it isn't as good — the lemon reads brighter and slightly sweeter and pulls the dressing away from the sharp, traditionally french-vinaigrette register that's the whole point. Stick with white wine vinegar.\n\n=== CHAMPAGNE VINEGAR — TESTED, CLASHING ===\n\nChampagne vinegar CLASHES here — the cream base needs a ROUNDER (less sharp) white wine vinegar, not a more delicate one. (The delicacy theory was wrong for cream: champagne vinegar's home is the raw/no-dairy salads like [[mcfadden-cucumber-salad]]; against cream, roundness beats delicacy.)",
+  "notes": "Garlic stays raw.\n\nACID: white wine vinegar. Lemon juice was previously listed as a substitute but after making this a few times it isn't as good — the lemon reads brighter and slightly sweeter and pulls the dressing away from the sharp, traditionally french-vinaigrette register that's the whole point. Stick with white wine vinegar.\n\n=== THE VINEGAR SLOT — WHITE BALSAMIC BEST; CHAMPAGNE INEDIBLE ===\n\nThe bold claim, settled: the cream vinaigrette is BETTER with WHITE BALSAMIC than regular white wine vinegar — and INEDIBLE with champagne vinegar. The ranking is monotonic in roundness: white balsamic > white wine vinegar > champagne (inedible). Against cream, ROUND wins outright (champagne's home stays the raw/no-dairy salads like [[mcfadden-cucumber-salad]]).",
   "why_i_like_this_recipe": "",
   "tags": [
     "french",
@@ -11,7 +11,8 @@
   "ingredients": [
     "white wine vinegar",
     "heavy whipping cream",
-    "garlic"
+    "garlic",
+    "white balsamic vinegar"
   ],
   "secondary_ingredients": [],
   "clashing_ingredients": [

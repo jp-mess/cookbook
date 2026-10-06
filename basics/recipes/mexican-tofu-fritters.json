@@ -1,0 +1,50 @@
+{
+  "name": "mexican tofu fritters",
+  "instructions": "The MEXICAN version of the european calamari plate ([[tofu-calamari]]) — same crispy-tofu structure, mexican accompaniments instead of tapas. (Renamed from 'tofu street tacos' — fritters is more accurate; the tortilla is one serving route, not the dish.)\n\n=== THE TOFU (SAME STRUCTURE AS TOFU CALAMARI, MEXICAN COAT) ===\n\n- SUPER FIRM / EXTRA FIRM tofu (no pressing — same rule as the calamari; firm tofu clashing there, clashing here), HAND-SHREDDED for fractal edges.\n- The coat: ONION + GARLIC POWDER, CORN/POTATO STARCH, SALT — but CUT THE STARCH WITH A SUBSTANTIAL AMOUNT OF CORNMEAL / MASA HARINA, plus CHILI POWDER (NEW MEXICAN, GUAJILLO).\n- Maybe CHIPOTLE POWDER for heat (want to try). NOT ancho or pasilla — I don't think they'd work here (clashing).\n- Toss in oil, bake at ~425°F until crisp and browned (the calamari chassis).\n\n=== THE SPREAD ===\n\n- SALSAS: [[salsa-bruja]], [[sauce-andalouse]] (would work here too), [[crema-mexicana]].\n- BEANS: [[refried-beans]] and/or [[mexican-black-beans]].\n- CHEESE: monterrey jack / feta / cheddar.\n- TORTILLAS.\n- CILANTRO.\n- SLICED AVOCADO.\n- LIME.\n\nEATING IT: fritters with the spread — taco-style in a tortilla, or straight off the plate with beans, salsa, crema, cheese, cilantro, avocado, lime.",
+  "notes": "=== THE CONCEPT — CALAMARI PLATE GONE MEXICAN ===\n\nSame crispy-tofu engine as [[tofu-calamari]] (no-press tofu, hand-shredded, starch + onion/garlic powder, hot oven), swapped from the iberian tapas register to the mexican street-taco register. The structural change is in the coat: the starch gets CUT WITH A SUBSTANTIAL AMOUNT OF CORNMEAL / MASA HARINA (the corn flavor is the mexican move) plus NEW MEXICAN + GUAJILLO chili powder.\n\n=== THE CHILE LINE ===\n\n- IN: new mexican + guajillo chili powder (the bright red earthy end).\n- MAYBE: chipotle powder for heat — want to try.\n- OUT: ancho and pasilla — I don't think they'd work here (the dark raisiny end; clashing).\n\n=== WHY I LIKE IT — NO OBVIOUS MEAT ANALOGUE ===\n\nThere isn't an obvious meat recipe that combines the FRIED CORN + VINEGAR/CREAM SALSA + PROTEIN flavors — would you deep fry shredded pork and corn? Like [[chard-pickle-pasta]], this is a vegan/tofu-native build: the combination only exists because the tofu can take the corn-starch coat. (That said: PORK SHOULDER is a want-to-try — the one meat that might actually answer the question.)\n\n=== WANT TO TRY — THE SWEET DIRECTION ===\n\nPOWDERED CINNAMON in the coat, and a DESSERT SALSA to dip — the fried-corn chassis could swing sweet (churro logic).\n\n=== SIBLING RECIPES ===\n\n- [[tofu-calamari]]: the european original — same tofu rules (super/extra firm no-press, firm tofu clashing), different condiment shelf.\n- [[salsa-bruja]] / [[crema-mexicana]] / [[sauce-andalouse]]: the salsa shelf, all standalone recipes.\n- [[refried-beans]] / [[mexican-black-beans]]: the bean layer, both standalone recipes.",
+  "why_i_like_this_recipe": "There isn't an obvious meat recipe that combines the fried corn + vinegar/cream salsa + protein flavors — would you deep fry shredded pork and corn? The tofu build gets somewhere meat doesn't go.",
+  "tags": [
+    "mexican",
+    "tofu bake",
+    "bulking goals",
+    "unattempted"
+  ],
+  "ingredients": [
+    "super firm tofu",
+    "extra firm tofu",
+    "potato starch",
+    "cornstarch",
+    "cornmeal",
+    "masa harina",
+    "onion powder",
+    "garlic powder",
+    "new mexican chili powder",
+    "guajillo chili powder",
+    "vegetable oil",
+    "salsa bruja",
+    "sauce andalouse",
+    "crema mexicana",
+    "refried beans",
+    "mexican black beans",
+    "monterrey jack cheese",
+    "feta cheese",
+    "cheddar cheese",
+    "tortilla",
+    "cilantro",
+    "avocados",
+    "lime",
+    "salt"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "ancho chili powder",
+    "pasilla chiles",
+    "firm tofu"
+  ],
+  "want_to_try": [
+    "chipotle powder",
+    "pork shoulder",
+    "cinnamon"
+  ],
+  "original_chef": "Mine — the tofu-calamari structure moved to the mexican register."
+}

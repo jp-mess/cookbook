@@ -1,0 +1,35 @@
+{
+  "name": "mint cilantro yogurt",
+  "instructions": "The green yogurt sauce — mint/cilantro/garlic/ginger in yogurt, with a pepper and a zucchini doing the structural work. BLENDER ONLY (a food processor isn't appropriate here — see notes).\n\n=== INGREDIENTS ===\n\n- NEUTRAL (PLAIN) YOGURT — best. Greek yogurt works but requires water, milk, or cream to thin it.\n- MINT + CILANTRO\n- GARLIC + GINGER\n- A PEPPER — POBLANO or ANAHEIM. Necessary: it turns the sauce from vegetal to FUNKY (see notes).\n- ZUCCHINI — for creaminess.\n- SALT.\n\nNO LIME — clashing; tasted surprisingly horrible (see notes).\n\n=== PROCEDURE ===\n\nBlend everything in a PROPER BLENDER until creamy.",
+  "notes": "=== THE CORE INSIGHT — THE CLASSIC FOUR AREN'T ENOUGH FOR A SAUCE ===\n\nThe classic mint/cilantro/garlic/ginger is enough for a CHICKEN MARINADE, but NOT for a creamy sauce — on its own it tastes too VEGETAL AND THIN. Two additions fix it:\n1. A PEPPER (poblano/anaheim) — turns vegetal → FUNKY.\n2. A ZUCCHINI — creaminess.\nWhich means this sauce follows MEXICAN MOLE VERDE LOGIC (green chile + green vegetable body) as well as SMOOTHIE LOGIC — it's not just thinned chutney.\n\n=== YOGURT — NEUTRAL IS BEST ===\n\nNeutral (plain) yogurt is best. GREEK yogurt requires water or milk or cream to loosen it — workable, but an extra step.\n\n=== WANT TO TRY — CUCUMBER / AVOCADO IN THE ZUCCHINI SLOT ===\n\nCUCUMBER and AVOCADO in place of the zucchini for creaminess. The worry with avocado: it won't STORE in the fridge — it'll oxidize without some kind of acid, and lime isn't good here (clashing). Unresolved whether the yogurt's own acidity is enough to hold it.\n\n=== LIME IS CLASHING — SURPRISINGLY HORRIBLE ===\n\nLime tasted SURPRISINGLY horrible here. Clashing. (The yogurt is already the acid.)\n\n=== BLENDER, NOT FOOD PROCESSOR ===\n\nYou need a PROPER BLENDER for this — a food processor isn't appropriate. (The inverse of [[relish]]'s coarse-pulse rule: this sauce wants to be fully creamy, and the processor can't get it there.)\n\n=== SIBLING RECIPES ===\n\n- [[mint-cilantro-chimichurri]]: the vinegar/oil expression of the herb pair — this is the yogurt expression.\n- [[mint-cilantro-chicken]]: the herb-finish skillet (where the classic four DO suffice — on chicken, as a finish, not a sauce).\n- [[jam-chutney]]: the sweet half of the dipping-sauce shelf; this is the green half.\n- [[mexican-tofu-fritters]]: a landing spot — and the mole verde logic loops the sauce back toward that plate's register anyway.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "indian",
+    "spread/dip/sauce",
+    "pass"
+  ],
+  "ingredients": [
+    "yogurt",
+    "mint",
+    "cilantro",
+    "garlic",
+    "ginger",
+    "poblano peppers",
+    "anaheim peppers",
+    "zucchini",
+    "salt"
+  ],
+  "secondary_ingredients": [
+    "greek yogurt",
+    "milk",
+    "heavy whipping cream"
+  ],
+  "clashing_ingredients": [
+    "lime"
+  ],
+  "want_to_try": [
+    "cucumbers",
+    "avocados"
+  ],
+  "original_chef": "Mine — the classic green chutney rebuilt on mole-verde/smoothie logic."
+}

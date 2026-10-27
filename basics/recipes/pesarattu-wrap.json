@@ -1,0 +1,33 @@
+{
+  "name": "pesarattu wrap",
+  "instructions": "The pesarattu mash ([[pesarattu]] batter made thick \u2014 food processor, no water) used as a SPREAD in a baked wrap.\n\nWORK IN PROGRESS \u2014 the build is still being dialed in (it runs dry and wants fat + vinegar; the street-food layer below is the current direction).\n\n=== THE BUILD ===\n\n- A BAKEABLE FLATBREAD / MEDITERRANEAN WRAP \u2014 a tortilla is NOT appropriate (clashing). Brush with GHEE (frankie logic \u2014 street rolls are griddled in fat, not baked dry).\n- PESARATTU MASH as the spread; [[mint-cilantro-yogurt]] as the second spread opposite it.\n- BAKED CHICKEN + POTATO \u2014 bake or MICROWAVE the potato FIRST, before it goes in the wrap (best method found).\n- TURMERIC RICE ([[turmeric-rice]]).\n- YOGURT.\n- CILANTRO.\n- CHEDDAR CHEESE \u2014 the wildcard that's really good.\n- THE STREET-FOOD LAYER: PICKLED RED ONIONS (the vinegar, inside an ingredient pesarattu already wants), [[jam-chutney]] and/or TAMARIND CHUTNEY (sweet-sour), and a dusting of AMCHUR or CHAAT MASALA over the chicken/potato.\n\nAssemble and bake.",
+  "notes": "=== WHERE THIS CAME FROM \u2014 THE QUESADILLA FAILED ===\n\nThe pesarattu-quesadilla idea (bake the no-water mash between tortillas \u2014 see [[pesarattu]]'s experiment log) FAILED: too dry. But the pesarattu mash makes a GREAT SPREAD \u2014 and this wrap is its home: baked chicken/potato with turmeric rice, yogurt, cilantro, and cheddar.\n\n=== THE WRAP \u2014 BAKEABLE FLATBREAD, NOT TORTILLA ===\n\nYou need a BAKEABLE FLATBREAD / MEDITERRANEAN WRAP. A tortilla isn't appropriate.\n\n=== CHEDDAR \u2014 THE WILDCARD ===\n\nCheddar cheese is the wildcard here, and it's really good.\n\n=== WORK IN PROGRESS ===\n\nThis recipe is a WORK IN PROGRESS. First build ran DRY and needed FAT and VINEGAR \u2014 the street-food additions (ghee on the bread, mint-cilantro-yogurt, pickled red onions, jam/tamarind chutney, amchur/chaat masala) are the current direction for fixing it.\n\n=== THE POTATO \u2014 COOK IT FIRST ===\n\nBake or MICROWAVE the potato FIRST before putting it in the wrap \u2014 found to be best.\n\n=== SIBLING RECIPES ===\n\n- [[pesarattu]]: the parent \u2014 the mash is its batter made thick in a food processor without water.\n- [[turmeric-rice]]: the rice component.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "indian",
+    "sandwich",
+    "needs work"
+  ],
+  "ingredients": [
+    "pesarattu mash",
+    "flatbread",
+    "chicken",
+    "potatoes",
+    "turmeric rice",
+    "yogurt",
+    "cilantro",
+    "cheddar cheese",
+    "ghee",
+    "mint cilantro yogurt",
+    "pickled red onions",
+    "jam chutney",
+    "tamarind chutney",
+    "amchur powder",
+    "chaat masala"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "tortilla"
+  ],
+  "want_to_try": []
+}

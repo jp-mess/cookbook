@@ -2,3 +2,4 @@ pumpkin
 butternut squash
 summer squash
 sweet potato
+acorn squash

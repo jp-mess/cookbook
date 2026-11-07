@@ -1,0 +1,54 @@
+{
+  "name": "coconut mung bean curry",
+  "instructions": "REVIVED (2026-11-03) with a rewrite — retired September 2026, dusted off. A coconut mung bean curry whose BUILD RELIES ON THE COMBINATION of MUNG BEANS + COCONUT CREAM/MILK + CURRY LEAVES + a TANG SOURCE (TAMARIND / AMCHUR POWDER) for balance — coconut has NO natural tang like yogurt, so the tang must be added. The spice/vegetable stack is similar to [[himachali-chana-madra]]: CINNAMON/CLOVE/FENNEL focus — and CARDAMOM has a LOUD role here, like in a chana madra — with green chiles and nuts (ALMONDS) + dried fruit (RAISINS / DRIED APRICOT / DATES).\n\n=== TWO VARIANTS ===\n\n- SWEET VARIANT: OMIT TURMERIC; SAUTÉ DATES or add PALM SUGAR; OMIT CHICKEN.\n- SAVORY VARIANT: CHICKEN + TURMERIC.\n\nThe rest is creativity — you can tamarind or not tamarind, or interpolate between the variants.\n\n=== PROCEDURE ===\n\n1. Cook the MUNG BEANS separately until tender.\n2. In a heavy pot, sauté in GHEE (or just sauté with COCONUT CREAM if you are skilled): bloom CURRY LEAVES, BAY LEAF, and the whole spices (CINNAMON, CARDAMOM, CLOVES, FENNEL). Add ONION, GARLIC, and green chiles (jalapeño/serrano — the heat source). Sauté briefly.\n3. Add the ground spices: cumin, coriander, asafoetida — plus TURMERIC in the savory variant only.\n4. Add the nuts + dried fruit: ALMONDS, RAISINS, DRIED APRICOT, DATES (in the sweet variant, SAUTÉ the dates — or add PALM SUGAR instead).\n5. Add COCONUT CREAM/MILK and the cooked mung beans. Simmer until integrated. SAVORY variant: simmer the CHICKEN in the curry as it comes together — let it pick up the flavor.\n6. BALANCE WITH THE TANG KIT: tamarind and/or amchur powder — the coconut needs it. TAMARIND IS BETTER THAN LIME — lemon and lime are clashing (see notes).\n7. Finish with FRESH GRATED GINGER at the end — it helps here, like it does with a chana madra.\n\nSERVE: best serviced with RICE, rather than bread.\n\nHAZARD: you can make it TOO SWEET — the coconut + dried fruit + palm sugar all push the same direction; the tang kit and the bitter curry leaves are the counterweights.",
+  "notes": "REVIVED AND REWRITTEN (2026-11-03): retired in the September 2026 pruning pass, dusted off with a new frame. The old build (turmeric + fennel powder + amchur backbone, chicken simmered in) survives inside the savory variant; the structure is now explicitly two variants over one balance mechanism.\n\n=== THE BALANCE MECHANISM — COCONUT HAS NO NATURAL TANG ===\n\nThe build relies on the combination of MUNG BEANS + COCONUT CREAM/MILK + CURRY LEAVES + TANG (TAMARIND / AMCHUR). Unlike the yogurt/cottage-cheese substrate of [[himachali-chana-madra]], coconut brings NO natural tang of its own — so the tang has to be added, and the dish doesn't balance without it. Which tang is creativity: tamarind or not tamarind, amchur, or interpolate.\n\n(LEMON AND LIME ARE CLASHING — a brief lime reversal was walked back same-day. I'm nervous about making this statement because citrus-on-curry sounds common, but I don't like it here: TAMARIND IS BETTER. The old version's reasoning stands — 'citrus pulls the dish floral and sideways; amchur handles the tang slot.')\n\n=== THE SPICE/VEGETABLE STACK — CHANA MADRA'S, ON A COCONUT BASE ===\n\nSimilar to [[himachali-chana-madra]]: CINNAMON/CLOVE/FENNEL focus — and CARDAMOM has a LOUD role here, like in a chana madra — green chiles, and the nuts + dried fruit layer (ALMONDS, RAISINS / DRIED APRICOT / DATES). ONION + GARLIC are the sauté base, in GHEE — or skip the ghee and sauté directly in COCONUT CREAM if you are skilled. The old-era spice hierarchy (turmeric + fennel powder + amchur as the three biggest) is partially superseded by this frame — fennel and amchur keep their seats; turmeric is now variant-dependent.\n\n=== THE TWO VARIANTS ===\n\n- SWEET: no turmeric, no chicken; sautéed DATES or PALM SUGAR lean into the coconut's sweetness.\n- SAVORY: CHICKEN + TURMERIC — the continuation of the old build. Chicken is the easy protein: simmer it in the coconut base as the curry comes together and it picks up the spice and coconut flavor.\n\nTOO SWEET IS A REAL FAILURE MODE: coconut + dried fruit + palm sugar stack sweetness fast. The tang kit and the bitter curry leaves hold the line.\n\n=== THE HERB SLOT — BITTER CURRY LEAVES OR KASOORI METHI, NOT CILANTRO ===\n\nYou need the BITTER herb here: CURRY LEAVES or KASOORI METHI. CILANTRO works better with a chana madra — not this. (Old note, still true: curry leaves + bay leaf are non-optional — without them the dish reads weirdly flat, like something obvious is missing. Fresh curry leaves preferred, dried work.)\n\n=== GINGER AT THE END ===\n\nFRESH GRATED GINGER at the finish helps here, like it does with a chana madra (where it's non-optional, grated on top at serving — not sautéed into the base).\n\n=== GREEN CHILES — JALAPEÑO OR SERRANO FOR HEAT (OLD NOTE, KEPT) ===\n\nJalapeños and serranos are the heat source; pick by how spicy you want it (serrano is sharper and hotter). They're not adding much flavor beyond heat — turn to them when you want spice without complicating the spice profile.\n\n=== SERVING — RICE, NOT BREAD ===\n\nBest serviced with RICE, rather than bread.\n\n=== SIBLING RECIPES ===\n\n- [[himachali-chana-madra]]: the stack this one borrows (cinnamon/clove/fennel, nuts + raisins, ginger at the end) — but on a dairy substrate with natural tang, where cilantro is the herb and the whole dish is restraint-governed.\n- [[pesarattu]]: the other mung-bean recipe — same base ingredient, entirely different preparation (crepe, not curry).",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "pass",
+    "curry",
+    "indian",
+    "meat main",
+    "beans"
+  ],
+  "ingredients": [
+    "mung beans",
+    "coconut milk",
+    "coconut cream",
+    "curry leaves",
+    "kasoori methi",
+    "bay leaf",
+    "tamarind paste",
+    "amchur powder",
+    "cinnamon",
+    "cloves",
+    "fennel seeds",
+    "fennel powder",
+    "cumin",
+    "coriander",
+    "asafetida",
+    "turmeric",
+    "chicken",
+    "garlic",
+    "ginger",
+    "jalapenos",
+    "serrano peppers",
+    "almonds",
+    "raisins",
+    "dried apricots",
+    "dates",
+    "palm sugar",
+    "salt",
+    "yellow onions",
+    "ghee",
+    "cardamom",
+    "rice"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "lemon",
+    "lime"
+  ],
+  "want_to_try": [
+    "peanuts"
+  ]
+}

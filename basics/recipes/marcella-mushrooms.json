@@ -1,13 +1,14 @@
 {
   "name": "marcella mushrooms",
   "instructions": "Marcella's mushroom braise — three ingredients and olive oil.\n\n=== INGREDIENTS ===\n\n- MUSHROOMS\n- PORCINI MUSHROOM POWDER\n- PARSLEY\n- OLIVE OIL\n\n=== PROCEDURE ===\n\nBraise the mushrooms in olive oil with the porcini powder; parsley to finish.",
-  "notes": "=== SOURCE ===\n\nMarcella Hazan. Not yet cooked from this book — recorded as the designated side for [[bolognese]].\n\n=== THE BOLOGNESE SIDE ===\n\nBorn from the bolognese herb question: parsley and mushrooms are both CLASHING in the vegetarian bolognese (variant B), but a porcini powder/mushroom/parsley braise alongside it gets both flavors on the plate — neither needs integration into the sauce.\n\n=== SIBLING RECIPES ===\n\n- [[bolognese]]: the main this sides.\n- [[marcella-gnocchi-sauce]] / [[marcella-lemon-celery]]: the other Marcella entries.",
+  "notes": "=== SOURCE ===\n\nMarcella Hazan. Not yet cooked from this book — recorded as the designated side for [[italian-tomato-sauce]]'s bolognese build.\n\n=== THE BOLOGNESE SIDE ===\n\nBorn from the bolognese herb question: parsley and mushrooms are both CLASHING in the vegetarian bolognese (variant B), but a porcini powder/mushroom/parsley braise alongside it gets both flavors on the plate — neither needs integration into the sauce.\n\n=== SIBLING RECIPES ===\n\n- [[italian-tomato-sauce]] (bolognese build): the main this sides.\n- [[italian-tomato-sauce]] (gnocchi-sauce build) / [[marcella-lemon-celery]]: the other Marcella entries.",
   "why_i_like_this_recipe": "",
   "tags": [
     "italian",
     "vegetable side",
     "external recipe",
-    "unattempted"
+    "pass",
+    "antipasti"
   ],
   "ingredients": [
     "mushrooms",

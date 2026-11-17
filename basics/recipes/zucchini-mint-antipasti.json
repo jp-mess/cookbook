@@ -1,7 +1,7 @@
 {
   "name": "zucchini mint antipasti",
   "instructions": "Sautéed zucchini in olive oil with garlic and mint leaves. Lemon juice secondary.",
-  "notes": "",
+  "notes": "=== WANT TO TRY — MARCELLA'S FRESH OREGANO VERSION ===\n\nMarcella Hazan has a version of this with FRESH OREGANO — want to try.",
   "why_i_like_this_recipe": "",
   "tags": [
     "italian",
@@ -20,6 +20,8 @@
     "lemon"
   ],
   "clashing_ingredients": [],
-  "want_to_try": [],
+  "want_to_try": [
+    "oregano"
+  ],
   "original_chef": ""
 }

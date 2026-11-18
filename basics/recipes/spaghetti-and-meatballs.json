@@ -1,0 +1,39 @@
+{
+  "name": "spaghetti and meatballs",
+  "instructions": "SPAGHETTI AND MEATBALLS — split back out of [[italian-tomato-sauce]] into its own file 2026-11-18 (variant there since the 2026-11-13 merge; its own file before that). UNATTEMPTED.\n\nReal meatballs in a crushed-tomato sauce over spaghetti. The meatballs are a classic panade build; the sauce base is CRUSHED TOMATOES (fire-roasted walked back 2026-11-18 — better for mexican/indian; see the tomato ruling), sharpened with RED WINE VINEGAR and OREGANO. NO ONIONS ANYWHERE in this dish.\n\n=== THE MEATBALLS (WHAT GOES INSIDE) ===\n\n- ground beef\n- MILK-SOAKED (stale) BREAD — the panade\n- black pepper\n- fresh parsley, chopped\n- PARMESAN CHEESE, grated\n- GRATED GARLIC\n- salt\n\nMix, shape into meatballs, and brown in olive oil.\n\n=== THE SAUCE ===\n\n- white wine (for the deglaze)\n- crushed tomatoes\n- red wine vinegar\n- oregano\n\nDEGLAZE the browned meatballs with WHITE WINE before adding the crushed tomatoes. Then the vinegar and oregano; simmer until thickened.\n\n=== SERVE ===\n\nToss with spaghetti.",
+  "notes": "=== SPLIT BACK OUT 2026-11-18 ===\n\nMerged into [[italian-tomato-sauce]] 2026-11-13 as a variant; split back into its own file 2026-11-18 (near-verbatim), alongside [[bolognese]].\n\n=== TOMATO RULING — ALL ITALIAN TOMATO SAUCES (2026-11-18) ===\n\nFRESH TOMATOES ARE TOO RAW AND SOUR — they don't give enough umami on their own. CANNED CHUNKY TOMATOES WITH TOMATO PASTE, or CANNED TOMATO SAUCE, are ideal (here: CRUSHED TOMATOES are the base, per this dish's own ruling). FIRE-ROASTED canned tomatoes aren't right either — better flavor profile for MEXICAN and INDIAN food. (Shared ruling with [[italian-tomato-sauce]] and [[bolognese]].)\n\n=== RENAMED (SEPTEMBER 2026) ===\n\nFormerly 'fire roasted meatballs' — renamed now that fire-roasted is the optional smoky direction rather than the identity, and the dish is the classic. (Before that it was an impossible-meat build; git history has both.)\n\n=== THE MEATBALL INTERIOR — THE FULL STACK ===\n\nInside the meatballs: milk-soaked bread, pepper, parsley, parmesan cheese, and grated garlic (plus the beef and salt). The bread-in-milk panade keeps them tender; the parmesan and garlic season from within; parsley is the herb inside the meatball, oregano the herb on the sauce side.\n\n=== NO ONIONS — ANYWHERE ===\n\nOnions shouldn't appear anywhere in this dish — not in the meatballs, not in the sauce. Clashing.\n\n=== SAUCE — CRUSHED TOMATOES (FIRE-ROASTED WALKED BACK 2026-11-18) ===\n\nCrushed tomatoes are the base. Crushed FIRE-ROASTED tomatoes were the equally valid smoky direction — WALKED BACK by the all-sauces tomato ruling: fire-roasted has a better flavor profile for mexican and indian food. Red wine vinegar and oregano are both primary — the vinegar sharpens the sauce. Tomato paste stays out.\n\n=== SIBLING RECIPES ===\n\n- [[bolognese]]: the other ragu — ground meat loose in the sauce rather than shaped. The meatball-per-forkful format is what this recipe is for.\n- [[italian-tomato-sauce]]: the protein-free tomato-sauce house (gnocchi, vodka, porcini).",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "italian",
+    "pasta",
+    "meat main",
+    "unattempted"
+  ],
+  "ingredients": [
+    "ground beef",
+    "stale bread",
+    "milk",
+    "black pepper",
+    "parsley",
+    "parmesan cheese",
+    "garlic",
+    "salt",
+    "olive oil",
+    "white wine",
+    "crushed tomatoes",
+    "red wine vinegar",
+    "oregano",
+    "pasta"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [
+    "yellow onions",
+    "shallots",
+    "impossible meat",
+    "tomato paste",
+    "tomatoes",
+    "fire roasted tomatoes"
+  ],
+  "want_to_try": [],
+  "original_chef": ""
+}

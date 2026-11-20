@@ -1,0 +1,65 @@
+{
+  "name": "pickle lentil relish",
+  "instructions": "PICKLE LENTIL RELISH \u2014 the ale + pickle lentil stew, split out 2026-11-20 from [[pub-style-lentils]] (where it was Build 2, the pureed-mushroom gravy stew). Built on the PUREED-MUSHROOM GRAVY CORE (pureed mushrooms + whole lentils + tomato paste + dark bouillon + butter + flour), with DARK ALE + PICKLE JUICE + CUMIN/CARAWAY SEEDS doing the flavor injection.\n\n1. SAUT\u00c9 onions + garlic in BUTTER with the CUMIN and/or CARAWAY SEEDS blooming in the fat. (Add diced turnips here if using.)\n2. PUREED MUSHROOMS (cremini or portabella): add the mushroom paste (food processor or blender) and cook it down.\n3. FLOUR over the base, stir to coat (light roux).\n4. DEGLAZE WITH DARK ALE (milk stout preferred \u2014 see the anchor note). Let it reduce briefly.\n5. TOMATO PASTE + DARK BROTH + WORCESTERSHIRE: the vegetarian beef-stew backbone.\n6. LENTILS in; simmer until tender (turnips soften alongside).\n7. TANG: PICKLE JUICE to taste, then DICED DILL PICKLES.\n8. FINISH WITH SWEET PEAS, folded in at the end.\n9. Serve as a stew; or top with mash + melting CHEDDAR and bake for the cottage-pie format.",
+  "notes": "=== SPLIT OUT (2026-11-20) ===\n\nSplit from [[pub-style-lentils]], where it lived as the ale + pickle build since the 2026-11-02 merge (its pre-merge original was mushroom pickle relish). The jamie file keeps the marmite line; this file is the ale + pickle line.\n\n=== PAIRING \u2014 PORK AND HOT-DOG-LIKE THINGS ===\n\nA good relish for PORK and HOT-DOG-LIKE THINGS \u2014 rather than potatoes, which are the natural pairing for the pub lentil relish ([[pub-style-lentils]], served on baked potatoes).\n\n=== THE ANCHOR \u2014 DARK ALE, MILK STOUT PREFERRED ===\n\nDark ale is the bitter anchor. MILK STOUT preferred \u2014 regular stout's bitterness compounds; milk stout's lactose sweetness keeps the bitterness budget in balance (the Nigella milk-stout-oxtail lesson, shared with [[milk-stout-braised-beef]]). The dark bouillon in the gravy core rides UNDER the ale \u2014 it is not a second anchor; one anchor only.\n\n=== THE ANGLO-GERMANIC INJECTION \u2014 ALE + PICKLE + SEED-SPICE ===\n\n- PICKLE JUICE + DICED DILL PICKLES: the register's tang \u2014 the german sour-into-the-braise logic (Linsensuppe's canonical vinegar finish, sauerbraten thinking); pickle juice is vinegar with the dill axis pre-bundled. The tang is pickle, not cream (cream clashing). DIJON moved to secondary 2026-11-20 (mustard + ale was always the untested carbonnade edge).\n- CUMIN AND/OR CARAWAY SEEDS bloomed in the butter. Cumin is the tested default; CARAWAY is the german cousin (carvone \u2014 the same aroma family as dill seed, so it harmonizes with the pickle axis). SEEDS ONLY, never ground powder on top. Caraway works here even though it's clashing in [[pub-style-lentils]] (the leftovers test there).\n\n=== CARROTS (2026-11-20) ===\n\nCarrots are want-to-try here tbh \u2014 I think there's a pairing there. (They stay out of the jamie version, which doesn't want them.)\n\n=== TOMATO \u2014 NECESSARY BUT SHOULDN'T BE TASTED ===\n\nThe finished stew reads DARK, not red. This build takes MORE tomato paste than the french sibling (the bitter base fights tomato, so it takes more to hold the warmth leg) even though it looks darker. Calibrate by register, not color.\n\n=== IF OVER-SPICED ===\n\nLemon juice/zest is the rescue \u2014 it pulls it back old-world; NOT ginger, wrong register.\n\n=== SIBLING RECIPES ===\n\n- [[pub-style-lentils]]: the Jamie Oliver marmite line this split from \u2014 the lemon + cumin + rosemary engine, served on baked potatoes.\n- [[french-lentils]]: the same gravy core with the french injection (mustard + cream + potato). The contrast pair.\n- [[milk-stout-braised-beef]]: the meat expression of this register (oxtail/short rib + milk stout + a dill pickle in the braise).\n- [[relish]]: the standalone condiment expression of the pickle-tang axis.\n- [[shittake-lentil-soup]]: the clean dark-stock soup cousin.",
+  "why_i_like_this_recipe": "",
+  "tags": [
+    "pass",
+    "german",
+    "soup/stew",
+    "beans",
+    "side"
+  ],
+  "ingredients": [
+    "lentils",
+    "cremini mushrooms",
+    "portabella mushrooms",
+    "butter",
+    "yellow onions",
+    "garlic",
+    "tomato paste",
+    "beer",
+    "dark vegetable bouillon",
+    "worcestershire sauce",
+    "porcini mushroom powder",
+    "dill pickles",
+    "peas",
+    "cumin",
+    "caraway seeds",
+    "rosemary",
+    "salt",
+    "black pepper"
+  ],
+  "secondary_ingredients": [
+    "all-purpose flour",
+    "thyme",
+    "lemon",
+    "red chili flakes",
+    "celery root",
+    "rutabaga",
+    "turnips",
+    "dijon mustard",
+    "cheddar cheese",
+    "potatoes"
+  ],
+  "clashing_ingredients": [
+    "heavy whipping cream",
+    "coriander",
+    "herbes de provence",
+    "cumin powder",
+    "ginger",
+    "almonds",
+    "tomatoes",
+    "shittake mushrooms",
+    "spinach",
+    "kale",
+    "olive oil"
+  ],
+  "want_to_try": [
+    "carrots",
+    "leeks",
+    "white pepper",
+    "malt vinegar"
+  ],
+  "original_chef": "Mine \u2014 descends from Jamie Oliver's Allotment Cottage Pie line, converged toward german Linsensuppe logic."
+}

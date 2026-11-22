@@ -6,3 +6,4 @@ carrot greens
 lettuce
 clovers/sprouts
 swiss chard
+romaine lettuce

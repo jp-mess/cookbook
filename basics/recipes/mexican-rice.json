@@ -1,0 +1,29 @@
+{
+  "name": "mexican rice",
+  "instructions": "ARROZ A LA MEXICANA \u2014 Diana Kennedy, The Essential Cuisines of Mexico. Transcribed verbatim 2026-11-21. SERVES 6.\n\nHER HEADNOTE: you can cook rice ahead, then heat it through gently, tightly covered, in a 300\u00b0F (150\u00b0C) oven for about 30 minutes. Leftover rice can be heated through in the same way the next day. (She does not recommend steaming, since the flavor of the rice will be diluted.)\n\nINGREDIENTS:\n- 1 1/2 cups (375 ml) long-grain unconverted white rice\n- 1/3 cup (85 ml) vegetable oil\n- 8 ounces (225 g) tomatoes, roughly chopped (about 1 1/2 cups / 375 ml)\n- 1/4 small white onion, roughly chopped\n- 1 garlic clove, roughly chopped\n- about 3 1/2 cups (875 ml) well-salted chicken broth\n- 1 small carrot, scraped and thinly sliced (optional)\n- 2 tablespoons peas (optional)\n- 1 whole sprig parsley (optional)\n- salt to taste\n\nPROCEDURE:\n1. THE PAN: for this quantity you will need a heavy-bottomed, flameproof pan about 4 inches (10 cm) deep and 9 inches (23 cm) across.\n2. SOAK + RINSE: pour hot water to cover the rice well and let it stand for about 5 minutes. Drain the rice and rinse well in cold water, then shake the strainer well and leave the rice to drain for a few minutes.\n3. FRY THE RICE: heat the oil. Give the rice a final shake and stir it into the oil until the grains are well covered, then fry until just turning color, stirring and turning the rice over so it will cook evenly and will not stick to the pan. This process should take about 10 minutes \u2014 depending on the size of the pan \u2014 but it should be done over HIGH HEAT or the rice will become MUSHY in its final stage. Tip the pan to one side and drain off any excess oil, or drain the rice in a fine strainer.\n4. THE PUREE: blend the tomatoes, onion, and garlic until smooth \u2014 there should be about 1 cup (250 ml). Add the puree to the fried rice, then, continuing to cook over high heat, stir and scrape the bottom of the pan until the mixture is DRY.\n5. THE LIQUID: add the broth, carrot, peas, and parsley. Add salt as necessary, then stir well (DO NOT STIR AGAIN during the cooking time). Cook over medium heat, covered, until the liquid has been absorbed and small AIR HOLES appear in the rice. This will take about 10 minutes.\n6. THE STEAM REST: remove the pan from the heat and cover the rice with a piece of TERRY CLOTH. Cover with a tightly fitting lid so that no steam can escape, and set aside in a warm place for about 20 minutes, so the rice can continue cooking in its own steam and the grains will expand.\n7. Before serving, loosen the rice with a fork from the bottom.",
+  "notes": "=== REPLACED (2026-11-21) ===\n\nThis file replaces the old 'spanish rice' (a leftover-fusion ingredient list with no written method \u2014 recoverable from git). Diana Kennedy's Arroz a la Mexicana is the mexican rice recipe now: it's my mother's favorite.\n\n=== THE METHOD MARKERS ===\n\n- SOAK IN HOT WATER + RINSE before frying.\n- FRY THE RICE IN OIL OVER HIGH HEAT until just turning color (~10 min), then DRAIN THE EXCESS OIL \u2014 high heat or the rice turns mushy at the end.\n- The BLENDED TOMATO/ONION/GARLIC PUREE (about 1 cup) cooks into the fried rice until DRY before the broth goes in.\n- NO STIRRING after the broth is added.\n- THE TERRY CLOTH STEAM REST: off heat, cloth under a tight lid, ~20 minutes \u2014 the grains finish in their own steam and expand.\n- Carrot, peas, and parsley are marked optional in her list \u2014 but they're PRIMARY in mine (2026-11-21).\n\n=== SIBLING RECIPES ===\n\n- [[green-rice]]: her Arroz Verde \u2014 the green-puree sibling (parsley/cilantro/romaine/poblano), same chassis, unattempted.",
+  "why_i_like_this_recipe": "It's my mother's favorite.",
+  "tags": [
+    "mexican",
+    "rice",
+    "side",
+    "external recipe",
+    "pass"
+  ],
+  "ingredients": [
+    "rice",
+    "vegetable oil",
+    "tomatoes",
+    "white onions",
+    "garlic",
+    "chicken stock",
+    "salt",
+    "carrots",
+    "peas",
+    "parsley"
+  ],
+  "secondary_ingredients": [],
+  "clashing_ingredients": [],
+  "want_to_try": [],
+  "original_chef": "Diana Kennedy \u2014 Arroz a la Mexicana (The Essential Cuisines of Mexico)."
+}
